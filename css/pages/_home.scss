@@ -1,0 +1,170 @@
+// Home
+
+body.home {
+  header {
+    background: transparent;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 200;
+    &.open {
+      background: $black;
+    }
+    .container {
+      // position: relative;
+    }
+  }
+  nav.mobile {
+    top: 59px;
+  }
+}
+
+// Hero
+.home.hero {
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  .video-upload {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    @include aspect-ratio(1,1);
+    @media (min-width: $breakpoint-tablet) {
+      @include aspect-ratio(16,8);
+    }
+    visibility: visible;
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      padding-top: 50%; // Fix video sizing issue in IE
+    }
+    video {
+      position: absolute;
+      margin: auto;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      right: -100%;
+      bottom: -100%;
+      top: -100%;
+      left: -100%;
+      overflow: hidden;
+      object-fit: cover;
+    }
+    .poster {
+      position: absolute;
+      margin: auto;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+      right: -100%;
+      bottom: -100%;
+      top: -100%;
+      left: -100%;
+      overflow: hidden;
+      object-fit: cover;
+    }
+  }
+  .logo {
+    display: none;
+    @media (min-width: $breakpoint-tablet) {
+      display: block;
+    }
+    position: fixed;
+    @include center-align;
+    svg {
+      max-width: 100%;
+    }
+  }
+  .next_section {
+    padding: 10px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%,0);
+    svg {
+      path {
+        fill: $white;
+      }
+    }
+  }
+}
+
+// Intro
+.home_intro {
+  padding: $padding-half 0;
+  @media (min-width: $breakpoint-tablet) {
+    padding: $padding 0;
+  }
+  p {
+    font: $normal 2.4rem/3.2rem $regular;
+    @media (min-width: $breakpoint-tablet) {
+      font: $normal 3.8rem/5.0rem $regular;
+    }
+    @media (min-width: $breakpoint-desktop) {
+      font: $normal 4.8rem/6.0rem $regular;
+    }
+    span.red {
+      color: $red;
+      font-family: $bold;
+    }
+    span.black {
+      color: $black;
+      font-family: $bold;
+    }
+    span.blue {
+      color: $blue;
+      font-family: $bold;
+    }
+    span.yellow {
+      color: $yellow;
+      font-family: $bold;
+    }
+  }
+  a.button {
+  }
+}
+
+.home_featured {
+  padding: 0 0 40px 0 !important;
+  @media (min-width: $breakpoint-tablet) {
+    padding: 0 !important;
+  }
+}
+
+.home_latest {
+  padding: 0 0 $padding-half 0 !important;
+  @media (min-width: $breakpoint-tablet) {
+    padding: 0 0 $padding 0 !important;
+  }
+  article {
+    padding: 0 !important;
+  }
+}
+
+.home_featured, .home_latest {
+  h2 {
+    text-align: center;
+    color: #737772;
+    margin-bottom: 48px;
+    font: $thin 2.1rem/2.8rem $light;
+    @media (min-width: $breakpoint-tablet) {
+      margin-bottom: 78px;
+      font: $thin 3.6rem/4.8rem $light;
+    }
+    &::after {
+      position: absolute;
+      content: "";
+      width: 70px;
+      height: 1px;
+      top: 48px;
+      @media (min-width: $breakpoint-tablet) {
+        top: 68px;
+      }
+      left: 50%;
+      background: #737772;
+      transition: transform 0.5s;
+      transform: translateX(-50%);
+      transform-origin: left;
+    }
+  }
+}

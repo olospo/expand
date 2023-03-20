@@ -1,0 +1,66 @@
+// Includes
+
+// CTA - Careers
+.cta {
+  &.careers {
+    
+    background: url('../img/cta_careers.svg') top left repeat, $red;
+    
+    text-align: right;
+    padding: 80px 0;
+    @media (min-width: $breakpoint-tablet) {
+      background-attachment: fixed;
+      padding: 160px 0;
+      text-align: center;
+    }
+    h4 {
+      color: $white;
+      font: $normal 2.4rem/3.0rem $bold;
+      @media (min-width: $breakpoint-tablet) {
+        font: $normal 5.0rem/6.0rem $bold;
+      }
+      span.light {
+        font: $normal 2.4rem/3.0rem $light;
+        @media (min-width: $breakpoint-tablet) {
+          font: $normal 5.0rem/6.0rem $light;
+        }
+      }
+      a {
+        white-space: nowrap;
+        color: $yellow;
+        @include text-hover();
+        &::after {
+          height: 4px;
+        }
+      }
+    }
+  }
+  &.contact {
+    
+    background: url('../img/cta_contact.svg') top left repeat, $blue;
+    
+    text-align: right;
+    padding: 80px 0;
+    @media (min-width: $breakpoint-tablet) {
+      background-attachment: fixed;
+      padding: 160px 0;
+      text-align: center;
+    }
+    
+    h4 {
+      color: $white;
+      font: $normal 2.4rem/3.0rem $bold;
+      @media (min-width: $breakpoint-tablet) {
+        font: $normal 5.0rem/6.0rem $bold;
+      }
+      a {
+        white-space: nowrap;
+        color: $yellow;
+        @include text-hover();
+        &::after {
+          height: 4px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,346 @@
+// News
+
+.hero {
+  &.careers {
+    background: $red;
+    border-bottom: 17px solid #960000;
+    position: relative;
+    // overflow: hidden;
+    padding: 85px 0;
+    @media (min-width: $breakpoint-tablet) {
+      padding: 120px 0;
+    }
+    .shapes {
+      position: absolute;
+      top: 0;
+      height: 520px;
+      width: 100%;
+      &.one {
+        z-index: 1;
+        background: url('../img/careers/shapes_one.svg') top left repeat;
+      }
+      &.two {
+        z-index: 2;
+        background: url('../img/careers/shapes_two.svg') top left repeat;
+      }
+      &.three {
+        z-index: 3;
+        background: url('../img/careers/shapes_three.svg') top left repeat;
+      }
+      &.four {
+        z-index: 4;
+        background: url('../img/careers/shapes_four.svg') top left repeat;
+      }
+      &.five {
+        z-index: 5;
+        background: url('../img/careers/shapes_five.svg') top left repeat;
+      }
+    }
+    .overlay {
+      z-index: 4;
+      position: absolute;
+      top: 0;
+      height: 520px;
+      width: 100%;
+      background: $red;
+      opacity: 0.5;
+    }
+    .container {
+      z-index: 5;
+    }
+    h1 {
+      font: $normal 3.2rem/3.8rem $bold;
+      @media (min-width: $breakpoint-tablet) {
+        font: $normal 7.2rem/7.2rem $bold;
+      }
+      color: $white;
+      text-align: center;
+      margin: 0;
+    }
+    p {
+      font: $normal 1.4rem/2.4rem $regular;
+      margin: 10px 0 0 0;
+      @media (min-width: $breakpoint-tablet) {
+        margin: 20px 0 0 0;
+        font: $normal 2.0rem/2.8rem $regular;
+      }
+      color: $white;
+      text-align: center;
+      
+      a {
+        color: $yellow;
+        text-decoration-color: $yellow;
+      }
+    }
+    &.single {
+      background: $orange;
+      border-bottom: 17px solid #960000;
+      position: relative;
+      overflow: hidden;
+      padding: 120px 0 $padding-half 0;
+      h1 {
+        font: $normal 5.0rem/5.6rem $bold;
+        color: $white;
+        text-align: center;
+        margin: 0;
+      }
+    }
+    
+  }
+}
+.hero_image {
+  overflow: hidden;
+  position: relative;
+}
+
+section.post.careers {
+  h2, h3, h4 {
+    color: $red;
+  }
+  h2.details {
+    color: $red;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #b2b2b2;
+    font: $normal 2.4rem/3.2rem $bold;
+    @media (min-width: $breakpoint-tablet) {
+      font: $normal 3.6rem/4.6rem $bold;
+    }
+  }
+  blockquote {
+    margin-bottom: 20px;
+    border-left: 10px solid $black;
+    color: $black;
+    padding: $padding-half;
+    @media (min-width: $breakpoint-tablet) {
+      padding: 20px 0 20px 40px;
+    }
+    font: $normal 1.8rem/3.2rem $bold;
+    p {
+      font: $normal 1.8rem/3.2rem $bold;
+      display: inline;
+    }
+  }
+}
+
+.careers_archive {
+  padding: 0 0 $padding-half 0;
+  @media (min-width: $breakpoint-tablet) {
+    padding: $padding 0;
+  }
+  .container {
+    @media (max-width: $breakpoint-tablet) {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  }
+  article.standard {
+    position: relative;
+    @media (min-width: $breakpoint-tablet) {
+      display: flex;
+    }
+    overflow: hidden;
+    clear: both;
+    padding-bottom: $padding;
+    @media (max-width: $breakpoint-tablet) {
+      &:last-of-type {
+        padding-bottom: 0;
+        &:after {
+          display: none;
+        }
+      }
+    }
+    &.no_positions {
+      padding: 0;
+    }
+    .item_image {
+      overflow: hidden;
+      margin-bottom: 20px;
+      @media (min-width: $breakpoint-tablet) {
+        margin-bottom: 0px;
+        img {
+          @include border-radius(20px);
+        }
+      }
+      
+    }
+    .item_content {
+      color: $black;
+      @media (max-width: $breakpoint-tablet) {
+        padding: 0 20px;
+      }
+      h3 {
+        font: $normal 2.4rem/3.2rem $bold;
+        margin-bottom: 10px;
+        color: $red;
+        text-decoration: none;
+        @media (min-width: $breakpoint-tablet) {
+          font: $normal 2.8rem/3.8rem $bold;
+          margin-bottom: 10px;
+        }
+        @media (min-width: $breakpoint-desktop) {
+          font: $normal 3.6rem/4.6rem $bold;
+          margin-bottom: 20px;
+        }
+        a {
+          color: $red;
+          text-decoration: none;
+        }
+      }
+      p {
+        font: $normal 1.6rem/2.8rem $regular;
+        @media (min-width: $breakpoint-tablet) {
+          font: $normal 1.8rem/3.0rem $regular;
+        }
+        @media (min-width: $breakpoint-desktop) {
+          font: $normal 2.0rem/3.2rem $regular;
+        }
+        margin-bottom: 20px;
+      }
+      ul.social {
+        text-align: left;
+        margin: 20px 0;
+        
+        li {
+          display: inline-block;
+          margin: 0px 3px;
+          a {
+            svg {
+              width: 30px;
+              @media (min-width: $breakpoint-tablet) {
+                width: 38px;
+              }
+              height: auto;
+              path {
+                transition: all ease .3s;
+                fill: $red;
+              }
+            }
+            &:hover {
+              svg {
+                path {
+                  transition: all ease .3s;
+                  fill: $yellow;
+                }
+              }
+            }
+          }
+        }
+      }
+      
+    }
+    @media (max-width: $breakpoint-tablet) {
+      &:after {
+        position: absolute;
+        content: "";
+        width: 70px;
+        height: 1px;
+        bottom: 40px;
+        left: 50%;
+        background: #737772;
+        transition: transform .5s;
+        transform: translateX(-50%);
+        transform-origin: left;
+      }
+    }
+    @media (min-width: $breakpoint-tablet) {
+      &:nth-child(even) {
+        .item_content {
+          margin-left: 0%;
+          order: 1;
+        }
+        .item_image {
+          margin-left: 4%;
+          order: 2;
+        }
+      }
+    }
+  }
+  // Pagination
+  .pagination {
+    ul {
+      margin: 0;
+      li {
+        a {
+          background: $white;
+          border: 2px solid $orange;
+          color: $orange;
+          text-decoration: none;
+          &:hover {
+            background: $orange;
+            color: $white;
+          }
+        }
+        &.active {
+          a {
+            background: $orange;
+            @include border-radius(10px);
+            border: 1px solid $orange;
+            color: $white;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+  
+}
+.apply {
+  margin: 30px 0;
+  @media (min-width: $breakpoint-tablet) {
+    margin: 0 0 30px 0;
+  }
+  h2 {
+    color: $red;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #b2b2b2;
+    font: $normal 2.4rem/3.2rem $bold;
+    @media (min-width: $breakpoint-tablet) {
+      font: $normal 3.6rem/4.6rem $bold;
+    }
+  }
+  a {
+    color: $red;
+    text-decoration-color: $red;
+  }
+  ul {
+    li {
+      list-style: none;
+      margin: 5px 0;
+    }
+  }
+}
+.careers_terms {
+  background: #f4f1ea;
+  @include border-radius(10px);
+  padding: 30px;
+  p {
+    font: $normal 1.6rem/2.4rem $regular;
+  }
+  a {
+    color: $red;
+    text-decoration-color: $red;
+  }
+}
+.other_jobs {
+  margin-top: 30px; 
+  h3 {
+    color: $red;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #b2b2b2;
+    font: $normal 2.4rem/3.2rem $bold;
+    @media (min-width: $breakpoint-tablet) {
+      font: $normal 2.4rem/3.2rem $bold;
+    }
+  }
+  ul {
+    font: $normal 1.6rem/2.8rem $regular;
+    li {
+      margin: 5px 0 5px 20px;
+      a {
+        color: $red;
+        text-decoration-color: $red;
+      }
+    }
+  }
+}

@@ -1,0 +1,81 @@
+// News
+
+.hero {
+  &.error {
+    background: url('../img/bristol_skyline.jpg') center center no-repeat;
+    background-size: cover;
+    border-bottom: 17px solid $yellow;
+    position: relative;
+    padding: 85px 0;
+    @media (min-width: $breakpoint-tablet) {
+      padding: 340px 0;
+    }
+    
+    .shapes {
+      position: absolute;
+      top: 0;
+      height: 1040px;
+      width: 100%;
+      &.one {
+        z-index: 1;
+        background: url('../img/news/shapes_one.svg') top left repeat;
+      }
+      &.two {
+        z-index: 2;
+        background: url('../img/news/shapes_two.svg') top left repeat;
+      }
+      &.three {
+        z-index: 3;
+        background: url('../img/news/shapes_three.svg') top left repeat;
+      }
+      &.four {
+        z-index: 4;
+        background: url('../img/news/shapes_four.svg') top left repeat;
+      }
+      &.five {
+        z-index: 5;
+        background: url('../img/news/shapes_five.svg') top left repeat;
+      }
+    }
+    .overlay {
+      z-index: 4;
+      position: absolute;
+      top: 0;
+      height: 900px;
+      width: 100%;
+      background: $black;
+      opacity: 0.6;
+    }
+    .container {
+      z-index: 5;
+    }
+    h1 {
+      font: $normal 3.2rem/3.8rem $bold;
+      @media (min-width: $breakpoint-tablet) {
+        font: $normal 7.2rem/7.2rem $bold;
+      }
+      margin-bottom: 40px;
+      color: $white;
+      text-align: center;
+    }
+
+    p {
+      font: $normal 2.8rem/4.2rem $regular;
+      color: $white;
+      text-align: center;
+      margin: 0;
+    }
+    a {
+      font: $normal 2.8rem/4.2rem $regular;
+      color: $white;
+      @include text-hover();
+      &::after {
+        background: $white;
+        height: 4px;
+      }
+      &:hover {
+        color: $yellow;
+      }
+    }
+  }
+}

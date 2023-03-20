@@ -1,0 +1,58 @@
+// Search
+
+section.hero {
+  &.search {
+    span.search_term {
+      background: $yellow;
+      padding: 5px 10px;
+    }
+  }
+}
+
+section.post {
+  &.search {
+    .search_item {
+      padding: 20px 0;
+      margin: 20px 0;
+      border-bottom: 1px solid #737772;
+      &:last-of-type {
+        border-bottom: none;
+      }
+    }
+    mark {
+      background: #ffab0f;
+      padding: 5px;
+      color: $white;
+    }
+    .search_page_form {
+      
+    }
+    // Pagination
+    .pagination {
+      ul {
+        margin: 0;
+        li {
+          a {
+            background: $white;
+            border: 2px solid $orange;
+            color: $orange;
+            text-decoration: none;
+            &:hover {
+              background: $orange;
+              color: $white;
+            }
+          }
+          &.active {
+            a {
+              background: $orange;
+              @include border-radius(10px);
+              border: 1px solid $orange;
+              color: $white;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

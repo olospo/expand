@@ -1,0 +1,166 @@
+// Footer
+footer.main {
+  font: $normal 1.6rem/2.4rem $regular;
+  position: relative;
+  overflow-wrap: break-word;
+  padding: $padding-half 0px;
+  @media (min-width: $breakpoint-tablet) {
+    padding: 60px 0px;
+  }
+  color: $white;
+  background: $black;
+  .logo {
+    margin-bottom: 20px;
+  }
+  .logo_links {
+    margin-top: 20px;
+    margin-left: 0px;
+    float: left;
+    ul {
+      li {
+        margin-bottom: 10px;
+        a {
+          color: $yellow;
+        }
+      }
+    }
+    
+  }
+  @media (min-width: $breakpoint-tablet) {
+    .logo {
+      float: left;
+      margin: 0;
+    }
+    .logo_wrap {
+      margin-left: 60px;
+      float: left;
+    }
+    .logo_links {
+      margin-top: 20px;
+      margin-left: 140px;
+      float: left;
+    }
+  }
+  @media (min-width: $breakpoint-desktop) {
+    .logo_links {
+      margin-top: 52px;
+      margin-left: 60px;
+      float: left;
+    }
+  }
+  h5 {
+    font: $normal 2.4rem/3.2rem $bold;
+    color: $yellow;
+    margin-bottom: 20px;
+  }
+  address {
+    font: $normal 1.6rem/2.4rem $light;
+    margin-bottom: 20px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  ul.social {
+    text-align: left;
+    margin: 20px 0;
+    @media (min-width: $breakpoint-tablet) {
+      text-align: right;
+      margin: 52px 0 0 0;
+    }
+    
+    li {
+      display: inline-block;
+      margin: 0px 3px;
+      a {
+        svg {
+          width: 30px;
+          @media (min-width: $breakpoint-tablet) {
+            width: 38px;
+          }
+          height: auto;
+          path {
+            transition: all ease .3s;
+            fill: $white;
+          }
+        }
+        &:hover {
+          svg {
+            path {
+              transition: all ease .3s;
+              fill: $yellow;
+            }
+          }
+        }
+      }
+    }
+  }
+  ul#menu-footer {
+    text-align: left;
+    margin: 10px 0;
+    @media (min-width: $breakpoint-tablet) {
+      text-align: right;
+    }
+    li {
+      
+      display: block;
+      margin-bottom: 5px;
+      a {
+        font: $normal 1.4rem/2.4rem $regular;
+        color: $yellow;
+      }
+    }
+  }
+}
+footer.copyright {
+  padding: 20px 0;
+  background: #30383c;
+  .end_links {
+    color: $white;
+    font: $normal 1.4rem/2.8rem $light;
+    margin: 0;
+    text-align: center;
+    a {
+      color: $white;
+    }
+  }
+}
+aside.four {
+  position: relative;
+}
+.cyber_group {
+  text-align: center;
+  margin: 30px 0 0 0;
+  img {
+    display: block;
+    margin: 0 auto;
+    padding: 0 0 3px 0;
+  }
+
+  a {
+    font: $normal 1.1rem/2.4rem $regular;
+    color: $white;
+    text-decoration: none;
+  }
+}
+.back_to_top {
+  @media (max-width: $breakpoint-tablet) {
+    display: none !important;
+  }
+  display: none;
+  width: 48px;
+  height: 48px;
+  text-indent: -9999px;
+  position: fixed;
+  z-index: 999;
+  right: 20px;
+  bottom: 20px;
+  -webkit-transition: all ease .5s;
+  -moz-transition: all ease .5s;
+  -o-transition: all ease .5s;
+  transition: all ease .5s;
+  background: $orange url("../img/arrow_up.svg") no-repeat center center;
+  &:hover {
+    background: $yellow url("../img/arrow_up.svg") no-repeat center center;
+  }
+}

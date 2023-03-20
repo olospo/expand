@@ -1,2 +1,2 @@
-# expand
+# Expand
 Expand WordPress theme

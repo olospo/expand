@@ -1,0 +1,292 @@
+
+// Header
+
+header {
+  height: 60px;
+  @media (min-width: $breakpoint-laptop) {
+    height: 102px; 
+  }
+  background: $black;
+  &.menu {
+    background: $orange;
+  }
+
+  .logo {
+    .site-title {
+      margin: 10px 0px;
+      @media (min-width: $breakpoint-laptop) {
+        margin: 20px 0px;
+      }
+      line-height: 0 !important;
+      svg {
+        display: inline-block;
+        width: 55px;
+        height: auto;
+        @media (min-width: $breakpoint-laptop) {
+          width: 83px;
+          height: auto;
+        }
+      }
+      a {
+        position: relative;
+        text-decoration: none;
+        color: $white;
+        span {
+          font: $light 2.0rem/2.2rem $regular;
+          position: absolute;
+          // top: 15px;
+          left: 40px;
+          width: auto;
+        }
+        
+      }
+    }
+  }
+  nav.primary {
+    display: none;
+    @media (min-width: $breakpoint-laptop) {
+      display: block;
+    }
+    font: $normal 1.6rem/3rem $regular;
+    letter-spacing: 0.1rem;
+    padding-right: 35px;
+    ul {
+      font-size: 0;
+      margin: 30px 0;
+      text-align: right;
+      line-height:1em;
+      @media (min-width: $breakpoint-laptop) {
+        display: block;
+      } 
+      li {
+        position: relative;
+        display: inline-block;
+        &.current_page_item a, &.current-menu-item a, &.current-page-ancestor a, &.current-post-ancestor a, &.current-menu-parent a, &.current-category-ancestor a, &.current_page_parent a, &:hover a {
+          color: $yellow;
+          padding: 8px 0px;
+          margin: 5px 15px;
+          border-bottom: 2px solid $yellow;
+        }
+        &:after {
+          content: '';
+          height: 30%; //You can change this if you want smaller/bigger borders
+          width: 1px;
+          
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translate(0,-50%);
+          background-color: #525252;
+        }
+        &:last-child {
+          &:after {
+            display: none;
+          }
+        }
+        a {
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          font: $normal 1.4rem/3.0rem $regular;
+          @include transition(all 0.2s ease-out);
+          line-height:1em;
+          display: block;
+          color: $white;
+          border-bottom: 2px solid transparent;
+          text-decoration: none;
+          padding: 8px 0px;
+          margin: 5px 15px;
+        }
+      }
+    }
+  }
+
+  a.menu-toggle {
+    display: block;
+    height: 40px;
+    width: 40px;
+    @media (min-width: $breakpoint-laptop) {
+      display: none;
+    }
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 30;
+    span{
+      display: block;
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      background: $yellow;
+      opacity: 1;
+      left: 0;
+      transform: rotate(0deg);
+      transition: .5s ease-in-out;
+      &:nth-child(1) {top: 0px;}
+      &:nth-child(2), &:nth-child(3) {top: 12px;}
+      &:nth-child(4) {top: 24px;}
+    }
+    &.open {
+      span{
+        background-color: $yellow !important;
+        &:nth-child(1), &:nth-child(4) { opacity: 0; }
+        &:nth-child(2) {transform: rotate(45deg);}
+        &:nth-child(3) {transform: rotate(-45deg);}
+      }
+    }
+  }
+}
+
+nav.mobile {
+  display: none;
+  position: absolute;
+  overflow: scroll;
+  background: $black;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  ul {
+    text-align: right;
+    margin: 20px 0px;
+    padding: 0px 25px;
+    li {
+      text-align: right;
+      display: block;
+      &.current_page_item a, &.current-menu-item a, &.current-page-ancestor a, &.current-post-ancestor a, &.current-menu-parent a, &.current-category-ancestor a, &.current_page_parent a, &:hover a {
+        font: $normal 2.2rem/2.4rem $regular !important;
+        color: $orange;
+        margin: 20px 0px;
+        font-weight: bold;
+      }
+      a {
+        font: $normal 2.2rem/2.4rem $regular !important;
+        @include transition(all 0.2s ease-out);
+        line-height: 1.4rem;
+        display: block;
+        color: $white;
+        text-decoration: none;
+        margin: 20px 0px;
+        padding-right: 15px;
+      }
+      &.menu-item-1538, &.menu-item-1621 { // Reel
+        border-right: 24px solid $yellow;
+        &.current-menu-item, &.current_page_item, &:hover {
+          a {
+            color: $yellow;
+          }
+        }
+      }
+      &.menu-item-72 { // About
+        border-right: 24px solid $grey;
+        &.current-menu-item, &.current_page_item, &:hover {
+          a {
+            color: $grey;
+          }
+        }
+      }
+      &.menu-item-object-work {
+        border-right: 24px solid $blue;
+        &.current-menu-item, &.current_page_item, &:hover {
+          a {
+            color: $blue;
+          }
+        }
+      }
+      &.menu-item-object-career {
+        border-right: 24px solid $red;
+        &.current-menu-item, &.current_page_item, &:hover {
+          a {
+            color: $red;
+          }
+        }
+      }
+      &.menu-item-174 { // News
+        border-right: 24px solid $orange;
+        &.current-menu-item, &.current_page_item, &:hover {
+          a {
+            color: $orange;
+          }
+        }
+      }
+      &.menu-item-73 { // Contact
+        border-right: 24px solid $slate;
+        &.current-menu-item, &.current_page_item, &:hover {
+          a {
+            color: $slate;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Search 
+.search_icon {
+  background: url('../img/search.svg') no-repeat center center;
+  background-size: contain;
+  width: 35px;  
+  height: auto;
+  padding: 7px 0px;
+  float: right;
+  box-sizing: border-box;
+  position: absolute;
+  top: 44px;
+  right: 0px;
+  cursor: pointer;
+  border-left: 1px solid #525252;
+}
+.search_form {
+  display: none;
+  position: absolute;
+  top: 35px;
+  right: 34px;
+  z-index: 1000;
+  .searchform {
+    input.search {
+    font: $normal 1.4rem/1.4rem $regular;
+    font-size: 1.4rem;
+    width: 160px;
+    height: 31px;
+    border: none;
+    padding: 0px 10px;
+    background: $white;
+    color: $black;
+      &:focus {
+        outline: none;
+      }
+    }
+    input.search-submit {
+      cursor: pointer;
+      font: $normal 1.4rem/1.4rem $bold;
+      font-size: 1.4rem;
+      height: 31px;
+      border: none;
+      padding: 0px 10px;
+      background: $orange;
+      color: $white;
+      border: 1px solid $orange;
+      // text-transform: uppercase;
+      &:hover {
+        background: $white;
+        color: $orange;
+        border: 1px solid $white;
+        border-left: 1px solid $orange;
+        
+      }
+    }
+  }
+}
+
+@mixin invisible() {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity linear 0.5s, visibility linear 0.5s;
+}
+
+@mixin visible() {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity linear 0.5s, visibility linear 0.5s;
+}
