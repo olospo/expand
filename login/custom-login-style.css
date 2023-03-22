@@ -1,10 +1,11 @@
 body {
-background: #232E33;
+background: #086F54;
 }
 
 #login h1 a {
-background-image: url("../img/logo.png");
-
+background-image: url("../img/expand-logo-login.png");
+background-size: contain;
+width: 280px !important;
 }
 
 .login form{
@@ -12,11 +13,11 @@ box-shadow:none;
 padding:20px;
 padding-top: 40px;
 padding-bottom: 40px;
-background-color: #FBFAF7;
+background-color: #F8FBFA;
 border-style: none;
 }
 #login {
-background: #232E33;
+background: #086F54;
 margin: 50px auto;
 padding: 40px 20px;
 width: 350px;
@@ -30,11 +31,11 @@ float:none;
 }
 
 .login #nav a, .login #backtoblog a  {
-    color: #FFAB0F;
+    color: #fff;
 }
 
 .login #nav a:hover, .login #backtoblog a:hover  {
-    color: #E78606;
+    color: #fff;
 }
 
 
@@ -42,7 +43,7 @@ float:none;
 margin-top:15px;
 }
 .login.wp-core-ui .button-primary {
-background: #FFAB0F;
+background: #29BA74;
 color: #FFF;
 text-shadow: none;
 float: none;
@@ -56,7 +57,7 @@ border: none;
 }
 
 .login.wp-core-ui .button-primary:hover {
-    background: #E78606;
+    background: #086F54;
 }
 
 a.privacy-policy-link, #language-switcher {

@@ -4,8 +4,6 @@ function theme_setup() {
   // Menus
   register_nav_menu( 'main', 'Main Menu' );
 	register_nav_menu( 'footer', 'Footer Menu' );
-	register_nav_menu( 'category', 'Category Filter' );
-	register_nav_menu( 'technique', 'Technique Filter' );
   // RSS Feed
   add_theme_support( 'automatic-feed-links' );
   // Thumbnails
@@ -93,7 +91,7 @@ function ID_from_page_name($page_name)
 // Search
 function include_custom_post_types_in_search_results( $query ) {
 		if ( $query->is_main_query() && $query->is_search() && ! is_admin() ) {
-				$query->set( 'post_type', array( 'post', 'career', 'work') );
+				$query->set( 'post_type', array( 'post', 'page', 'career', 'work') );
 		}
 }
 add_action( 'pre_get_posts', 'include_custom_post_types_in_search_results' );
