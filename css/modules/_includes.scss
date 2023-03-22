@@ -1,66 +1,49 @@
 // Includes
 
-// CTA - Careers
-.cta {
-  &.careers {
-    
-    background: url('../img/cta_careers.svg') top left repeat, $red;
-    
-    text-align: right;
-    padding: 80px 0;
-    @media (min-width: $breakpoint-tablet) {
-      background-attachment: fixed;
-      padding: 160px 0;
-      text-align: center;
+.stat_section {
+  .stat {
+    text-align: center;
+    width: 25%;
+    margin-left: 0;
+    padding: 120px $padding-half;
+    &.white {
+      background: #F8FBFA;
+      span.unit {
+        color: $light-green;
+      }
     }
-    h4 {
-      color: $white;
-      font: $normal 2.4rem/3.0rem $bold;
-      @media (min-width: $breakpoint-tablet) {
-        font: $normal 5.0rem/6.0rem $bold;
+    &.grey {
+      background: #F0F0F0;
+      span.unit {
+        color: $light-green;
       }
-      span.light {
-        font: $normal 2.4rem/3.0rem $light;
-        @media (min-width: $breakpoint-tablet) {
-          font: $normal 5.0rem/6.0rem $light;
-        }
+    }
+    &.green {
+      background: $light-green;
+      span.unit {
+        color: $white;
       }
-      a {
-        white-space: nowrap;
-        color: $yellow;
-        @include text-hover();
-        &::after {
-          height: 4px;
-        }
-      }
+    }
+    span.unit {
+      font: $bold 5.4rem/5.4rem $regular;
+      display: block;
+      margin-bottom: 5px;
+    }
+    span.description {
+      font: $bold 1.8rem/2.4rem $regular;
+      display: block;
+      text-transform: uppercase;
     }
   }
-  &.contact {
-    
-    background: url('../img/cta_contact.svg') top left repeat, $blue;
-    
-    text-align: right;
-    padding: 80px 0;
-    @media (min-width: $breakpoint-tablet) {
-      background-attachment: fixed;
-      padding: 160px 0;
-      text-align: center;
-    }
-    
-    h4 {
-      color: $white;
-      font: $normal 2.4rem/3.0rem $bold;
-      @media (min-width: $breakpoint-tablet) {
-        font: $normal 5.0rem/6.0rem $bold;
-      }
-      a {
-        white-space: nowrap;
-        color: $yellow;
-        @include text-hover();
-        &::after {
-          height: 4px;
-        }
-      }
-    }
+}
+
+.text_section {
+  padding: $padding 0;
+  p {
+    font: $normal 3.4rem/5.4rem $regular;
+    background: -webkit-linear-gradient(to right, #29BA74, #197A56);
+    background: linear-gradient(to right, #29BA74, #197A56);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }

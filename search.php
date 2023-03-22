@@ -2,7 +2,6 @@
 get_header(); ?>
 
 <section class="hero news single search">
-  <div class="shapes one"></div><div class="shapes two"></div><div class="shapes three"></div><div class="shapes four"></div><div class="shapes five"></div><div class="overlay"></div>
   <div class="container">
     <div class="eight columns offset-by-two">
       <h1><?php printf( __( 'Search Results for: %s'), '<span class="search_term">' . get_search_query() . '</span>' ); ?></h1>

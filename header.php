@@ -28,7 +28,7 @@ $image = get_the_post_thumbnail_url( $post_id, 'full' ); ?>
     <div class="logo two columns">  
       <p class="site-title">
       <a href="<?php echo get_site_url(); ?>" aria-label="logo">
-        <img src="<?php bloginfo('template_directory'); ?>/img/logo.svg" alt="A Productions">
+        <img src="<?php bloginfo('template_directory'); ?>/img/expand-logo.svg" alt="Expand Research">
       </a>
       </p>
     </div>

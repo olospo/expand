@@ -159,8 +159,8 @@ aside.four {
   -moz-transition: all ease .5s;
   -o-transition: all ease .5s;
   transition: all ease .5s;
-  background: $orange url("../img/arrow_up.svg") no-repeat center center;
+  background: $light-green url("../img/arrow_up.svg") no-repeat center center;
   &:hover {
-    background: $yellow url("../img/arrow_up.svg") no-repeat center center;
+    background: $dark-green url("../img/arrow_up.svg") no-repeat center center;
   }
 }

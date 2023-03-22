@@ -1,26 +1,8 @@
 // Home
 
-body.home {
-  header {
-    background: transparent;
-    position: absolute;
-    width: 100%;
-    top: 0;
-    z-index: 200;
-    &.open {
-      background: $black;
-    }
-    .container {
-      // position: relative;
-    }
-  }
-  nav.mobile {
-    top: 59px;
-  }
-}
-
 // Hero
 .home.hero {
+  background: $dark-green;
   padding: 0;
   overflow: hidden;
   position: relative;
@@ -31,7 +13,7 @@ body.home {
     overflow: hidden;
     @include aspect-ratio(1,1);
     @media (min-width: $breakpoint-tablet) {
-      @include aspect-ratio(16,8);
+      @include aspect-ratio(16,6);
     }
     visibility: visible;
     @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
@@ -85,86 +67,6 @@ body.home {
       path {
         fill: $white;
       }
-    }
-  }
-}
-
-// Intro
-.home_intro {
-  padding: $padding-half 0;
-  @media (min-width: $breakpoint-tablet) {
-    padding: $padding 0;
-  }
-  p {
-    font: $normal 2.4rem/3.2rem $regular;
-    @media (min-width: $breakpoint-tablet) {
-      font: $normal 3.8rem/5.0rem $regular;
-    }
-    @media (min-width: $breakpoint-desktop) {
-      font: $normal 4.8rem/6.0rem $regular;
-    }
-    span.red {
-      color: $red;
-      font-family: $bold;
-    }
-    span.black {
-      color: $black;
-      font-family: $bold;
-    }
-    span.blue {
-      color: $blue;
-      font-family: $bold;
-    }
-    span.yellow {
-      color: $yellow;
-      font-family: $bold;
-    }
-  }
-  a.button {
-  }
-}
-
-.home_featured {
-  padding: 0 0 40px 0 !important;
-  @media (min-width: $breakpoint-tablet) {
-    padding: 0 !important;
-  }
-}
-
-.home_latest {
-  padding: 0 0 $padding-half 0 !important;
-  @media (min-width: $breakpoint-tablet) {
-    padding: 0 0 $padding 0 !important;
-  }
-  article {
-    padding: 0 !important;
-  }
-}
-
-.home_featured, .home_latest {
-  h2 {
-    text-align: center;
-    color: #737772;
-    margin-bottom: 48px;
-    font: $thin 2.1rem/2.8rem $light;
-    @media (min-width: $breakpoint-tablet) {
-      margin-bottom: 78px;
-      font: $thin 3.6rem/4.8rem $light;
-    }
-    &::after {
-      position: absolute;
-      content: "";
-      width: 70px;
-      height: 1px;
-      top: 48px;
-      @media (min-width: $breakpoint-tablet) {
-        top: 68px;
-      }
-      left: 50%;
-      background: #737772;
-      transition: transform 0.5s;
-      transform: translateX(-50%);
-      transform-origin: left;
     }
   }
 }
