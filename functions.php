@@ -281,65 +281,6 @@ function custom_post_type() {
 // Hook into the 'init' action
 add_action( 'init', 'custom_post_type', 0 );
 
-// Custom Post Taxonomies
-function cptui_register_my_taxes() {
-
-	// Taxonomy: Technique.
-	$labels = [
-		"name" => __( "Technique"),
-		"singular_name" => __( "technique"),
-	];
-	
-	$args = [
-		"label" => __( "Technique"),
-		"labels" => $labels,
-		"public" => true,
-		"publicly_queryable" => true,
-		"hierarchical" => true,
-		"show_ui" => true,
-		"show_in_menu" => true,
-		"show_in_nav_menus" => true,
-		"query_var" => true,
-		"rewrite" => [ 'slug' => 'technique', 'with_front' => true, ],
-		"show_admin_column" => true,
-		"show_in_rest" => true,
-		"rest_base" => "technique",
-		"rest_controller_class" => "WP_REST_Terms_Controller",
-		"show_in_quick_edit" => false,
-		"show_in_graphql" => false,
-	];
-	register_taxonomy( "technique", [ "work" ], $args );
-
-	// Taxonomy: Work Category.
-	$labels = [
-		"name" => __( "Work Category"),
-		"singular_name" => __( "work-category"),
-	];
-
-	$args = [
-		"label" => __( "Work Category"),
-		"labels" => $labels,
-		"public" => true,
-		"publicly_queryable" => true,
-		"hierarchical" => true,
-		"show_ui" => true,
-		"show_in_menu" => true,
-		"show_in_nav_menus" => true,
-		"query_var" => true,
-		"rewrite" => [ 'slug' => 'work_category', 'with_front' => true, ],
-		"show_admin_column" => true,
-		"show_in_rest" => true,
-		"rest_base" => "work_category",
-		"rest_controller_class" => "WP_REST_Terms_Controller",
-		"show_in_quick_edit" => false,
-		"show_in_graphql" => false,
-	];
-	register_taxonomy( "work_category", [ "work" ], $args );
-}
-add_action( 'init', 'cptui_register_my_taxes' );
-
-
-
 class childNav extends Walker_page {
   public function start_el(&$output, $page, $depth = 0, $args = array(), $current_page = 0) {
     if($depth)
@@ -455,27 +396,6 @@ function rlv_exclude_fields( $custom_fields ) {
 				'id',
 				'featured_image',
 				'flexible_content',
-				'banner_upload_video',
-				'banner_upload_image',
-				'project_content',
-				'square_image_one',
-				'square_image_two',
-				'square_image_three',
-				'square_image_four',
-				'square_image_one_caption',
-				'square_image_two_caption',
-				'square_image_three_caption',
-				'square_image_four_caption',
-				'square_image_left',
-				'square_image_right',
-				'square_image_left_caption',
-				'square_image_right_caption',
-				'video',
-				'video_up',
-				'full_image',
-				'full_image_caption',
-				'left_desription',
-				'client_comment',
 			);
 			foreach ( $exclude_suffixes as $suffix ) {
 				$suffix_length = strlen( $suffix );

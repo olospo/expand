@@ -74,7 +74,7 @@ header {
           right: 0;
           top: 50%;
           transform: translate(0,-50%);
-          background-color: #525252;
+          background-color: #DCDCDC;
         }
         &:last-child {
           &:after {
@@ -195,7 +195,7 @@ nav.mobile {
   z-index: 1000;
   .searchform {
     input.search {
-    font: $normal 1.4rem/1.4rem $regular;
+    font: $normal 1.6rem/1.4rem $regular;
     font-size: 1.4rem;
     width: 160px;
     height: 31px;

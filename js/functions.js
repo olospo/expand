@@ -8,20 +8,9 @@ $( document ).ready(function() {
   
   $(".search_icon").click(function() {
     $('.search_form').fadeToggle();
-    $('#menu-main-menu').fadeToggle();
+    $('#menu-main').fadeToggle();
   });
-  
-  $(".filter").click(function() {
-    $('ul.cat_filter').fadeToggle();
-    $('ul.tec_filter').fadeToggle();
-    $(this).toggleClass("open");
-  });
-  
-  $(".filter_details").click(function() {
-    $('.details').fadeToggle();
-    $(this).toggleClass("open");
-  });
-  
+
   // Check if video is ready to play
   $("video").on('canplay', function () {
     $(".work_item").mouseenter(function () {
