@@ -11,23 +11,28 @@ $bold: 700;
 
 // Colours
 $white: #fff;
-$black: #232E33;
+$black: #333333;
 
-$yellow: #FFAB0F;
-$orange: #E78606;
 
-$blue: #3F80A0;
-$grey: #737772;
-$slate: #D4C5A7;
-
-$dark-green: #086F54;
-$mid-green: #007A5C;
-
+// Greens
+$dark-green: #197A56;
+$mid-green: #50A072;
 $light-green: #29BA73;
+$table-green: #C9E7CA;
 
+$dark-grey: #7F7F7F;
+$mid-grey: #6E7073;
+$light-grey: #B3B3B2;
+$table-grey: #D7D6D6;
+
+// UI
 $border: #E6EAEF;
 $ui: #A5B3C4;
 $white-bg: #F6F8FC;
+
+// Leftovers - remove
+$yellow: #FFAB0F;
+$orange: #E78606;
 
 // Breakpoints
 $breakpoint-mobile: 400px;
@@ -42,13 +47,13 @@ $padding-half: 40px;
 // General
 ::selection {
   color: $white;
-  background: $orange !important;
+  background: $dark-green !important;
   text-shadow: none !important;
 }
     
 ::-moz-selection {
   color: $white;
-  background: $orange;
+  background: $dark-green;
   text-shadow: none !important;
 }
 
@@ -333,11 +338,11 @@ section {
         }
         background: $white;
         @include border-radius(10px);
-        border: 2px solid $blue;
-        color: $blue;
+        border: 2px solid $dark-green;
+        color: $dark-green;
         text-decoration: none;
         &:hover {
-          background: $blue;
+          background: $dark-green;
           color: $white;
         }
       }
@@ -353,9 +358,9 @@ section {
       }
       &.active {
         a {
-          background: $blue;
+          background: $dark-green;
           @include border-radius(10px);
-          border: 1px solid $blue;
+          border: 1px solid $dark-green;
           color: $white;
           text-decoration: none;
         }

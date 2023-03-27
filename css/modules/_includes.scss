@@ -37,6 +37,99 @@
   }
 }
 
+.our_products {
+  padding: $padding 0;
+  .title {
+    
+  }
+  article {
+    background: url('../img/placeholder.jpg') center center no-repeat;
+    background-size: cover;
+    .content {
+      min-height: 200px;
+      border-top: 5px solid $light-green;
+      background: $white;
+      margin: 40px;
+      padding: 20px;
+      h4 {
+        font: $bold 1.6rem/3.2rem $regular;
+        text-transform: uppercase;
+      }
+    }
+    &:hover {
+      cursor: pointer;
+      .content {
+        
+        padding: 60px;
+        margin: 0;
+        background: $light-green;
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+.tabbed_section {
+  background: #F8FBFA;
+  padding: $padding 0;
+  .tab_menu {
+    border-bottom: 2px solid $table-grey;
+    width: 100%;
+    clear: both;
+    button {
+      min-width: 15%;
+      font: $bold 1.6rem/3.2rem $regular;
+      text-transform: uppercase;
+      color: $dark-grey;
+      margin-bottom: -2px;
+      cursor: pointer;
+      background: none;
+      padding: 8px 16px;
+      float: left;
+      width: auto;
+      border: none;
+      display: block;
+      outline: 0;
+      &:hover, &.active {
+        color: $dark-green;
+        border-bottom: 2px solid $dark-green;
+      }
+    }
+  }
+  article {
+    margin: $padding-half 0;
+  }
+}
+
+.careers_cta {
+  background: $table-grey;
+  margin: 0px auto;
+  display: flex;
+  .cta_background {
+    background: url('../img/placeholder.jpg') center center no-repeat;
+    background-size: cover;
+    content: "";
+    height: auto;
+    min-height: 540px;
+    width: 75%;
+    max-width: 1600px;
+  }
+  .cta_content {
+    background: $table-grey;
+    width: 25%;
+    max-width: 600px;
+    text-align: left;
+    .content {
+      padding: 30px 40px;
+      max-width: 400px;
+      h4 {
+        font: $bold 1.6rem/3.2rem $regular;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
 .text_section {
   padding: $padding 0;
   p {
@@ -45,5 +138,15 @@
     background: linear-gradient(to right, #29BA74, #197A56);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+}
+
+section {
+  .title {
+    padding: 0 0 $padding-half 0;
+    h3 {
+      font: $bold 3.2rem/4.2rem $regular;
+      text-transform: uppercase;
+    }
   }
 }

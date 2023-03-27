@@ -8,7 +8,7 @@ footer.main {
     padding: 60px 0px;
   }
   color: $white;
-  background: $black;
+  background: $mid-green;
   .logo {
     margin-bottom: 20px;
   }
@@ -114,7 +114,7 @@ footer.main {
 }
 footer.copyright {
   padding: 20px 0;
-  background: #30383c;
+  background: $dark-green;
   .end_links {
     color: $white;
     font: $normal 1.4rem/2.8rem $light;
@@ -125,24 +125,7 @@ footer.copyright {
     }
   }
 }
-aside.four {
-  position: relative;
-}
-.cyber_group {
-  text-align: center;
-  margin: 30px 0 0 0;
-  img {
-    display: block;
-    margin: 0 auto;
-    padding: 0 0 3px 0;
-  }
 
-  a {
-    font: $normal 1.1rem/2.4rem $regular;
-    color: $white;
-    text-decoration: none;
-  }
-}
 .back_to_top {
   @media (max-width: $breakpoint-tablet) {
     display: none !important;
