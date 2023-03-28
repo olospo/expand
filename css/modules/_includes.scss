@@ -38,7 +38,7 @@
 }
 
 .our_products {
-  padding: $padding 0;
+  padding: $padding-half 0 $padding 0;
   .title {
     
   }
@@ -70,8 +70,8 @@
 }
 
 .tabbed_section {
-  background: #F8FBFA;
-  padding: $padding 0;
+  background: #F0F0F0;
+  padding: $padding-half 0;
   .tab_menu {
     border-bottom: 2px solid $table-grey;
     width: 100%;
@@ -147,6 +147,7 @@ section {
     h3 {
       font: $bold 3.2rem/4.2rem $regular;
       text-transform: uppercase;
+      margin: 0;
     }
   }
 }

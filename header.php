@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-<title><?php wp_title( '|', true, 'right' ); ?></title>
+<title><?php bloginfo('name'); ?><?php wp_title( '|', true, 'left' ); ?></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <?php $post_id = get_the_ID(); if (has_post_thumbnail( $post_id ) ): 
 $image = get_the_post_thumbnail_url( $post_id, 'full' ); ?>
@@ -10,10 +10,9 @@ $image = get_the_post_thumbnail_url( $post_id, 'full' ); ?>
 <meta name="twitter:image:alt" content="<?php the_title(); ?>" />
 <?php else : ?>
 <meta name="twitter:image" content="<?php bloginfo('template_directory'); ?>/img/twitter_meta.png' ; ?>" />
-<meta name="twitter:image:alt" content="A Productions Studio" />
+<meta name="twitter:image:alt" content="Expand Research" />
 <?php endif; ?>
 <meta name="twitter:title" content="<?php the_title(); ?>" />
-<meta name="twitter:site" content="@aproductionsuk" />
 <?php wp_head(); ?>
 <link rel="apple-touch-icon" sizes="180x180" href="<?php bloginfo('template_directory'); ?>/img/apple-touch-icon.png"/>
 <link rel="icon" type="image/png" sizes="32x32" href="<?php bloginfo('template_directory'); ?>/img/favicon-32x32.png"/>

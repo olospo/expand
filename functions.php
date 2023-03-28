@@ -313,18 +313,6 @@ class childNav extends Walker_page {
   }
 }
 
-function wpacg_expand_admin_color_scheme() {
-	//Get the theme directory
-	$theme_dir = get_stylesheet_directory_uri();
-
-	//Expand
-	wp_admin_css_color( 'expand', __( 'Expand' ),
-		get_bloginfo('stylesheet_directory') . '/expand.css',
-		array( '#197a56', '#fff', '#50a072' , '#29ba74')
-	);
-}
-add_action('admin_init', 'expand_admin_color_scheme');
-
 // Custom login
 function my_custom_login() {
 echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/login/custom-login-style.css" />';
