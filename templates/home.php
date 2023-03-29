@@ -9,9 +9,19 @@ while ( have_posts() ) : the_post(); ?>
 
 <?php get_template_part( 'inc/stats' ); ?>
 
-<section class="squares">
+<section class="square_section">
   <div class="container">
+    <div class="square_content">
+      <div class="content">
+        <div class="title">
+          <h3 class="split_title">Best in class</h3>
+        </div>
+        <p>Our customised research assists firms in future- proofing their business by enabling them to benchmark themselves against their peers, gather market intelligence about new and innovative strategies and gain an understanding of what best in class looks like</p>
+      </div>
+    </div>
+    <div class="square_background">
     
+    </div>
   </div>
 </section>
 

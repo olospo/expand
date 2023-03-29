@@ -1,5 +1,48 @@
 // Includes
 
+.square_section {
+  background: $black;
+  margin: 0px auto;
+
+  .container {
+    width: 100%;
+    display: flex;
+  }
+  
+  .square_background {
+    background: url('../img/placeholder.jpg') center center no-repeat;
+    background-size: cover;
+    content: "";
+    height: auto;
+    min-height: 540px;
+    width: 50%;
+  }
+  .square_content {
+    position: relative;
+    background: $black;
+    width: 50%;
+    text-align: left;
+    
+    .content {
+      @include vertical-align;
+      padding: 60px;
+      p {
+        color: $white;
+        font: $normal 1.8rem/3.2rem $heading;
+      }
+      .title {
+        padding: 0 0 20px 0;
+        h3 {
+          color: $mid-green;
+          span.word1 {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}
+
 .stat_section {
   .container {
     width: 100%;
