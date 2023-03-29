@@ -52,14 +52,13 @@
       margin: 40px;
       padding: 20px;
       h4 {
-        font: $bold 1.6rem/3.2rem $regular;
+        font: $bold 1.6rem/3.2rem $heading;
         text-transform: uppercase;
       }
     }
     &:hover {
       cursor: pointer;
       .content {
-        
         padding: 60px;
         margin: 0;
         background: $light-green;
@@ -78,7 +77,7 @@
     clear: both;
     button {
       min-width: 15%;
-      font: $bold 1.6rem/3.2rem $regular;
+      font: $bold 1.6rem/3.2rem $heading;
       text-transform: uppercase;
       color: $dark-grey;
       margin-bottom: -2px;
@@ -133,7 +132,7 @@
 .text_section {
   padding: $padding 0;
   p {
-    font: $normal 3.4rem/5.4rem $regular;
+    font: $normal 3.4rem/5.4rem $heading;
     background: -webkit-linear-gradient(to right, #29BA74, #197A56);
     background: linear-gradient(to right, #29BA74, #197A56);
     -webkit-background-clip: text;
