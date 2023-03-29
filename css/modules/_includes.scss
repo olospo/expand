@@ -25,12 +25,12 @@
       }
     }
     span.unit {
-      font: $bold 5.4rem/5.4rem $regular;
+      font: $bold 5.4rem/5.4rem $heading;
       display: block;
       margin-bottom: 5px;
     }
     span.description {
-      font: $bold 1.8rem/2.4rem $regular;
+      font: $bold 1.8rem/2.4rem $heading;
       display: block;
       text-transform: uppercase;
     }
@@ -123,7 +123,7 @@
       padding: 30px 40px;
       max-width: 400px;
       h4 {
-        font: $bold 1.6rem/3.2rem $regular;
+        font: $bold 1.6rem/3.2rem $heading;
         text-transform: uppercase;
       }
     }
@@ -145,7 +145,7 @@ section {
   .title {
     padding: 0 0 $padding-half 0;
     h3 {
-      font: $bold 3.2rem/4.2rem $regular;
+      font: $bold 3.2rem/4.2rem $heading;
       text-transform: uppercase;
       margin: 0;
     }
