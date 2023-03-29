@@ -90,8 +90,8 @@
       display: block;
       outline: 0;
       &:hover, &.active {
-        color: $dark-green;
-        border-bottom: 2px solid $dark-green;
+        color: $mid-green;
+        border-bottom: 5px solid $mid-green;
       }
     }
   }
@@ -147,6 +147,10 @@ section {
       font: $bold 3.2rem/4.2rem $heading;
       text-transform: uppercase;
       margin: 0;
+      color: $mid-green;
+      span.word1 {
+        color: $black;
+      }
     }
   }
 }

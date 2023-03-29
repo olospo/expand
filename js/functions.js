@@ -69,6 +69,10 @@ $( document ).ready(function() {
 
 });
 
+$(document).ready(function() {
+  $(".split_title").lettering('words');
+});
+
 // Tabs
 function openTab(evt, tabName) {
   var i, x, tablinks;
