@@ -4,9 +4,7 @@
   
  
   .container {
-    @media (max-width: $breakpoint-tablet) {
-      width: 100%;
-    }
+    width: 100%;
   }
   .stats {
     @media (min-width: $breakpoint-tablet) {
@@ -118,7 +116,11 @@
 .careers_cta {
   background: $white-bg;
   margin: 0px auto;
-  display: flex;
+  .container {
+    width: 100%;
+    display: flex;
+  }
+  
   .cta_background {
     background: url('../img/placeholder.jpg') center center no-repeat;
     background-size: cover;

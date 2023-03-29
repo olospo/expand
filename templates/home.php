@@ -71,6 +71,7 @@ while ( have_posts() ) : the_post(); ?>
 </section>
 
 <section class="careers_cta">
+  <div class="container">
     <div class="cta_background">
       
     </div>
@@ -82,7 +83,7 @@ while ( have_posts() ) : the_post(); ?>
       <a href="#" class="button">Explore our culture</a></p>
       </div>
     </div>
-
+  </div>
 </section>
 
 <?php endwhile; // end of the loop. ?>
