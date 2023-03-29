@@ -1,8 +1,6 @@
 // Includes
 
 .stat_section {
-  
- 
   .container {
     width: 100%;
   }
@@ -14,11 +12,13 @@
   .stat {
     text-align: center;
     width: 100%;
+    padding: $padding $padding-half;
     @media (min-width: $breakpoint-tablet) {
       width: 25%;
+      padding: 120px $padding-half;
     }
     margin-left: 0;
-    padding: 120px $padding-half;
+    
     &.white {
       background: #F8FBFA;
       span.unit {
@@ -51,13 +51,23 @@
 }
 
 .our_products {
-  padding: $padding-half 0 $padding 0;
+  padding: $padding-half 0;
+  @media (min-width: $breakpoint-tablet) { 
+    padding: $padding-half 0 $padding 0;
+  }
   .title {
     
   }
   article {
     background: url('../img/placeholder.jpg') center center no-repeat;
     background-size: cover;
+    margin-bottom: $padding-half;
+    @media (min-width: $breakpoint-tablet) { 
+      margin-bottom: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
     .content {
       min-height: 200px;
       border-top: 5px solid $light-green;
@@ -89,7 +99,7 @@
     width: 100%;
     clear: both;
     button {
-      min-width: 15%;
+      min-width: 25%;
       font: $bold 1.6rem/3.2rem $heading;
       text-transform: uppercase;
       color: $dark-grey;
@@ -153,9 +163,15 @@
 }
 
 .text_section {
-  padding: $padding 0;
+  padding: $padding-half 0;
+  @media (min-width: $breakpoint-tablet) {
+    padding: $padding 0;
+  }
   p {
-    font: $normal 3.4rem/5.4rem $heading;
+    font: $normal 2.2rem/3.2rem $heading;
+    @media (min-width: $breakpoint-tablet) {
+      font: $normal 3.4rem/5.4rem $heading;
+    }
     background: -webkit-linear-gradient(to right, #29BA74, #197A56);
     background: linear-gradient(to right, #29BA74, #197A56);
     -webkit-background-clip: text;
@@ -167,7 +183,10 @@ section {
   .title {
     padding: 0 0 $padding-half 0;
     h3 {
-      font: $bold 3.2rem/4.2rem $heading;
+      font: $bold 2.2rem/3.2rem $heading;
+      @media (min-width: $breakpoint-tablet) {
+        font: $bold 3.2rem/4.2rem $heading;
+      }
       text-transform: uppercase;
       margin: 0;
       color: $mid-green;
