@@ -1,12 +1,12 @@
 <?php /* Footer */ ?>
 
-<footer class="main">
+<!-- <footer class="main">
   <div class="container">
     <div class="eight columns">
       
     </div>
   </div>
-</footer>
+</footer> -->
 
 <footer class="copyright">
   <div class="container">

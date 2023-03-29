@@ -25,11 +25,11 @@ $dark-grey: #7F7F7F;
 $mid-grey: #6E7073;
 $light-grey: #B3B3B2;
 $table-grey: #D7D6D6;
+$white-bg: #F0F0F0;
 
 // UI
 $border: #E6EAEF;
 $ui: #A5B3C4;
-$white-bg: #F6F8FC;
 
 // Leftovers - remove
 $yellow: #FFAB0F;
@@ -160,11 +160,11 @@ section {
     color: $orange;
   }
   a {
-    color: $orange;
+    color: $dark-green;
     text-decoration: underline;
-    text-decoration-color: $orange;
+    text-decoration-color: $dark-green;
     &:hover {
-      color: $orange;
+      color: $light-green;
     }
   }
   ul {

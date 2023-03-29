@@ -219,10 +219,9 @@ nav.mobile {
       border: 1px solid $mid-green;
       // text-transform: uppercase;
       &:hover {
-        background: $white;
-        color: $mid-green;
-        border: 1px solid $white;
-        border-left: 1px solid $mid-green;
+        background: $dark-green;
+        color: $white;
+        border-left: 1px solid $dark-green;
         
       }
     }

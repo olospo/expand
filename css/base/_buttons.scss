@@ -9,14 +9,14 @@
   overflow: hidden;
   display: inline-block;
   vertical-align: middle;
-  padding: 10px 15px 10px 15px;
-  margin: 5px 10px 5px 0;
-  font: $normal 1.2rem/1.2rem $bold;
+  padding:15px 0px 15px 0px;
+  margin: 0px 10px 0px 0;
+  font: $bold 1.2rem/1.2rem $heading;
   @media (min-width: $breakpoint-tablet) {
-    padding: 20px 25px 20px 25px;
-    margin: 5px 10px 5px 0;
-    font: $normal 1.6rem/1.6rem $bold;
+    font: $bold 1.6rem/1.6rem $heading;
   }
+  
+  color: $black;
   text-decoration: none;
   text-transform: uppercase;
   -webkit-transition: all ease .5s;
@@ -24,4 +24,10 @@
   -o-transition: all ease .5s;
   transition: all ease .5s;
   @include border-radius(10px);
+  &:before {
+    margin-right: 10px;
+    font: $bold 1.6rem/1.6rem $heading;
+    content: "→";
+    color: $light-green;
+  }
 }

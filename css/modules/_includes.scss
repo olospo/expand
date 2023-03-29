@@ -1,9 +1,24 @@
 // Includes
 
 .stat_section {
+  
+ 
+  .container {
+    @media (max-width: $breakpoint-tablet) {
+      width: 100%;
+    }
+  }
+  .stats {
+    @media (min-width: $breakpoint-tablet) {
+      display: flex;
+    }
+  }
   .stat {
     text-align: center;
-    width: 25%;
+    width: 100%;
+    @media (min-width: $breakpoint-tablet) {
+      width: 25%;
+    }
     margin-left: 0;
     padding: 120px $padding-half;
     &.white {
@@ -13,7 +28,7 @@
       }
     }
     &.grey {
-      background: #F0F0F0;
+      background: $white-bg;
       span.unit {
         color: $light-green;
       }
@@ -69,7 +84,7 @@
 }
 
 .tabbed_section {
-  background: #F0F0F0;
+  background: $white-bg;
   padding: $padding-half 0;
   .tab_menu {
     border-bottom: 2px solid $table-grey;
@@ -101,7 +116,7 @@
 }
 
 .careers_cta {
-  background: $table-grey;
+  background: $white-bg;
   margin: 0px auto;
   display: flex;
   .cta_background {
@@ -110,13 +125,19 @@
     content: "";
     height: auto;
     min-height: 540px;
-    width: 75%;
+    width: 50%;
+    @media (min-width: $breakpoint-tablet) {
+      width: 75%;
+    }
     max-width: 1600px;
   }
   .cta_content {
-    background: $table-grey;
-    width: 25%;
-    max-width: 600px;
+    background: $white-bg;
+    width: 50%;
+    @media (min-width: $breakpoint-tablet) {
+      width: 25%;
+      max-width: 600px;
+    }
     text-align: left;
     .content {
       padding: 30px 40px;
