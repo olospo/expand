@@ -5,6 +5,7 @@
   margin: 0px auto;
   .container {
     width: 100%;
+    padding: 0;
     display: flex;
     flex-direction: column;
     @media (min-width: $breakpoint-tablet) {
@@ -129,6 +130,7 @@
 .stat_section {
   .container {
     width: 100%;
+    padding: 0;
   }
   .stats {
     @media (min-width: $breakpoint-tablet) {
@@ -212,9 +214,6 @@
   @media (min-width: $breakpoint-tablet) { 
     padding: $padding-half 0 $padding 0;
   }
-  .title {
-    
-  }
   article {
     background: url('../img/placeholder.jpg') center center no-repeat;
     background-size: cover;
@@ -284,10 +283,10 @@
   background: $white-bg;
   margin: 0px auto;
   .container {
+    padding: 0;
     width: 100%;
     display: flex;
   }
-  
   .cta_background {
     background: url('../img/placeholder.jpg') center center no-repeat;
     background-size: cover;
