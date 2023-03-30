@@ -82,6 +82,12 @@
         p {
           font: $normal 2.2rem/3.2rem $heading;
           @media (min-width: $breakpoint-tablet) {
+            font: $normal 2.8rem/4.0rem $heading;
+          }
+          @media (min-width: $breakpoint-laptop) {
+            font: $normal 3.4rem/5.0rem $heading;
+          }
+          @media (min-width: $breakpoint-desktop) {
             font: $normal 4.4rem/6.0rem $heading;
           }
           background: -webkit-linear-gradient(to right, #29BA74, #197A56);
@@ -230,8 +236,14 @@
       background: $white;
       margin: 40px;
       padding: 20px;
+      span.type {
+        font: $bold 1.2rem/1.8rem $heading;
+        text-transform: uppercase;
+        color: $light-grey;
+        letter-spacing: 2px;
+      }
       h4 {
-        font: $bold 1.6rem/3.2rem $heading;
+        font: $bold 1.6rem/2.0rem $heading;
         text-transform: uppercase;
       }
     }
@@ -311,11 +323,11 @@
       padding: 30px 40px;
       max-width: 400px;
       h4 {
-        font: $bold 1.6rem/3.2rem $heading;
+        font: $bold 1.6rem/2.4rem $heading;
         text-transform: uppercase;
       }
       p {
-        font: $normal 1.6rem/3.2rem $heading;
+        font: $normal 1.6rem/2.8rem $heading;
       }
     }
   }

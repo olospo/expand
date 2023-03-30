@@ -71,19 +71,22 @@ while ( have_posts() ) : the_post(); ?>
     <div class="row">
       <article class="one-third column">
         <div class="content">
+          <span class="type">Product</span>
           <h4>Functional Effectiveness</h4>
           <p>Int et quia nullab id even im fugiae mi, sit fugit que nonem ipsu nti busam, sum facium ullest, to cus pore com molor rem volup</p>
         </div>
       </article>
       <article class="one-third column">
         <div class="content">
-          <h4>Functional Effectiveness</h4>
+          <span class="type">Product</span>
+          <h4>Business Performance Benchmarks</h4>
           <p>Int et quia nullab id even im fugiae mi, sit fugit que nonem ipsu nti busam, sum facium ullest, to cus pore com molor rem volup</p>
         </div>
       </article>
       <article class="one-third column">
         <div class="content">
-          <h4>Functional Effectiveness</h4>
+          <span class="type">Product</span>
+          <h4>Working Groups & Forums</h4>
           <p>Int et quia nullab id even im fugiae mi, sit fugit que nonem ipsu nti busam, sum facium ullest, to cus pore com molor rem volup</p>
         </div>
       </article>
