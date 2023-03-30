@@ -7,15 +7,12 @@ while ( have_posts() ) : the_post(); ?>
 
 <section class="square_section white">
   <div class="container">
-    <div class="square_background">
-        
-    </div>
+    <div class="square_background"></div>
     <div class="square_content">
       <div class="content">
         <p>We provide industry intelligence to financial services organisations of all types to empower them to grow, compete and operate with increased effectiveness</p>
       </div>
     </div>
-    
   </div>
 </section>
 
