@@ -3,29 +3,49 @@
 .square_section {
   background: $black;
   margin: 0px auto;
-
   .container {
     width: 100%;
     display: flex;
+    flex-direction: column;
+    @media (min-width: $breakpoint-tablet) {
+      flex-direction: row;
+    }
   }
-  
   .square_background {
     background: url('../img/placeholder.jpg') center center no-repeat;
     background-size: cover;
     content: "";
     height: auto;
-    min-height: 540px;
-    width: 50%;
+    min-height: 300px;
+    width: 100%;
+    @media (max-width: $breakpoint-tablet) {
+      order: 2;
+    }
+    @media (min-width: $breakpoint-tablet) {
+      width: 50%;
+      min-height: 540px;
+    }
   }
   .square_content {
-    position: relative;
+    height: auto;
     background: $black;
-    width: 50%;
+    width: 100%;
+    @media (max-width: $breakpoint-tablet) {
+      order: 1;
+    }
+    @media (min-width: $breakpoint-tablet) {
+      position: relative;
+      width: 50%;
+    }
     text-align: left;
     
     .content {
-      @include vertical-align;
-      padding: 60px;
+      padding: 20px;
+      @media (min-width: $breakpoint-tablet) {
+        @include vertical-align;
+        padding: 60px;
+      }
+      
       p {
         color: $white;
         font: $normal 1.8rem/3.2rem $heading;
@@ -41,6 +61,69 @@
       }
     }
   }
+  &.white {
+    background: $white;
+    .square_background {
+      background: url('../img/placeholder_two.jpg') center center no-repeat;
+      background-size: cover;
+      min-height: 300px;
+      @media (min-width: $breakpoint-tablet) {
+        min-height: 640px;
+      }
+    }
+    .square_content {
+      background: $white;
+      .content {
+        padding: 20px;
+        @media (min-width: $breakpoint-tablet) {
+          padding: 60px $padding;
+        }
+        p {
+          font: $normal 2.2rem/3.2rem $heading;
+          @media (min-width: $breakpoint-tablet) {
+            font: $normal 4.4rem/6.0rem $heading;
+          }
+          background: -webkit-linear-gradient(to right, #29BA74, #197A56);
+          background: linear-gradient(to right, #29BA74, #197A56);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
+    }
+  }
+  &.green {
+    background: $mid-green;
+    .square_background {
+      background: url('../img/placeholder_two.jpg') center center no-repeat;
+      background-size: cover;
+      min-height: 300px;
+      @media (min-width: $breakpoint-tablet) {
+        min-height: 640px;
+      }
+    }
+    .square_content {
+      background: $mid-green;
+      .content {
+        padding: 20px;
+        @media (min-width: $breakpoint-tablet) {
+          padding: 60px $padding;
+        }
+        p {
+          color: $white;
+          font: $normal 1.8rem/3.2rem $heading;
+        }
+        .title {
+          padding: 0 0 20px 0;
+          h3 {
+            color: $white;
+            span.word1 {
+              color: $black;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .stat_section {
@@ -51,44 +134,75 @@
     @media (min-width: $breakpoint-tablet) {
       display: flex;
     }
-  }
-  .stat {
-    text-align: center;
-    width: 100%;
-    padding: $padding $padding-half;
-    @media (min-width: $breakpoint-tablet) {
-      width: 25%;
-      padding: 120px $padding-half;
-    }
-    margin-left: 0;
-    
-    &.white {
-      background: #F8FBFA;
+    .stat {
+      box-sizing: border-box;
+      text-align: center;
+      width: 100%;
+      padding: $padding $padding-half;
+      @media (min-width: $breakpoint-tablet) {
+        width: 25%;
+        padding: 120px $padding-half;
+      }
+      margin-left: 0;
+      
+      &.white {
+        background: #F8FBFA;
+        span.unit {
+          color: $light-green;
+        }
+      }
+      &.grey {
+        background: $white-bg;
+        span.unit {
+          color: $light-green;
+        }
+      }
+      &.green {
+        background: $light-green;
+        span.unit {
+          color: $white;
+        }
+      }
       span.unit {
-        color: $light-green;
+        font: $bold 5.4rem/5.4rem $heading;
+        display: block;
+        margin-bottom: 5px;
+      }
+      span.description {
+        font: $bold 1.8rem/2.4rem $heading;
+        display: block;
+        text-transform: uppercase;
       }
     }
-    &.grey {
-      background: $white-bg;
-      span.unit {
-        color: $light-green;
+    &.one {
+      .stat {
+        width: 100%;
+        padding: $padding $padding-half;
+        @media (min-width: $breakpoint-tablet) {
+          width: 100%;
+          padding: 120px $padding-half;
+        }
       }
     }
-    &.green {
-      background: $light-green;
-      span.unit {
-        color: $white;
+    &.two {
+      .stat {
+        width: 100%;
+        padding: $padding $padding-half;
+        @media (min-width: $breakpoint-tablet) {
+          width: 50%;
+          padding: 120px $padding-half;
+        }
       }
     }
-    span.unit {
-      font: $bold 5.4rem/5.4rem $heading;
-      display: block;
-      margin-bottom: 5px;
-    }
-    span.description {
-      font: $bold 1.8rem/2.4rem $heading;
-      display: block;
-      text-transform: uppercase;
+    &.three {
+      .stat {
+        width: 100%;
+        padding: $padding $padding-half;
+        @media (min-width: $breakpoint-tablet) {
+          width: 33%;
+          padding: 120px $padding-half;
+        }
+      }
     }
   }
 }
@@ -201,6 +315,9 @@
         font: $bold 1.6rem/3.2rem $heading;
         text-transform: uppercase;
       }
+      p {
+        font: $normal 1.6rem/3.2rem $heading;
+      }
     }
   }
 }
@@ -226,9 +343,9 @@ section {
   .title {
     padding: 0 0 $padding-half 0;
     h3 {
-      font: $bold 2.2rem/3.2rem $heading;
+      font: $normal 2.2rem/3.2rem $heading;
       @media (min-width: $breakpoint-tablet) {
-        font: $bold 3.2rem/4.2rem $heading;
+        font: $normal 3.2rem/4.2rem $heading;
       }
       text-transform: uppercase;
       margin: 0;
@@ -237,5 +354,16 @@ section {
         color: $black;
       }
     }
+    p {
+      margin-top: 20px;
+      font: $normal 1.8rem/3.2rem $heading;
+    }
+  }
+}
+
+section {
+  box-sizing: border-box;
+  .row {
+    clear: both;
   }
 }
