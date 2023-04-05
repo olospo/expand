@@ -134,3 +134,27 @@ var componentVisible = (function ($) {
   });
 
 })(jQuery);
+
+
+$(document).ready(function() {
+  $('.map-marker').on('click', function(e) {
+    e.preventDefault();
+    
+
+    // Get the target ID from the clicked marker's data attribute
+    const targetID = $(this).data('target');
+
+    // Remove the 'active' class from all .office elements
+    $('.office').removeClass('active');
+    $('.map-marker').removeClass('active');
+
+    // Get the office element with the matching ID
+    const targetOffice = $(`.office[id="${targetID}"]`);
+    
+    $(this).addClass('active');
+
+    // Add the 'active' class to the office element with the matching ID
+    targetOffice.addClass('active');
+    
+  });
+});

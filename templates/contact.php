@@ -4,78 +4,68 @@ get_header();
 $mapDesktop = get_field('desktop_map');
 $mapMobile = get_field('mobile_map');
 
-
 while ( have_posts() ) : the_post(); ?>
 
-<section class="hero contact">
-  <div class="map" style="background: #333333 url('<?php echo esc_url($mapDesktop['url']); ?>') center center no-repeat; background-size: cover;"></div>
-  <div class="map mobile" style="background: #333333 url('<?php echo esc_url($mapMobile['url']); ?>') top center no-repeat; background-size: cover;"></div>
-  <div class="offices">
-    <div class="office">
-      <div class="content">
-        <h5>Colston Street Studio</h5>
-        <address>
-          15 Colston Street<br />
-          Bristol UK<br />
-          BS1 5AP
-        </address>
-        <a href="tel:<?php the_field('phone_number','options'); ?>" class="phone"><?php the_field('phone_number','options'); ?></a><br />
-        <a href="mailto:<?php the_field('email','options'); ?>" class="email"><?php the_field('email','options'); ?></a><br />
-        <a href="https://www.google.com/maps/dir//15 Colston Street, Bristol, UK, BS1 5AP" class="button">Directions</a>
-      </div>
-    </div>
-    <div class="office">
-      <div class="content">
-        <h5>Old Market Street Studio</h5>
-        <address>
-          52 Old Market Street<br />
-          Bristol UK<br />
-          BS2 0ER
-        </address>
-        <a href="tel:<?php the_field('phone_number','options'); ?>" class="phone"><?php the_field('phone_number','options'); ?></a><br />
-        <a href="mailto:<?php the_field('email','options'); ?>" class="email"><?php the_field('email','options'); ?></a><br />
-        <a href="https://www.google.com/maps/dir//52 Old Market Street, Bristol, UK, BS2 0ER" class="button">Directions</a>
-      </div>
-    </div>
-  </div>
-  
-</section>
+<?php // get_template_part( 'inc/hero' ); ?>
 
-<section class="page contact">
-  <div class="container flex">
-    <div class="content eight columns">
-      <h2>Get in touch</h2>
-      <?php the_content(); ?>
+<section class="map">
+  <div class="container">
+    <div class="map_container">
+    <img src="<?php bloginfo('template_directory'); ?>/img/map.png" alt="map" />
+    <a href="#London" id="London" class="map-marker" data-target="London">
+      <span aria-hidden="true"></span>
+    </a>
+    <a href="#New-York" id="New-York" class="map-marker" data-target="New-York">
+      <span aria-hidden="true"></span>
+    </a>
+    <a href="#Singapore" id="Singapore" class="map-marker" data-target="Singapore">
+      <span aria-hidden="true"></span>
+    </a>
     </div>
-    <aside class="social four columns">
-      <h2>Contact details</h2>
-        <ul class="contact">
-          <li><a href="tel:<?php the_field('phone_number','options'); ?>"><?php the_field('phone_number','options'); ?></a></li>
-          <li><a href="mailto:<?php the_field('email','options'); ?>"><?php the_field('email','options'); ?></a></li>
-        </ul>
-      <h2>Social Media</h2>
-      <ul class="social">
-        <?php if(get_field('facebook_link','options')): ?>
-        <li><a href="<?php the_field('facebook_link','options'); ?>"><img src="<?php bloginfo('template_directory'); ?>/img/facebook.svg" alt="Facebook" loading="lazy"/></a></li>
-        <?php endif; ?>
-        <?php if(get_field('twitter_link','options')): ?>
-        <li><a href="<?php the_field('twitter_link','options'); ?>"><img src="<?php bloginfo('template_directory'); ?>/img/twitter.svg" alt="Twitter" loading="lazy"/></a></li>
-        <?php endif; ?>
-        <?php if(get_field('linkedin_link','options')): ?>
-        <li><a href="<?php the_field('linkedin_link','options'); ?>"><img src="<?php bloginfo('template_directory'); ?>/img/linkedin.svg" alt="LinkedIn" loading="lazy"/></a></li>
-        <?php endif; ?>
-        <?php if(get_field('vimeo_link','options')): ?>
-        <li><a href="<?php the_field('vimeo_link','options'); ?>"><img src="<?php bloginfo('template_directory'); ?>/img/vimeo.svg" alt="Vimeo" loading="lazy"/></a></li>
-        <?php endif; ?>
-        <?php if(get_field('instagram_link','options')): ?>
-        <li><a href="<?php the_field('instagram_link','options'); ?>"><img src="<?php bloginfo('template_directory'); ?>/img/instagram.svg" alt="Instagram" loading="lazy"/></a></li>
-        <?php endif; ?>
-      </ul>
-    </aside>
   </div>
 </section>
 
-<?php get_template_part( 'inc/cta_careers' ); ?>
+<section class="map_offices">
+  <div class="container">
+    <div class="offices">
+    <div class="office" id="London">
+      <div class="content">
+        <h3>Worldwide headquarters</h3>
+        <address>
+          70 Mark Lane<br />
+          14th Floor<br />
+          London<br />
+          EC3R 7NQ
+        </address>
+        <a href="tel:+44 (0)20 7337 2100" class="phone">+44 (0)20 7337 2100</a>
+      </div>
+    </div>
+    <div class="office" id="New-York">
+      <div class="content">
+        <h3>USA</h3>
+        <address>
+          10 Hudson Yards<br />
+          New York<br />
+          NY, 10001
+        </address>
+        <a href="tel:+1 (212) 913 9268" class="phone">+1 (212) 913 9268</a>
+      </div>
+    </div>
+    <div class="office" id="Singapore">
+      <div class="content">
+        <h3>Singapore</h3>
+        <address>
+          R79 Robinson Road<br />
+          Level 27 CapitaSky<br />
+          Singapore 068897<br />
+          Singapore
+        </address>
+        <a href="tel:+65 6429 2500" class="phone">+65 6429 2500</a>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
 
 <?php endwhile; // end of the loop. ?>
 
