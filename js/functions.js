@@ -124,7 +124,7 @@ $(function(){
 // Animation Javascript
 // ------------------------------------------------------------
 var componentVisible = (function ($) {
-  var $components = $('header, section, .step, article, .full_image, .content_block, .square_image, .full_video, .stat_block');
+  var $components = $('header, section, .step, article, .full_image, .content_block, .square_image, .full_video, .stat_block, .stat');
 
   var componentsWaypoints = $components.waypoint({
     handler: function() {
@@ -135,7 +135,7 @@ var componentVisible = (function ($) {
 
 })(jQuery);
 
-
+// Map Markers
 $(document).ready(function() {
   $('.map-marker').on('click', function(e) {
     e.preventDefault();
@@ -158,3 +158,42 @@ $(document).ready(function() {
     
   });
 });
+
+// Stats Scrolling
+function formatNumber(number) {
+  const fixed = number.toFixed(2);
+  return parseFloat(fixed) === parseInt(fixed) ? parseInt(fixed) : fixed;
+}
+
+var triggerAtY = $('.stat_section').offset().top - $(window).outerHeight();
+
+$(window).scroll(function(event) {
+  // #target not yet in view
+  if (triggerAtY > $(window).scrollTop()) {
+    return;
+  }
+
+  $('.unit').each(function () {
+    const prefix = $(this).data('prefix') || ''; // Get the prefix from the data attribute
+    const postfix = $(this).data('postfix') || ''; // Get the postfix from the data attribute
+    $(this).prop('Counter', 0).delay(0).animate({
+        Counter: $(this).text()
+    }, {
+        duration: 3000,
+        easing: 'swing',
+        step: function() {
+          // Add the prefix and postfix during the count
+          $(this).text(prefix + Math.round(this.Counter).toLocaleString() + postfix);
+        },
+        complete: function() {
+          // Add the prefix and postfix after the count
+          $(this).text(prefix + formatNumber(parseFloat(this.Counter)).toLocaleString() + postfix);
+        }
+    });
+    $('.fade_in').fadeIn(500).delay(100);
+  });
+
+  // remove this event handler
+  $(this).off(event);
+})
+var counter = 0;

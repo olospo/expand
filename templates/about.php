@@ -27,15 +27,15 @@ while ( have_posts() ) : the_post(); ?>
   <div class="container">
     <div class="stats three">
       <div class="stat grey">
-        <span class="unit">~350</span>
+        <span class="unit" data-count="350" data-prefix="~">350</span>
         <span class="description">Participants attended each year</span>
       </div>
       <div class="stat white">
-        <span class="unit">~30</span>
+        <span class="unit" data-count="30" data-prefix="~">30</span>
         <span class="description">Roundtables held annually</span>
       </div>
       <div class="stat grey">
-        <span class="unit">~200</span>
+        <span class="unit" data-count="200" data-prefix="~">200</span>
         <span class="description">Firms represented each year</span>
       </div> 
     </div>
