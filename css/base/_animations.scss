@@ -150,6 +150,43 @@ section.careers_cta {
   }
 }
 
+section.map {
+  .map_container {
+    img {
+      @include fade();
+    }
+    .map-marker {
+      @include fade();
+    }
+  }
+  &.visible {
+    .map_container {
+      img {
+        @include reset();
+      }
+      .map-marker {
+        @include reset();
+        @include delay-children();
+      }
+    }
+  }
+}
+
+section.map_offices {
+  .office {
+    .content {
+      @include rise();
+    }
+  }
+  &.visible {
+    .office {
+      .content {
+        @include reset();
+      }
+    }
+  }
+}
+
 // Flexible Content 
 .flexible_content {
   .full_image {

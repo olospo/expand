@@ -4,6 +4,10 @@
   background: $table-grey;
   padding: 0;
   position: relative;
+  .title {
+    text-align: center;
+    padding: $padding-half 0;
+  }
   .map_container {
     position: absolute;
     left: 50%;

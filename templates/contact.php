@@ -6,10 +6,30 @@ $mapMobile = get_field('mobile_map');
 
 while ( have_posts() ) : the_post(); ?>
 
-<?php // get_template_part( 'inc/hero' ); ?>
+<section class="square_section green">
+  <div class="container">
+    <div class="square_content">
+      <div class="content">
+        <div class="title">
+          <h3 class="split_title">Say Hello</h3>
+        </div>
+        <p>For more information on how Expand can help your business achieve its objectives, or for general enquiries, please get in touch.</p>
+      </div>
+    </div>
+    <div class="square_background">
+    
+    </div>
+  </div>
+</section>
+
 
 <section class="map">
   <div class="container">
+    <div class="title six columns offset-by-three">
+      <h3 class="split_title">Expand Worldwide</h3>
+      <p>Am soluptates et evella que la volores reptur santis derepere et fuga. Et verat experiossus diciate
+        omnimus non rerum rerepudae non ne samet eossumq uaeceped quis denisit lam re, sitatur.</p>
+    </div>
     <div class="map_container">
     <img src="<?php bloginfo('template_directory'); ?>/img/expand_map.png" alt="map" />
     <a href="#London" id="London" class="map-marker" data-target="London">
