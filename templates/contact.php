@@ -11,7 +11,7 @@ while ( have_posts() ) : the_post(); ?>
 <section class="map">
   <div class="container">
     <div class="map_container">
-    <img src="<?php bloginfo('template_directory'); ?>/img/map.png" alt="map" />
+    <img src="<?php bloginfo('template_directory'); ?>/img/expand_map.png" alt="map" />
     <a href="#London" id="London" class="map-marker" data-target="London">
       <span aria-hidden="true"></span>
     </a>
@@ -65,6 +65,13 @@ while ( have_posts() ) : the_post(); ?>
     </div>
     </div>
   </div>
+</section>
+
+<section class="image_offices">
+  <div class="office_image active"></div>
+  <div class="office_image newyork" id="New-York"></div>
+  <div class="office_image london" id="London"></div>
+  <div class="office_image singapore" id="Singapore"></div>
 </section>
 
 <?php endwhile; // end of the loop. ?>

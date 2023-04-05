@@ -142,17 +142,20 @@ $(document).ready(function() {
     // Get the target ID based on the targetType
     const targetID = targetType === 'office' ? target.attr('id') : target.data('target');
 
-    // Remove the 'active' class from all .office elements and .map-marker elements
+    // Remove the 'active' class from all .office, .map-marker, and .office_image elements
     $('.office').removeClass('active');
     $('.map-marker').removeClass('active');
+    $('.office_image').removeClass('active');
 
-    // Get the office and map-marker elements with the matching ID
+    // Get the office, map-marker, and office_image elements with the matching ID
     const targetOffice = $(`.office[id="${targetID}"]`);
     const targetMapMarker = $(`.map-marker[id="${targetID}"]`);
+    const targetOfficeImage = $(`.office_image[id="${targetID}"]`);
 
     // Add the 'active' class to the target elements
     targetOffice.addClass('active');
     targetMapMarker.addClass('active');
+    targetOfficeImage.addClass('active');
   }
 
   // Bind the click and hover events for .map-marker
@@ -165,6 +168,11 @@ $(document).ready(function() {
 
   // Bind the click and hover events for .office
   $('.office').on('click', function() {
+    setActiveMarker($(this), 'office');
+  });
+
+  // Bind the click and hover events for .office_image
+  $('.office_image').on('click', function() {
     setActiveMarker($(this), 'office');
   });
 });
