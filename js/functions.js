@@ -164,7 +164,7 @@ $(document).ready(function() {
   });
 
   // Bind the click and hover events for .office
-  $('.office').on('click mouseenter', function() {
+  $('.office').on('click', function() {
     setActiveMarker($(this), 'office');
   });
 });

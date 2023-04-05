@@ -44,7 +44,7 @@
     &:hover, &.active {
       &:before {
         background: url('../img/map-marker-green.svg') center center no-repeat;
-        animation: next ease-in-out 2s;
+        animation: next ease-in-out 1.5s;
         animation-iteration-count: infinite;
       }
     }
@@ -52,26 +52,14 @@
   #London {
     top: 13%;
     left: 45%;
-    &:before {
-      animation: next ease-in-out 2s;
-      animation-iteration-count: 1;
-    }
   }
   #New-York {
     top: 18%;
     left:29%;
-    &:before {
-      animation: next ease-in-out 2s;
-      animation-iteration-count: 1;
-    }
   }
   #Singapore {
     top: 52%;
     left: 75%;
-    &:before {
-      animation: next ease-in-out 2s;
-      animation-iteration-count: 1;
-    }
   }
 }
 .map_offices {
@@ -83,6 +71,7 @@
   .offices {
     display: flex;
     .office {
+      cursor: pointer;
       transition: background linear 0.5s;
       position: relative;
       padding: $padding;
