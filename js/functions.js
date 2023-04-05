@@ -137,27 +137,38 @@ var componentVisible = (function ($) {
 
 // Map Markers
 $(document).ready(function() {
-  $('.map-marker').on('click', function(e) {
-    e.preventDefault();
-    
+  // Create a function to handle the common logic
+  function setActiveMarker(target, targetType) {
+    // Get the target ID based on the targetType
+    const targetID = targetType === 'office' ? target.attr('id') : target.data('target');
 
-    // Get the target ID from the clicked marker's data attribute
-    const targetID = $(this).data('target');
-
-    // Remove the 'active' class from all .office elements
+    // Remove the 'active' class from all .office elements and .map-marker elements
     $('.office').removeClass('active');
     $('.map-marker').removeClass('active');
 
-    // Get the office element with the matching ID
+    // Get the office and map-marker elements with the matching ID
     const targetOffice = $(`.office[id="${targetID}"]`);
-    
-    $(this).addClass('active');
+    const targetMapMarker = $(`.map-marker[id="${targetID}"]`);
 
-    // Add the 'active' class to the office element with the matching ID
+    // Add the 'active' class to the target elements
     targetOffice.addClass('active');
-    
+    targetMapMarker.addClass('active');
+  }
+
+  // Bind the click and hover events for .map-marker
+  $('.map-marker').on('click mouseenter', function(e) {
+    if (e.type === 'click') {
+      e.preventDefault();
+    }
+    setActiveMarker($(this), 'map-marker');
+  });
+
+  // Bind the click and hover events for .office
+  $('.office').on('click mouseenter', function() {
+    setActiveMarker($(this), 'office');
   });
 });
+
 
 // Stats Scrolling
 function formatNumber(number) {

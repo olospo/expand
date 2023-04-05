@@ -44,6 +44,8 @@
     &:hover, &.active {
       &:before {
         background: url('../img/map-marker-green.svg') center center no-repeat;
+        animation: next ease-in-out 2s;
+        animation-iteration-count: infinite;
       }
     }
   }
@@ -52,7 +54,7 @@
     left: 45%;
     &:before {
       animation: next ease-in-out 2s;
-      animation-iteration-count: infinite;
+      animation-iteration-count: 1;
     }
   }
   #New-York {
@@ -60,7 +62,7 @@
     left:29%;
     &:before {
       animation: next ease-in-out 2s;
-      animation-iteration-count: infinite;
+      animation-iteration-count: 1;
     }
   }
   #Singapore {
@@ -68,7 +70,7 @@
     left: 75%;
     &:before {
       animation: next ease-in-out 2s;
-      animation-iteration-count: infinite;
+      animation-iteration-count: 1;
     }
   }
 }
