@@ -1,5 +1,9 @@
 // News
 
+section.news_image {
+  height: 400px;
+}
+
 section.news {
   padding: $padding-half 0;
   article.item {
@@ -19,16 +23,7 @@ section.news {
     .item_content {
       background: $white-bg;
       padding: 30px;
-      a.category_tag {
-        margin: 0 0 10px 0;
-        font: $bold 1.4rem/2.0rem $heading;
-        text-transform: uppercase;
-        background: $light-green;
-        color: $white;
-        padding: 5px 20px;
-        display: inline-block;
-        text-decoration: none;
-      }
+      
       p.date {
         font: $bold 1.4rem/2.0rem $heading;
       }
@@ -46,3 +41,13 @@ section.news {
   }
 }
 
+a.category_tag {
+  margin: 0 0 10px 0;
+  font: $bold 1.4rem/2.0rem $heading;
+  text-transform: uppercase;
+  background: $light-green;
+  color: $white;
+  padding: 5px 20px;
+  display: inline-block;
+  text-decoration: none;
+}

@@ -14,26 +14,15 @@ while ( have_posts() ) : the_post(); ?>
 <section class="news_image" style="background:url(<?php the_post_thumbnail_url( 'full' ); ?>) center center no-repeat; background-size: cover;"></section>
 <?php endif; ?>
 
-<?php if( $author ): ?>
-<section class="author_image"><img src="<?php echo $featured_img_url; ?>" alt="<?php echo esc_html( $author->post_title ); ?>"></section>
-<?php endif; ?>
-<section class="hero news single <?php if( $author ): ?>author<?php endif; ?>">
-  <div class="shapes one"></div><div class="shapes two"></div><div class="shapes three"></div><div class="shapes four"></div><div class="shapes five"></div><div class="overlay"></div>
-  <div class="container">
-    <div class="eight columns offset-by-two">
-      <p class="date"><?php the_time('jS M Y'); ?></p>
-      <?php if( $author ): ?>
-      <p class="author">Written by <?php echo esc_html( $author->post_title ); ?></p>
-      <?php endif; ?>
-      <h1><?php the_title(); ?></h1>
-    </div>
-  </div>
-</section>
-
 <section class="post">
   <div class="container flex">
     <div class="content ten columns offset-by-one">
-      <?php // get_template_part( 'inc/details' ); ?>
+      <?php $category = get_the_category(); $name = $category[0]->cat_name;
+        $cat_id = get_cat_ID( $name );
+        $link = get_category_link( $cat_id );
+        echo '<a class="category_tag" href="'. esc_url( $link ) .'"">'. $name .'</a>'; ?>
+      <p class="date"><?php the_time('jS F Y'); ?></p>
+      <h1><?php the_title(); ?></h1>
       <?php if (have_rows('project_content')) { // Flexible Content ?>
       <div class="flexible_content twelve columns">        
         <?php while (have_rows('project_content')) { the_row(); ?>
