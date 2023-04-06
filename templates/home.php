@@ -96,9 +96,7 @@ while ( have_posts() ) : the_post(); ?>
 
 <section class="careers_cta">
   <div class="container">
-    <div class="cta_background">
-      
-    </div>
+    <div class="cta_background"></div>
     <div class="cta_content">
       <div class="content">
       <h4>We're building tomorrow</h4>

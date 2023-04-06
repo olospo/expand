@@ -184,35 +184,36 @@ function formatNumber(number) {
   return parseFloat(fixed) === parseInt(fixed) ? parseInt(fixed) : fixed;
 }
 
-var triggerAtY = $('.stat_section').offset().top - $(window).outerHeight();
-
-$(window).scroll(function(event) {
-  // #target not yet in view
-  if (triggerAtY > $(window).scrollTop()) {
-    return;
+function checkInView() {
+  if (triggerAtY <= $(window).scrollTop()) {
+    startCounter();
+    $(window).off('scroll', checkInView); // Remove the scroll event handler
   }
+}
 
+function startCounter() {
   $('.unit').each(function () {
-    const prefix = $(this).data('prefix') || ''; // Get the prefix from the data attribute
-    const postfix = $(this).data('postfix') || ''; // Get the postfix from the data attribute
+    const prefix = $(this).data('prefix') || '';
+    const postfix = $(this).data('postfix') || '';
     $(this).prop('Counter', 0).delay(0).animate({
-        Counter: $(this).text()
+      Counter: $(this).text()
     }, {
-        duration: 3000,
-        easing: 'swing',
-        step: function() {
-          // Add the prefix and postfix during the count
-          $(this).text(prefix + Math.round(this.Counter).toLocaleString() + postfix);
-        },
-        complete: function() {
-          // Add the prefix and postfix after the count
-          $(this).text(prefix + formatNumber(parseFloat(this.Counter)).toLocaleString() + postfix);
-        }
+      duration: 3000,
+      easing: 'swing',
+      step: function() {
+        $(this).text(prefix + Math.round(this.Counter).toLocaleString() + postfix);
+      },
+      complete: function() {
+        $(this).text(prefix + formatNumber(parseFloat(this.Counter)).toLocaleString() + postfix);
+      }
     });
     $('.fade_in').fadeIn(500).delay(100);
   });
+}
 
-  // remove this event handler
-  $(this).off(event);
-})
+var triggerAtY = $('.stat_section').offset().top - $(window).outerHeight();
+
+$(window).on('scroll', checkInView); // Add the scroll event handler
+checkInView(); // Check if the section is in view on page load
+
 var counter = 0;
