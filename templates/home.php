@@ -16,8 +16,6 @@ while ( have_posts() ) : the_post(); ?>
   </div>
 </section>
 
-<?php // get_template_part( 'inc/text' ); ?>
-
 <?php get_template_part( 'inc/stats' ); ?>
 
 <section class="square_section">
@@ -47,18 +45,46 @@ while ( have_posts() ) : the_post(); ?>
       <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Comparison')">Comparison</button>
       <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Action')">Action</button>
     </div> 
-    <article id="Data" class="tab twelve columns">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <article id="Data" class="tab eight columns offset-by-two">
+      <div class="contain">
+        <div class="icon">
+          <img src="<?php bloginfo('template_directory'); ?>/img/icon.png" alt="Placeholder icon">
+        </div>
+        <div class="content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
     </article>
     
-    <article id="Normalisation" class="tab twelve columns" style="display:none">
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <article id="Normalisation" class="tab eight columns offset-by-two" style="display:none">
+      <div class="contain">
+        <div class="icon">
+          <img src="<?php bloginfo('template_directory'); ?>/img/icon_two.png" alt="Placeholder icon">
+        </div>
+        <div class="content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
     </article>
-    <article id="Comparison" class="tab twelve columns" style="display:none">
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <article id="Comparison" class="tab eight columns offset-by-two" style="display:none">
+      <div class="contain">
+        <div class="icon">
+          <img src="<?php bloginfo('template_directory'); ?>/img/icon.png" alt="Placeholder icon">
+        </div>
+        <div class="content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
     </article>
-    <article id="Action" class="tab twelve columns" style="display:none">
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <article id="Action" class="tab eight columns offset-by-two" style="display:none">
+      <div class="contain">
+        <div class="icon">
+          <img src="<?php bloginfo('template_directory'); ?>/img/icon_two.png" alt="Placeholder icon">
+        </div>
+        <div class="content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
     </article>
   </div>
 </section>

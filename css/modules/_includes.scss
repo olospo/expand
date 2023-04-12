@@ -299,7 +299,26 @@
     }
   }
   article {
-    margin: $padding-half 0;
+    margin: $padding 0 $padding-half;
+    
+    .contain {
+      display: flex;
+      align-items: center;
+      .icon {
+          width: 100%;
+          float: left;
+          margin-right: 40px;
+        }
+       .content {
+      
+         p {
+           color: $dark-grey;
+           font: $medium 2.0rem/3.2rem $heading;
+         }
+          
+        }
+    }
+    
   }
 }
 
