@@ -1,36 +1,21 @@
-<?php /* Template Name: Home */
+<?php /* Template Name: Products */
 get_header();
 
 while ( have_posts() ) : the_post(); ?>
 
 <?php get_template_part( 'inc/hero' ); ?>
 
-<section class="square_section white">
-  <div class="container">
-    <div class="square_background video"></div>
-    <div class="square_content">
-      <div class="content">
-        <p>We provide industry intelligence to financial services organisations of all types to empower them to grow, compete and operate with increased effectiveness</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<?php // get_template_part( 'inc/text' ); ?>
-
-<?php get_template_part( 'inc/stats' ); ?>
-
-<section class="square_section">
+<section class="square_section green">
   <div class="container">
     <div class="square_content">
       <div class="content">
         <div class="title">
-          <h3 class="split_title">Best in class</h3>
+          <h3 class="split_title">KPI Catalogue</h3>
         </div>
-        <p>Our customised research assists firms in future- proofing their business by enabling them to benchmark themselves against their peers, gather market intelligence about new and innovative strategies and gain an understanding of what best in class looks like</p>
+        <p>Expand’s products are based on proprietary raw data, collected from our clients, spanning numerous metrics and KPIs suitable for a broad array of use cases. Take a look at our comprehensive KPI Catalogue to explore the depth and granularity of our peer-to-peer comparisons.</p>
       </div>
     </div>
-    <div class="square_background best">
+    <div class="square_background">
     
     </div>
   </div>
@@ -39,7 +24,7 @@ while ( have_posts() ) : the_post(); ?>
 <section class="tabbed_section">
   <div class="container">
     <div class="title twelve columns">
-      <h3 class="split_title">Our Unique Approach</h3>
+      <h3 class="split_title">Differentiated Methodology</h3>
     </div>
     <div class="tab_menu twelve columns">
       <button class="w3-bar-item w3-button tablink active" onclick="openTab(event,'Data')">Data Collection</button>
@@ -63,50 +48,54 @@ while ( have_posts() ) : the_post(); ?>
   </div>
 </section>
 
-<section class="our_products">
+<section class="product_section">
   <div class="container">
-    <div class="title twelve columns">
-      <h3 class="split_title">Our Products</h3>
-    </div>
-    <div class="row">
-      <article class="one-third column">
-        <div class="content">
-          <span class="type">Product</span>
-          <h4>Functional Effectiveness</h4>
-          <p>Int et quia nullab id even im fugiae mi, sit fugit que nonem ipsu nti busam, sum facium ullest, to cus pore com molor rem volup</p>
-        </div>
-      </article>
-      <article class="one-third column">
-        <div class="content">
-          <span class="type">Product</span>
-          <h4>Business Performance Benchmarks</h4>
-          <p>Int et quia nullab id even im fugiae mi, sit fugit que nonem ipsu nti busam, sum facium ullest, to cus pore com molor rem volup</p>
-        </div>
-      </article>
-      <article class="one-third column">
-        <div class="content">
-          <span class="type">Product</span>
-          <h4>Working Groups & Forums</h4>
-          <p>Int et quia nullab id even im fugiae mi, sit fugit que nonem ipsu nti busam, sum facium ullest, to cus pore com molor rem volup</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="careers_cta">
-  <div class="container">
-    <div class="cta_background"></div>
-    <div class="cta_content">
-      <div class="content">
-      <h4>We're building tomorrow</h4>
-      <p>Flourish in an environment where creative thinking is encouraged. Become a part of our unique, diverse and entrepreneurial environment</p>
-      <p><a href="#" class="button">Apply now</a><br />
-      <a href="#" class="button">Explore our culture</a></p>
+    
+    <div class="product twelve columns">
+      <div class="content six columns">
+        <h3>Functional Effectiveness</h3>
+        <p>Want to understand cost and capability?</p>
+        <p>Here is an extensive product portfolio designed to support firms in assessing specific functional areas relative to peers, including:</p>
+        <ul>
+          <li>Technology</li>
+          <li>Operations</li>
+          <li>Corporate Functions</li>
+          <li>External Fees</li>
+        </ul>
       </div>
     </div>
+    
+    <div class="product twelve columns">
+      <div class="content six columns">
+        <h3>Business Performance</h3>
+        <p>Want to know the health of your business?</p>
+        <p>These products provide independent and impartial benchmarks of firms’ overall performance relative to peers, including:</p>
+        <ul>
+          <li>Revenues</li>
+          <li>Volumes</li>
+          <li>Client Intelligence</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="product twelve columns">
+      <div class="content six columns">
+        <h3>Working Groups and Forums</h3>
+        <p>Want to know what your peers are thinking?</p>
+        <p>These events are an opportunity for member participants to meet with peers and discuss hot topics or challenges they might be facing, in a controlled and confidential environment:</p>
+        <ul>
+          <li>Tech and Ops Roundtables</li>
+          <li>IT Regulatory Risk Working Group</li>
+          <li>Fraud, Financial Crime and AML eForums → Market Data Forums</li>
+          <li>CIO and COO Forums</li>
+        </ul>
+      </div>
+    </div>
+    
   </div>
 </section>
 
+
 <?php endwhile; // end of the loop. ?>
+
 <?php get_footer(); ?>

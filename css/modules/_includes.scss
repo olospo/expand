@@ -26,6 +26,18 @@
       width: 50%;
       min-height: 540px;
     }
+    &.video { // Placeholder
+      background: url('../img/home_damian.jpg') center center no-repeat !important;
+      background-size: cover !important;
+    }
+    &.solutions { // Placeholder
+      background: url('../img/about_solutions.jpg') center center no-repeat !important;
+      background-size: cover !important;
+    }
+    &.best { // Placeholder
+      background: url('../img/home_skyscrapers.jpg') center center no-repeat !important;
+      background-size: cover !important;
+    }
   }
   .square_content {
     height: auto;
@@ -300,7 +312,7 @@
     display: flex;
   }
   .cta_background {
-    background: url('../img/placeholder.jpg') center center no-repeat;
+    background: url('../img/expand_careers.jpg') center center no-repeat;
     background-size: cover;
     content: "";
     height: auto;

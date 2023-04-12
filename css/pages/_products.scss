@@ -1,0 +1,21 @@
+// Products
+
+.product_section {
+  padding: $padding 0;
+  .product {
+    
+    margin: 0 0 $padding-half 0;
+    background: url('../img/london.jpg') center center no-repeat;
+    background-size: cover;
+    padding: 40px;
+    .content {
+      padding: 20px 40px;
+      background: $white_bg;
+      border-top: 4px solid $light-green;
+      background: rgba(240, 240, 240, 0.90);
+    }
+    &:last-child {
+      margin: 0;
+    }
+  }
+}
