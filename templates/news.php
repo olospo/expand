@@ -45,7 +45,7 @@ while ( have_posts() ) : the_post(); ?>
               $cat_id = get_cat_ID( $name );
               $link = get_category_link( $cat_id );
               echo '<a class="category_tag" href="'. esc_url( $link ) .'"">'. $name .'</a>'; ?>
-              <p class="date"><?php the_time('jS F Y'); ?></p>
+              <p class="date"><?php the_time('F j, Y'); ?></p>
               <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
               <?php the_excerpt(); ?>
               <a href="<?php the_permalink(); ?>" class="button">Read more</a>
@@ -64,7 +64,7 @@ while ( have_posts() ) : the_post(); ?>
               $cat_id = get_cat_ID( $name );
               $link = get_category_link( $cat_id );
               echo '<a class="category_tag" href="'. esc_url( $link ) .'"">'. $name .'</a>'; ?>
-            <p class="date"><?php the_time('jS F Y'); ?></p>
+            <p class="date"><?php the_time('F j, Y'); ?></p>
             <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
             <?php the_excerpt(); ?>
             <a href="<?php the_permalink(); ?>" class="button">Read more</a>

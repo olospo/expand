@@ -6,6 +6,7 @@
             "key": "field_62ed18fd18b48",
             "label": "Author",
             "name": "author",
+            "aria-label": "",
             "type": "post_object",
             "instructions": "",
             "required": 0,
@@ -15,13 +16,15 @@
                 "class": "",
                 "id": ""
             },
+            "relevanssi_exclude": 0,
             "post_type": [
                 "profile"
             ],
+            "post_status": "",
             "taxonomy": "",
-            "allow_null": 1,
-            "multiple": 0,
             "return_format": "object",
+            "multiple": 1,
+            "allow_null": 1,
             "ui": 1
         }
     ],
@@ -43,5 +46,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1660214698
+    "modified": 1681304316
 }
