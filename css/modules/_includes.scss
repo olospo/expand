@@ -331,16 +331,20 @@
     display: flex;
   }
   .cta_background {
-    background: url('../img/expand_careers.jpg') center center no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)), url('../img/expand_careers.jpg') center center no-repeat;
     background-size: cover;
     content: "";
     height: auto;
-    min-height: 540px;
+    min-height: 600px;
     width: 50%;
     @media (min-width: $breakpoint-tablet) {
       width: 75%;
     }
     max-width: 1600px;
+    .cta_title {
+      @include vertical-align;
+      left: 5%;
+    }
   }
   .cta_content {
     background: $white-bg;
