@@ -48,27 +48,29 @@ footer.main {
       float: left;
     }
   }
-  h5 {
-    font: $normal 2.4rem/3.2rem $bold;
-    color: $yellow;
-    margin-bottom: 20px;
+  h4 {
+    font: $medium 2.0rem/2.4rem $heading;
+    color: $white;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $table-green;
   }
-  address {
-    font: $normal 1.6rem/2.4rem $light;
-    margin-bottom: 20px;
+  address, p {
+    font: $normal 1.4rem/2.4rem $heading;
+    margin-bottom: 0px;
     &:last-child {
       margin-bottom: 0;
     }
   }
-  
+  h5 {
+    font: $bold 1.2rem/2.0rem $heading;
+    color: $white;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+  }
   ul.social {
     text-align: left;
-    margin: 20px 0;
-    @media (min-width: $breakpoint-tablet) {
-      text-align: right;
-      margin: 52px 0 0 0;
-    }
-    
+    margin: 10px 0 0 0;
     li {
       display: inline-block;
       margin: 0px 3px;
@@ -88,7 +90,7 @@ footer.main {
           svg {
             path {
               transition: all ease .3s;
-              fill: $yellow;
+              fill: $dark-green;
             }
           }
         }

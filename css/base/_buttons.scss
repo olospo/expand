@@ -13,7 +13,7 @@
   margin: 0px 10px 0px 0;
   font: $bold 1.2rem/1.2rem $heading;
   @media (min-width: $breakpoint-tablet) {
-    font: $bold 1.6rem/1.6rem $heading;
+    font: $bold 1.4rem/1.4rem $heading;
   }
   
   color: $black;
@@ -26,7 +26,7 @@
   @include border-radius(10px);
   &:before {
     margin-right: 10px;
-    font: $bold 1.6rem/1.6rem $heading;
+    font: $bold 1.4rem/1.4rem $heading;
     content: "→";
     color: $light-green;
   }

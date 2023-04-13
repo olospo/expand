@@ -51,7 +51,7 @@ header {
     padding-right: 35px;
     ul {
       font-size: 0;
-      margin: 30px 0;
+      margin: 0;
       text-align: right;
       line-height:1em;
       @media (min-width: $breakpoint-laptop) {
@@ -60,15 +60,18 @@ header {
       li {
         position: relative;
         display: inline-block;
+        &:hover {
+          cursor: pointer;
+        }
         &.current_page_item a, &.current-menu-item a, &.current-page-ancestor a, &.current-post-ancestor a, &.current-menu-parent a, &.current-category-ancestor a, &.current_page_parent a, &:hover a {
           color: $dark-green;
           padding: 8px 0px;
-          margin: 5px 15px;
+          margin: 35px 15px;
           border-bottom: 2px solid $dark-green;
         }
         &:after {
           content: '';
-          height: 30%; //You can change this if you want smaller/bigger borders
+          height: 10%; //You can change this if you want smaller/bigger borders
           width: 1px;
           position: absolute;
           right: 0;
@@ -92,7 +95,47 @@ header {
           border-bottom: 2px solid transparent;
           text-decoration: none;
           padding: 8px 0px;
-          margin: 5px 15px;
+          margin: 35px 15px;
+        }
+        &.menu-item-has-children, &.page_item_has_children {
+          a {
+            background: url('../img/menu_arrow.svg') right center no-repeat;
+            padding-right: 20px;
+          }
+          ul {
+            border: 0;
+            text-align: left;
+            li {
+              box-sizing: border-box;
+              padding: 10px 5px;
+              // display: block;
+              a {
+                letter-spacing: 0px;
+                text-transform: none;
+                font: $normal 1.4rem/3.0rem $regular;
+                color: $dark-green;
+                margin: 0;
+                border-bottom: 2px solid transparent;
+                background: none !important;
+              }
+              &:after { 
+                width: 0px;
+              }
+              &:hover a, &.current-menu-item a, &.current_page_item a {
+                color: $light-green;
+                border-bottom: 2px solid $light-green;
+              }
+              &.menu-item-has-children, &.page_item_has_children {
+                a {
+                  background: url('../img/menu_arrow.svg') right center no-repeat;
+                  padding-right: 20px;
+                }
+                a:hover > ul {
+                    position: relative;
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -168,6 +211,69 @@ nav.mobile {
         margin: 20px 0px;
         padding-right: 15px;
       }
+      &.menu-item-has-children {
+        position: relative;
+        a {
+          margin-right: 50px;
+          
+        }
+        .sub-toggle {
+          cursor: pointer;
+          position: absolute;
+          right: 5px;
+          top: 5px;
+          margin: auto;
+          padding: 20px;
+          background: url('../img/menu_arrow_mobile.svg') center center no-repeat;
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+          &.open {
+            background: url('../img/menu_arrow_mobile.svg') center center no-repeat;
+            transform-origin: center center;
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+          }
+        }
+        li {
+          a {
+            background: none;
+          }
+        }
+      }
+      &.current_page_parent.menu-item-has-children {
+        .sub-toggle {
+          background: url('../img/menu_arrow_mobile.svg') center center no-repeat;
+          transform-origin: center center;
+          -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+          &.open {
+            background: url('../img/menu_arrow_mobile.svg') center center no-repeat;
+            transform-origin: center center;
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+          }
+        }
+        ul.sub-menu {
+          display: block;
+        }
+      }
+      ul.sub-menu {
+        display: none;
+        margin: 0 0px 0 10px;
+        padding: 0;
+        li {
+          padding-left: 10px;
+          a {
+            
+          }
+        }
+        &:nth-last-child(2), &:last-child {
+          a {
+            border-bottom: 1px solid #e1e1ff;
+          }
+        }
+      }
+      
     }
   }
 }
@@ -238,4 +344,38 @@ nav.mobile {
   visibility: visible;
   opacity: 1;
   transition: opacity linear 0.5s, visibility linear 0.5s;
+}
+
+nav.primary ul ul {
+  position: absolute;
+  z-index: 9999;
+  background: $white-bg;
+  margin: 0;
+  letter-spacing: 0px;
+  @include invisible();
+  opacity: 0;
+  visibility: hidden;
+  top: 102px;
+  left: calc(50%);
+  transform: translatex(-50%);
+  width: 680px;
+  padding: 20px 30px;
+  text-align: left;
+  white-space: normal;
+  display: flex;
+  flex-flow: row wrap;
+  border-bottom: 5px solid $light-green !important;
+  li {
+    flex-basis: 33%;
+    a {
+      display: inline-block;
+      padding: 0px !important;
+    }
+  }
+}
+
+nav.primary ul li:hover > ul {
+  @include visible();
+  opacity: 1;
+  visibility: visible;
 }

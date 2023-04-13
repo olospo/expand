@@ -237,7 +237,7 @@ function custom_post_type() {
 		'exclude_from_search' => false,
 		'publicly_queryable'  => true,
 		'capability_type'     => 'post',
-		'rewrite'   => array( 'slug' => 'careers' ),
+		'rewrite'   => array( 'slug' => 'career' ),
 	);
 	register_post_type( 'career', $args );
 	
