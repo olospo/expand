@@ -9,7 +9,7 @@
       <div class="content">
       <h4>We're building tomorrow</h4>
       <p>Flourish in an environment where creative thinking is encouraged. Become a part of our unique, diverse and entrepreneurial environment</p>
-      <p><a href="#" class="button">Apply now</a><br />
+      <p><a href="<?php echo get_site_url(); ?>/careers" class="button">Apply now</a><br />
       <a href="#" class="button">Explore our culture</a></p>
       </div>
     </div>

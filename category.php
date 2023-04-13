@@ -5,46 +5,73 @@ $cat= get_queried_object();
 get_header(); ?>
 
 <section class="hero news">
-  <div class="shapes one"></div><div class="shapes two"></div><div class="shapes three"></div><div class="shapes four"></div><div class="shapes five"></div><div class="overlay"></div>
   <div class="container">
     <h1><?php single_cat_title(); ?></h1>
   </div>
 </section>
 
-<section class="news_filter">
+<section class="news">
   <div class="container">
-    <div class="twelve columns">
-    <div class="filter">
-      Filter News
-      <span></span>
-      <span></span>
-    </div>
-    <?php $categories = get_categories(); ?>
-    <ul class="cat_filter">
-    <span>Filter</span>
-      <li><a href="<?php echo get_site_url(); ?>/news">All</a></li>
-    <?php foreach ( $categories as $category ) { ?>
-      <li class="cat-<?php echo $category->term_id; ?> <?php if ( $category->term_id == $cat->term_id ) { echo "current"; }  ?>"><a href="<?php echo get_category_link( $category->term_id ); ?> "><?php echo $category->name; ?></a></li>
-    <?php } ?>
-    </ul>
-    </div>
-  </div>
-</section>
-
-<section class="news_archive">
-  <div class="container">
-    <div class="twelve columns">
-      <?php if ( have_posts() ) : while (have_posts()) : the_post();  ?>
-        <?php get_template_part('inc/article'); ?>
-      <?php endwhile; ?>
-      <div class="twelve columns">
-      <?php numeric_posts_nav(); ?>
-      </div>
+  <?php // $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+        // $args = array(
+            // 'post_type'      => 'post',
+            // 'order'          => 'DESC',
+            // 'post_status'    => 'publish',
+            // 'paged'          => $paged
+        // ); 
+        // query_posts($args); ?>
+  <?php if ( have_posts() ) : while (have_posts()) : the_post(); ?>
+      <?php if( $wp_query->current_post == 0 ) : // If First Post ?>
+        <article class="item featured twelve columns">
+          <?php if ( has_post_thumbnail() ) { ?>
+          <div class="item_image featured six columns no_right_margin">
+            <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'featured-img' ); ?></a>
+          </div>
+          <div class="item_content featured six columns no_left_margin">
+          <?php } else { ?>
+          <div class="item_content twelve columns">
+          <?php } ?>
+            <div class="content">
+              <?php $category = get_the_category(); $name = $category[0]->cat_name;
+              $cat_id = get_cat_ID( $name );
+              $link = get_category_link( $cat_id );
+              echo '<a class="category_tag" href="'. esc_url( $link ) .'"">'. $name .'</a>'; ?>
+              <p class="date"><?php the_time('F j, Y'); ?></p>
+              <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+              <?php the_excerpt(); ?>
+              <a href="<?php the_permalink(); ?>" class="button">Read more</a>
+            </div>
+          </div>
+        </article>
       <?php else : ?>
-      <!-- No posts found -->
-      <?php endif; wp_reset_query(); ?>
+        <article class="item one-third column">
+          <?php if ( has_post_thumbnail() ) { ?>
+          <div class="item_image">
+            <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'featured-img' ); ?></a>
+          </div>
+          <?php } ?>
+          <div class="item_content">
+            <?php $category = get_the_category(); $name = $category[0]->cat_name;
+              $cat_id = get_cat_ID( $name );
+              $link = get_category_link( $cat_id );
+              echo '<a class="category_tag" href="'. esc_url( $link ) .'"">'. $name .'</a>'; ?>
+            <p class="date"><?php the_time('F j, Y'); ?></p>
+            <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+            <?php the_excerpt(); ?>
+            <a href="<?php the_permalink(); ?>" class="button">Read more</a>
+          </div>
+        </article>
+      <?php endif; ?>
+    <?php endwhile; ?>
+    <div class="row">
+      <div class="sixteen columns">
+        <?php numeric_posts_nav(); ?>
       </div>
     </div>
+    
+  <?php else : ?>
+  <!-- No posts found -->
+  <?php endif; wp_reset_query(); ?>
   </div>
 </section>
 
