@@ -3,8 +3,7 @@ get_header();
 
 while ( have_posts() ) : the_post(); ?>
 
-<section class="hero careers">
-  <div class="shapes one"></div><div class="shapes two"></div><div class="shapes three"></div><div class="shapes four"></div><div class="shapes five"></div><div class="overlay"></div>
+<section class="hero careers" style="background:url(<?php the_post_thumbnail_url( 'full' ); ?>) center center no-repeat; background-size: cover;">
   <div class="container">
     <h1><?php the_title(); ?></h1>
   </div>
@@ -18,8 +17,9 @@ while ( have_posts() ) : the_post(); ?>
     </div>
     <div class="four columns">
       <div class="apply">
-        <h2>Apply</h2>
-        <p>Apply by sending your CV and cover letter, including why you are interested in this role and consider yourself to be a good fit for it, to <a href="mailto:careers@expandresearch.com">careers@expandresearch.com</a>. Please also include your desired salary along with your notice period/available start date. Please note that applications without a cover letter will not be considered.</p>
+        <h2>How to apply</h2>
+        <p>Apply by sending your CV and cover letter, including why you are interested in this role and consider yourself to be a good fit for it, to <a href="mailto:careers@expandresearch.com">careers@expandresearch.com</a>.</p>
+        <p>Please also include your desired salary along with your notice period/available start date. Please note that applications without a cover letter will not be considered.</p>
       </div>
       <?php $args = array(
           'post_type' => 'career',
