@@ -57,58 +57,47 @@ while ( have_posts() ) : the_post(); ?>
   </div>
 </section>
 
-<section class="tabbed_section">
+<section class="application_section">
   <div class="container">
     <div class="title twelve columns">
       <h3 class="split_title">Application process</h3>
+      <p>Our application process can vary depending on the role, however you can usually expect:</p>
     </div>
-    <div class="tab_menu twelve columns">
-      <button class="w3-bar-item w3-button tablink active" onclick="openTab(event,'Data')">Data Collection</button>
-      <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Normalisation')">Normalisation</button>
-      <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Comparison')">Comparison</button>
-      <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Action')">Action</button>
-    </div> 
-    <article id="Data" class="tab eight columns offset-by-two">
-      <div class="contain">
-        <div class="icon">
-          <img src="<?php bloginfo('template_directory'); ?>/img/icon.png" alt="Placeholder icon">
+    <div class="row">
+      <article class="tab one-third column">
+        <div class="contain">
+          <div class="icon">
+            <img src="<?php bloginfo('template_directory'); ?>/img/icon_two.png" alt="Placeholder icon">
+          </div>
+          <div class="content">
+            <h4>Predictive index assessments</h4>
+            <p>These online assessments should each take 10-15 minutes to complete. They help us to understand a little more about you which we can then explore in more detail later in the process.</p>
+          </div>
         </div>
-        <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </article>
+      <article class="tab one-third column">
+        <div class="contain">
+          <div class="icon">
+            <img src="<?php bloginfo('template_directory'); ?>/img/icon_three.png" alt="Placeholder icon">
+          </div>
+          <div class="content">
+            <h4>Telephone interview</h4>
+            <p>This is an opportunity for us to learn more about you: your studies, your skills, your experience, and why you chose to apply to Expand. As interviews are two- way processes, we also use this as an opportunity for you to learn more about us too.</p>
+          </div>
         </div>
-      </div>
-    </article>
-    
-    <article id="Normalisation" class="tab eight columns offset-by-two" style="display:none">
-      <div class="contain">
-        <div class="icon">
-          <img src="<?php bloginfo('template_directory'); ?>/img/icon_two.png" alt="Placeholder icon">
+      </article>
+      <article class="tab one-third column">
+        <div class="contain">
+          <div class="icon">
+            <img src="<?php bloginfo('template_directory'); ?>/img/icon.png" alt="Placeholder icon">
+          </div>
+          <div class="content">
+            <h4>Case study</h4>
+            <p>At this stage of the process you will get the opportunity to meet some more members of our team who will guide you through a more in depth case study to assess your analytical capabilities. If you reach this stage, we will provide more details about what to expect and how to prepare for this part of the process.</p>
+          </div>
         </div>
-        <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
-      </div>
-    </article>
-    <article id="Comparison" class="tab eight columns offset-by-two" style="display:none">
-      <div class="contain">
-        <div class="icon">
-          <img src="<?php bloginfo('template_directory'); ?>/img/icon.png" alt="Placeholder icon">
-        </div>
-        <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
-      </div>
-    </article>
-    <article id="Action" class="tab eight columns offset-by-two" style="display:none">
-      <div class="contain">
-        <div class="icon">
-          <img src="<?php bloginfo('template_directory'); ?>/img/icon_two.png" alt="Placeholder icon">
-        </div>
-        <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
-      </div>
-    </article>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -131,8 +120,8 @@ while ( have_posts() ) : the_post(); ?>
       <article class="standard">
         <div class="item_content eight columns offset-by-two">
           <div class="content">
-            <h3>Associate – London</h3>
-            <p>Expand is looking for enthusiastic Associates to join our Delivery team. Our Associates are typically recent graduates, so if you’re just starting your career this role may be for you.</p>
+            <h3>Project Leader - Asset & Wealth Management – London</h3>
+            <p>Expand is looking for an experienced analytical professional to lead our Asset & Wealth Management team.</p>
             <a href="<?php the_permalink(); ?>" class="button red">Read more</a>
           </div>
         </div>
@@ -140,8 +129,8 @@ while ( have_posts() ) : the_post(); ?>
       <article class="standard">
         <div class="item_content eight columns offset-by-two">
           <div class="content">
-            <h3>Associate – London</h3>
-            <p>Expand is looking for enthusiastic Associates to join our Delivery team. Our Associates are typically recent graduates, so if you’re just starting your career this role may be for you.</p>
+            <h3>Technical Sales Engineer – London</h3>
+            <p>Expand is looking for an experienced Technical Sales Engineer to join our team to help our clients as they leverage Expand’s technology offering.</p>
             <a href="<?php the_permalink(); ?>" class="button red">Read more</a>
           </div>
         </div>
