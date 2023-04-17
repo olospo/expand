@@ -266,6 +266,9 @@
         margin: 0;
         background: $light-green;
         opacity: 0.8;
+        h4, span, p {
+          color: $white;
+        }
       }
     }
   }

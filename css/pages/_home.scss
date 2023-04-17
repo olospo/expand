@@ -2,7 +2,7 @@
 
 // Hero
 .home.hero {
-  background: $dark-green;
+  // background: $dark-green;
   padding: 0;
   overflow: hidden;
   position: relative;
@@ -13,7 +13,7 @@
     overflow: hidden;
     @include aspect-ratio(1,1);
     @media (min-width: $breakpoint-tablet) {
-      @include aspect-ratio(16,6);
+      @include aspect-ratio(16,8);
     }
     visibility: visible;
     @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {

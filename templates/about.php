@@ -3,7 +3,15 @@ get_header();
 
 while ( have_posts() ) : the_post(); ?>
 
-<?php get_template_part( 'inc/hero' ); ?>
+<section class="hero home">
+  <div class="video-upload">
+    <video data-object-fit="cover" playsinline muted autoplay loop  id="homeVideo" poster="<?php echo $image['url']; ?>">
+      <source src="<?php bloginfo('template_directory'); ?>/video/about.webm" type="video/webm">
+      <source src="<?php bloginfo('template_directory'); ?>/video/about.mp4" type="video/mp4">
+    </video>
+    <div class="poster" style="background: url('<?php echo $image['url']; ?>') center center no-repeat; background-size: cover"></div>
+  </div>
+</section>
 
 <?php get_template_part( 'inc/text' ); ?>
 
