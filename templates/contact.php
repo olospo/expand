@@ -50,7 +50,7 @@ while ( have_posts() ) : the_post(); ?>
     <div class="offices">
     <div class="office" id="London">
       <div class="content">
-        <h3>Worldwide headquarters</h3>
+        <h3>London</h3>
         <address>
           70 Mark Lane<br />
           14th Floor<br />
