@@ -64,7 +64,7 @@ while ( have_posts() ) : the_post(); ?>
       <p>Our application process can vary depending on the role, however you can usually expect:</p>
     </div>
     <div class="row">
-      <article class="tab one-third column">
+      <article class="tab three columns">
         <div class="contain">
           <div class="icon">
             <img src="<?php bloginfo('template_directory'); ?>/img/icon_two.png" alt="Placeholder icon">
@@ -75,7 +75,7 @@ while ( have_posts() ) : the_post(); ?>
           </div>
         </div>
       </article>
-      <article class="tab one-third column">
+      <article class="tab three columns">
         <div class="contain">
           <div class="icon">
             <img src="<?php bloginfo('template_directory'); ?>/img/icon_three.png" alt="Placeholder icon">
@@ -86,7 +86,18 @@ while ( have_posts() ) : the_post(); ?>
           </div>
         </div>
       </article>
-      <article class="tab one-third column">
+      <article class="tab three columns">
+        <div class="contain">
+          <div class="icon">
+            <img src="<?php bloginfo('template_directory'); ?>/img/icon.png" alt="Placeholder icon">
+          </div>
+          <div class="content">
+            <h4>Case study</h4>
+            <p>At this stage of the process you will get the opportunity to meet some more members of our team who will guide you through a more in depth case study to assess your analytical capabilities. If you reach this stage, we will provide more details about what to expect and how to prepare for this part of the process.</p>
+          </div>
+        </div>
+      </article>
+      <article class="tab three columns">
         <div class="contain">
           <div class="icon">
             <img src="<?php bloginfo('template_directory'); ?>/img/icon.png" alt="Placeholder icon">
@@ -108,38 +119,19 @@ while ( have_posts() ) : the_post(); ?>
       <div class="title">
         <h3 class="split_title">Open Positions</h3>
       </div>
-      <article class="standard">
-        <div class="item_content eight columns offset-by-two">
-          <div class="content">
-            <h3>Associate – London</h3>
-            <p>Expand is looking for enthusiastic Associates to join our Delivery team. Our Associates are typically recent graduates, so if you’re just starting your career this role may be for you.</p>
-            <a href="<?php the_permalink(); ?>" class="button red">Read more</a>
-          </div>
-        </div>
-      </article>
-      <article class="standard">
-        <div class="item_content eight columns offset-by-two">
-          <div class="content">
-            <h3>Project Leader - Asset & Wealth Management – London</h3>
-            <p>Expand is looking for an experienced analytical professional to lead our Asset & Wealth Management team.</p>
-            <a href="<?php the_permalink(); ?>" class="button red">Read more</a>
-          </div>
-        </div>
-      </article>
-      <article class="standard">
-        <div class="item_content eight columns offset-by-two">
-          <div class="content">
-            <h3>Technical Sales Engineer – London</h3>
-            <p>Expand is looking for an experienced Technical Sales Engineer to join our team to help our clients as they leverage Expand’s technology offering.</p>
-            <a href="<?php the_permalink(); ?>" class="button red">Read more</a>
-          </div>
-        </div>
-      </article>
-      </div>
+      <?php $args = array(
+        'post_type' => 'career',
+        'posts_per_page' => -1,
+        'post_status' => 'publish',
+      ); query_posts($args); ?>
+      <?php if ( have_posts() ) : while (have_posts()) : the_post(); ?>
+        <?php get_template_part('inc/career'); ?>
+      <?php endwhile; else : ?>
+      <!-- No posts found -->
+      <?php endif; wp_reset_query(); ?>
     </div>
   </div>
 </section>
-
 
 <?php endwhile; // end of the loop. ?>
 

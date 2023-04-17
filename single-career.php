@@ -25,9 +25,6 @@ while ( have_posts() ) : the_post(); ?>
         </ul>
         
       </div>
-      <div class="careers_terms">
-        <?php the_field('careers_sidebar','options'); ?>
-      </div>
       <?php $args = array(
           'post_type' => 'career',
           'posts_per_page' => 5,
@@ -36,7 +33,7 @@ while ( have_posts() ) : the_post(); ?>
         ); query_posts($args); ?>
           <?php if ( have_posts() ) : ?>
         <div class="other_jobs">
-          <h3>View other jobs</h3>
+          <h3>Other open positions</h3>
           <ul>
           <?php while (have_posts()) : the_post(); ?>
           <li><a href=<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
