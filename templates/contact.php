@@ -27,8 +27,6 @@ while ( have_posts() ) : the_post(); ?>
   <div class="container">
     <div class="title six columns offset-by-three">
       <h3 class="split_title">Expand Worldwide</h3>
-      <p>Am soluptates et evella que la volores reptur santis derepere et fuga. Et verat experiossus diciate
-        omnimus non rerum rerepudae non ne samet eossumq uaeceped quis denisit lam re, sitatur.</p>
     </div>
     <div class="map_container">
     <img src="<?php bloginfo('template_directory'); ?>/img/expand_map.png" alt="map" />
