@@ -77,6 +77,9 @@
         &:before {
           color: $white;
         }
+        &:hover {
+          color: $white;
+        }
       }
     }
   }
@@ -149,6 +152,9 @@
         a {
           color: $white;
           &:before {
+            color: $black;
+          }
+          &:hover {
             color: $black;
           }
         }
