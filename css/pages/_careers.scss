@@ -26,71 +26,61 @@
   }
 }
 
+.hero.careers {
+  h1 {
+    font: $medium 3.8rem/4.4rem $heading;
 
+    color: $white;
+    background: $mid-green;
+    padding: 15px 20px;
+    display: inline-block;
+  }
+}
+
+.post.careers {
+  background: $white-bg;
+}
+
+.speculative {
+  background: $light-green;
+  padding: $padding;
+  .title {
+    text-align: center;
+    h3 {
+      color: $white;
+    }
+    p {
+      color: $white;
+    }
+  }
+}
 
 .careers_archive {
   padding: 0 0 $padding-half 0;
   @media (min-width: $breakpoint-tablet) {
     padding: $padding 0;
   }
-  .container {
-    @media (max-width: $breakpoint-tablet) {
-      width: 100%;
-      margin: 0;
-      padding: 0;
-    }
+  .title {
+    text-align: center;
   }
-  article.standard {
-    position: relative;
-    @media (min-width: $breakpoint-tablet) {
-      display: flex;
-    }
-    overflow: hidden;
-    clear: both;
-    padding-bottom: $padding;
-    @media (max-width: $breakpoint-tablet) {
-      &:last-of-type {
-        padding-bottom: 0;
-        &:after {
-          display: none;
-        }
-      }
-    }
-    &.no_positions {
-      padding: 0;
-    }
-    .item_image {
-      overflow: hidden;
-      margin-bottom: 20px;
-      @media (min-width: $breakpoint-tablet) {
-        margin-bottom: 0px;
-        img {
-          @include border-radius(20px);
-        }
-      }
-      
-    }
+  article.career {
+    padding: $padding-half 0;
+    border-top: 1px solid $table-grey;
     .item_content {
       color: $black;
       @media (max-width: $breakpoint-tablet) {
         padding: 0 20px;
       }
       h3 {
-        font: $normal 2.4rem/3.2rem $bold;
+        font: $bold 1.8rem/2.4rem $heading;
         margin-bottom: 10px;
         color: $dark-green;
         text-decoration: none;
-        @media (min-width: $breakpoint-tablet) {
-          font: $normal 2.8rem/3.8rem $bold;
-          margin-bottom: 10px;
-        }
-        @media (min-width: $breakpoint-desktop) {
-          font: $normal 3.6rem/4.6rem $bold;
-          margin-bottom: 20px;
-        }
+        text-transform: uppercase;
         a {
           color: $dark-green;
           text-decoration: none;
+          padding: 10px 0;
         }
       }
       p {
@@ -98,37 +88,11 @@
         @media (min-width: $breakpoint-tablet) {
           font: $normal 1.8rem/3.0rem $regular;
         }
-        @media (min-width: $breakpoint-desktop) {
-          font: $normal 2.0rem/3.2rem $regular;
-        }
-        margin-bottom: 20px;
+        margin-bottom: 0px;
       }
     }
-    @media (max-width: $breakpoint-tablet) {
-      &:after {
-        position: absolute;
-        content: "";
-        width: 70px;
-        height: 1px;
-        bottom: 40px;
-        left: 50%;
-        background: #737772;
-        transition: transform .5s;
-        transform: translateX(-50%);
-        transform-origin: left;
-      }
-    }
-    @media (min-width: $breakpoint-tablet) {
-      &:nth-child(even) {
-        .item_content {
-          margin-left: 0%;
-          order: 1;
-        }
-        .item_image {
-          margin-left: 4%;
-          order: 2;
-        }
-      }
+    &:last-child {
+      border-bottom: 1px solid $table-grey;
     }
   }
   // Pagination
@@ -168,11 +132,9 @@
   h2 {
     color: $dark-green;
     padding-bottom: 10px;
-    border-bottom: 1px solid #b2b2b2;
-    font: $normal 2.4rem/3.2rem $bold;
-    @media (min-width: $breakpoint-tablet) {
-      font: $normal 3.6rem/4.6rem $bold;
-    }
+    border-bottom: 1px solid $table-grey;
+    font: $bold 1.8rem/2.4rem $heading;
+    text-transform: uppercase;
   }
   a {
     color: $dark-green;
@@ -185,16 +147,20 @@
     }
   }
 }
-.careers_terms {
-  background: #f4f1ea;
+.careers_equal {
+  background: $mid-green;
   @include border-radius(10px);
   padding: 30px;
   p {
-    font: $normal 1.6rem/2.4rem $regular;
+    color: $white;
   }
   a {
-    color: $dark-green;
-    text-decoration-color: $dark-green;
+    color: $white;
+    text-decoration-color: $white;
+    &:hover {
+      text-decoration: none;
+      color: $white;
+    }
   }
 }
 .other_jobs {
@@ -202,11 +168,9 @@
   h3 {
     color: $dark-green;
     padding-bottom: 10px;
-    border-bottom: 1px solid #b2b2b2;
-    font: $normal 2.4rem/3.2rem $bold;
-    @media (min-width: $breakpoint-tablet) {
-      font: $normal 2.4rem/3.2rem $bold;
-    }
+    border-bottom: 1px solid $table-grey;
+    font: $bold 1.8rem/2.4rem $heading;
+    text-transform: uppercase;
   }
   ul {
     font: $normal 1.6rem/2.8rem $regular;

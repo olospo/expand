@@ -64,7 +64,7 @@ while ( have_posts() ) : the_post(); ?>
       <p>Our application process can vary depending on the role, however you can usually expect:</p>
     </div>
     <div class="row">
-      <article class="tab three columns">
+      <article class="tab one-third column">
         <div class="contain">
           <div class="icon">
             <img src="<?php bloginfo('template_directory'); ?>/img/icon_two.png" alt="Placeholder icon">
@@ -75,7 +75,7 @@ while ( have_posts() ) : the_post(); ?>
           </div>
         </div>
       </article>
-      <article class="tab three columns">
+      <article class="tab one-third column">
         <div class="contain">
           <div class="icon">
             <img src="<?php bloginfo('template_directory'); ?>/img/icon_three.png" alt="Placeholder icon">
@@ -86,18 +86,7 @@ while ( have_posts() ) : the_post(); ?>
           </div>
         </div>
       </article>
-      <article class="tab three columns">
-        <div class="contain">
-          <div class="icon">
-            <img src="<?php bloginfo('template_directory'); ?>/img/icon.png" alt="Placeholder icon">
-          </div>
-          <div class="content">
-            <h4>Case study</h4>
-            <p>At this stage of the process you will get the opportunity to meet some more members of our team who will guide you through a more in depth case study to assess your analytical capabilities. If you reach this stage, we will provide more details about what to expect and how to prepare for this part of the process.</p>
-          </div>
-        </div>
-      </article>
-      <article class="tab three columns">
+      <article class="tab one-third column">
         <div class="contain">
           <div class="icon">
             <img src="<?php bloginfo('template_directory'); ?>/img/icon.png" alt="Placeholder icon">
@@ -113,10 +102,10 @@ while ( have_posts() ) : the_post(); ?>
 </section>
 
 
-<section class="page">
+<section class="careers_archive">
   <div class="container">
     <div class="twelve columns">
-      <div class="title">
+      <div class="title eight columns offset-by-two">
         <h3 class="split_title">Open Positions</h3>
       </div>
       <?php $args = array(
@@ -127,11 +116,31 @@ while ( have_posts() ) : the_post(); ?>
       <?php if ( have_posts() ) : while (have_posts()) : the_post(); ?>
         <?php get_template_part('inc/career'); ?>
       <?php endwhile; else : ?>
-      <!-- No posts found -->
+        <article class="career eight columns offset-by-two">
+          <div class="item_content">
+            <div class="content">
+              <h3>Unfortunately, we do not have any open positions at the moment.</h3>
+              <p>Please check back again soon or fill in our Speculative application</p>
+            </div>
+          </div>
+        </article>
       <?php endif; wp_reset_query(); ?>
     </div>
   </div>
 </section>
+
+<section class="speculative">
+  <div class="container">
+    <div class="eight columns offset-by-two">
+      <div class="title">
+        <h3 class="split_title">Speculative Applications</h3>
+        <p>We are always keen to hear from both graduates and experienced professionals who are interested in joining Expand at one of our three office locations: London, New York and Singapore. If you are interested in joining Expand, please apply below and if we have a position that suits your experience, we will be in touch.</p>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
 
 <?php endwhile; // end of the loop. ?>
 
