@@ -72,6 +72,12 @@
           }
         }
       }
+      a {
+        color: $mid-green;
+        &:before {
+          color: $white;
+        }
+      }
     }
   }
   &.white {
@@ -138,6 +144,12 @@
             span.word1 {
               color: $black;
             }
+          }
+        }
+        a {
+          color: $white;
+          &:before {
+            color: $black;
           }
         }
       }
