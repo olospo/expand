@@ -16,9 +16,7 @@ while ( have_posts() ) : the_post(); ?>
         <p>For more information on how Expand can help your business achieve its objectives, or for general enquiries, please get in touch.</p>
       </div>
     </div>
-    <div class="square_background">
-    
-    </div>
+    <div class="square_background"></div>
   </div>
 </section>
 

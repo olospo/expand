@@ -13,17 +13,13 @@ while ( have_posts() ) : the_post(); ?>
 <section class="post careers">
   <div class="container flex">
     <div class="content eight columns">
-      <h2 class="details">Details</h2>
+      <h2 class="details">Job description</h2>
       <?php the_content(); ?>
     </div>
     <div class="four columns">
       <div class="apply">
         <h2>Apply</h2>
-        <ul>
-          <li>Call: <a href="tel:<?php the_field('phone_number','options'); ?>"><?php the_field('phone_number','options'); ?></a></li>
-          <li>Email: <a href="mailto:<?php the_field('email','options'); ?>"><?php the_field('email','options'); ?></a></li>
-        </ul>
-        
+        <p>Apply by sending your CV and cover letter, including why you are interested in this role and consider yourself to be a good fit for it, to <a href="mailto:careers@expandresearch.com">careers@expandresearch.com</a>. Please also include your desired salary along with your notice period/available start date. Please note that applications without a cover letter will not be considered.</p>
       </div>
       <?php $args = array(
           'post_type' => 'career',
