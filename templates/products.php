@@ -18,9 +18,7 @@ while ( have_posts() ) : the_post(); ?>
         <p>Expand’s products are based on proprietary raw data, collected from our clients, spanning numerous metrics and KPIs suitable for a broad array of use cases. Take a look at our comprehensive KPI Catalogue to explore the depth and granularity of our peer-to-peer comparisons.</p>
       </div>
     </div>
-    <div class="square_background">
-    
-    </div>
+    <div class="square_background" style="background: url('<?php bloginfo('template_directory'); ?>/img/about_solutions.jpg') center center no-repeat; background-size:cover;"></div>
   </div>
 </section>
 
@@ -31,22 +29,22 @@ while ( have_posts() ) : the_post(); ?>
     </div>
     <div class="tab_menu twelve columns">
       <button class="w3-bar-item w3-button tablink active" onclick="openTab(event,'Data')">Data Collection</button>
+      <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Data Mapping')">Data Mapping</button>
       <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Normalisation')">Normalisation</button>
-      <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Comparison')">Comparison</button>
-      <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Action')">Action</button>
+      <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Actionable')">Actionable Insights</button>
     </div> 
     <article id="Data" class="tab twelve columns">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>Expand collects raw data from clients rather than relying on filling in complex templates. This not only reduces the effort needed to participate, but also allows us to ensure database integrity as well as alignment in scope and definitions.</p>
     </article>
     
+    <article id="Data Mapping" class="tab twelve columns" style="display:none">
+      <p>Benchmark data is collected via MIS extracts, is reviewed, and mapped by Expand analysts to a standard taxonomy and verified by the client. This ensures minimal work for participants while allowing for the strongest like-for-like comparisons</p>
+    </article>
     <article id="Normalisation" class="tab twelve columns" style="display:none">
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p>Expand leverages years of experience to ensure unparalleled relevancy of comparisons. Peer groups can be tailored, and other complexity and scaling measures are captured and verified to create truly bespoke indicators of performance.</p>
     </article>
-    <article id="Comparison" class="tab twelve columns" style="display:none">
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-    </article>
-    <article id="Action" class="tab twelve columns" style="display:none">
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <article id="Actionable" class="tab twelve columns" style="display:none">
+      <p>Expand’s unique insights provide senior stakeholders and decision makers with clear andactionable intelligence about competitveness, performance, and opportuni;es. Helpingclients make strategic, well-thought-out decisions to drive positive business outcomes.</p>
     </article>
   </div>
 </section>
@@ -54,7 +52,7 @@ while ( have_posts() ) : the_post(); ?>
 <section class="product_section">
   <div class="container">
     
-    <div class="product twelve columns">
+    <div class="product twelve columns" style="background: url('<?php bloginfo('template_directory'); ?>/img/expand_fe.jpg') center center no-repeat; background-size:cover;">
       <div class="content six columns">
         <h3>Functional Effectiveness</h3>
         <p>Want to understand cost and capability?</p>
@@ -68,7 +66,7 @@ while ( have_posts() ) : the_post(); ?>
       </div>
     </div>
     
-    <div class="product twelve columns">
+    <div class="product twelve columns" style="background: url('<?php bloginfo('template_directory'); ?>/img/expand_bp.jpg') center center no-repeat; background-size:cover;">
       <div class="content six columns">
         <h3>Business Performance</h3>
         <p>Want to know the health of your business?</p>
@@ -81,7 +79,7 @@ while ( have_posts() ) : the_post(); ?>
       </div>
     </div>
     
-    <div class="product twelve columns">
+    <div class="product twelve columns" style="background: url('<?php bloginfo('template_directory'); ?>/img/expand_wg.jpg') center center no-repeat; background-size:cover;">
       <div class="content six columns">
         <h3>Working Groups and Forums</h3>
         <p>Want to know what your peers are thinking?</p>
@@ -89,7 +87,8 @@ while ( have_posts() ) : the_post(); ?>
         <ul>
           <li>Tech and Ops Roundtables</li>
           <li>IT Regulatory Risk Working Group</li>
-          <li>Fraud, Financial Crime and AML eForums → Market Data Forums</li>
+          <li>Fraud, Financial Crime and AML eForums</li>
+          <li>Market Data Forums</li>
           <li>CIO and COO Forums</li>
         </ul>
       </div>
