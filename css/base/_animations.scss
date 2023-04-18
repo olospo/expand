@@ -54,13 +54,17 @@ header {
 }
 
 section.hero {
-  h1, p {
+  h1, p, .icon {
     @include fade();
   }
   
   &.visible {
     h1, p {
       @include reset();
+    }
+    .icon {
+      @include reset-fade();
+      transition-delay: 2s;
     }
   }
 }

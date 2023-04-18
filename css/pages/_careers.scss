@@ -10,6 +10,11 @@
   }
   .tab {
     padding: 40px;
+    margin-bottom: 20px;
+    @media (min-width: $breakpoint-tablet) {
+      margin: 0;
+      padding: 40px;
+    }
     background: $white-bg;
     border-top: 8px solid $light-grey;
     &:hover {
@@ -22,6 +27,9 @@
     .icon {
       max-width: 50%;
       margin: 0px auto 40px auto;
+    }
+    &:last-child {
+      margin: 0;
     }
   }
 }
@@ -43,7 +51,10 @@
 
 .careers_benefits {
   background: $white-bg;
-  padding: $padding 0;
+  padding: $padding-half 0;
+  @media (min-width: $breakpoint-tablet) {
+    padding: $padding 0;
+  }
   .title {
     text-align: center;
 
@@ -53,7 +64,10 @@
 
 .speculative {
   background: $light-green;
-  padding: $padding 0;
+  padding: $padding-half 0;
+  @media (min-width: $breakpoint-tablet) {
+    padding: $padding 0;
+  }
   .title {
     text-align: center;
     h3 {
