@@ -103,33 +103,37 @@ while ( have_posts() ) : the_post(); ?>
       <h3 class="split_title">Our Products</h3>
     </div>
     <div class="row">
-      <a href="<?php echo get_site_url(); ?>/products">
+      
       <article class="one-third column">
+        <a href="<?php echo get_site_url(); ?>/products">
         <div class="content">
           <span class="type">Product</span>
           <h4>Functional Effectiveness</h4>
           <p>Int et quia nullab id even im fugiae mi, sit fugit que nonem ipsu nti busam, sum facium ullest, to cus pore com molor rem volup</p>
         </div>
+        </a>
       </article>
-      </a>
-      <a href="<?php echo get_site_url(); ?>/products">
+      
       <article class="one-third column">
+        <a href="<?php echo get_site_url(); ?>/products">
         <div class="content">
           <span class="type">Product</span>
           <h4>Business Performance Benchmarks</h4>
           <p>Int et quia nullab id even im fugiae mi, sit fugit que nonem ipsu nti busam, sum facium ullest, to cus pore com molor rem volup</p>
         </div>
+        </a>
       </article>
-      </a>
-      <a href="<?php echo get_site_url(); ?>/products">
+      
       <article class="one-third column">
+        <a href="<?php echo get_site_url(); ?>/products">
         <div class="content">
           <span class="type">Product</span>
           <h4>Working Groups & Forums</h4>
           <p>Int et quia nullab id even im fugiae mi, sit fugit que nonem ipsu nti busam, sum facium ullest, to cus pore com molor rem volup</p>
         </div>
+        </a>
       </article>
-      </a>
+      
     </div>
   </div>
 </section>

@@ -287,6 +287,10 @@
     &:last-child {
       margin-bottom: 0;
     }
+    a {
+      text-decoration: none;
+      color: $black;
+    }
     .content {
       min-height: 200px;
       border-top: 5px solid $light-green;
