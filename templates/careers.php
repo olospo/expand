@@ -95,6 +95,17 @@ while ( have_posts() ) : the_post(); ?>
   </div>
 </section>
 
+<section class="careers_benefits">
+  <div class="container">
+    <div class="eight columns offset-by-two">
+      <div class="title">
+        <h3 class="split_title">Employee Benefits</h3>
+        <p>Every day, Expanders give their all, unlocking the potential of those who advance the world. It’s important, impactful work – and it’s only possible because of our hardworking people. That’s why our people are our top priority. Helping to make our employees feel genuinely valued, we support each Expander with a comprehensive employee benefits package</p>
+      </div>
+      
+    </div>
+  </div>
+</section>
 
 <section class="careers_archive">
   <div class="container">

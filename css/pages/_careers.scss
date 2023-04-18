@@ -41,6 +41,16 @@
   background: $white-bg;
 }
 
+.careers_benefits {
+  background: $white-bg;
+  padding: $padding 0;
+  .title {
+    text-align: center;
+
+  }
+}
+
+
 .speculative {
   background: $light-green;
   padding: $padding 0;
@@ -56,9 +66,9 @@
 }
 
 .careers_archive {
-  padding: 0 0 $padding-half 0;
+  padding: $padding-half 0;
   @media (min-width: $breakpoint-tablet) {
-    padding: $padding 0;
+    padding: $padding-half 0 $padding 0;
   }
   .title {
     text-align: center;
