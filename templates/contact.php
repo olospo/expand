@@ -28,7 +28,7 @@ while ( have_posts() ) : the_post(); ?>
     </div>
     <div class="map_container">
     <img src="<?php bloginfo('template_directory'); ?>/img/expand_map.png" alt="map" />
-    <a href="#London" id="London" class="map-marker" data-target="London">
+    <a href="#London" id="London" class="map-marker active" data-target="London">
       <span aria-hidden="true"></span>
     </a>
     <a href="#New-York" id="New-York" class="map-marker" data-target="New-York">
@@ -44,7 +44,7 @@ while ( have_posts() ) : the_post(); ?>
 <section class="map_offices">
   <div class="container">
     <div class="offices">
-    <div class="office" id="London">
+    <div class="office active" id="London">
       <div class="content">
         <h3>London</h3>
         <address>
@@ -84,9 +84,8 @@ while ( have_posts() ) : the_post(); ?>
 </section>
 
 <section class="image_offices">
-  <div class="office_image active"></div>
   <div class="office_image newyork" id="New-York"></div>
-  <div class="office_image london" id="London"></div>
+  <div class="office_image london active" id="London"></div>
   <div class="office_image singapore" id="Singapore"></div>
 </section>
 
