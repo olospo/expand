@@ -10,7 +10,7 @@ while ( have_posts() ) : the_post(); ?>
       <source src="<?php bloginfo('template_directory'); ?>/video/home.mp4" type="video/mp4">
     </video>
     <div class="poster" style="background: url('<?php echo $image['url']; ?>') center center no-repeat; background-size: cover"></div>
-    <div class="icon"><img src="<?php bloginfo('template_directory'); ?>/img/insight_driven_benchmarking.svg" /></div>
+    <div class="icon"><img src="<?php bloginfo('template_directory'); ?>/img/insight_driven_benchmarking_colour.svg" /></div>
   </div>
 </section>
 
