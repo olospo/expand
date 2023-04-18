@@ -52,7 +52,7 @@ while ( have_posts() ) : the_post(); ?>
 <section class="product_section">
   <div class="container">
     
-    <div class="product twelve columns" style="background: url('<?php bloginfo('template_directory'); ?>/img/expand_fe.jpg') center center no-repeat; background-size:cover;">
+    <div id="Functional" class="product twelve columns" style="background: url('<?php bloginfo('template_directory'); ?>/img/expand_fe.jpg') center center no-repeat; background-size:cover;">
       <div class="content six columns">
         <h3>Functional Effectiveness</h3>
         <p>Want to understand cost and capability?</p>
@@ -66,7 +66,7 @@ while ( have_posts() ) : the_post(); ?>
       </div>
     </div>
     
-    <div class="product twelve columns" style="background: url('<?php bloginfo('template_directory'); ?>/img/expand_bp.jpg') center center no-repeat; background-size:cover;">
+    <div id="Business" class="product twelve columns" style="background: url('<?php bloginfo('template_directory'); ?>/img/expand_bp.jpg') center center no-repeat; background-size:cover;">
       <div class="content six columns">
         <h3>Business Performance</h3>
         <p>Want to know the health of your business?</p>
@@ -79,7 +79,7 @@ while ( have_posts() ) : the_post(); ?>
       </div>
     </div>
     
-    <div class="product twelve columns" style="background: url('<?php bloginfo('template_directory'); ?>/img/expand_wg.jpg') center center no-repeat; background-size:cover;">
+    <div id="Working" class="product twelve columns" style="background: url('<?php bloginfo('template_directory'); ?>/img/expand_wg.jpg') center center no-repeat; background-size:cover;">
       <div class="content six columns">
         <h3>Working Groups and Forums</h3>
         <p>Want to know what your peers are thinking?</p>

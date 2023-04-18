@@ -53,7 +53,7 @@ footer.main {
     color: $white;
     margin-bottom: 10px;
     padding-bottom: 10px;
-    border-bottom: 1px solid $table-green;
+    border-bottom: 1px solid #5cb280;
   }
   address, p {
     font: $normal 1.4rem/2.4rem $heading;
@@ -66,7 +66,7 @@ footer.main {
     font: $bold 1.2rem/2.0rem $heading;
     color: $white;
     text-transform: uppercase;
-    margin-bottom: 0px;
+    margin-top: 20px;
   }
   ul.social {
     text-align: left;
@@ -100,16 +100,12 @@ footer.main {
   ul#menu-footer {
     text-align: left;
     margin: 10px 0;
-    @media (min-width: $breakpoint-tablet) {
-      text-align: right;
-    }
     li {
-      
       display: block;
-      margin-bottom: 5px;
+      margin-bottom: 3px;
       a {
         font: $normal 1.4rem/2.4rem $regular;
-        color: $yellow;
+        color: $white;
       }
     }
   }

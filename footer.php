@@ -12,6 +12,7 @@
           Registered Office: 80 Charlotte Street London W1T 4DF 
         </address>
         <p>Registered in England and Wales: OC365360</p>
+        
       <h5>Follow us</h5>
       <ul class="social">
         <?php if(get_field('facebook_link','options')): ?>
@@ -34,8 +35,8 @@
       
     </div>
     <div class="four columns">
-      <!-- <h4>Expand</h4> -->
-      <?php // wp_nav_menu( array( 'theme_location' => 'footer' ) ); ?>
+      <h4>Expand</h4>
+      <?php wp_nav_menu( array( 'theme_location' => 'footer' ) ); ?>
     </div>
   </div>
 </footer>
