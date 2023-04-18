@@ -12,10 +12,6 @@
           Registered Office: 80 Charlotte Street London W1T 4DF 
         </address>
         <p>Registered in England and Wales: OC365360</p>
-      </div>
-
-    </div>
-    <div class="four columns">
       <h5>Follow us</h5>
       <ul class="social">
         <?php if(get_field('facebook_link','options')): ?>
@@ -34,13 +30,18 @@
         <li><a href="<?php the_field('instagram_link','options'); ?>" aria-label="Instagram"><img src="<?php bloginfo('template_directory'); ?>/img/instagram.svg" alt="Instagram" loading="lazy"/></a></li>
         <?php endif; ?>
       </ul>
+      </div>
+      
+    </div>
+    <div class="four columns">
+      <h4>Expand</h4>
+      <?php wp_nav_menu( array( 'theme_location' => 'footer' ) ); ?>
     </div>
   </div>
 </footer>
 
 <footer class="copyright">
   <div class="container">
-    
     <div class="end_links twelve columns">   
       <strong>Copyright &copy; Expand Research LLP <?php echo date("Y"); ?></strong><br />Design: <a href="https://www.thinkmarsh.com/" target="_blank">ThinkMarshStudio</a> | Development: <a href="https://www.olospo.co.uk/" target="_blank">Olospo</a>
     </div>

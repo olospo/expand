@@ -4,15 +4,9 @@ get_header();
 while ( have_posts() ) : the_post(); ?>
 
 <section class="hero home" >
-  <div class="video-upload" style="background: linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)), url('<?php bloginfo('template_directory'); ?>/img/expand_careers.jpg') center center no-repeat;">
-    <video data-object-fit="cover" playsinline muted autoplay loop  id="homeVideo" poster="<?php echo $image['url']; ?>">
-      <source src="<?php echo $videowebm; ?>" type="video/webm">
-      <source src="<?php echo $videomp4; ?>" type="video/mp4">
-    </video>
-    <div class="poster" style="background: url('<?php echo $image['url']; ?>') center center no-repeat; background-size: cover"></div>
+  <div class="video-upload" style="background: linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)), url('<?php bloginfo('template_directory'); ?>/img/expand_careers.jpg') center center no-repeat; background-size:cover;">
   </div>
 </section>
-
 
 <section class="text_section">
   <div class="container">
@@ -36,13 +30,13 @@ while ( have_posts() ) : the_post(); ?>
         <p><a href="<?php echo get_site_url(); ?>/about" class="button">Read more</a></p>
       </div>
     </div>
-    <div class="square_background"></div>
+    <div class="square_background" style="background: url('<?php bloginfo('template_directory'); ?>/img/expand_mark-lane.jpg') center center no-repeat; background-size:cover;"></div>
   </div>
 </section>
 
-<section class="square_section grey">
+<section class="square_section white">
   <div class="container">
-    <div class="square_background"></div>
+    <div class="square_background" style="background: url('<?php bloginfo('template_directory'); ?>/img/expand_careers_who.jpg') center center no-repeat; background-size:cover;"></div>
     <div class="square_content">
       <div class="content">
         <div class="title">

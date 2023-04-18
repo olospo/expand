@@ -25,7 +25,7 @@ while ( have_posts() ) : the_post(); ?>
         <p>Each delivery team provides unrivalled levels of industry experience in financial markets, operations and technology services. We offer a unique perspective on solving problems associated with researching, sourcing and implementing new and innovative solutions for financial markets, leveraging years of experience to ensure unparalleled accuracy while maintaining a low burden on participants.</p>
       </div>
     </div>
-    <div class="square_background solutions"></div>
+    <div class="square_background" style="background: url('<?php bloginfo('template_directory'); ?>/img/about_solutions.jpg') center center no-repeat; background-size:cover;"></div>
   </div>
 </section>
 

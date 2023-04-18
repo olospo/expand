@@ -13,9 +13,9 @@ while ( have_posts() ) : the_post(); ?>
   </div>
 </section>
 
-<section class="square_section white">
+<section class="square_section white large">
   <div class="container">
-    <div class="square_background video"></div>
+    <div class="square_background" style="background: url('<?php bloginfo('template_directory'); ?>/img/expand_mark-lane.jpg') center center no-repeat; background-size:cover;"></div>
     <div class="square_content">
       <div class="content">
         <p>We provide industry intelligence to financial services organisations of all types to empower them to grow, compete and operate with increased effectiveness</p>
@@ -36,7 +36,7 @@ while ( have_posts() ) : the_post(); ?>
         <p>Our customised research assists firms in future- proofing their business by enabling them to benchmark themselves against their peers, gather market intelligence about new and innovative strategies and gain an understanding of what best in class looks like</p>
       </div>
     </div>
-    <div class="square_background best">
+    <div class="square_background" style="background: url('<?php bloginfo('template_directory'); ?>/img/home_skyscrapers.jpg') center center no-repeat; background-size:cover;">
     
     </div>
   </div>
@@ -103,6 +103,7 @@ while ( have_posts() ) : the_post(); ?>
       <h3 class="split_title">Our Products</h3>
     </div>
     <div class="row">
+      <a href="<?php echo get_site_url(); ?>/products">
       <article class="one-third column">
         <div class="content">
           <span class="type">Product</span>
@@ -110,6 +111,8 @@ while ( have_posts() ) : the_post(); ?>
           <p>Int et quia nullab id even im fugiae mi, sit fugit que nonem ipsu nti busam, sum facium ullest, to cus pore com molor rem volup</p>
         </div>
       </article>
+      </a>
+      <a href="<?php echo get_site_url(); ?>/products">
       <article class="one-third column">
         <div class="content">
           <span class="type">Product</span>
@@ -117,6 +120,8 @@ while ( have_posts() ) : the_post(); ?>
           <p>Int et quia nullab id even im fugiae mi, sit fugit que nonem ipsu nti busam, sum facium ullest, to cus pore com molor rem volup</p>
         </div>
       </article>
+      </a>
+      <a href="<?php echo get_site_url(); ?>/products">
       <article class="one-third column">
         <div class="content">
           <span class="type">Product</span>
@@ -124,6 +129,7 @@ while ( have_posts() ) : the_post(); ?>
           <p>Int et quia nullab id even im fugiae mi, sit fugit que nonem ipsu nti busam, sum facium ullest, to cus pore com molor rem volup</p>
         </div>
       </article>
+      </a>
     </div>
   </div>
 </section>

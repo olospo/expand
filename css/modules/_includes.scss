@@ -26,18 +26,6 @@
       width: 50%;
       min-height: 540px;
     }
-    &.video { // Placeholder
-      background: url('../img/home_damian.jpg') center center no-repeat !important;
-      background-size: cover !important;
-    }
-    &.solutions { // Placeholder
-      background: url('../img/about_solutions.jpg') center center no-repeat !important;
-      background-size: cover !important;
-    }
-    &.best { // Placeholder
-      background: url('../img/home_skyscrapers.jpg') center center no-repeat !important;
-      background-size: cover !important;
-    }
   }
   .square_content {
     height: auto;
@@ -61,7 +49,10 @@
       
       p {
         color: $white;
-        font: $normal 1.8rem/3.2rem $heading;
+        font: $normal 1.4rem/2.8rem $heading;
+        @media (min-width: $breakpoint-tablet) {
+          font: $normal 1.8rem/3.2rem $heading;
+        }
       }
       .title {
         padding: 0 0 20px 0;
@@ -101,20 +92,52 @@
           padding: 60px $padding;
         }
         p {
-          font: $normal 2.2rem/3.2rem $heading;
+          color: $black;
+        }
+        .title {
+          padding: 0 0 20px 0;
+          h3 {
+            color: $mid-green;
+            span.word1 {
+              color: $black;
+            }
+          }
+        }
+        a {
+          color: $mid-green;
+          &:before {
+            color: $black;
+          }
+          &:hover {
+            color: $black;
+          }
+        }
+      }
+    }
+    &.large {
+      .square_content {
+        background: $white;
+        .content {
+          padding: 20px;
           @media (min-width: $breakpoint-tablet) {
-            font: $normal 2.8rem/4.0rem $heading;
+            padding: 60px $padding;
           }
-          @media (min-width: $breakpoint-laptop) {
-            font: $normal 3.4rem/5.0rem $heading;
+          p {
+            font: $normal 2.2rem/3.2rem $heading;
+            @media (min-width: $breakpoint-tablet) {
+              font: $normal 2.8rem/4.0rem $heading;
+            }
+            @media (min-width: $breakpoint-laptop) {
+              font: $normal 3.4rem/5.0rem $heading;
+            }
+            @media (min-width: $breakpoint-desktop) {
+              font: $normal 4.4rem/6.0rem $heading;
+            }
+            background: -webkit-linear-gradient(to right, #29BA74, #197A56);
+            background: linear-gradient(to right, #29BA74, #197A56);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
           }
-          @media (min-width: $breakpoint-desktop) {
-            font: $normal 4.4rem/6.0rem $heading;
-          }
-          background: -webkit-linear-gradient(to right, #29BA74, #197A56);
-          background: linear-gradient(to right, #29BA74, #197A56);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
         }
       }
     }
@@ -138,7 +161,6 @@
         }
         p {
           color: $white;
-          font: $normal 1.8rem/3.2rem $heading;
         }
         .title {
           padding: 0 0 20px 0;
@@ -169,13 +191,12 @@
     padding: 0;
   }
   .stats {
-    @media (min-width: $breakpoint-tablet) {
-      display: flex;
-    }
+    display: flex;
+    flex-flow: wrap;
     .stat {
       box-sizing: border-box;
       text-align: center;
-      width: 100%;
+      width: 50%;
       padding: $padding $padding-half;
       @media (min-width: $breakpoint-tablet) {
         width: 25%;
@@ -202,12 +223,18 @@
         }
       }
       span.unit {
-        font: $bold 6.4rem/6.4rem $heading;
+        font: $bold 3.4rem/3.4rem $heading;
+        @media (min-width: $breakpoint-tablet) {
+          font: $bold 6.4rem/6.4rem $heading;
+        }
         display: block;
         margin-bottom: 5px;
       }
       span.description {
-        font: $bold 1.8rem/2.4rem $heading;
+        font: $medium 1.4rem/2.0rem $heading;
+        @media (min-width: $breakpoint-tablet) {
+          font: $bold 1.8rem/2.4rem $heading;
+        }
         display: block;
         text-transform: uppercase;
       }
@@ -224,7 +251,7 @@
     }
     &.two {
       .stat {
-        width: 100%;
+        width: 50%;
         padding: $padding $padding-half;
         @media (min-width: $breakpoint-tablet) {
           width: 50%;
@@ -410,7 +437,7 @@ section {
   .title {
     padding: 0 0 $padding-half 0;
     h3 {
-      font: $normal 2.2rem/3.2rem $heading;
+      font: $normal 2.0rem/3.2rem $heading;
       @media (min-width: $breakpoint-tablet) {
         font: $normal 3.2rem/4.2rem $heading;
       }
@@ -422,8 +449,12 @@ section {
       }
     }
     p {
-      margin-top: 20px;
-      font: $normal 1.8rem/3.2rem $heading;
+      margin-top: 10px;
+      font: $normal 1.4rem/2.8rem $heading;
+      @media (min-width: $breakpoint-tablet) {
+        margin-top: 20px;
+        font: $normal 1.8rem/3.2rem $heading;
+      }
     }
   }
 }

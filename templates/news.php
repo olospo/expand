@@ -3,22 +3,10 @@ get_header();
 
 while ( have_posts() ) : the_post(); ?>
 
-<section class="square_section green">
-  <div class="container">
-    <div class="square_content">
-      <div class="content">
-        <div class="title">
-          <h3 class="split_title">News & Events</h3>
-        </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </div>
-    </div>
-    <div class="square_background">
-    
-    </div>
+<section class="hero home" >
+  <div class="video-upload" style="background: url('<?php bloginfo('template_directory'); ?>/img/expand_news.jpg') center center no-repeat; background-size:cover;">
   </div>
 </section>
-
 <section class="news">
   <div class="container">
   <?php $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;

@@ -3,7 +3,10 @@ get_header();
 
 while ( have_posts() ) : the_post(); ?>
 
-<?php get_template_part( 'inc/hero' ); ?>
+<section class="hero home" >
+  <div class="video-upload" style="background: url('<?php bloginfo('template_directory'); ?>/img/expand_products.jpg') center center no-repeat; background-size:cover;">
+  </div>
+</section>
 
 <section class="square_section green">
   <div class="container">
