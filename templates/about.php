@@ -3,7 +3,7 @@ get_header();
 
 while ( have_posts() ) : the_post(); ?>
 
-<section class="hero home" style="background: // linear-gradient(to right, rgba(41, 186, 115, 0.7), rgba(41, 186, 115, 0.0))"; >
+<section class="hero home" style="background: linear-gradient(to right, rgba(41, 186, 115, 0.7), rgba(41, 186, 115, 0.0))"; >
   <div class="video-upload">
     <video data-object-fit="cover" playsinline muted autoplay loop  id="homeVideo" poster="<?php echo $image['url']; ?>">
       <source src="<?php bloginfo('template_directory'); ?>/video/about.webm" type="video/webm">

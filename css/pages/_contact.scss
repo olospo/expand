@@ -78,7 +78,7 @@
       cursor: pointer;
       transition: background linear 0.5s;
       position: relative;
-      padding: $padding;
+      padding: $padding-half $padding;
       width: 33%;
       box-sizing: border-box;
       background: $white-bg;
