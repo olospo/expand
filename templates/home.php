@@ -4,7 +4,7 @@ get_header();
 while ( have_posts() ) : the_post(); ?>
 
 <section class="hero home">
-  <div class="video-upload" style="background: linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30));">
+  <div class="video-upload" style="background: linear-gradient(rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.70));">
     <video data-object-fit="cover" playsinline muted autoplay loop  id="homeVideo" poster="<?php echo $image['url']; ?>">
       <source src="<?php bloginfo('template_directory'); ?>/video/home.webm" type="video/webm">
       <source src="<?php bloginfo('template_directory'); ?>/video/home.mp4" type="video/mp4">
