@@ -197,7 +197,7 @@
       box-sizing: border-box;
       text-align: center;
       width: 50%;
-      padding: $padding $padding-half;
+      padding: 60px 20px;
       @media (min-width: $breakpoint-tablet) {
         width: 25%;
         padding: 120px $padding-half;
@@ -223,7 +223,7 @@
         }
       }
       span.unit {
-        font: $bold 3.4rem/3.4rem $heading;
+        font: $bold 3.8rem/3.8rem $heading;
         @media (min-width: $breakpoint-tablet) {
           font: $bold 6.4rem/6.4rem $heading;
         }
@@ -327,7 +327,10 @@
     width: 100%;
     clear: both;
     button {
-      min-width: 25%;
+      min-width: 100%;
+      @media (min-width: 600px) { 
+        min-width: 25%;
+      }
       font: $bold 1.6rem/3.2rem $heading;
       text-transform: uppercase;
       color: $dark-grey;
@@ -377,6 +380,7 @@
     padding: 0;
     width: 100%;
     display: flex;
+    flex-flow: wrap;
   }
   .cta_background {
     background: linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)), url('../img/expand_careers.jpg') center center no-repeat;
@@ -384,7 +388,7 @@
     content: "";
     height: auto;
     min-height: 600px;
-    width: 50%;
+    width: 100%;
     @media (min-width: $breakpoint-tablet) {
       width: 75%;
     }
@@ -392,11 +396,15 @@
     .cta_title {
       @include vertical-align;
       left: 5%;
+      svg {
+        max-width: 100%;
+      }
+      
     }
   }
   .cta_content {
     background: $white-bg;
-    width: 50%;
+    width: 100%;
     @media (min-width: $breakpoint-tablet) {
       width: 25%;
       max-width: 600px;
