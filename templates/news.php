@@ -92,19 +92,7 @@ while ( have_posts() ) : the_post(); ?>
   </div>
 </section>
 
-<section class="careers_cta">
-  <div class="container">
-    <div class="cta_background"></div>
-    <div class="cta_content">
-      <div class="content">
-      <h4>We're building tomorrow</h4>
-      <p>Flourish in an environment where creative thinking is encouraged. Become a part of our unique, diverse and entrepreneurial environment</p>
-      <p><a href="#" class="button">Apply now</a><br />
-      <a href="#" class="button">Explore our culture</a></p>
-      </div>
-    </div>
-  </div>
-</section>
+<?php get_template_part( 'inc/careers_cta' ); ?>
 
 <?php endwhile; // end of the loop. ?>
 

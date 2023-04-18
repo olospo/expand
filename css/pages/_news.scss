@@ -39,7 +39,9 @@ section.news {
       }
     }
     &.featured {
-      display: flex;
+      @media (min-width: $breakpoint-tablet) {
+        display: flex;
+      }
     }
   }
 }
