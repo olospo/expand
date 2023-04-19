@@ -73,6 +73,23 @@ $(document).ready(function() {
   $(".split_title").lettering('words');
 });
 
+// Icon GIF
+
+$(document).ready(function() {
+  $('article.tab').hover(
+    function() {
+      var iconImage = $(this).find('#iconImage');
+      var gifSrc = iconImage.data('gifsrc');
+      iconImage.attr('src', gifSrc);
+    },
+    function() {
+      var iconImage = $(this).find('#iconImage');
+      var staticSrc = iconImage.data('staticsrc');
+      iconImage.attr('src', staticSrc);
+    }
+  );
+});
+
 // Tabs
 function openTab(evt, tabName) {
   var i, x, tablinks;

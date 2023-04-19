@@ -62,7 +62,7 @@ while ( have_posts() ) : the_post(); ?>
       <article class="tab one-third column">
         <div class="contain">
           <div class="icon">
-            <img src="<?php bloginfo('template_directory'); ?>/img/icon_two.png" alt="Placeholder icon">
+            <img id="iconImage" src="<?php bloginfo('template_directory'); ?>/img/predictive.png" data-staticsrc="<?php bloginfo('template_directory'); ?>/img/predictive.png" data-gifsrc="<?php bloginfo('template_directory'); ?>/img/predictive.gif" alt="Placeholder icon">
           </div>
           <div class="content">
             <h4>Predictive index assessments</h4>
