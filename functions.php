@@ -408,3 +408,16 @@ function rlv_exclude_fields( $custom_fields ) {
 	);
 	return $filtered;
 }
+
+// Convert number to their word equivalent 
+function number_to_word($number) {
+	$words = array(
+		'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'
+	);
+		
+	if ($number <= 10) {
+		return $words[$number];
+	}
+
+	return $number;
+}

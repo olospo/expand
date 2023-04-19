@@ -25,7 +25,28 @@ while ( have_posts() ) : the_post(); ?>
   </div>
 </section>
 
-<?php get_template_part( 'inc/stats' ); ?>
+<section class="stat_section">
+  <div class="container">
+    <div class="stats four">
+      <div class="stat grey">
+        <span class="unit" data-count="22">22</span>
+        <span class="description">Years</span>
+      </div>
+      <div class="stat green">
+        <span class="unit" data-count="200" data-postfix="+">200</span>
+        <span class="description">Firms engaged each year</span>
+      </div>
+      <div class="stat grey">
+        <span class="unit" data-count="50" data-postfix="+">50</span>
+        <span class="description">Benchmarks</span>
+      </div>
+      <div class="stat white">
+        <span class="unit" data-count="5.1" data-postfix="TB">5.1</span>
+        <span class="description">Mapped Client Data</span>
+      </div> 
+    </div>
+  </div>
+</section>
 
 <section class="square_section">
   <div class="container">
@@ -53,7 +74,7 @@ while ( have_posts() ) : the_post(); ?>
       <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Normalisation')">Normalisation</button>
       <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Action')">Action</button>
     </div> 
-    <article id="Data" class="tab eight columns offset-by-two">
+    <article id="Data" class="tab ten columns offset-by-one">
       <div class="contain">
         <div class="icon">
           <img src="<?php bloginfo('template_directory'); ?>/img/data_collection.png" alt="Placeholder icon">
@@ -64,20 +85,20 @@ while ( have_posts() ) : the_post(); ?>
       </div>
     </article>
     
-    <article id="Normalisation" class="tab eight columns offset-by-two" style="display:none">
+    <article id="Normalisation" class="tab ten columns offset-by-one" style="display:none">
       <div class="contain">
         <div class="icon">
-          <img src="<?php bloginfo('template_directory'); ?>/img/icon_two.png" alt="Placeholder icon">
+          <img src="<?php bloginfo('template_directory'); ?>/img/normalisation.png" alt="Placeholder icon">
         </div>
         <div class="content">
           <p>Expand leverages years of experience to ensure unparalleled relevancy of comparisons. Peer groups can be tailored, and other complexity and scaling measures are captured and verified to create truly bespoke indicators of performance.</p>
         </div>
       </div>
     </article>
-    <article id="Action" class="tab eight columns offset-by-two" style="display:none">
+    <article id="Action" class="tab ten columns offset-by-one" style="display:none">
       <div class="contain">
         <div class="icon">
-          <img src="<?php bloginfo('template_directory'); ?>/img/icon_two.png" alt="Placeholder icon">
+          <img src="<?php bloginfo('template_directory'); ?>/img/action.png" alt="Placeholder icon">
         </div>
         <div class="content">
           <p>Expand’s unique insights provide senior stakeholders and decision makers with clear and actionable intelligence about competitiveness, performance, and opportunities. Helping clients make strategic, well-thought-out decisions to drive positive business outcomes.</p>
