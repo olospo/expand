@@ -44,7 +44,7 @@ while ( have_posts() ) : the_post(); ?>
       <p>Expand leverages years of experience to ensure unparalleled relevancy of comparisons. Peer groups can be tailored, and other complexity and scaling measures are captured and verified to create truly bespoke indicators of performance.</p>
     </article>
     <article id="Actionable" class="tab twelve columns" style="display:none">
-      <p>Expand’s unique insights provide senior stakeholders and decision makers with clear andactionable intelligence about competitveness, performance, and opportuni;es. Helpingclients make strategic, well-thought-out decisions to drive positive business outcomes.</p>
+      <p>Expand’s unique insights provide senior stakeholders and decision makers with clear and actionable intelligence about competitiveness, performance, and opportunities. Helping clients make strategic, well-thought-out decisions to drive positive business outcomes. </p>
     </article>
   </div>
 </section>

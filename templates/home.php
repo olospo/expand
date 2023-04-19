@@ -51,7 +51,6 @@ while ( have_posts() ) : the_post(); ?>
     <div class="tab_menu twelve columns">
       <button class="w3-bar-item w3-button tablink active" onclick="openTab(event,'Data')">Data Collection</button>
       <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Normalisation')">Normalisation</button>
-      <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Comparison')">Comparison</button>
       <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Action')">Action</button>
     </div> 
     <article id="Data" class="tab eight columns offset-by-two">
@@ -60,7 +59,7 @@ while ( have_posts() ) : the_post(); ?>
           <img src="<?php bloginfo('template_directory'); ?>/img/icon.png" alt="Placeholder icon">
         </div>
         <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>Expand collects raw data from clients rather than relying on filling in complex templates. This not only reduces the effort needed to participate, but also allows us to ensure database integrity as well as alignment in scope and definitions.</p>
         </div>
       </div>
     </article>
@@ -71,17 +70,7 @@ while ( have_posts() ) : the_post(); ?>
           <img src="<?php bloginfo('template_directory'); ?>/img/icon_two.png" alt="Placeholder icon">
         </div>
         <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
-      </div>
-    </article>
-    <article id="Comparison" class="tab eight columns offset-by-two" style="display:none">
-      <div class="contain">
-        <div class="icon">
-          <img src="<?php bloginfo('template_directory'); ?>/img/icon.png" alt="Placeholder icon">
-        </div>
-        <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>Expand leverages years of experience to ensure unparalleled relevancy of comparisons. Peer groups can be tailored, and other complexity and scaling measures are captured and verified to create truly bespoke indicators of performance.</p>
         </div>
       </div>
     </article>
@@ -91,7 +80,7 @@ while ( have_posts() ) : the_post(); ?>
           <img src="<?php bloginfo('template_directory'); ?>/img/icon_two.png" alt="Placeholder icon">
         </div>
         <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>Expand’s unique insights provide senior stakeholders and decision makers with clear and actionable intelligence about competitiveness, performance, and opportunities. Helping clients make strategic, well-thought-out decisions to drive positive business outcomes.</p>
         </div>
       </div>
     </article>
