@@ -57,8 +57,30 @@
   }
   .title {
     text-align: center;
-
   }
+  .benefits {
+    @media (min-width: $breakpoint-tablet) {
+      display: flex;
+    }
+    .benefit {
+      border-top: 8px solid $mid-green;
+      margin-bottom: 20px;
+      @media (min-width: $breakpoint-tablet) {
+        margin-bottom: 0;
+      }
+      background: $white;
+      padding: 30px;
+      h4 {
+        font: $bold 1.8rem/2.4rem $heading;
+        color: $mid-green;
+        text-transform: uppercase;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  
 }
 
 
@@ -82,7 +104,7 @@
 .careers_archive {
   padding: $padding-half 0;
   @media (min-width: $breakpoint-tablet) {
-    padding: $padding-half 0 $padding 0;
+    padding: $padding 0 $padding 0;
   }
   .title {
     text-align: center;

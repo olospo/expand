@@ -6,6 +6,7 @@ while ( have_posts() ) : the_post(); ?>
 <section class="hero home" >
   <div class="video-upload" style="background: linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)), url('<?php bloginfo('template_directory'); ?>/img/expand_careers.jpg') center center no-repeat; background-size:cover;">
   </div>
+  <div class="icon"><img src="<?php bloginfo('template_directory'); ?>/img/expand_your_world.svg" alt="Expand Your World"></div>
 </section>
 
 <section class="text_section">
@@ -102,7 +103,24 @@ while ( have_posts() ) : the_post(); ?>
         <h3 class="split_title">Employee Benefits</h3>
         <p>Every day, Expanders give their all, unlocking the potential of those who advance the world. It’s important, impactful work – and it’s only possible because of our hardworking people. That’s why our people are our top priority. Helping to make our employees feel genuinely valued, we support each Expander with a comprehensive employee benefits package</p>
       </div>
-      
+    </div>
+    <div class="benefits twelve columns">
+        <div class="benefit three columns">
+          <h4>Physical and Mental Wellbeing</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="benefit three columns">
+          <h4>Compensation and Retirement Contributions</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="benefit three columns">
+          <h4>Balance and Sustainable Working Norms</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="benefit three columns">
+          <h4>Career Growth and Community Support</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
     </div>
   </div>
 </section>

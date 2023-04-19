@@ -3,10 +3,11 @@ get_header();
 
 while ( have_posts() ) : the_post(); ?>
 
-<section class="hero home" >
-  <div class="video-upload" style="background: url('<?php bloginfo('template_directory'); ?>/img/expand_news.jpg') center center no-repeat; background-size:cover;">
+<section class="hero home">
+  <div class="video-upload" style="background: linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.20)), url('<?php bloginfo('template_directory'); ?>/img/expand_news.jpg') center center no-repeat; background-size:cover;">
   </div>
 </section>
+
 <section class="news">
   <div class="container">
   <?php $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
