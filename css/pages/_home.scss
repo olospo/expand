@@ -47,10 +47,7 @@
     }
   }
   .icon {
-    display: none;
-    @media (min-width: $breakpoint-tablet) {
-      display: block;
-    }
+    display: block;
     position: fixed;
     @include center-align;
     svg {
