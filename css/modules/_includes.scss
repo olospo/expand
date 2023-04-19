@@ -277,7 +277,14 @@
   @media (min-width: $breakpoint-tablet) { 
     padding: $padding-half 0 $padding 0;
   }
+  .row {
+    @media (min-width: $breakpoint-tablet) { 
+      display: flex;
+      
+    }
+  }
   article {
+    flex: 1;
     background: url('../img/placeholder.jpg') center center no-repeat;
     background-size: cover;
     margin-bottom: $padding-half;
@@ -292,7 +299,8 @@
       color: $black;
     }
     .content {
-      min-height: 200px;
+      // height: 100%;
+      box-sizing: border-box;
       border-top: 5px solid $light-green;
       background: $white;
       margin: 40px;
@@ -307,6 +315,7 @@
         font: $bold 1.6rem/2.0rem $heading;
         text-transform: uppercase;
       }
+      
     }
     &:hover {
       cursor: pointer;
@@ -315,7 +324,7 @@
         margin: 0;
         background: $light-green;
         opacity: 0.8;
-        h4, span, p {
+        h4, span, p, ul, li {
           color: $white;
         }
       }

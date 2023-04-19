@@ -5,11 +5,11 @@ while ( have_posts() ) : the_post(); ?>
 
 <section class="hero home" style="background: linear-gradient(to right, rgba(41, 186, 115, 0.7), rgba(41, 186, 115, 0.0))"; >
   <div class="video-upload">
-    <video data-object-fit="cover" playsinline muted autoplay loop  id="homeVideo" poster="<?php echo $image['url']; ?>">
-      <source src="<?php bloginfo('template_directory'); ?>/video/about.webm" type="video/webm">
-      <source src="<?php bloginfo('template_directory'); ?>/video/about.mp4" type="video/mp4">
+    <video data-object-fit="cover" playsinline muted autoplay loop id="homeVideo" poster="<?php bloginfo('template_directory'); ?>/video/about.jpg">
+      <source src="<?php bloginfo('template_directory'); ?>/video/about.webm" type="video/webm" preload="auto">
+      <source src="<?php bloginfo('template_directory'); ?>/video/about.mp4" type="video/mp4" preload="auto">
     </video>
-    <div class="poster" style="background: url('<?php echo $image['url']; ?>') center center no-repeat; background-size: cover"></div>
+    <div class="poster" style="background: url('<?php bloginfo('template_directory'); ?>/video/about.jpg') center center no-repeat; background-size: cover"></div>
   </div>
 </section>
 
