@@ -56,7 +56,7 @@ while ( have_posts() ) : the_post(); ?>
     <article id="Data" class="tab eight columns offset-by-two">
       <div class="contain">
         <div class="icon">
-          <img src="<?php bloginfo('template_directory'); ?>/img/icon.png" alt="Placeholder icon">
+          <img src="<?php bloginfo('template_directory'); ?>/img/data_collection.png" alt="Placeholder icon">
         </div>
         <div class="content">
           <p>Expand collects raw data from clients rather than relying on filling in complex templates. This not only reduces the effort needed to participate, but also allows us to ensure database integrity as well as alignment in scope and definitions.</p>
