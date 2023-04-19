@@ -1,11 +1,13 @@
 
 $( document ).ready(function() {
+  // Mobile Menu Toggle
   $(".mobile_menu").click(function() {
     $('nav.mobile').fadeToggle();
     $('header').toggleClass("open");
     $(this).toggleClass("open");
   });
-  
+
+  // Search Form Toggle
   $(".search_icon").click(function() {
     $('.search_form').fadeToggle();
     $('#menu-main').fadeToggle();
@@ -19,6 +21,23 @@ $( document ).ready(function() {
         $(this).find(".video").get(0).pause();
     })
   });
+  
+  // Split Title
+  $(".split_title").lettering('words');
+  
+  // Animate Icon
+  $('article.tab').hover(
+    function() {
+      var iconImage = $(this).find('#iconImage');
+      var gifSrc = iconImage.data('gifsrc');
+      iconImage.attr('src', gifSrc);
+    },
+    function() {
+      var iconImage = $(this).find('#iconImage');
+      var staticSrc = iconImage.data('staticsrc');
+      iconImage.attr('src', staticSrc);
+    }
+  );
   
   // Back to Top Scroll 
   var amountScrolled = 300;
@@ -67,27 +86,6 @@ $( document ).ready(function() {
   })
   var counter = 0;
 
-});
-
-$(document).ready(function() {
-  $(".split_title").lettering('words');
-});
-
-// Icon GIF
-
-$(document).ready(function() {
-  $('article.tab').hover(
-    function() {
-      var iconImage = $(this).find('#iconImage');
-      var gifSrc = iconImage.data('gifsrc');
-      iconImage.attr('src', gifSrc);
-    },
-    function() {
-      var iconImage = $(this).find('#iconImage');
-      var staticSrc = iconImage.data('staticsrc');
-      iconImage.attr('src', staticSrc);
-    }
-  );
 });
 
 // Tabs
