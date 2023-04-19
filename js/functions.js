@@ -85,6 +85,49 @@ $( document ).ready(function() {
     $(this).off(event);
   })
   var counter = 0;
+  
+  
+  // Map Markers
+  
+  // Create a function to handle the common logic
+  function setActiveMarker(target, targetType) {
+    // Get the target ID based on the targetType
+    const targetID = targetType === 'office' ? target.attr('id') : target.data('target');
+  
+    // Remove the 'active' class from all .office, .map-marker, and .office_image elements
+    $('.office').removeClass('active');
+    $('.map-marker').removeClass('active');
+    $('.office_image').removeClass('active');
+  
+    // Get the office, map-marker, and office_image elements with the matching ID
+    const targetOffice = $(`.office[id="${targetID}"]`);
+    const targetMapMarker = $(`.map-marker[id="${targetID}"]`);
+    const targetOfficeImage = $(`.office_image[id="${targetID}"]`);
+  
+    // Add the 'active' class to the target elements
+    targetOffice.addClass('active');
+    targetMapMarker.addClass('active');
+    targetOfficeImage.addClass('active');
+  }
+  
+  // Bind the click and hover events for .map-marker
+  $('.map-marker').on('click mouseenter', function(e) {
+    if (e.type === 'click') {
+      e.preventDefault();
+    }
+    setActiveMarker($(this), 'map-marker');
+  });
+  
+  // Bind the click and hover events for .office
+  $('.office').on('click', function() {
+    setActiveMarker($(this), 'office');
+  });
+  
+  // Bind the click and hover events for .office_image
+  $('.office_image').on('click', function() {
+    setActiveMarker($(this), 'office');
+  });
+  
 
 });
 
@@ -149,49 +192,6 @@ var componentVisible = (function ($) {
   });
 
 })(jQuery);
-
-// Map Markers
-$(document).ready(function() {
-  // Create a function to handle the common logic
-  function setActiveMarker(target, targetType) {
-    // Get the target ID based on the targetType
-    const targetID = targetType === 'office' ? target.attr('id') : target.data('target');
-
-    // Remove the 'active' class from all .office, .map-marker, and .office_image elements
-    $('.office').removeClass('active');
-    $('.map-marker').removeClass('active');
-    $('.office_image').removeClass('active');
-
-    // Get the office, map-marker, and office_image elements with the matching ID
-    const targetOffice = $(`.office[id="${targetID}"]`);
-    const targetMapMarker = $(`.map-marker[id="${targetID}"]`);
-    const targetOfficeImage = $(`.office_image[id="${targetID}"]`);
-
-    // Add the 'active' class to the target elements
-    targetOffice.addClass('active');
-    targetMapMarker.addClass('active');
-    targetOfficeImage.addClass('active');
-  }
-
-  // Bind the click and hover events for .map-marker
-  $('.map-marker').on('click mouseenter', function(e) {
-    if (e.type === 'click') {
-      e.preventDefault();
-    }
-    setActiveMarker($(this), 'map-marker');
-  });
-
-  // Bind the click and hover events for .office
-  $('.office').on('click', function() {
-    setActiveMarker($(this), 'office');
-  });
-
-  // Bind the click and hover events for .office_image
-  $('.office_image').on('click', function() {
-    setActiveMarker($(this), 'office');
-  });
-});
-
 
 // Stats Scrolling
 function formatNumber(number) {
