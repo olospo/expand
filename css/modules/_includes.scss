@@ -284,7 +284,7 @@
     }
   }
   article {
-    flex: 1;
+    display: flex;
     background: url('../img/placeholder.jpg') center center no-repeat;
     background-size: cover;
     margin-bottom: $padding-half;
@@ -297,12 +297,15 @@
     a {
       text-decoration: none;
       color: $black;
+      display: flex;
     }
     .content {
-      // height: 100%;
       box-sizing: border-box;
       border-top: 5px solid $light-green;
       background: $white;
+      @media (min-width: $breakpoint-tablet) { 
+        min-height: 300px;
+      }
       margin: 40px;
       padding: 20px;
       span.type {
@@ -315,7 +318,9 @@
         font: $bold 1.6rem/2.0rem $heading;
         text-transform: uppercase;
       }
-      
+      p {
+        font: $normal 1.6rem/2.4rem $regular;
+      }
     }
     &:hover {
       cursor: pointer;
