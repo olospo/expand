@@ -361,6 +361,9 @@
       border: none;
       display: block;
       outline: 0;
+      @media (max-width: $breakpoint-tablet) {
+        border-bottom: 5px solid $dark-grey;
+      }
       &:hover, &.active {
         color: $mid-green;
         border-bottom: 5px solid $mid-green;
@@ -371,23 +374,31 @@
     margin: $padding 0 $padding-half;
     
     .contain {
-      display: flex;
-      align-items: center;
+      @media (min-width: $breakpoint-tablet) {
+        display: flex;
+        align-items: center;
+      }
       .icon {
+        width: 50%;
+        margin: 0px auto;
+        margin-bottom: 20px;
+        @media (min-width: $breakpoint-tablet) {
           width: 100%;
           float: left;
+          margin-bottom: 0;
           margin-right: 40px;
         }
-       .content {
-      
-         p {
-           color: $dark-grey;
-           font: $medium 2.0rem/3.2rem $heading;
-         }
-          
-        }
+      }
+      .content {
+        p {
+        color: $dark-grey;
+        font: $medium 1.6rem/2.4rem $heading;
+          @media (min-width: $breakpoint-tablet) {
+            font: $medium 2.0rem/3.2rem $heading;
+          }  
+        } 
+      }
     }
-    
   }
 }
 
