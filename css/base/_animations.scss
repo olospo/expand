@@ -65,6 +65,9 @@ section.hero {
     .icon {
       @include reset-fade();
       transition-delay: 2s;
+      &.left {
+        transition-delay: 0.5s;
+      }
     }
   }
 }
