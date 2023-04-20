@@ -141,7 +141,9 @@ header {
     }
   }
 
-  a.menu-toggle {
+  button.menu-toggle {
+    background: transparent;
+    border: none;
     display: block;
     height: 30px;
     width: 30px;

@@ -39,12 +39,12 @@ $image = get_the_post_thumbnail_url( $post_id, 'full' ); ?>
         <div class="search_form"><?php get_search_form(); ?></div>
       </div> -->
     </nav>
-    <a class="menu-toggle mobile_menu">
+    <button class="menu-toggle mobile_menu">
       <span></span>
       <span></span>
       <span></span>
       <span></span>
-    </a>
+    </button>
   </div>
 </header>
 <nav class="mobile">

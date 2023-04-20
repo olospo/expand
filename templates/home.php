@@ -77,7 +77,7 @@ while ( have_posts() ) : the_post(); ?>
     <article id="Data" class="tab ten columns offset-by-one">
       <div class="contain">
         <div class="icon">
-          <img src="<?php bloginfo('template_directory'); ?>/img/data_collection.png" alt="Placeholder icon">
+          <img src="<?php bloginfo('template_directory'); ?>/img/data_collection.png" height="333px" width="600px" alt="Data Collection icon">
         </div>
         <div class="content">
           <p>Expand collects raw data from clients rather than relying on filling in complex templates. This not only reduces the effort needed to participate, but also allows us to ensure database integrity as well as alignment in scope and definitions.</p>
@@ -88,7 +88,7 @@ while ( have_posts() ) : the_post(); ?>
     <article id="Normalisation" class="tab ten columns offset-by-one" style="display:none">
       <div class="contain">
         <div class="icon">
-          <img src="<?php bloginfo('template_directory'); ?>/img/normalisation.png" alt="Placeholder icon">
+          <img src="<?php bloginfo('template_directory'); ?>/img/normalisation.png" height="308px" width="600px" alt="Normalisation icon">
         </div>
         <div class="content">
           <p>Expand leverages years of experience to ensure unparalleled relevancy of comparisons. Peer groups can be tailored, and other complexity and scaling measures are captured and verified to create truly bespoke indicators of performance.</p>
@@ -98,7 +98,7 @@ while ( have_posts() ) : the_post(); ?>
     <article id="Action" class="tab ten columns offset-by-one" style="display:none">
       <div class="contain">
         <div class="icon">
-          <img src="<?php bloginfo('template_directory'); ?>/img/action.png" alt="Placeholder icon">
+          <img src="<?php bloginfo('template_directory'); ?>/img/action.png" height="297px" width="600px" alt="Action icon">
         </div>
         <div class="content">
           <p>Expand’s unique insights provide senior stakeholders and decision makers with clear and actionable intelligence about competitiveness, performance, and opportunities. Helping clients make strategic, well-thought-out decisions to drive positive business outcomes.</p>
