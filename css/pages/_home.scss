@@ -46,6 +46,9 @@
       object-fit: cover;
     }
   }
+  .container {
+    position: relative;
+  }
   .icon {
     display: block;
     position: fixed;
@@ -54,7 +57,14 @@
       max-width: 100%;
     }
     &.left {
-      @include vertical-align;
+      position: absolute;
+      top: 50%;
+      left: 0%;
+      -webkit-transform: translate3d(0%,-50%,0);
+      -ms-transform: translate3d(0%,-50%,0);
+      transform: translate3d(0%,-50%,0);
+      margin-left: 5%;
+      max-width: 400px;
     }
   }
   .next_section {

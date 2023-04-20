@@ -3,10 +3,12 @@ get_header();
 
 while ( have_posts() ) : the_post(); ?>
 
-<section class="hero home" >
+<section class="hero home">
   <div class="video-upload" style="background: linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)), url('<?php bloginfo('template_directory'); ?>/img/expand_careers.jpg') center center no-repeat; background-size:cover;">
   </div>
-  <div class="icon"><img src="<?php bloginfo('template_directory'); ?>/img/expand_your_world.svg" alt="Expand Your World"></div>
+  <div class="icon left">
+    <img src="<?php bloginfo('template_directory'); ?>/img/expand_your_world.svg" alt="Expand Your World">
+  </div>
 </section>
 
 <section class="text_section">

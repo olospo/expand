@@ -36,11 +36,11 @@ while ( have_posts() ) : the_post(); ?>
         <span class="unit" data-count="200" data-postfix="+">200</span>
         <span class="description">Firms engaged each year</span>
       </div>
-      <div class="stat grey">
+      <div class="stat white">
         <span class="unit" data-count="50" data-postfix="+">50</span>
         <span class="description">Benchmarks</span>
       </div>
-      <div class="stat white">
+      <div class="stat grey">
         <span class="unit" data-count="5.1" data-postfix="TB">5.1</span>
         <span class="description">Mapped Client Data</span>
       </div> 

@@ -6,6 +6,7 @@ while ( have_posts() ) : the_post(); ?>
 <section class="hero home" >
   <div class="video-upload" style="background: url('<?php bloginfo('template_directory'); ?>/img/expand_products.jpg') center center no-repeat; background-size:cover;">
   </div>
+<div class="icon left"><img src="<?php bloginfo('template_directory'); ?>/img/products.svg" alt="World class products"></div>
 </section>
 
 <section class="square_section green">
