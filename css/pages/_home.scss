@@ -50,11 +50,21 @@
     position: relative;
   }
   .icon {
-    display: block;
-    position: fixed;
-    @include center-align;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    -webkit-transform: translate3d(0%,-50%,0);
+    -ms-transform: translate3d(0%,-50%,0);
+    transform: translate3d(0%,-50%,0);
+    margin: 0 5%;
+    max-width: 400px;
+    @media (min-width: $breakpoint-tablet) {
+      @include center-align;
+    }
     svg {
-      max-width: 100%;
+      @media (max-width: $breakpoint-tablet) {
+        max-width: 80% !important;
+      }
     }
     &.left {
       position: absolute;
@@ -63,8 +73,13 @@
       -webkit-transform: translate3d(0%,-50%,0);
       -ms-transform: translate3d(0%,-50%,0);
       transform: translate3d(0%,-50%,0);
-      margin-left: 5%;
+      margin: 0 5%;
       max-width: 400px;
+      svg {
+        @media (max-width: $breakpoint-tablet) {
+          max-width: 70% !important;
+        }
+      }
     }
   }
   .next_section {
