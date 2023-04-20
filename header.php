@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-<title><?php bloginfo('name'); ?><?php wp_title( '|', true, 'left' ); ?></title>
+<title><?php wp_title( '|', true, 'left' ); ?></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <?php $post_id = get_the_ID(); if (has_post_thumbnail( $post_id ) ): 
 $image = get_the_post_thumbnail_url( $post_id, 'full' ); ?>
