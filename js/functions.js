@@ -13,15 +13,6 @@ $( document ).ready(function() {
     $('#menu-main').fadeToggle();
   });
 
-  // Check if video is ready to play
-  $("video").on('canplay', function () {
-    $(".work_item").mouseenter(function () {
-        $(this).find(".video").get(0).play();
-    }).mouseleave(function () {
-        $(this).find(".video").get(0).pause();
-    })
-  });
-  
   // Split Title
   $(".split_title").lettering('words');
   
