@@ -128,6 +128,15 @@ $( document ).ready(function() {
     setActiveMarker($(this), 'office');
   });
   
+  
+  // Mobile Menu 
+  $("li.menu-item-has-children > a").after("<div class='sub-toggle'></div>");
+  
+  $(".sub-toggle").click(function() {
+    $(this).siblings('ul').toggle();
+    $(this).toggleClass("open");
+  });
+  
 
 });
 
@@ -232,11 +241,3 @@ $(window).on('scroll', checkInView); // Add the scroll event handler
 checkInView(); // Check if the section is in view on page load
 
 var counter = 0;
-
-// Mobile Menu 
-$("li.menu-item-has-children > a").after("<div class='sub-toggle'></div>");
-
-$(".sub-toggle").click(function() {
-  $(this).siblings('ul').toggle();
-  $(this).toggleClass("open");
-});

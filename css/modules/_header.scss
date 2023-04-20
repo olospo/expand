@@ -198,13 +198,13 @@ nav.mobile {
       text-align: right;
       display: block;
       &.current_page_item a, &.current-menu-item a, &.current-page-ancestor a, &.current-post-ancestor a, &.current-menu-parent a, &.current-category-ancestor a, &.current_page_parent a, &:hover a {
-        font: $normal 2.2rem/2.4rem $regular !important;
+        font: $normal 2.2rem/2.4rem $heading !important;
         color: $white;
         margin: 20px 0px;
         font-weight: bold;
       }
       a {
-        font: $normal 2.2rem/2.4rem $regular !important;
+        font: $normal 2.2rem/2.4rem $heading !important;
         @include transition(all 0.2s ease-out);
         line-height: 1.4rem;
         display: block;
@@ -216,16 +216,16 @@ nav.mobile {
       &.menu-item-has-children {
         position: relative;
         a {
-          margin-right: 50px;
+          margin-right: 20px;
           
         }
         .sub-toggle {
           cursor: pointer;
           position: absolute;
           right: 5px;
-          top: 5px;
+          top: 3px;
           margin: auto;
-          padding: 20px;
+          padding: 10px;
           background: url('../img/menu_arrow_mobile.svg') center center no-repeat;
           -webkit-transform: rotate(0deg);
           transform: rotate(0deg);
@@ -271,7 +271,7 @@ nav.mobile {
         }
         &:nth-last-child(2), &:last-child {
           a {
-            border-bottom: 1px solid #e1e1ff;
+            // border-bottom: 1px solid #e1e1ff;
           }
         }
       }
