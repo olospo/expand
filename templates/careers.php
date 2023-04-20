@@ -64,7 +64,7 @@ while ( have_posts() ) : the_post(); ?>
       <article class="tab one-third column">
         <div class="contain">
           <div class="icon">
-            <img id="iconImage" src="<?php bloginfo('template_directory'); ?>/img/predictive.png" data-staticsrc="<?php bloginfo('template_directory'); ?>/img/predictive.png" data-gifsrc="<?php bloginfo('template_directory'); ?>/img/predictive.gif" alt="Placeholder icon">
+            <img id="iconImage" src="<?php bloginfo('template_directory'); ?>/img/predictive.png" data-staticsrc="<?php bloginfo('template_directory'); ?>/img/predictive.png" data-gifsrc="<?php bloginfo('template_directory'); ?>/img/predictive.gif" alt="Computer screen illustration with icons">
           </div>
           <div class="content">
             <h4>Predictive index assessments</h4>
@@ -75,7 +75,7 @@ while ( have_posts() ) : the_post(); ?>
       <article class="tab one-third column">
         <div class="contain">
           <div class="icon">
-            <img src="<?php bloginfo('template_directory'); ?>/img/icon_three.png" alt="Placeholder icon">
+            <img id="iconImage" src="<?php bloginfo('template_directory'); ?>/img/telephone.png" data-staticsrc="<?php bloginfo('template_directory'); ?>/img/telephone.png" data-gifsrc="<?php bloginfo('template_directory'); ?>/img/telephone.gif" alt="Phone illustration with notifications">
           </div>
           <div class="content">
             <h4>Telephone interview</h4>
