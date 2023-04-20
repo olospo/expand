@@ -10,6 +10,7 @@ while ( have_posts() ) : the_post(); ?>
       <source src="<?php bloginfo('template_directory'); ?>/video/about.mp4" type="video/mp4" preload="auto">
     </video>
     <div class="poster" style="background: url('<?php bloginfo('template_directory'); ?>/video/about.jpg') center center no-repeat; background-size: cover"></div>
+    <div class="icon left"><img src="<?php bloginfo('template_directory'); ?>/img/about.svg" alt="Who is expand?"/></div>
   </div>
 </section>
 
