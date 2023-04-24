@@ -357,7 +357,9 @@
   background: $white-bg;
   padding: $padding-half 0;
   .tab_menu {
-    border-bottom: 2px solid $table-grey;
+    @media (min-width: 600px) { 
+      border-bottom: 2px solid $table-grey;
+    }
     width: 100%;
     clear: both;
     button {
@@ -380,10 +382,12 @@
       display: block;
       outline: 0;
       @media (max-width: 600px) {
+        margin: 5px 0;
         font: $medium 1.4rem/2.8rem $heading;
         background: $white-bg;
         text-align: left;
         border: 1px solid $light-grey;
+        border-left: 5px solid $light-green;
       }
       &:hover, &.active {
         color: $mid-green;
@@ -391,6 +395,7 @@
         @media (max-width: 600px) {
           background: $light-green;
           border: 1px solid $light-green;
+          border-left: 5px solid $light-green;
           color: $white;
         }
       }
