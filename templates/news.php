@@ -45,9 +45,11 @@ while ( have_posts() ) : the_post(); ?>
       <?php else : ?>
         <article class="item one-third column">
           <?php if ( has_post_thumbnail() ) { ?>
+          <a href="<?php the_permalink(); ?>">
           <div class="item_image">
-            <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'featured-img' ); ?></a>
+            <?php the_post_thumbnail( 'featured-img' ); ?>
           </div>
+          </a>
           <?php } ?>
           <div class="item_content">
             <?php $category = get_the_category(); $name = $category[0]->cat_name;

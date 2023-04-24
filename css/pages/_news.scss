@@ -20,6 +20,20 @@ section.news {
       clear: left;
       margin-left: 0%;
     }
+    
+    .item_image {
+      overflow: hidden;
+      img {
+        transition: transform .5s;
+        transform: scale(1);
+      }
+      &:hover {
+        img {
+          transition: transform .5s;
+          transform: scale(1.05);
+        }
+      }
+    }
     .item_content {
       background: $white-bg;
       padding: 30px;

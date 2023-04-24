@@ -127,6 +127,17 @@ section.tabbed_section {
   }
 }
 
+section.text_section {
+  .title, p {
+    @include fade();
+    }
+  &.visible {
+    .title, p {
+      @include reset();
+    }
+  }
+}
+
 section.our_products {
   .title, article {
     @include fade();

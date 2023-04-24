@@ -206,7 +206,6 @@
         padding: 120px $padding-half;
       }
       margin-left: 0;
-      
       &.white {
         background: #F8FBFA;
         span.unit {
@@ -303,6 +302,7 @@
       display: flex;
     }
     .content {
+      transition: all linear 1s;
       box-sizing: border-box;
       border-top: 5px solid $light-green;
       background: $white;
@@ -334,6 +334,8 @@
         margin-bottom: 0;
       }
     }
+    
+
     &:hover {
       cursor: pointer;
       .content {
@@ -402,7 +404,10 @@
     }
   }
   article {
-    margin: $padding 0 $padding-half;
+    margin: $padding-half 0 0 0;
+    @media (min-width: $breakpoint-tablet) {
+      margin: $padding 0 $padding-half;
+    }
     
     .contain {
       @media (min-width: $breakpoint-tablet) {
@@ -469,17 +474,24 @@
     background-size: cover;
     content: "";
     height: auto;
-    min-height: 600px;
+    min-height: 400px;
     width: 100%;
     @media (min-width: $breakpoint-tablet) {
+      min-height: 600px;
       width: 75%;
     }
     max-width: 1600px;
     .cta_title {
-      @include vertical-align;
-      left: 5%;
+      @media (min-width: $breakpoint-tablet) {
+        @include vertical-align;
+        left: 5%;
+      }
       svg {
-        max-width: 100%;
+        display: none;
+        @media (min-width: $breakpoint-tablet) {
+          max-width: 100%;
+          display: block;
+        }
       }
       
     }
@@ -510,7 +522,7 @@
 // Generic Title to add to sections
 section {
   .title {
-    padding: 0 0 10px 0;
+    padding: 0 0 20px 0;
     @media (min-width: $breakpoint-tablet) {
       padding: 0 0 $padding-half 0;
     }
