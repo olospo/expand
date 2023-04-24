@@ -1,5 +1,6 @@
 // Includes
 
+// Square Section
 .square_section {
   background: $black;
   margin: 0px auto;
@@ -55,7 +56,10 @@
         }
       }
       .title {
-        padding: 0 0 20px 0;
+        padding: 0 0 10px 0;
+        @media (min-width: $breakpoint-tablet) {
+          padding: 0 0 20px 0;
+        }
         h3 {
           color: $mid-green;
           span.word1 {
@@ -95,7 +99,6 @@
           color: $black;
         }
         .title {
-          padding: 0 0 20px 0;
           h3 {
             color: $mid-green;
             span.word1 {
@@ -163,7 +166,6 @@
           color: $white;
         }
         .title {
-          padding: 0 0 20px 0;
           h3 {
             color: $white;
             span.word1 {
@@ -185,6 +187,7 @@
   }
 }
 
+// Stat Section
 .stat_section {
   .container {
     width: 100%;
@@ -459,7 +462,7 @@
     padding: $padding 0;
   }
   p {
-    font: $normal 2.2rem/3.2rem $heading;
+    font: $normal 2.0rem/3.2rem $heading;
     @media (min-width: $breakpoint-tablet) {
       font: $normal 3.4rem/5.4rem $heading;
     }
@@ -467,12 +470,18 @@
     background: linear-gradient(to right, #29BA74, #197A56);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    &::selection {
+      -webkit-text-fill-color: $white;
+    }
   }
 }
 
 section {
   .title {
-    padding: 0 0 $padding-half 0;
+    padding: 0 0 10px 0;
+    @media (min-width: $breakpoint-tablet) {
+      padding: 0 0 $padding-half 0;
+    }
     h3 {
       font: $normal 2.0rem/3.2rem $heading;
       @media (min-width: $breakpoint-tablet) {

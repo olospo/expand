@@ -39,6 +39,7 @@ section.news {
       }
     }
     &.featured {
+      padding: 0;
       @media (min-width: $breakpoint-tablet) {
         display: flex;
       }

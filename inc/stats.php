@@ -1,22 +1,20 @@
+<?php if( have_rows('stat') ): $numrows = count( get_field( 'stat' ) ); $word = number_to_word($numrows); ?>
 <section class="stat_section">
   <div class="container">
-    <div class="stats four">
-      <div class="stat grey">
-        <span class="unit" data-count="22">22</span>
-        <span class="description">Years</span>
+    <div class="stats <?php echo $word; // Need to fix this ?>">
+    <?php while( have_rows('stat') ): the_row(); 
+      $unit = get_sub_field('unit');
+      $unit_extra = get_sub_field('unit_extra');
+      $prepost = get_sub_field('postfix_or_prefix');
+      $desc = get_sub_field('description');
+      $colour = get_sub_field('colour');
+    ?>
+      <div class="stat <?php echo $colour; ?>">
+        <span class="unit" data-count="<?php echo $unit; ?>" <?php if ($prepost) { ?> data-<?php echo $prepost ;?>="<?php echo $unit_extra; ?>" <?php } ?>><?php echo $unit; ?></span>
+        <span class="description"><?php echo $desc; ?></span>
       </div>
-      <div class="stat green">
-        <span class="unit" data-count="200" data-postfix="+">200</span>
-        <span class="description">Firms engaged each year</span>
-      </div>
-      <div class="stat grey">
-        <span class="unit" data-count="50" data-postfix="+">50</span>
-        <span class="description">Benchmarks</span>
-      </div>
-      <div class="stat white">
-        <span class="unit" data-count="5.1" data-postfix="TB">5.1</span>
-        <span class="description">Mapped Client Data</span>
-      </div> 
+    <?php endwhile; ?>
     </div>
   </div>
 </section>
+<?php endif; ?>
