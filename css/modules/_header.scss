@@ -200,7 +200,8 @@ nav.mobile {
       &.current_page_item a, &.current-menu-item a, &.current-page-ancestor a, &.current-post-ancestor a, &.current-menu-parent a, &.current-category-ancestor a, &.current_page_parent a, &:hover a {
         font: $normal 2.2rem/2.4rem $heading !important;
         color: $white;
-        margin: 20px 0px;
+        margin: 0px 0px;
+        padding: 20px 0;
         font-weight: bold;
       }
       a {
@@ -210,20 +211,21 @@ nav.mobile {
         display: block;
         color: $white;
         text-decoration: none;
-        margin: 20px 0px;
-        padding-right: 15px;
+        margin: 0px 0px;
+        padding: 20px 0;
+        border-bottom: 1px solid $light-green;
       }
       &.menu-item-has-children {
         position: relative;
         a {
-          margin-right: 20px;
+          padding-right: 40px;
           
         }
         .sub-toggle {
           cursor: pointer;
           position: absolute;
           right: 5px;
-          top: 3px;
+          top: 20px;
           margin: auto;
           padding: 10px;
           background: url('../img/menu_arrow_mobile.svg') center center no-repeat;
@@ -261,12 +263,13 @@ nav.mobile {
       }
       ul.sub-menu {
         display: none;
-        margin: 0 0px 0 10px;
+        margin: 0 0px 0 0px;
         padding: 0;
         li {
-          padding-left: 10px;
+          padding-left: 0px;
           a {
-            
+            background: #1c865f;
+            padding-right: 20px;
           }
         }
         &:nth-last-child(2), &:last-child {

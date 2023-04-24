@@ -12,7 +12,7 @@ while ( have_posts() ) : the_post(); ?>
       <?php get_template_part( 'inc/flexible/stats'); // Stats ?>
     <?php elseif( get_row_layout() == 'text_gradient' ): ?>
       <?php get_template_part( 'inc/flexible/text'); // Text Gradient ?>
-    <?php elseif( get_row_layout() == 'tabbed' ): ?>
+    <?php elseif( get_row_layout() == 'tabbed_content' ): ?>
       <?php get_template_part( 'inc/flexible/tabbed'); // Tabbed Content ?>
     <?php elseif( get_row_layout() == 'content_block' ): ?>
       <?php get_template_part( 'inc/flexible/content_block'); // Content Block ?>
