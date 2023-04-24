@@ -306,11 +306,14 @@
       box-sizing: border-box;
       border-top: 5px solid $light-green;
       background: $white;
+      margin: 20px;
+      padding: 20px;
       @media (min-width: $breakpoint-tablet) { 
         min-height: 300px;
+        margin: 40px;
+        padding: 20px;
       }
-      margin: 40px;
-      padding: 20px;
+      
       span.type {
         font: $bold 1.2rem/1.8rem $heading;
         text-transform: uppercase;
@@ -321,17 +324,26 @@
         font: $bold 1.6rem/2.0rem $heading;
         text-transform: uppercase;
       }
-      p {
-        font: $normal 1.6rem/2.4rem $regular;
+      p, ul {
+        font: $normal 1.4rem/2.0rem $regular;
+        @media (min-width: $breakpoint-tablet) { 
+          font: $normal 1.6rem/2.4rem $regular;
+        }
+      }
+      ul {
+        margin-bottom: 0;
       }
     }
     &:hover {
       cursor: pointer;
       .content {
-        padding: 60px;
+        padding: 40px;
+        @media (min-width: $breakpoint-tablet) { 
+          padding: 60px;
+        }
         margin: 0;
         background: $light-green;
-        opacity: 0.8;
+        opacity: 0.9;
         h4, span, p, ul, li {
           color: $white;
         }
@@ -340,6 +352,7 @@
   }
 }
 
+// Tabbed Section
 .tabbed_section {
   background: $white-bg;
   padding: $padding-half 0;
@@ -349,10 +362,12 @@
     clear: both;
     button {
       min-width: 100%;
+      font: $medium 1.4rem/2.8rem $heading;
       @media (min-width: 600px) { 
         min-width: 25%;
+        font: $bold 1.6rem/3.2rem $heading;
       }
-      font: $bold 1.6rem/3.2rem $heading;
+      
       text-transform: uppercase;
       color: $dark-grey;
       margin-bottom: -2px;
@@ -364,12 +379,20 @@
       border: none;
       display: block;
       outline: 0;
-      @media (max-width: $breakpoint-tablet) {
-        border-bottom: 5px solid $dark-grey;
+      @media (max-width: 600px) {
+        font: $medium 1.4rem/2.8rem $heading;
+        background: $white-bg;
+        text-align: left;
+        border: 1px solid $light-grey;
       }
       &:hover, &.active {
         color: $mid-green;
         border-bottom: 5px solid $mid-green;
+        @media (max-width: 600px) {
+          background: $light-green;
+          border: 1px solid $light-green;
+          color: $white;
+        }
       }
     }
   }
@@ -405,6 +428,28 @@
   }
 }
 
+// Gradient Text
+.text_section {
+  padding: $padding-half 0;
+  @media (min-width: $breakpoint-tablet) {
+    padding: $padding 0;
+  }
+  p {
+    font: $normal 2.0rem/3.2rem $heading;
+    @media (min-width: $breakpoint-tablet) {
+      font: $normal 3.4rem/5.4rem $heading;
+    }
+    background: -webkit-linear-gradient(to right, #29BA74, #197A56);
+    background: linear-gradient(to right, #29BA74, #197A56);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    &::selection {
+      -webkit-text-fill-color: $white;
+    }
+  }
+}
+
+// Careers CTA
 .careers_cta {
   background: $white-bg;
   margin: 0px auto;
@@ -456,26 +501,8 @@
   }
 }
 
-.text_section {
-  padding: $padding-half 0;
-  @media (min-width: $breakpoint-tablet) {
-    padding: $padding 0;
-  }
-  p {
-    font: $normal 2.0rem/3.2rem $heading;
-    @media (min-width: $breakpoint-tablet) {
-      font: $normal 3.4rem/5.4rem $heading;
-    }
-    background: -webkit-linear-gradient(to right, #29BA74, #197A56);
-    background: linear-gradient(to right, #29BA74, #197A56);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    &::selection {
-      -webkit-text-fill-color: $white;
-    }
-  }
-}
 
+// Generic Title to add to sections
 section {
   .title {
     padding: 0 0 10px 0;
