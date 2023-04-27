@@ -7,24 +7,7 @@
     @media (min-width: $breakpoint-tablet) {
       padding: 60px 0;
     }
-    h2 {
-      text-align: center;
-      font: $thin 3.6rem/4.8rem $light;
-      color: #737772;
-      margin-bottom: 48px;
-      &::after {
-        position: absolute;
-        content: "";
-        width: 70px;
-        height: 1px;
-        top: 68px;
-        left: 50%;
-        background: #737772;
-        transition: transform 0.5s;
-        transform: translateX(-50%);
-        transform-origin: left;
-      }
-    }
+
     h3.team_heading {
       border-bottom: 1px solid #c1c1c1;
       display: block;
@@ -84,7 +67,7 @@
         transition: border ease 1s;
       }
       p {
-        text-align: center;
+        // text-align: center;
         font: $normal 1.5rem/2.1rem $regular;
         color: #737772;
       }
