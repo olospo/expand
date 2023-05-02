@@ -1,13 +1,31 @@
 // About
 
+section.team_img {
+  height: 400px;
+}
+
 .team {
+  .title {
+    h1 {
+      font: $normal 2.0rem/3.2rem $heading;
+      @media (min-width: $breakpoint-tablet) {
+        font: $normal 3.2rem/4.2rem $heading;
+      }
+      text-transform: uppercase;
+      margin: 0;
+      color: $mid-green;
+      span.word1 {
+        color: $black;
+      }
+    }
+  }
   &.about {
     background: $white;
     padding: $padding-half 0;
     @media (min-width: $breakpoint-tablet) {
       padding: 60px 0;
     }
-
+    
     h3.team_heading {
       border-bottom: 1px solid #c1c1c1;
       display: block;
@@ -17,10 +35,7 @@
       margin: 40px 0 10px 0;
       
       
-      font: $medium 2.0rem/3.2rem $heading;
-      @media (min-width: $breakpoint-tablet) {
-        font: $medium 2.2rem/3.2rem $heading;
-      }
+      font: $bold 1.6rem/2.8rem $heading;
       text-transform: uppercase;
 
       color: $black;

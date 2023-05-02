@@ -3,15 +3,14 @@ get_header();
 
 while ( have_posts() ) : the_post(); ?>
 
-<section class="hero careers" style="background:url(<?php the_post_thumbnail_url( 'full' ); ?>) center center no-repeat; background-size: cover;">
-  <div class="container">
-    <h1><?php the_title(); ?></h1>
-  </div>
-</section>
+<section class="hero team_img" style="background:url(<?php the_post_thumbnail_url( 'full' ); ?>) center center no-repeat; background-size: cover;"></section>
 
 <section class="team about" id="team">
   <div class="container">
-    <div class="content ten columns">
+    <div class="content ten columns offset-by-one">
+      <div class="title">
+        <h1 class="split_title"><?php the_title(); ?></h1>
+      </div>
       <?php if (have_rows('team_profile')) { // Flexible Content ?>
       <div class="flexible_content flex">        
         <?php while (have_rows('team_profile')) { the_row(); ?>
