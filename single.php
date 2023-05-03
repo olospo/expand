@@ -18,7 +18,9 @@ while ( have_posts() ) : the_post(); ?>
   <div class="container flex">
     <div class="content ten columns offset-by-one">
       <div class="info">
-        <h1><?php the_title(); ?></h1>
+        <div class="title single">
+          <h1 class="split_title"><?php the_title(); ?></h1>
+        </div>
         <p class="date"><?php the_time('F j, Y'); ?></p>
         <?php $category = get_the_category(); $name = $category[0]->cat_name;
           $cat_id = get_cat_ID( $name );

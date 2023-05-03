@@ -3,15 +3,15 @@ get_header();
 
 while ( have_posts() ) : the_post(); ?>
 
-<section class="hero careers" style="background:url(<?php the_post_thumbnail_url( 'full' ); ?>) center center no-repeat; background-size: cover;">
-  <div class="container">
-    <h1><?php the_title(); ?></h1>
-  </div>
+<section class="hero single" style="background:url(<?php the_post_thumbnail_url( 'full' ); ?>) center center no-repeat; background-size: cover;">
 </section>
 
 <section class="post careers">
   <div class="container flex">
     <div class="content eight columns">
+      <div class="title single">
+        <h1 class="split_title"><?php the_title(); ?></h1>
+      </div>
       <h2 class="details">Job description</h2>
       <?php the_content(); ?>
     </div>

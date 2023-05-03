@@ -525,7 +525,7 @@ section {
     @media (min-width: $breakpoint-tablet) {
       padding: 0 0 $padding-half 0;
     }
-    h3 {
+    h1, h3 {
       font: $normal 2.0rem/3.2rem $heading;
       @media (min-width: $breakpoint-tablet) {
         font: $normal 3.2rem/4.2rem $heading;
@@ -544,6 +544,9 @@ section {
         margin-top: 20px;
         font: $normal 1.8rem/3.2rem $heading;
       }
+    }
+    &.single {
+      padding: 0;
     }
   }
 }
