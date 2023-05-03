@@ -161,7 +161,9 @@ while ( have_posts() ) : the_post(); ?>
         <h3 class="split_title">Speculative Applications</h3>
         <p>We are always keen to hear from both graduates and experienced professionals who are interested in joining Expand at one of our three office locations: London, New York and Singapore. If you are interested in joining Expand, please apply below and if we have a position that suits your experience, we will be in touch.</p>
       </div>
-      
+      <div class="form">
+        <?php echo do_shortcode('[contact-form-7 id="210" title="Contact form 1"]'); ?>
+      </di>
     </div>
   </div>
 </section>
