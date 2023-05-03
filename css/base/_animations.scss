@@ -23,7 +23,6 @@
   opacity: 1;
 }
 
-
 @mixin reset() {
   opacity: 1;
   transform: translate3d(0,0,0);
@@ -167,6 +166,103 @@ section.careers_cta {
     }
   }
 }
+section.application_section {
+  .title {
+    @include fade();
+  }
+  article {
+    @include fade();
+
+  }
+  &.visible {
+    .title {
+      @include reset();
+    }
+    article {
+      @include reset();
+      @include delay-children();
+
+    }
+  }
+}
+section.careers_benefits {
+  .title {
+    @include fade();
+  }
+  .benefit {
+    @include rise();  
+  }
+  &.visible {
+    .title {
+      @include reset();
+    }
+    .benefit {
+      @include reset();
+      @include delay-children();
+    }
+  }
+}
+section.careers_archive {
+  .title {
+    @include fade();
+  }
+  .career {
+    @include fade(); 
+  }
+  &.visible {
+    .title {
+      @include reset();
+    }
+    .career {
+      @include reset();
+      @include delay-children();
+    }
+  }
+}
+section.speculative {
+  .title {
+    @include fade();
+  }
+  &.visible {
+    .title {
+      @include reset();
+    }
+  }
+}
+
+section.news {
+  article {
+    @include fade();
+    &.visible {
+      @include reset();
+      @include delay-children();
+    }
+  }
+}
+
+section.product_section {
+  .product {
+    .content {
+      @include fade();
+    }
+    &.visible {
+      .content {
+        @include reset();
+      }
+    }
+  }
+}
+
+section.team.about {
+  .title, .flexible_content {
+    @include fade();
+  }
+  &.visible {
+    .title, .flexible_content {
+      @include reset();
+    }
+  }
+}
 
 section.map {
   .map_container {
@@ -235,6 +331,27 @@ section.map_offices {
     @include rise();
     &.visible {
       @include reset();
+    }
+  }
+}
+
+footer.main {
+  .logo, .logo_wrap, .footer_links {
+    @include fade();
+  }
+  
+  &.visible {
+    .logo {
+      @include reset();
+      transition-delay: 0.1s;
+    }
+    .logo_wrap {
+      @include reset();
+      transition-delay: 0.2s;
+    }
+    .footer_links {
+      @include reset();
+      transition-delay: 0.4s;
     }
   }
 }

@@ -182,7 +182,7 @@ $(function(){
 // Animation Javascript
 // ------------------------------------------------------------
 var componentVisible = (function ($) {
-  var $components = $('header, section, .step, article, .full_image, .content_block, .square_image, .full_video, .stat_block, .stat');
+  var $components = $('header, footer, section, .step, article, .full_image, .content_block, .square_image, .full_video, .stat_block, .stat, section.product_section .product');
 
   var componentsWaypoints = $components.waypoint({
     handler: function() {

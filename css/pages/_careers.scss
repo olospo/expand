@@ -1,7 +1,7 @@
 // News
 
 .application_section {
-  background: $white;
+  background: $white-bg;
   padding: $padding-half 0;
   .row {
     @media (min-width: $breakpoint-tablet) {
@@ -15,7 +15,7 @@
       margin-bottom: 0;
       padding: 40px;
     }
-    background: $white-bg;
+    background: $white;
     border-top: 8px solid $light-grey;
     &:hover {
       border-top: 8px solid $light-green;
@@ -50,7 +50,7 @@
 }
 
 .careers_benefits {
-  background: $white-bg;
+  background: $white;
   padding: $padding-half 0;
   @media (min-width: $breakpoint-tablet) {
     padding: $padding 0;
@@ -68,7 +68,7 @@
       @media (min-width: $breakpoint-tablet) {
         margin-bottom: 0;
       }
-      background: $white;
+      background: $white-bg;
       padding: 20px;
       h4 {
         font: $medium 1.6rem/2.4rem $heading;

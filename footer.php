@@ -34,7 +34,7 @@
       </div>
       
     </div>
-    <div class="four columns">
+    <div class="footer_links four columns">
       <h4>Expand</h4>
       <?php wp_nav_menu( array( 'theme_location' => 'footer' ) ); ?>
     </div>
