@@ -100,7 +100,6 @@
         @media (min-width: $breakpoint-tablet) {
           font: $medium 1.6rem/2.4rem $heading;
         }
-        margin-bottom: 10px;
       }
       h3 {
         font: $medium 1.8rem/2.8rem $heading;
@@ -110,7 +109,10 @@
         color: $black;
       }
       a.phone, a.email {
-        font: $medium 1.6rem/2.4rem $heading;
+        font: $medium 1.4rem/2.0rem $heading;
+        @media (min-width: $breakpoint-tablet) {
+          font: $medium 1.6rem/2.4rem $heading;
+        }
         color: $black;
         text-decoration-color: $black;
         &:hover {
