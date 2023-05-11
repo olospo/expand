@@ -72,12 +72,11 @@ while ( have_posts() ) : the_post(); ?>
   </div>
 </section>
 
+<?php $authors = get_field('author');
+if( $authors ): ?>
 <section class="authors">
   <div class="container flex">
     <div class="content ten columns offset-by-one">
-    <?php
-    $authors = get_field('author');
-    if( $authors ): ?>
     <?php foreach( $authors as $author ): 
       $permalink = get_permalink( $author->ID );
       $title = get_the_title( $author->ID );
@@ -96,10 +95,10 @@ while ( have_posts() ) : the_post(); ?>
       </div>
     </article>
     <?php endforeach; ?>
-    <?php endif; ?>
     </div>
   </div>
 </section>
+<?php endif; ?>
 
 <?php get_template_part( 'inc/cta_careers' ); ?>
 
