@@ -81,6 +81,9 @@ section.team_img {
         background-size: cover;
         transition: border ease 1s;
       }
+      strong.name {
+        color: $green;
+      }
       p {
         // text-align: center;
         font: $normal 1.5rem/2.1rem $regular;
