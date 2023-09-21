@@ -160,17 +160,17 @@ section.image_offices {
     opacity: 0;
     transition: opacity linear 0.5s;
     &.newyork {
-      background: url('../img/newyork.jpg') center center no-repeat;
+      // background: url('../img/newyork.jpg') center center no-repeat;
       background-size: cover;
       opacity: 0;
     }
     &.london {
-      background: url('../img/london.jpg') center center no-repeat;
+      // background: url('../img/london.jpg') center center no-repeat;
       background-size: cover;
       opacity: 0;
     }
     &.singapore {
-      background: url('../img/singapore.jpg') center center no-repeat;
+      // background: url('../img/singapore.jpg') center center no-repeat;
       background-size: cover;
       opacity: 0;
     }

@@ -1,9 +1,6 @@
 <?php /* Template Name: Contact */
 get_header();
 
-$mapDesktop = get_field('desktop_map');
-$mapMobile = get_field('mobile_map');
-
 while ( have_posts() ) : the_post(); ?>
 
 <section class="square_section green">
@@ -11,20 +8,19 @@ while ( have_posts() ) : the_post(); ?>
     <div class="square_content">
       <div class="content">
         <div class="title">
-          <h3 class="split_title">Say Hello</h3>
+          <h3 class="split_title"><?php the_field('square_title'); ?></h3>
         </div>
-        <p>For more information on how Expand can help your business achieve its objectives, or for general enquiries, please get in touch.</p>
+        <?php the_field('square_content'); ?>
       </div>
     </div>
-    <div class="square_background"></div>
+    <div class="square_background" style="background: url('<?php the_field('square_image'); ?>') center center no-repeat; background-size: cover;"></div>
   </div>
 </section>
-
 
 <section class="map">
   <div class="container">
     <div class="title six columns offset-by-three">
-      <h3 class="split_title">Expand Worldwide</h3>
+      <h3 class="split_title"><?php the_field('map_title'); ?></h3>
     </div>
     <div class="map_container">
     <img src="<?php bloginfo('template_directory'); ?>/img/expand_map.png" alt="map" />
@@ -45,48 +41,78 @@ while ( have_posts() ) : the_post(); ?>
   <div class="container">
     <div class="offices">
     <div class="office active" id="London">
-      <div class="content">
-        <h3>London</h3>
-        <address>
-          70 Mark Lane<br />
-          14th Floor<br />
-          London<br />
-          EC3R 7NQ
-        </address>
-        <a href="tel:+44 (0)20 7337 2100" class="phone">+44 (0)20 7337 2100</a>
-      </div>
+      
+      <?php if( have_rows('london') ): ?>
+        <?php while( have_rows('london') ): the_row(); 
+      
+        // Get sub field values.
+        $title = get_sub_field('address_title');
+        $address = get_sub_field('address');
+        $phone = get_sub_field('phone_number');
+        ?>
+        <div class="content">
+          <h3><?php echo $title; ?></h3>
+          <address>
+            <?php echo $address; ?>
+          </address>
+          <a href="tel:<?php echo $phone; ?>" class="phone"><?php echo $phone; ?></a>
+        </div>
+        <?php endwhile; ?>
+      <?php endif; ?>
+
     </div>
     <div class="office" id="New-York">
-      <div class="content">
-        <h3>USA</h3>
-        <address>
-          10 Hudson Yards<br />
-          New York<br />
-          NY, 10001
-        </address>
-        <a href="tel:+1 (212) 913 9268" class="phone">+1 (212) 913 9268</a>
-      </div>
+      <?php if( have_rows('usa') ): ?>
+        <?php while( have_rows('usa') ): the_row(); 
+      
+        // Get sub field values.
+        $title = get_sub_field('address_title');
+        $address = get_sub_field('address');
+        $phone = get_sub_field('phone_number');
+        ?>
+        <div class="content">
+          <h3><?php echo $title; ?></h3>
+          <address>
+            <?php echo $address; ?>
+          </address>
+          <a href="tel:<?php echo $phone; ?>" class="phone"><?php echo $phone; ?></a>
+        </div>
+        <?php endwhile; ?>
+      <?php endif; ?>
     </div>
     <div class="office" id="Singapore">
-      <div class="content">
-        <h3>Singapore</h3>
-        <address>
-          R79 Robinson Road<br />
-          Level 27 CapitaSky<br />
-          Singapore 068897<br />
-          Singapore
-        </address>
-        <a href="tel:+65 6429 2500" class="phone">+65 6429 2500</a>
-      </div>
+      <?php if( have_rows('singapore') ): ?>
+        <?php while( have_rows('singapore') ): the_row(); 
+      
+        // Get sub field values.
+        $title = get_sub_field('address_title');
+        $address = get_sub_field('address');
+        $phone = get_sub_field('phone_number');
+        ?>
+        <div class="content">
+          <h3><?php echo $title; ?></h3>
+          <address>
+            <?php echo $address; ?>
+          </address>
+          <a href="tel:<?php echo $phone; ?>" class="phone"><?php echo $phone; ?></a>
+        </div>
+        <?php endwhile; ?>
+      <?php endif; ?>
     </div>
     </div>
   </div>
 </section>
 
 <section class="image_offices">
-  <div class="office_image newyork" id="New-York"></div>
-  <div class="office_image london active" id="London"></div>
-  <div class="office_image singapore" id="Singapore"></div>
+  <?php if( have_rows('usa') ): while( have_rows('usa') ): the_row(); $img = get_sub_field('office_image'); ?>
+  <div class="office_image newyork" id="New-York" style="background: url('<?php echo $img; ?>') center center no-repeat; background-size: cover;"></div>
+  <?php endwhile; endif; ?>
+  <?php if( have_rows('london') ): while( have_rows('london') ): the_row(); $img = get_sub_field('office_image'); ?>
+  <div class="office_image london active" id="London" style="background: url('<?php echo $img; ?>') center center no-repeat; background-size: cover;"></div>
+  <?php endwhile; endif; ?>
+  <?php if( have_rows('singapore') ): while( have_rows('singapore') ): the_row(); $img = get_sub_field('office_image'); ?>  
+  <div class="office_image singapore" id="Singapore" style="background: url('<?php echo $img; ?>') center center no-repeat; background-size: cover;"></div>
+  <?php endwhile; endif; ?>
 </section>
 
 <?php endwhile; // end of the loop. ?>

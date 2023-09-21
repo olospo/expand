@@ -197,6 +197,11 @@
             {
                 "param": "page_template",
                 "operator": "!=",
+                "value": "templates\/contact.php"
+            },
+            {
+                "param": "page_template",
+                "operator": "!=",
                 "value": "templates\/team.php"
             }
         ],
@@ -205,13 +210,6 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "post"
-            }
-        ],
-        [
-            {
-                "param": "page_template",
-                "operator": "!=",
-                "value": "templates\/team.php"
             }
         ]
     ],
@@ -229,5 +227,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1682600179
+    "modified": 1695291801
 }
