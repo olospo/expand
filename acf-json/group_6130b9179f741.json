@@ -207,13 +207,13 @@
         ],
         [
             {
-                "param": "post_type",
+                "param": "page_template",
                 "operator": "==",
-                "value": "post"
+                "value": "templates\/news.php"
             }
         ]
     ],
-    "menu_order": 1,
+    "menu_order": 2,
     "position": "acf_after_title",
     "style": "default",
     "label_placement": "top",
@@ -227,5 +227,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1695291801
+    "modified": 1696348208
 }

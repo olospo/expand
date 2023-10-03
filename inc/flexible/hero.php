@@ -20,7 +20,7 @@
     <?php } ?>
     
     <?php if ($icon) { ?>  
-    <div class="icon <?php echo $positionIcon; ?>"><img src="<?php bloginfo('template_directory'); ?>/img/news_events.svg" alt="News and Events"></div>
+    <div class="icon <?php echo $positionIcon; ?>"><img src="<?php echo esc_url($icon['url']); ?>" alt="<?php echo esc_attr($icon['alt']); ?>"></div>
     <?php } ?>
   </div>
 </section>

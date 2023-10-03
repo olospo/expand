@@ -3,6 +3,14 @@ get_header();
 
 while ( have_posts() ) : the_post(); ?>
 
+<section class="hero profile">
+  <div class="container">
+    <div class="twelve columns">
+      <div class="breadcrumbs"><a href="<?php echo get_site_url(); ?>/about">About</a> <span>></span> Meet the team</div>
+    </div>
+  </div>
+</section>
+
 <section class="hero team_img" style="background:url(<?php the_post_thumbnail_url( 'full' ); ?>) center center no-repeat; background-size: cover;"></section>
 
 <section class="team about" id="team">

@@ -4,6 +4,27 @@ section.team_img {
   height: 400px;
 }
 
+section.hero.profile {
+  padding: 15px 0;
+  background: $dark-green;
+  .breadcrumbs {
+    text-transform: uppercase;
+    font: $normal 1.1rem/2.4rem $heading;
+    letter-spacing: 1px;
+    color: $white;
+    a {
+      color: $white;
+      text-decoration: underline;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    span {
+      margin: 0 10px;
+    }
+  }
+}
+
 .team {
   .title {
     h1 {
@@ -80,6 +101,10 @@ section.team_img {
         margin: 0 auto 20px auto;
         background-size: cover;
         transition: border ease 1s;
+        border: 1px solid transparent;
+        &:hover {
+          background-blend-mode: multiply;
+        }
       }
       
       p {
@@ -93,3 +118,4 @@ section.team_img {
     }
   }
 }
+
