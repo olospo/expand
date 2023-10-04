@@ -11,13 +11,15 @@ while ( have_posts() ) : the_post(); ?>
     <?php elseif( get_row_layout() == 'stats' ): ?>
       <?php get_template_part( 'inc/flexible/stats'); // Stats ?>
     <?php elseif( get_row_layout() == 'square_section' ): ?>
-      <?php get_template_part( 'inc/flexible/square_section'); // Content Block ?>
+      <?php get_template_part( 'inc/flexible/square_section'); // Square Section ?>
     <?php elseif( get_row_layout() == 'text_gradient' ): ?>
       <?php get_template_part( 'inc/flexible/text'); // Text Gradient ?>
     <?php elseif( get_row_layout() == 'tabbed_content' ): ?>
       <?php get_template_part( 'inc/flexible/tabbed'); // Tabbed Content ?>
     <?php elseif( get_row_layout() == 'content_block' ): ?>
       <?php get_template_part( 'inc/flexible/content_block'); // Content Block ?>
+    <?php elseif( get_row_layout() == 'product_details_section' ): ?>
+      <?php get_template_part( 'inc/flexible/content_block'); // Product Details Section ?>
     <?php endif; ?>
   <?php } ?>
 </div>
