@@ -10,7 +10,7 @@
 ?>
 
 <section class="hero home">
-  <div class="video-upload" <?php if ($type == "image") { ?> style="background: linear-gradient(rgba(0, 0, 0, 0.<?php echo $opacity; ?>), rgba(0, 0, 0, 0.<?php echo $opacity; ?>)), url('<?php bloginfo('template_directory'); ?>/img/expand_news.jpg') center center no-repeat; background-size:cover;" <?php } elseif ($type == "video") { ?> style="background: linear-gradient(rgba(0, 0, 0, 0.<?php echo $opacity; ?>), rgba(0, 0, 0, 0.<?php echo $opacity; ?>))" <?php } ?>>
+  <div class="video-upload" <?php if ($type == "image") { ?> style="background: linear-gradient(rgba(0, 0, 0, 0.<?php echo $opacity; ?>), rgba(0, 0, 0, 0.<?php echo $opacity; ?>)), url('<?php echo $bgImage; ?>') center center no-repeat; background-size:cover;" <?php } elseif ($type == "video") { ?> style="background: linear-gradient(rgba(0, 0, 0, 0.<?php echo $opacity; ?>), rgba(0, 0, 0, 0.<?php echo $opacity; ?>))" <?php } ?>>
     <?php if ($type == "video") { ?>
     <video data-object-fit="cover" playsinline muted autoplay loop  id="homeVideo" poster="<?php echo $image['url']; ?>">
       <source src="<?php echo $videowebm; ?>" type="video/webm">

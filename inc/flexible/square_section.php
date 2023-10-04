@@ -40,7 +40,7 @@ if( $layout == 'left' ) { ?>
 </section>
 
 <?php } if( $layout == 'right' ) { ?>
-<section class="square_section">
+<section class="square_section <?php echo $color; ?>">
   <div class="container">
     <?php if( have_rows('content') ): // Content ?>
       <?php while( have_rows('content') ): the_row(); 
