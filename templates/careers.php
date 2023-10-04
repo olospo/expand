@@ -169,7 +169,6 @@ while ( have_posts() ) : the_post(); ?>
   </div>
 </section>
 
-
 <?php endwhile; // end of the loop. ?>
 
 <?php get_footer(); ?>

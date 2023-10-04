@@ -33,7 +33,7 @@ while ( have_posts() ) : the_post(); ?>
     <div class="row">
       
       <article class="one-third column">
-        <a href="<?php echo get_site_url(); ?>/products#Functional">
+        <a href="<?php echo get_site_url(); ?>/products">
         <div class="content">
           <span class="type">Product</span>
           <h4>Functional Effectiveness</h4>
@@ -50,7 +50,7 @@ while ( have_posts() ) : the_post(); ?>
       </article>
       
       <article class="one-third column">
-        <a href="<?php echo get_site_url(); ?>/products#Business">
+        <a href="<?php echo get_site_url(); ?>/products">
         <div class="content">
           <span class="type">Product</span>
           <h4>Business Performance Benchmarks</h4>
@@ -66,7 +66,7 @@ while ( have_posts() ) : the_post(); ?>
       </article>
       
       <article class="one-third column">
-        <a href="<?php echo get_site_url(); ?>/products#Working">
+        <a href="<?php echo get_site_url(); ?>/products">
         <div class="content">
           <span class="type">Product</span>
           <h4>Working Groups & Forums</h4>
