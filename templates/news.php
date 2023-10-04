@@ -3,10 +3,30 @@ get_header();
 
 while ( have_posts() ) : the_post(); ?>
 
+<?php // Hero
+  $type = get_field('video_or_image');
+  $opacity = get_field('opacity_overlay');
+  $image = get_field('video_poster');
+  $videomp4 = get_field('upload_video_mp4');
+  $videowebm = get_field('upload_video_webm');
+  $bgImage = get_field('background_image');
+  $icon = get_field('icon');
+  $positionIcon = get_field('icon_position');
+?>
 <section class="hero home">
-  <div class="video-upload" style="background: linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.20)), url('<?php bloginfo('template_directory'); ?>/img/expand_news.jpg') center center no-repeat; background-size:cover;">
+  <div class="video-upload" <?php if ($type == "image") { ?> style="background: linear-gradient(rgba(0, 0, 0, 0.<?php echo $opacity; ?>), rgba(0, 0, 0, 0.<?php echo $opacity; ?>)), url('<?php bloginfo('template_directory'); ?>/img/expand_news.jpg') center center no-repeat; background-size:cover;" <?php } elseif ($type == "video") { ?> style="background: linear-gradient(rgba(0, 0, 0, 0.<?php echo $opacity; ?>), rgba(0, 0, 0, 0.<?php echo $opacity; ?>))" <?php } ?>>
+    <?php if ($type == "video") { ?>
+    <video data-object-fit="cover" playsinline muted autoplay loop  id="homeVideo" poster="<?php echo $image['url']; ?>">
+      <source src="<?php echo $videowebm; ?>" type="video/webm">
+      <source src="<?php echo $videomp4; ?>" type="video/mp4">
+    </video>
+    <div class="poster" style="background: url('<?php echo $image['url']; ?>') center center no-repeat; background-size: cover"></div>
+    <?php } ?>
+    
+    <?php if ($icon) { ?>  
+    <div class="icon <?php echo $positionIcon; ?>"><img src="<?php echo esc_url($icon['url']); ?>" alt="<?php echo esc_attr($icon['alt']); ?>"></div>
+    <?php } ?>
   </div>
-  <div class="icon left"><img src="<?php bloginfo('template_directory'); ?>/img/news_events.svg" alt="News and Events"></div>
 </section>
 
 <section class="news">
@@ -76,25 +96,23 @@ while ( have_posts() ) : the_post(); ?>
   </div>
 </section>
 
-
-<section class="stat_section">
-  <div class="container">
-    <div class="stats three">
-      <div class="stat grey">
-        <span class="unit" data-count="350" data-prefix="~">350</span>
-        <span class="description">Participants attended each year</span>
-      </div>
-      <div class="stat white">
-        <span class="unit" data-count="30" data-prefix="~">30</span>
-        <span class="description">Roundtables held annually</span>
-      </div>
-      <div class="stat grey">
-        <span class="unit" data-count="200" data-prefix="~">200</span>
-        <span class="description">Firms represented each year</span>
-      </div> 
-    </div>
-  </div>
-</section>
+<?php if (have_rows('project_content')) { // Flexible Content ?>
+<div class="flexible_content">        
+  <?php while (have_rows('project_content')) { the_row(); ?>
+    <?php if( get_row_layout() == 'hero' ): ?>
+      <?php get_template_part( 'inc/flexible/hero'); // Hero ?>
+    <?php elseif( get_row_layout() == 'stats' ): ?>
+      <?php get_template_part( 'inc/flexible/stats'); // Stats ?>
+    <?php elseif( get_row_layout() == 'text_gradient' ): ?>
+      <?php get_template_part( 'inc/flexible/text'); // Text Gradient ?>
+    <?php elseif( get_row_layout() == 'tabbed_content' ): ?>
+      <?php get_template_part( 'inc/flexible/tabbed'); // Tabbed Content ?>
+    <?php elseif( get_row_layout() == 'content_block' ): ?>
+      <?php get_template_part( 'inc/flexible/content_block'); // Content Block ?>
+    <?php endif; ?>
+  <?php } ?>
+</div>
+<?php } ?>
 
 <?php get_template_part( 'inc/careers_cta' ); ?>
 

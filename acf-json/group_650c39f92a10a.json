@@ -41,6 +41,28 @@
             "message": "News feed automatically shows after the hero. Add\/edit news articles under \"Posts\"",
             "new_lines": "wpautop",
             "esc_html": 0
+        },
+        {
+            "key": "field_651d23412ff34",
+            "label": "Flexible Content",
+            "name": "flexible_content",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_6130b9179f741"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
         }
     ],
     "location": [
@@ -63,5 +85,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1696348096
+    "modified": 1696408423
 }
