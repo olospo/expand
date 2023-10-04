@@ -8,6 +8,14 @@ $featured_img_url = get_the_post_thumbnail_url($author->ID, 'large-thumb');
 
 while ( have_posts() ) : the_post(); ?>
 
+<section class="hero profile">
+  <div class="container">
+    <div class="twelve columns">
+      <div class="breadcrumbs"><a href="<?php echo get_site_url(); ?>/news-events">News & Events</a> <span>></span> <?php the_title(); ?></div>
+    </div>
+  </div>
+</section>
+
 <?php if( $bgImg ): // If Background Image is added ?>
 <section class="news_image" style="background:url(<?php echo $bgImg; ?>) center center no-repeat; background-size: cover;"></section>
 <?php else: // Else show Featured Image ?>
@@ -43,31 +51,7 @@ while ( have_posts() ) : the_post(); ?>
         </p>
         <?php endif; ?>
       </div>
-      <?php if (have_rows('project_content')) { // Flexible Content ?>
-      <div class="flexible_content twelve columns">        
-        <?php while (have_rows('project_content')) { the_row(); ?>
-          <?php if( get_row_layout() == '2x_square_image' ): ?>
-            <?php get_template_part( 'inc/flexible/square_image'); // 2x Square Images ?>
-          <?php elseif( get_row_layout() == '4x_square_image' ): ?>
-            <?php get_template_part( 'inc/flexible/four_images'); // 4x Square Images ?>
-          <?php elseif( get_row_layout() == '16:9_video' ): ?>
-            <?php get_template_part( 'inc/flexible/16-9_video'); // Video (embed) ?>
-          <?php elseif( get_row_layout() == 'video_upload' ): ?>
-            <?php get_template_part( 'inc/flexible/video_upload'); // Video (upload ?>
-          <?php elseif( get_row_layout() == '16:9_image' ): ?>
-            <?php get_template_part( 'inc/flexible/16-9_image'); // 16:9 Image ?>
-          <?php elseif( get_row_layout() == 'testimonial' ): ?>
-            <?php get_template_part( 'inc/flexible/testimonial'); // Testimonial ?>
-          <?php elseif( get_row_layout() == 'content_block' ): ?>
-            <?php get_template_part( 'inc/flexible/content_block'); // Content Block ?>
-          <?php elseif( get_row_layout() == 'stat_block' ): ?>
-            <?php get_template_part( 'inc/flexible/stat_block'); // Stat Block ?>
-          <?php endif; ?>
-        <?php } ?>
-      </div>
-      <?php } else { ?>
-        <?php the_content(); ?>
-      <?php } ?>
+      <?php the_content(); ?>
     </div>
   </div>
 </section>

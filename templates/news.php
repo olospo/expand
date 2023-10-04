@@ -24,7 +24,7 @@ while ( have_posts() ) : the_post(); ?>
     <?php } ?>
     
     <?php if ($icon) { ?>  
-    <div class="icon <?php echo $positionIcon; ?>"><img src="<?php echo esc_url($icon['url']); ?>" alt="<?php echo esc_attr($icon['alt']); ?>"></div>
+    <div class="icon <?php echo $positionIcon; ?>"><h1><img src="<?php echo esc_url($icon['url']); ?>" alt="<?php echo esc_attr($icon['alt']); ?>"></h1></div>
     <?php } ?>
   </div>
 </section>
