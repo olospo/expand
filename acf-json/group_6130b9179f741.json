@@ -16,7 +16,6 @@
                 "class": "",
                 "id": ""
             },
-            "relevanssi_exclude": 0,
             "layouts": {
                 "layout_643fe3c151c30": {
                     "key": "layout_643fe3c151c30",
@@ -77,6 +76,38 @@
                             "toolbar": "full",
                             "media_upload": 1,
                             "delay": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_651d634c82882": {
+                    "key": "layout_651d634c82882",
+                    "name": "square_section",
+                    "label": "Square Section",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_651d647461d55",
+                            "label": "Square",
+                            "name": "square",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_64523604e38f2"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
                         }
                     ],
                     "min": "",
@@ -227,5 +258,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1696348208
+    "modified": 1696425109
 }
