@@ -287,8 +287,6 @@
   }
   article {
     display: flex;
-    background: url('../img/placeholder.jpg') center center no-repeat;
-    background-size: cover;
     margin-bottom: $padding-half;
     @media (min-width: $breakpoint-tablet) { 
       margin-bottom: 0;

@@ -20,11 +20,12 @@ while ( have_posts() ) : the_post(); ?>
       <?php get_template_part( 'inc/flexible/content_block'); // Content Block ?>
     <?php elseif( get_row_layout() == 'product_details_section' ): ?>
       <?php get_template_part( 'inc/flexible/product_details'); // Product Details Section ?>
+    <?php elseif( get_row_layout() == 'explore_section' ): ?>
+      <?php get_template_part( 'inc/flexible/explore_section'); // Explore Section ?>
     <?php endif; ?>
   <?php } ?>
 </div>
 <?php } ?>
-
 
 <?php get_template_part( 'inc/careers_cta' ); ?>
 
