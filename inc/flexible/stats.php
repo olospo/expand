@@ -11,7 +11,7 @@ $word = number_to_word($row_count);
 if( have_rows('stat') ): ?>
 <section class="stat_section">
   <div class="container">
-    <div class="stats four <?php echo $word; ?>">
+    <div class="stats <?php echo $word; ?>">
     <?php while( have_rows('stat') ): the_row(); 
       $unit = get_sub_field('unit');
       $unit_extra = get_sub_field('unit_extra');

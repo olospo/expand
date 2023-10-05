@@ -1,3 +1,13 @@
+<?php if (have_rows('tab')) {
+  $row_count = 0;
+  // Loop through the rows of data for a count
+  while (have_rows('tab')) {
+    the_row();
+    $row_count++;
+  }
+}
+$word = number_to_word($row_count); ?>
+
 <section class="tabbed_section">
   <div class="container">
     <div class="title twelve columns">

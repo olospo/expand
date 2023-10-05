@@ -399,6 +399,22 @@
         }
       }
     }
+    &.two {
+      button {
+        @media (min-width: 600px) { 
+          min-width: 50%;
+          font: $bold 1.6rem/3.2rem $heading;
+        }
+      }
+    }
+    &.three {
+      button {
+        @media (min-width: 600px) { 
+          min-width: 33%;
+          font: $bold 1.6rem/3.2rem $heading;
+        }
+      }
+    }
   }
   article {
     margin: 20px 0 0 0;
