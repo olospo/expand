@@ -30,7 +30,7 @@ while ( have_posts() ) : the_post(); ?>
           <h3 class="split_title">Expand+ BCG</h3>
         </div>
         <p>Expand is a wholly-owned subsidiary of the Boston Consulting Group, headquartered in London and with offices in Singapore and New York. Our enthusiastic and committed team has a friendly, diverse small company feel with regular social events and a highly collaborative, professional, supportive and entrepreneurial working culture.</p>
-        <p><a href="<?php echo get_site_url(); ?>/about" class="button">Read more</a></p>
+        <p><a href="https://www.bcg.com/beyond-consulting/expand-research/default" class="button">Read more</a></p>
       </div>
     </div>
     <div class="square_background" style="background: url('<?php bloginfo('template_directory'); ?>/img/expand_mark-lane.jpg') center center no-repeat; background-size:cover;"></div>
