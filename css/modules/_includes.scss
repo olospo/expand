@@ -343,8 +343,7 @@
     }   
 
     &:hover {
-      cursor: pointer;
-      .content {
+      a > .content {
         padding: 40px;
         height: 100%;
         @media (min-width: $breakpoint-tablet) { 
@@ -362,6 +361,9 @@
             color: $white;
           }
         }
+      }
+      .content {
+        
       }
     }
   }
@@ -455,6 +457,7 @@
         }
       }
       .content {
+        
         p {
         color: $dark-grey;
         font: $medium 1.6rem/2.4rem $heading;
@@ -462,6 +465,12 @@
             font: $medium 2.0rem/3.2rem $heading;
           }  
         } 
+      }
+      .icon + .content {
+        width: 100%;
+        @media (min-width: $breakpoint-tablet) {
+          width: 75%;
+        }
       }
     }
   }

@@ -47,7 +47,6 @@ while ( have_posts() ) : the_post(); ?>
         </div>
         <p>Our people are proactive, curious and diligent individuals: analytical and articulate problem solvers who combine the ability to pick things up quickly with a passion for financial services and building relationships with clients.</p>
         <p>Our Delivery team have both a high analytical aptitude, meaning they are comfortable handling and examining large data sets, and strong written and verbal communication skills as everyone engages with clients from an early stage.</p>
-        <p><a href="#" class="button">Review our Competency Framework</a></p>
       </div>
     </div>
     
