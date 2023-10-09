@@ -307,14 +307,12 @@
       background: $white;
       margin: 20px;
       padding: 20px;
-      
       @media (min-width: $breakpoint-tablet) { 
         max-height: 100%;
         min-height: 300px;
         margin: 40px;
         padding: 20px;
       }
-      
       span.type {
         font: $bold 1.2rem/1.8rem $heading;
         text-transform: uppercase;
