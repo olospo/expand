@@ -116,6 +116,28 @@ section.hero.profile {
         color: $dark-green;
       }
     }
+    
+    .image {
+      @media (max-width: $breakpoint-tablet) {
+        margin-bottom: 20px;
+      }
+    }
+    .content {
+      strong.name {
+        color: $dark-green;
+        font: $normal 2.0rem/3.2rem $heading;
+        @media (min-width: $breakpoint-tablet) {
+          font: $normal 3.2rem/4.2rem $heading;
+        }
+      }
+      strong {
+        color: #737772;
+        font: $normal 2.0rem/3.2rem $heading;
+      }
+      em {
+        font: $normal 2.0rem/3.2rem $heading;
+      }
+    }
   }
 }
 
