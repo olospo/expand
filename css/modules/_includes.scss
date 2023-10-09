@@ -452,13 +452,17 @@
         margin: 0px auto;
         margin-bottom: 20px;
         @media (min-width: $breakpoint-tablet) {
-          width: 100%;
+          width: 50%;
           float: left;
           margin-bottom: 0;
           margin-right: 40px;
         }
       }
       .content {
+        width: 100%;
+        @media (min-width: $breakpoint-tablet) {
+          width: 50%;
+        }
         p {
         color: $dark-grey;
         font: $medium 1.6rem/2.4rem $heading;
