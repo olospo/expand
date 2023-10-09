@@ -280,7 +280,7 @@
     padding: $padding-half 0 $padding 0;
   }
   .row {
-    @media (min-width: $breakpoint-tablet) { 
+    @media (min-width: $breakpoint-laptop) { 
       display: flex;
       
     }
@@ -298,6 +298,7 @@
       text-decoration: none;
       color: $black;
       display: flex;
+      flex-direction: column;
     }
     .content {
       box-sizing: border-box;
@@ -305,6 +306,7 @@
       background: $white;
       margin: 20px;
       padding: 20px;
+      height: 100%;
       @media (min-width: $breakpoint-tablet) { 
         min-height: 300px;
         margin: 40px;
