@@ -307,7 +307,9 @@
       background: $white;
       margin: 20px;
       padding: 20px;
+      
       @media (min-width: $breakpoint-tablet) { 
+        max-height: 100%;
         min-height: 300px;
         margin: 40px;
         padding: 20px;
@@ -340,22 +342,13 @@
         -o-transition: all ease 0s;
         transition: all ease 0s;
       }
-      &:hover {
-        .button {
-          color: $white;
-          &:before {
-            color: $white;
-          }
-        }
-        
-      }
-    }
-    
+    }   
 
     &:hover {
       cursor: pointer;
       .content {
         padding: 40px;
+        height: 100%;
         @media (min-width: $breakpoint-tablet) { 
           padding: 60px;
         }
@@ -364,6 +357,12 @@
         opacity: 0.9;
         h4, span, p, ul, li {
           color: $white;
+        }
+        .button {
+          color: $white;
+          &:before {
+            color: $white;
+          }
         }
       }
     }
