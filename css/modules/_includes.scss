@@ -334,6 +334,21 @@
       ul {
         margin-bottom: 0;
       }
+      .button {
+        -webkit-transition: all ease 0s;
+        -moz-transition: all ease 0s;
+        -o-transition: all ease 0s;
+        transition: all ease 0s;
+      }
+      &:hover {
+        .button {
+          color: $white;
+          &:before {
+            color: $white;
+          }
+        }
+        
+      }
     }
     
 

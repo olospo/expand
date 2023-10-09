@@ -26,6 +26,7 @@ $description = get_sub_field('description');
           <?php endif; ?>
           <h4><?php echo $title; ?></h4>
           <?php echo $content; ?>
+          <?php if( $link ): ?><span class="button">Read more</span><?php endif; ?>
         </div>
         <?php if( $link ): ?></a><?php endif; ?>
       </article>
