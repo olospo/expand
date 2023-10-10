@@ -1,4 +1,4 @@
-<?php /* Template Name: Blank */
+<?php /* Template Name: Flexible */
 get_header();
 
 while ( have_posts() ) : the_post(); ?>
@@ -30,4 +30,5 @@ while ( have_posts() ) : the_post(); ?>
 <?php get_template_part( 'inc/careers_cta' ); ?>
 
 <?php endwhile; // end of the loop. ?>
+
 <?php get_footer(); ?>
