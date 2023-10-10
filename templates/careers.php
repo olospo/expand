@@ -3,55 +3,29 @@ get_header();
 
 while ( have_posts() ) : the_post(); ?>
 
-<section class="hero home">
-  <div class="video-upload" style="background: linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)), url('<?php bloginfo('template_directory'); ?>/img/expand_careers.jpg') center center no-repeat; background-size:cover;">
-  </div>
-  <div class="icon left">
-    <img src="<?php bloginfo('template_directory'); ?>/img/expand_your_world.svg" alt="Expand Your World">
-  </div>
-</section>
-
-<section class="text_section">
-  <div class="container">
-    <div class="ten columns offset-by-one">
-      <div class="title">
-        <h3 class="split_title">Why Join Us?</h3>
-      </div>
-      <p>As a trusted advisor to senior executives across the world’s leading financial services firms, providing unique data-driven business intelligence to help them to operate more effectively, we have a breadth and depth of opportunities to offer you a rewarding and varied career path.</p>
-    </div>
-  </div>
-</section>
-
-<section class="square_section green">
-  <div class="container">
-    <div class="square_content">
-      <div class="content">
-        <div class="title">
-          <h3 class="split_title">Expand+ BCG</h3>
-        </div>
-        <p>Expand is a wholly-owned subsidiary of the Boston Consulting Group, headquartered in London and with offices in Singapore and New York. Our enthusiastic and committed team has a friendly, diverse small company feel with regular social events and a highly collaborative, professional, supportive and entrepreneurial working culture.</p>
-        <p><a href="https://www.bcg.com/beyond-consulting/expand-research/default" class="button">Read more</a></p>
-      </div>
-    </div>
-    <div class="square_background" style="background: url('<?php bloginfo('template_directory'); ?>/img/expand_mark-lane.jpg') center center no-repeat; background-size:cover;"></div>
-  </div>
-</section>
-
-<section class="square_section white">
-  <div class="container">
-    <div class="square_background" style="background: url('<?php bloginfo('template_directory'); ?>/img/expand_careers_who.jpg') center center no-repeat; background-size:cover;"></div>
-    <div class="square_content">
-      <div class="content">
-        <div class="title">
-          <h3 class="split_title">Who are we looking for?</h3>
-        </div>
-        <p>Our people are proactive, curious and diligent individuals: analytical and articulate problem solvers who combine the ability to pick things up quickly with a passion for financial services and building relationships with clients.</p>
-        <p>Our Delivery team have both a high analytical aptitude, meaning they are comfortable handling and examining large data sets, and strong written and verbal communication skills as everyone engages with clients from an early stage.</p>
-      </div>
-    </div>
-    
-  </div>
-</section>
+<?php if (have_rows('project_content')) { // Flexible Content ?>
+<div class="flexible_content">        
+  <?php while (have_rows('project_content')) { the_row(); ?>
+    <?php if( get_row_layout() == 'hero' ): ?>
+      <?php get_template_part( 'inc/flexible/hero'); // Hero ?>
+    <?php elseif( get_row_layout() == 'stats' ): ?>
+      <?php get_template_part( 'inc/flexible/stats'); // Stats ?>
+    <?php elseif( get_row_layout() == 'square_section' ): ?>
+      <?php get_template_part( 'inc/flexible/square_section'); // Square Section ?>
+    <?php elseif( get_row_layout() == 'text_gradient' ): ?>
+      <?php get_template_part( 'inc/flexible/text'); // Text Gradient ?>
+    <?php elseif( get_row_layout() == 'tabbed_content' ): ?>
+      <?php get_template_part( 'inc/flexible/tabbed'); // Tabbed Content ?>
+    <?php elseif( get_row_layout() == 'content_block' ): ?>
+      <?php get_template_part( 'inc/flexible/content_block'); // Content Block ?>
+    <?php elseif( get_row_layout() == 'product_details_section' ): ?>
+      <?php get_template_part( 'inc/flexible/product_details'); // Product Details Section ?>
+    <?php elseif( get_row_layout() == 'explore_section' ): ?>
+      <?php get_template_part( 'inc/flexible/explore_section'); // Explore Section ?>
+    <?php endif; ?>
+  <?php } ?>
+</div>
+<?php } ?>
 
 <section class="application_section">
   <div class="container">
