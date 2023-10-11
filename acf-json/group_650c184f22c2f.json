@@ -21,53 +21,11 @@
             "endpoint": 0
         },
         {
-            "key": "field_650c315307f06",
-            "label": "Hero title",
-            "name": "square_title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "relevanssi_exclude": 0,
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_650c316707f07",
-            "label": "Hero content",
-            "name": "square_content",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "relevanssi_exclude": 0,
-            "default_value": "",
-            "maxlength": "",
-            "rows": 4,
-            "placeholder": "",
-            "new_lines": "wpautop"
-        },
-        {
             "key": "field_650c31b807f08",
-            "label": "Hero Image",
-            "name": "square_image",
+            "label": "Hero",
+            "name": "",
             "aria-label": "",
-            "type": "image",
+            "type": "clone",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -76,17 +34,13 @@
                 "class": "",
                 "id": ""
             },
-            "relevanssi_exclude": 0,
-            "return_format": "url",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "preview_size": "medium"
+            "clone": [
+                "group_5d275694c2f12"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
         },
         {
             "key": "field_650c1861c122f",
@@ -472,5 +426,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1695298498
+    "modified": 1697028787
 }
