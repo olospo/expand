@@ -33,7 +33,7 @@ $( document ).ready(function() {
   $(document).ready(function() {
       var isOpen = false;
   
-      $('.button').click(function(event) {
+      $('.trigger').click(function(event) {
           event.preventDefault();
   
           if (!isOpen) {
