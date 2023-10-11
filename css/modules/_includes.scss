@@ -522,7 +522,7 @@
     }
   }
   .cta_background {
-    
+    position: relative;
     content: "";
     height: auto;
     min-height: 400px;
@@ -533,15 +533,19 @@
     }
     max-width: 1600px;
     .cta_title {
+      position: absolute;
+      bottom: 0;
+      padding: 30px 40px;
       @media (min-width: $breakpoint-tablet) {
+        padding: 0;
         @include vertical-align;
         left: 5%;
+        bottom: auto;
       }
       svg {
-        display: none;
+        max-width: 70%;
         @media (min-width: $breakpoint-tablet) {
           max-width: 100%;
-          display: block;
         }
       }
       
