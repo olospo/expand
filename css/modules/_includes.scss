@@ -515,9 +515,14 @@
     display: flex;
     flex-flow: wrap;
   }
+  h1.split_title {
+    color: $white;
+    span.word1 {
+      color: $white;
+    }
+  }
   .cta_background {
-    background: linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)), url('../img/expand_careers.jpg') center center no-repeat;
-    background-size: cover;
+    
     content: "";
     height: auto;
     min-height: 400px;
@@ -559,6 +564,12 @@
       }
       p {
         font: $normal 1.6rem/2.8rem $heading;
+      }
+      ul.links {
+        li {
+          list-style: none;
+          margin: 0;
+        }
       }
     }
   }
