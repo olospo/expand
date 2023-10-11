@@ -30,4 +30,25 @@
     content: "→";
     color: $light-green;
   }
+  &.trigger {
+    text-align: center;
+    background: $light-green;
+    color: $white;
+    padding: 15px;
+    &:before {
+      margin-right: 10px;
+      font: $bold 1.4rem/1.4rem $heading;
+      content: "↓";
+      color: $white;
+    }
+    &.open {
+      &:before {
+        content: "↑";
+      }
+    }
+    &:hover {
+      background: $dark-green;
+    }
+  }
+  
 }

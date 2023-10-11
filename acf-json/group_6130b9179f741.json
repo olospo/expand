@@ -275,6 +275,38 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_652559758ca6a": {
+                    "key": "layout_652559758ca6a",
+                    "name": "details_section",
+                    "label": "Benefits Section",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6525597e8ca6d",
+                            "label": "Details",
+                            "name": "details",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_6525588b83ce0"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -322,5 +354,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1696495380
+    "modified": 1696946716
 }

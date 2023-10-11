@@ -209,6 +209,9 @@ section.careers_archive {
   .career {
     @include fade(); 
   }
+  .open_speculative {
+    @include fade(); 
+  }
   &.visible {
     .title {
       @include reset();
@@ -217,18 +220,13 @@ section.careers_archive {
       @include reset();
       @include delay-children();
     }
-  }
-}
-section.speculative {
-  .title {
-    @include fade();
-  }
-  &.visible {
-    .title {
+    .open_speculative {
       @include reset();
+      transition-delay: 1.5s;
     }
   }
 }
+
 
 section.news {
   article {

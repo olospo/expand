@@ -9,6 +9,7 @@ function theme_setup() {
   // Thumbnails
   add_theme_support( 'post-thumbnails' );
   add_image_size( 'thumb', 150, 150, true ); // Normal thumbnail size
+	add_image_size( 'animation', 240, 240, false ); // Animation size
   add_image_size( 'large-thumb', 300, 300, true ); // Large thumbnail size
   add_image_size( 'featured-img', 920, 500, true ); // Featured Image size 
   add_image_size( 'background-img', 1400, 740, true ); // Featured Image size

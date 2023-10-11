@@ -22,6 +22,8 @@ while ( have_posts() ) : the_post(); ?>
       <?php get_template_part( 'inc/flexible/product_details'); // Product Details Section ?>
     <?php elseif( get_row_layout() == 'explore_section' ): ?>
       <?php get_template_part( 'inc/flexible/explore_section'); // Explore Section ?>
+    <?php elseif( get_row_layout() == 'details_section' ): ?>
+      <?php get_template_part( 'inc/flexible/benefits_section'); // Benefits/Details Section ?>
     <?php endif; ?>
   <?php } ?>
 </div>

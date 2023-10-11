@@ -30,6 +30,56 @@ $( document ).ready(function() {
     }
   );
   
+  $(document).ready(function() {
+      var isOpen = false;
+  
+      $('.button').click(function(event) {
+          event.preventDefault();
+  
+          if (!isOpen) {
+              // Opening the section
+              $('#speculative').css({
+                  'height': 'auto',
+                  'display': 'block'
+              });
+  
+              var sectionHeight = $('#speculative').outerHeight(true);
+              $('#speculative').css('height', '0');
+  
+              // Start the smooth scroll to the speculative section
+              $('html, body').animate({
+                  scrollTop: $("#speculative").offset().top
+              }, 700, 'swing');
+  
+              // Animate the opening of the section
+              $('#speculative').animate({
+                  height: sectionHeight + "px"
+              }, 700, 'swing', function() {
+                  isOpen = true;
+              });
+              
+              $('.button').addClass('open'); 
+              
+          } else {
+              // Closing the section
+
+  
+              // After a slight delay, animate to close the section
+              setTimeout(function() {
+                  $('#speculative').animate({
+                      height: "0px"
+                  }, 700, 'swing', function() {
+                      $('#speculative').css('display', 'none');
+                      isOpen = false;
+                  });
+              }, 150);
+              
+              $('.button').removeClass('open'); 
+          }
+      });
+  });
+
+
   // Back to Top Scroll 
   var amountScrolled = 300;
   

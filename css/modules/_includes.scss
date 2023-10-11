@@ -1,5 +1,13 @@
 // Includes
 
+// Content Block 
+.content_block {
+  padding: $padding-half 0;
+  @media (min-width: $breakpoint-tablet) { 
+    padding: $padding-half 0 $padding 0;
+  }
+}
+
 // Square Section
 .square_section {
   background: $black;
@@ -556,6 +564,43 @@
   }
 }
 
+// Benefits Section
+.careers_benefits {
+  background: $white;
+  padding: $padding-half 0;
+  @media (min-width: $breakpoint-tablet) {
+    padding: $padding 0;
+  }
+  .title {
+    text-align: center;
+  }
+  .benefits {
+    @media (min-width: $breakpoint-tablet) {
+      display: flex;
+    }
+    .benefit {
+      border-top: 8px solid $mid-green;
+      margin-bottom: 20px;
+      @media (min-width: $breakpoint-tablet) {
+        margin-bottom: 0;
+      }
+      background: $white-bg;
+      padding: 20px;
+      h4 {
+        font: $medium 1.6rem/2.4rem $heading;
+        color: $mid-green;
+        text-transform: uppercase;
+      }
+      p:last-of-type {
+        margin-bottom: 0;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+}
 
 // Generic Title to add to sections
 section {

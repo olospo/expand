@@ -22,6 +22,8 @@ while ( have_posts() ) : the_post(); ?>
       <?php get_template_part( 'inc/flexible/product_details'); // Product Details Section ?>
     <?php elseif( get_row_layout() == 'explore_section' ): ?>
       <?php get_template_part( 'inc/flexible/explore_section'); // Explore Section ?>
+    <?php elseif( get_row_layout() == 'details_section' ): ?>
+      <?php get_template_part( 'inc/flexible/benefits_section'); // Benefits/Details Section ?>
     <?php endif; ?>
   <?php } ?>
 </div>
@@ -59,7 +61,7 @@ while ( have_posts() ) : the_post(); ?>
       <article class="tab one-third column">
         <div class="contain">
           <div class="icon">
-            <img src="<?php bloginfo('template_directory'); ?>/img/icon.png" alt="Placeholder icon">
+            <img id="iconImage" src="<?php bloginfo('template_directory'); ?>/img/case-study.png" data-staticsrc="<?php bloginfo('template_directory'); ?>/img/case-study.png" data-gifsrc="<?php bloginfo('template_directory'); ?>/img/case-study.gif" alt="Chart illustration">
           </div>
           <div class="content">
             <h4>Case study</h4>
@@ -67,35 +69,6 @@ while ( have_posts() ) : the_post(); ?>
           </div>
         </div>
       </article>
-    </div>
-  </div>
-</section>
-
-<section class="careers_benefits">
-  <div class="container">
-    <div class="eight columns offset-by-two">
-      <div class="title">
-        <h3 class="split_title">Employee Benefits</h3>
-        <p>Every day, Expanders give their all, unlocking the potential of those who advance the world. It’s important, impactful work – and it’s only possible because of our hardworking people. That’s why our people are our top priority. Helping to make our employees feel genuinely valued, we support each Expander with a comprehensive employee benefits package</p>
-      </div>
-    </div>
-    <div class="benefits twelve columns">
-        <div class="benefit three columns">
-          <h4>Physical and Mental Wellbeing</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class="benefit three columns">
-          <h4>Compensation and Retirement Contributions</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class="benefit three columns">
-          <h4>Balance and Sustainable Working Norms</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class="benefit three columns">
-          <h4>Career Growth and Community Support</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
     </div>
   </div>
 </section>
@@ -123,11 +96,16 @@ while ( have_posts() ) : the_post(); ?>
           </div>
         </article>
       <?php endif; wp_reset_query(); ?>
+      
+      <div class="open_speculative eight columns offset-by-two">
+        <a href="#speculative" class="button trigger">Speculative applications</a>
+      </div>
+      
     </div>
   </div>
 </section>
 
-<section class="speculative">
+<section class="speculative" id="speculative">
   <div class="container">
     <div class="eight columns offset-by-two">
       <div class="title">
