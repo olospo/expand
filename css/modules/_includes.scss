@@ -4,7 +4,7 @@
 .content_block {
   padding: $padding-half 0;
   @media (min-width: $breakpoint-tablet) { 
-    padding: $padding-half 0 $padding 0;
+    padding: $padding 0;
   }
 }
 
