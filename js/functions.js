@@ -30,6 +30,11 @@ $( document ).ready(function() {
     }
   );
   
+  $('.button.extra').click(function() {
+      var targetID = $(this).data('target');
+      $('#' + targetID).fadeToggle(500); // Toggle the visibility
+  });
+  
   $(document).ready(function() {
       var isOpen = false;
   
