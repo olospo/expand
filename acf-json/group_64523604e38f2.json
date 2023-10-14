@@ -87,6 +87,61 @@
                     "append": ""
                 },
                 {
+                    "key": "field_652a5646cfc71",
+                    "label": "Custom Title Split",
+                    "name": "custom_title_split",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "35",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "ui": 1
+                },
+                {
+                    "key": "field_652a55d5b6c22",
+                    "label": "Split Title",
+                    "name": "split_title",
+                    "aria-label": "",
+                    "type": "button_group",
+                    "instructions": "Number of words to display in a different colour",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_652a5646cfc71",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "65",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "one": "1",
+                        "two": "2",
+                        "three": "3",
+                        "four": "4",
+                        "five": "5",
+                        "six": "6"
+                    },
+                    "default_value": "",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "layout": "horizontal"
+                },
+                {
                     "key": "field_651d650851724",
                     "label": "Content",
                     "name": "content",
@@ -186,5 +241,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1696427468
+    "modified": 1697273506
 }

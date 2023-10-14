@@ -73,6 +73,31 @@
           span.word1 {
             color: $white;
           }
+          &.two {
+            span.word1, span.word2 {
+              color: $white;
+            }
+          }
+          &.three {
+            span.word1, span.word2, span.word3 {
+              color: $white;
+            }
+          }
+          &.four {
+            span.word1, span.word2, span.word3, span.word4 {
+              color: $white;
+            }
+          }
+          &.five {
+            span.word1, span.word2, span.word3, span.word4, span.word5 {
+              color: $white;
+            }
+          }
+          &.six {
+            span.word1, span.word2, span.word3, span.word4, span.word5, span.word6 {
+              color: $white;
+            }
+          }
         }
       }
       a {
@@ -112,6 +137,31 @@
             span.word1 {
               color: $black;
             }
+            &.two {
+              span.word1, span.word2 {
+                color: $black;
+              }
+            }
+            &.three {
+              span.word1, span.word2, span.word3 {
+                color: $black;
+              }
+            }
+            &.four {
+              span.word1, span.word2, span.word3, span.word4 {
+                color: $black;
+              }
+            }
+            &.five {
+              span.word1, span.word2, span.word3, span.word4, span.word5 {
+                color: $black;
+              }
+            }
+            &.six {
+              span.word1, span.word2, span.word3, span.word4, span.word5, span.word6 {
+                color: $black;
+              }
+            }
           }
         }
         a {
@@ -149,6 +199,39 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
           }
+          .title {
+            h3 {
+              color: $mid-green;
+              span.word1 {
+                color: $black;
+              }
+              &.two {
+                span.word1, span.word2 {
+                  color: $black;
+                }
+              }
+              &.three {
+                span.word1, span.word2, span.word3 {
+                  color: $black;
+                }
+              }
+              &.four {
+                span.word1, span.word2, span.word3, span.word4 {
+                  color: $black;
+                }
+              }
+              &.five {
+                span.word1, span.word2, span.word3, span.word4, span.word5 {
+                  color: $black;
+                }
+              }
+              &.six {
+                span.word1, span.word2, span.word3, span.word4, span.word5, span.word6 {
+                  color: $black;
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -178,6 +261,31 @@
             color: $white;
             span.word1 {
               color: $black;
+            }
+            &.two {
+              span.word1, span.word2 {
+                color: $black;
+              }
+            }
+            &.three {
+              span.word1, span.word2, span.word3 {
+                color: $black;
+              }
+            }
+            &.four {
+              span.word1, span.word2, span.word3, span.word4 {
+                color: $black;
+              }
+            }
+            &.five {
+              span.word1, span.word2, span.word3, span.word4, span.word5 {
+                color: $black;
+              }
+            }
+            &.six {
+              span.word1, span.word2, span.word3, span.word4, span.word5, span.word6 {
+                color: $black;
+              }
             }
           }
         }

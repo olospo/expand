@@ -16,12 +16,14 @@ if( $layout == 'left' ) { ?>
       $title = get_sub_field('title');
       $content = get_sub_field('content');
       $button = get_sub_field('button');
+      $custom = get_sub_field('custom_title_split');
+      $split = get_sub_field('split_title');
       ?>
     <div class="square_content">
       <div class="content">
         <?php if( $title ): ?>
         <div class="title">
-          <h3 class="split_title"><?php echo $title; ?></h3>
+          <h3 class="split_title <?php if( $custom ) { echo $split; } ?>"><?php echo $title; ?></h3>
         </div>
         <?php endif; ?>
         <?php echo $content; ?>
@@ -47,12 +49,15 @@ if( $layout == 'left' ) { ?>
       $title = get_sub_field('title');
       $content = get_sub_field('content');
       $button = get_sub_field('button');
+      $custom = get_sub_field('custom_title_split');
+      $split = get_sub_field('split_title');
       ?>
     <div class="square_content">
       <div class="content">
         <?php if( $title ): ?>
         <div class="title">
-          <h3 class="split_title"><?php echo $title; ?></h3>
+          
+          <h3 class="split_title <?php if( $custom ) { echo $split; } ?>"><?php echo $title; ?></h3>
         </div>
         <?php endif; ?>
         <?php echo $content; ?>
