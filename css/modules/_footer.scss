@@ -3,7 +3,7 @@ footer.main {
   font: $normal 1.6rem/2.4rem $regular;
   position: relative;
   overflow-wrap: break-word;
-  padding: $padding-half 0px;
+  padding: $padding-half 0px 20px 0;
   @media (min-width: $breakpoint-tablet) {
     padding: 60px 0px;
   }
@@ -70,7 +70,10 @@ footer.main {
   }
   ul.social {
     text-align: left;
-    margin: 20px 0 0 0;
+    margin: 10px 0;
+    @media (min-width: $breakpoint-tablet) {
+      margin: 20px 0 0 0;
+    }
     li {
       display: inline-block;
       margin: 0px 3px;
