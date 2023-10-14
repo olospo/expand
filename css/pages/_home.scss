@@ -50,6 +50,10 @@
     position: relative;
   }
   .icon {
+    h1 {
+      margin: 0;
+      line-height: 0;
+    }
     @include center-align;
     
     svg, img {
