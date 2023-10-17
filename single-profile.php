@@ -5,6 +5,8 @@ $authors = get_field('author');
 $title = get_the_title( $author->ID );
 $jobtitle = get_field( 'job_title', $author->ID );
 $location = get_field( 'location', $author->ID );
+$email = get_field( 'email', $author->ID );
+$phone = get_field( 'phone_number', $author->ID );
 $featured_img_url = get_the_post_thumbnail_url($author->ID, 'large-thumb'); 
 $desc = get_field('description', $author->ID);
 
@@ -29,6 +31,16 @@ while ( have_posts() ) : the_post(); ?>
       <strong><?php the_field('job_title'); ?></strong><br />
       <em><?php the_field('location'); ?></em></p>
       <?php echo $desc; ?>
+      
+      <?php if( $email ) { ?><div class="contact"><?php } ?>
+      <?php if( $email ) { ?>
+        <p class="email"><img src="<?php bloginfo('template_directory'); ?>/img/email-icon.svg" alt="Email Icon" loading="lazy" /><a href="mailto:<?php echo $email;?>" class="email"><?php echo $email; ?></a>
+      <?php } ?>
+      <?php if( $phone ) { ?>
+        <p class="phone"><img src="<?php bloginfo('template_directory'); ?>/img/phone-icon.svg" alt="Phone Icon" loading="lazy" /><a href="tel:<?php echo $phone;?>" class="phone"><?php echo $phone; ?></a>
+      <?php } ?> 
+      <?php if( $email ) { ?></div><?php } ?>
+      
     </div>
     </div>
   </div>

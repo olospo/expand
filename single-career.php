@@ -31,7 +31,7 @@ while ( have_posts() ) : the_post(); ?>
       </div>
       <div class="careers_equal">
         <p>Expand are an equal opportunities employer. We ensure that applicants are treated equally and that no applicant or employee receives less favorable treatment during the interview selection process or during their employment with Expand.</p>
-        <p><a href="#">Read our Equality, Diversity & Inclusion policy</a></p>
+        <!-- <p><a href="#">Read our Equality, Diversity & Inclusion policy</a></p> -->
       </div>
       <?php $args = array(
           'post_type' => 'career',

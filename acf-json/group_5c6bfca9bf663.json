@@ -20,6 +20,25 @@
             "endpoint": 0
         },
         {
+            "key": "field_652ea7845a3e6",
+            "label": "Contact Email",
+            "name": "contact_email",
+            "aria-label": "",
+            "type": "email",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_5d5aaaff60f65",
             "label": "Social Metadata",
             "name": "social_metadata",
@@ -343,5 +362,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1697032026
+    "modified": 1697556374
 }
