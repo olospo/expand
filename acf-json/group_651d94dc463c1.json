@@ -318,6 +318,32 @@
                             "prepend": "",
                             "append": "",
                             "parent_repeater": "field_65280248ac6da"
+                        },
+                        {
+                            "key": "field_652eae30d65f0",
+                            "label": "Person Link",
+                            "name": "person_link",
+                            "aria-label": "",
+                            "type": "page_link",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "profile"
+                            ],
+                            "post_status": [
+                                "publish"
+                            ],
+                            "taxonomy": "",
+                            "allow_archives": 0,
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "parent_repeater": "field_65280248ac6da"
                         }
                     ],
                     "parent_repeater": "field_651d94dc22507"
@@ -343,5 +369,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1697129095
+    "modified": 1697558148
 }

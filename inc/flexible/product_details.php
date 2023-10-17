@@ -60,10 +60,10 @@
         <h4>Key Contacts</h4>
         <ul class="key_contacts">
           
-        <?php while( have_rows('key_contacts') ): the_row(); ?>
-          
+        <?php while( have_rows('key_contacts') ): the_row();
+          $link = get_sub_field('person_link'); ?>
             <li><strong><?php the_sub_field('role'); ?></strong><br />
-            <?php the_sub_field('person'); ?></li>
+            <?php if( $link ): ?><a href="<?php the_sub_field('person_link'); ?>"><?php endif; ?><?php the_sub_field('person'); ?><?php if( $link ): ?></a><?php endif; ?></li>
           
         <?php endwhile; ?>
         </ul>
