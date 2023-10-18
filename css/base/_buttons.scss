@@ -25,10 +25,21 @@
   transition: all ease .5s;
   @include border-radius(10px);
   &:before {
+    -webkit-transition: all ease .5s;
+    -moz-transition: all ease .5s;
+    -o-transition: all ease .5s;
+    transition: all ease .5s;
     margin-right: 10px;
     font: $bold 1.4rem/1.4rem $heading;
     content: "→";
     color: $light-green;
+  }
+  &:hover {
+    &:before {
+      
+      margin-right: 6px;
+      margin-left: 4px;
+    }
   }
   &.trigger {
     text-align: center;
