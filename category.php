@@ -4,9 +4,11 @@ $cat= get_queried_object();
 
 get_header(); ?>
 
-<section class="hero news">
+<section class="hero profile">
   <div class="container">
-    <h1><?php single_cat_title(); ?></h1>
+    <div class="twelve columns">
+      <div class="breadcrumbs"><a href="<?php echo get_site_url(); ?>/news-events">News & Events</a> <span>></span> <?php single_cat_title(); ?></div>
+    </div>
   </div>
 </section>
 
