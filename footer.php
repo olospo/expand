@@ -14,7 +14,7 @@
         <p>Registered in England and Wales: OC365360</p>
         <?php $email = get_field('contact_email','options'); 
         if( $email ) { ?>
-        <p class="email"><img src="<?php bloginfo('template_directory'); ?>/img/email-icon.svg" alt="Email Icon" loading="lazy" /><a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a>
+        <p class="email"><img src="<?php bloginfo('template_directory'); ?>/img/email-icon.svg" alt="Email Icon" loading="lazy" /><a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></p>
         <?php } ?> 
         
       <h5>Follow us</h5>

@@ -17,10 +17,12 @@
       <div class="content six columns">
         <h3><?php echo $title; ?></h3>
         <?php echo $content; ?>
-        <?php if( get_sub_field('extra_details') ) { ?>
-          <a href="javascript:void(0);" data-target="extra<?php echo $id; ?>" class="button extra">Read more</a>
+        <?php if( get_field('contact_email','options') ) { ?>
+        <a href="mailto:<?php echo $email; ?>?subject=<?php echo $title; ?>" class="button">Get in touch</a><br />
         <?php } ?> 
-          
+        <?php if( get_sub_field('extra_details') ) { ?>
+        <a href="javascript:void(0);" data-target="extra<?php echo $id; ?>" class="button extra">Read more</a>
+        <?php } ?>
       </div>
     </div>
     

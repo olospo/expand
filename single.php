@@ -44,8 +44,7 @@ while ( have_posts() ) : the_post(); ?>
             foreach ($authors as $author) :
               $permalink = get_permalink($author->ID);
               $title = get_the_title($author->ID);
-              $author_links[] = esc_html($title);
-              // $author_links[] = '<a href="' . esc_url($permalink) . '">' . esc_html($title) . '</a>';
+              $author_links[] = '<a href="' . esc_url($permalink) . '">' . esc_html($title) . '</a>';
             endforeach;
           echo implode(', ', $author_links);?>
         </p>
@@ -70,10 +69,10 @@ if( $authors ): ?>
     ?>
     <article class="author six columns">
       <div class="image">
-        <img src="<?php echo $featured_img_url; ?>" alt="<?php echo esc_html( $author->post_title ); ?>">
+        <a href="<?php echo $permalink; ?>"><img src="<?php echo $featured_img_url; ?>" alt="<?php echo esc_html( $author->post_title ); ?>"></a>
       </div>
       <div class="content">
-        <h4><?php echo esc_html( $title ); ?></h4>
+        <h4><a href="<?php echo $permalink; ?>"><?php echo esc_html( $title ); ?></a></h4>
         <span class="jobtitle"><?php echo $jobtitle; ?></span>
         <span class="location"> <?php echo $location; ?></span>
       </div>
