@@ -17,7 +17,8 @@
       <div class="content six columns">
         <h3><?php echo $title; ?></h3>
         <?php echo $content; ?>
-        <?php if( get_field('contact_email','options') ) { ?>
+        <?php $email = get_field('contact_email','options'); 
+        if( $email ) { ?>
         <a href="mailto:<?php echo $email; ?>?subject=<?php echo $title; ?>" class="button">Get in touch</a><br />
         <?php } ?> 
         <?php if( get_sub_field('extra_details') ) { ?>
