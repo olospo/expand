@@ -38,7 +38,7 @@ section.news {
       background: $white-bg;
       padding: 30px;
       @media (min-width: $breakpoint-tablet) {
-        min-height: 380px;
+        min-height: 400px;
       }
       &.featured {
         min-height: auto;
