@@ -36,7 +36,7 @@ section.news {
     }
     .item_content {
       background: $white-bg;
-      padding: 30px;
+      padding: 20px;
       @media (min-width: $breakpoint-tablet) {
         min-height: 400px;
       }
@@ -47,9 +47,10 @@ section.news {
       p.date {
         font: $bold 1.4rem/2.0rem $heading;
         text-transform: uppercase;
+        margin-bottom: 10px;
       }
       h3 {
-        margin-bottom: 0;
+        margin-bottom: 10px;
         font: $bold 2.4rem/3.2rem $heading;
         a {
           font: $bold 2.4rem/3.2rem $heading;
@@ -124,7 +125,7 @@ section.authors {
 }
 
 a.category_tag {
-  margin: 0 0 10px 0;
+  margin: 0 0 20px 0;
   font: $bold 1.4rem/2.0rem $heading;
   text-transform: uppercase;
   background: $mid-green;
