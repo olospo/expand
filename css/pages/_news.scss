@@ -37,7 +37,13 @@ section.news {
     .item_content {
       background: $white-bg;
       padding: 30px;
-      
+      @media (min-width: $breakpoint-tablet) {
+        min-height: 380px;
+      }
+      &.featured {
+        min-height: auto;
+      }
+      box-sizing: border-box;
       p.date {
         font: $bold 1.4rem/2.0rem $heading;
         text-transform: uppercase;
