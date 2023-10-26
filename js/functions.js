@@ -68,7 +68,6 @@ $( document ).ready(function() {
           } else {
               // Closing the section
 
-  
               // After a slight delay, animate to close the section
               setTimeout(function() {
                   $('#speculative').animate({
