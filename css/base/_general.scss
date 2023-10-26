@@ -327,7 +327,6 @@ section {
       list-style: none;
       margin: 0;
       a {
-        
         display: inline-block;
         margin: 5px 1px;
         padding: 10px 5px;
@@ -335,17 +334,16 @@ section {
         font: $normal 1.4rem/1.4rem $bold;
         @media (min-width: $breakpoint-tablet) {
           font: $normal 1.6rem/1.6rem $bold;
-          padding: 19px 10px 15px 10px;
+          padding: 10px 5px;
           width: 30px;
           margin: 5px;
         }
         background: $white;
-        @include border-radius(10px);
-        border: 2px solid $dark-green;
-        color: $dark-green;
+        border: 2px solid $mid-green;
+        color: $mid-green;
         text-decoration: none;
         &:hover {
-          background: $dark-green;
+          background: $mid-green;
           color: $white;
         }
       }
@@ -353,7 +351,7 @@ section {
         a {
           padding: 10px;
           @media (min-width: $breakpoint-tablet) {
-          padding: 19px 20px 15px 20px;
+          padding: 10px 15px;
           }
           width: auto;
         }
@@ -361,9 +359,8 @@ section {
       }
       &.active {
         a {
-          background: $dark-green;
-          @include border-radius(10px);
-          border: 1px solid $dark-green;
+          background: $mid-green;
+          border: 1px solid $mid-green;
           color: $white;
           text-decoration: none;
         }
