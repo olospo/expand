@@ -3,9 +3,12 @@
 section.hero {
   &.search {
     background: $dark-green;
+    height: auto;
+    padding: 60px 0;
     h1 {
       color: $white;
       text-align: center;
+      margin-bottom: 0;
     }
     span.search_term {
       background: #29BA74;
@@ -17,9 +20,9 @@ section.hero {
 section.post {
   &.search {
     .search_item {
-      padding: 20px 0;
+      padding: 0px 0 20px 0;
       margin: 20px 0;
-      border-bottom: 1px solid #737772;
+      border-bottom: 1px solid #d4d4d4;
       &:last-of-type {
         border-bottom: none;
       }
@@ -30,7 +33,43 @@ section.post {
       color: $white;
     }
     .search_page_form {
-      
+      margin-bottom: 40px;
+      input.search {
+      font: $normal 1.4rem/1.4rem $regular;
+      font-size: 1.4rem;
+      width: 160px;
+      height: 31px;
+      border: none;
+      padding: 0px 10px;
+      background: $white;
+      color: $black;
+      border: 1px solid #dddddd;
+      @include border-radius(0px);
+        &:focus {
+          outline: none;
+          border: 1px solid $mid-green;
+        }
+      }
+      input.search-submit {
+        margin: 4px 0 0 0;
+        @include border-radius(0px);
+        cursor: pointer;
+        font: $normal 1.4rem/1.4rem $bold;
+        font-size: 1.4rem;
+        height: 33px;
+        border: none;
+        padding: 0px 10px;
+        background: $mid-green;
+        color: $white;
+        border: 1px solid $mid-green;
+        text-transform: capitalize;
+        &:hover {
+          background: $dark-green;
+          color: $white;
+          border-left: 1px solid $dark-green;
+          
+        }
+      }
     }
     // Pagination
     .pagination {
