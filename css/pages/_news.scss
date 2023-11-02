@@ -66,6 +66,21 @@ section.news {
       }
     }
   }
+
+}
+
+section.profile_written {
+  h2 {
+    font: $normal 2.4rem/3.2rem $heading;
+    text-align: center;
+    color: $mid-grey;
+    margin-top: 40px;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    span {
+      color: $mid-green;
+    }
+  }
 }
 
 section.post {
@@ -120,6 +135,19 @@ section.authors {
           color: $mid-grey;
         }
       }
+    }
+    @media (max-width: $breakpoint-tablet) {
+      &:nth-child(2) {
+        margin-top: 20px;
+      }
+    }
+    &:nth-child(3) {
+      clear: left;
+      margin-left: 0%;
+      margin-top: 20px;
+    }
+    &:nth-child(4) {
+      margin-top: 20px;
     }
   }
 }

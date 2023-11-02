@@ -131,7 +131,6 @@ $( document ).ready(function() {
   })
   var counter = 0;
   
-  
   // Map Markers
   
   // Create a function to handle the common logic

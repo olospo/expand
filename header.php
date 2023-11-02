@@ -34,10 +34,10 @@ $image = get_the_post_thumbnail_url( $post_id, 'full' ); ?>
     <nav class="primary ten columns">
       <?php wp_nav_menu( array( 'theme_location' => 'main', 'container'=> false, 'menu_class'=> false ) ); ?>
       <!-- Search -->
-      <!-- <div class="search" role="search">
+      <div class="search" role="search">
         <label for="search"><div class="search_icon"></div></label>
         <div class="search_form"><?php get_search_form(); ?></div>
-      </div> -->
+      </div>
     </nav>
     <button class="menu-toggle mobile_menu">
       <span></span>
