@@ -169,7 +169,44 @@ add_action( 'admin_menu', 'remove_menus' );
 
 function custom_post_type() {
 	
-	// Careers Type
+	// Forms Post Type
+	$labels = array(
+		'name'                => _x( 'Forms', 'Post Type General Name', 'text_domain' ),
+		'singular_name'       => _x( 'Form', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'           => __( 'Forms', 'text_domain' ),
+		'all_items'           => __( 'All Forms', 'text_domain' ),
+		'view_item'           => __( 'View Form', 'text_domain' ),
+		'add_new_item'        => __( 'Add New Form', 'text_domain' ),
+		'add_new'             => __( 'Add New', 'text_domain' ),
+		'edit_item'           => __( 'Edit Form', 'text_domain' ),
+		'update_item'         => __( 'Update Form', 'text_domain' ),
+		'search_items'        => __( 'Search Forms', 'text_domain' ),
+		'not_found'           => __( 'Not found', 'text_domain' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'text_domain' ),
+	);
+	$args = array(
+		'label'               => __( 'Form', 'text_domain' ),
+		'description'         => __( 'Forms', 'text_domain' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'custom fields' ),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 20,
+		'menu_icon'           => 'dashicons-list-view',
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'capability_type'     => 'post',
+		'rewrite'   => array( 'slug' => 'form' ),
+	);
+	register_post_type( 'form', $args );
+	
+	// Careers Post Type
 	$labels = array(
 		'name'                => _x( 'Careers', 'Post Type General Name', 'text_domain' ),
 		'singular_name'       => _x( 'Career', 'Post Type Singular Name', 'text_domain' ),
@@ -206,7 +243,7 @@ function custom_post_type() {
 	);
 	register_post_type( 'career', $args );
 	
-	// Careers Type
+	// Profiles Post Type
 	$labels = array(
 		'name'                => _x( 'Profiles', 'Post Type General Name', 'text_domain' ),
 		'singular_name'       => _x( 'Profile', 'Post Type Singular Name', 'text_domain' ),
@@ -232,7 +269,7 @@ function custom_post_type() {
 		'show_in_menu'        => true,
 		'show_in_nav_menus'   => true,
 		'show_in_admin_bar'   => true,
-		'menu_position'       => 30,
+		'menu_position'       => 27,
 		'menu_icon'           => 'dashicons-businessperson',
 		'can_export'          => true,
 		'has_archive'         => true,
