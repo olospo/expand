@@ -33,7 +33,7 @@ while ( have_posts() ) : the_post(); ?>
 <section class="map">
   <div class="container">
     <div class="title six columns offset-by-three">
-      <h3 class="split_title"><?php the_field('map_title'); ?></h3>
+      <h3 class="split_title"><?php echo get_field('map_title'); ?></h3>
     </div>
     <div class="map_container">
     <img src="<?php bloginfo('template_directory'); ?>/img/expand_map.png" alt="map" />
