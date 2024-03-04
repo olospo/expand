@@ -20,19 +20,19 @@
       <h5>Follow us</h5>
       <ul class="social">
         <?php if(get_field('facebook_link','options')): ?>
-        <li><a href="<?php the_field('facebook_link','options'); ?>" aria-label="Facebook"><img src="<?php bloginfo('template_directory'); ?>/img/facebook.svg" alt="Facebook" loading="lazy"/></a></li>
+        <li><a href="<?php echo get_field('facebook_link','options'); ?>" aria-label="Facebook"><img src="<?php bloginfo('template_directory'); ?>/img/facebook.svg" alt="Facebook" loading="lazy"/></a></li>
         <?php endif; ?>
         <?php if(get_field('twitter_link','options')): ?>
-        <li><a href="<?php the_field('twitter_link','options'); ?>" aria-label="Twitter"><img src="<?php bloginfo('template_directory'); ?>/img/twitter.svg" alt="Twitter" loading="lazy"/></a></li>
+        <li><a href="<?php echo get_field('twitter_link','options'); ?>" aria-label="Twitter"><img src="<?php bloginfo('template_directory'); ?>/img/twitter.svg" alt="Twitter" loading="lazy"/></a></li>
         <?php endif; ?>
         <?php if(get_field('linkedin_link','options')): ?>
-        <li><a href="<?php the_field('linkedin_link','options'); ?>" aria-label="LinkedIn"><img src="<?php bloginfo('template_directory'); ?>/img/linkedin.svg" alt="LinkedIn" loading="lazy"/></a></li>
+        <li><a href="<?php echo get_field('linkedin_link','options'); ?>" aria-label="LinkedIn"><img src="<?php bloginfo('template_directory'); ?>/img/linkedin.svg" alt="LinkedIn" loading="lazy"/></a></li>
         <?php endif; ?>
         <?php if(get_field('vimeo_link','options')): ?>
-        <li><a href="<?php the_field('vimeo_link','options'); ?>" aria-label="Vimeo"><img src="<?php bloginfo('template_directory'); ?>/img/vimeo.svg" alt="Vimeo" loading="lazy"/></a></li>
+        <li><a href="<?php echo get_field('vimeo_link','options'); ?>" aria-label="Vimeo"><img src="<?php bloginfo('template_directory'); ?>/img/vimeo.svg" alt="Vimeo" loading="lazy"/></a></li>
         <?php endif; ?>
         <?php if(get_field('instagram_link','options')): ?>
-        <li><a href="<?php the_field('instagram_link','options'); ?>" aria-label="Instagram"><img src="<?php bloginfo('template_directory'); ?>/img/instagram.svg" alt="Instagram" loading="lazy"/></a></li>
+        <li><a href="<?php echo get_field('instagram_link','options'); ?>" aria-label="Instagram"><img src="<?php bloginfo('template_directory'); ?>/img/instagram.svg" alt="Instagram" loading="lazy"/></a></li>
         <?php endif; ?>
       </ul>
       </div>

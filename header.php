@@ -17,8 +17,8 @@ $image = get_the_post_thumbnail_url( $post_id, 'full' ); ?>
 <link rel="apple-touch-icon" sizes="180x180" href="<?php bloginfo('template_directory'); ?>/img/apple-touch-icon.png"/>
 <link rel="icon" type="image/png" sizes="32x32" href="<?php bloginfo('template_directory'); ?>/img/favicon-32x32.png"/>
 <link rel="icon" type="image/png" sizes="16x16" href="<?php bloginfo('template_directory'); ?>/img/favicon-16x16.png"/>
-<?php if( get_field('social_metadata', 'options') ): the_field('social_metadata', 'options'); endif; // Social Metadata ?>
-<?php if( get_field('google_analytics', 'options') ): the_field('google_analytics', 'options'); endif; // Google Analytics Code ?>
+<?php if( get_field('social_metadata', 'options') ): echo get_field('social_metadata', 'options'); endif; // Social Metadata ?>
+<?php if( get_field('google_analytics', 'options') ): echo get_field('google_analytics', 'options'); endif; // Google Analytics Code ?>
 <meta name="google-site-verification" content="add-content-here" />
 </head>
 <body <?php body_class(); ?>>

@@ -28,8 +28,8 @@ while ( have_posts() ) : the_post(); ?>
     </div>
     <div class="content nine columns">
       <p><strong class="name"><?php the_title(); ?></strong><br />
-      <strong><?php the_field('job_title'); ?></strong><br />
-      <em><?php the_field('location'); ?></em></p>
+      <strong><?php echo get_field('job_title'); ?></strong><br />
+      <em><?php echo get_field('location'); ?></em></p>
       <?php echo $desc; ?>
       
       <?php if( $email ) { ?><div class="contact"><?php } ?>

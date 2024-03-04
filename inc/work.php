@@ -11,7 +11,7 @@ $banneruploadvideo = get_field('banner_upload_video');
     <div class="overlay"></div>
     <div class="content">
       <h3><?php the_title(); ?></h3>
-      <span class="client"><?php the_field('client_name'); ?></span>
+      <span class="client"><?php echo get_field('client_name'); ?></span>
   </div>
   </a>
 </article>

@@ -12,8 +12,8 @@
     </div>
     <div class="cta_content">
       <div class="content">
-      <h4><?php the_field('title','options'); ?></h4>
-      <?php the_field('description','options'); ?>
+      <h4><?php echo get_field('title','options'); ?></h4>
+      <?php echo get_field('description','options'); ?>
       <?php if( have_rows('links','options') ): ?>
         <ul class="links">
         <?php while( have_rows('links','options') ): the_row(); 
