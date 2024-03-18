@@ -4,7 +4,7 @@
   <div class="container">
     <div class="eight columns">
       <div class="logo">
-        <img src="<?php bloginfo('template_directory'); ?>/img/bcg.svg" alt="BCG logo" class="bcg" loading="lazy" />
+        <a href="https://www.bcg.com" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/bcg.svg" alt="BCG logo" class="bcg" loading="lazy" /></a>
       </div>
       <div class="logo_wrap">
       <h4>Expand Research LLP</h4>
