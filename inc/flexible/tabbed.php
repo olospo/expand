@@ -11,7 +11,7 @@ $word = number_to_word($row_count); ?>
 <section class="tabbed_section">
   <div class="container">
     <div class="title twelve columns">
-      <h3 class="split_title"><?php the_sub_field('title'); ?></h3>
+      <h3 class="split_title"><?php echo get_sub_field('title'); ?></h3>
     </div>
     <?php 
     if (have_rows('tab')): ?>

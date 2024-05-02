@@ -25,7 +25,7 @@ while ( have_posts() ) : the_post(); ?>
           <?php if( get_row_layout() == 'profile_layout' ): ?>
             <?php get_template_part( 'inc/profile' ); ?>
           <?php elseif( get_row_layout() == 'heading' ): ?>
-            <h3 class="team_heading"><?php the_sub_field('heading'); ?></h3>
+            <h3 class="team_heading"><?php echo get_sub_field('heading'); ?></h3>
           <?php endif; ?>
         <?php } ?>
       </div>
