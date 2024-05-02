@@ -1,5 +1,4 @@
 <?php
-
 function theme_setup() {
   // Menus
   register_nav_menu( 'main', 'Main Menu' );
@@ -14,28 +13,25 @@ function theme_setup() {
   add_image_size( 'featured-img', 920, 500, true ); // Featured Image size 
   add_image_size( 'background-img', 1400, 740, true ); // Featured Image size
 	add_image_size( '16-9', 1200, 675, true ); // 16/9 Image size 
-	
 }
 add_action( 'after_setup_theme', 'theme_setup' );
 
-// Enqueue styles
-add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
-function theme_enqueue_styles() {
-  wp_enqueue_style( 'main', get_stylesheet_directory_uri().'/css/main.css', false, filemtime( get_stylesheet_directory() . '/style.css' ) );
+add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles_and_scripts' );
+
+function theme_enqueue_styles_and_scripts() {
+		// Enqueue styles
+		wp_enqueue_style( 'main', get_stylesheet_directory_uri().'/css/main.css', false, filemtime( get_stylesheet_directory() . '/style.css' ) );
+
+		// Deregister jQuery and enqueue it in the footer
+		wp_deregister_script( 'jquery' );
+		wp_register_script( 'jquery', get_stylesheet_directory_uri().'/js/jquery.min.js', false, NULL, true );
+		wp_enqueue_script( 'jquery' );
+
+		// Enqueue scripts
+		wp_enqueue_script( 'applications', get_stylesheet_directory_uri().'/js/application.min.js', 'jquery', NULL, true, filemtime( get_stylesheet_directory() . '/style.css' ) );
+		wp_enqueue_script( 'theme-functions', get_stylesheet_directory_uri().'/js/functions.js', 'jquery', NULL, true, filemtime( get_stylesheet_directory() . '/style.css' ) );
 }
 
-// Enqueue scripts
-add_action( 'wp_enqueue_scripts', 'theme_enqueue_scripts' );
-function theme_enqueue_scripts() {
-
-  wp_deregister_script( 'jquery' ); // Deregister to put jQuery into footer
-  wp_register_script( 'jquery', get_stylesheet_directory_uri().'/js/jquery.min.js', false, NULL, true );
-  wp_enqueue_script( 'jquery' ); // Re-register jQuery
-  
-  wp_enqueue_script( 'applications', get_stylesheet_directory_uri().'/js/application.min.js', 'jquery', NULL, true, filemtime( get_stylesheet_directory() . '/style.css' ) );
-  wp_enqueue_script( 'theme-functions', get_stylesheet_directory_uri().'/js/functions.js', 'jquery', NULL , true, filemtime( get_stylesheet_directory() . '/style.css' ) ); 
-
-}
 
 // Disable Emoji Loading
 remove_action('wp_head', 'print_emoji_detection_script', 7);
@@ -159,6 +155,20 @@ function remove_page_from_query_string($query_string)
   }      
   return $query_string;
 }
+
+// Theme Colour Scheme
+function wpacg_expand_admin_color_scheme() {
+	//Get the theme directory
+	$theme_dir = get_stylesheet_directory_uri();
+
+	//Expand
+	wp_admin_css_color( 'expand', __( 'Expand' ),
+		$theme_dir . '/css/expand.css',
+		array( '#197a56', '#fff', '#d36513' , '#3e8e60')
+	);
+}
+add_action('admin_init', 'wpacg_expand_admin_color_scheme');
+
 
 // Remove Menu Items 
 function remove_menus(){
@@ -344,48 +354,6 @@ function wpdev_nav_classes( $classes, $item ) {
 add_filter( 'nav_menu_css_class', 'wpdev_nav_classes', 10, 2 );
 
 
-function add_parent_url_menu_class( $classes = array(), $item = false ) {
-	// Get current URL
-	$current_url = current_url();
-
-	// Get homepage URL
-	$homepage_url = trailingslashit( get_bloginfo( 'url' ) );
-
-	// Exclude 404 and homepage
-	if( is_404() or $item->url == $homepage_url )
-		return $classes;
-
-	if ( get_post_type() == "work" )
-	{
-		unset($classes[array_search('current_page_parent',$classes)]);
-		if ( isset($item->url) )
-			if ( strstr( $current_url, $item->url) )
-				$classes[] = 'current-menu-item';
-	}
-	
-	if ( get_post_type() == "career" )
-	{
-		unset($classes[array_search('current_page_parent',$classes)]);
-		if ( isset($item->url) )
-			if ( strstr( $current_url, $item->url) )
-				$classes[] = 'current-menu-item';
-	}
-
-	return $classes;
-}
-
-function current_url() {
-	// Protocol
-	$url = ( 'on' == $_SERVER['HTTPS'] ) ? 'https://' : 'http://';
-	$url .= $_SERVER['SERVER_NAME'];
-
-	// Port
-	$url .= ( '80' == $_SERVER['SERVER_PORT'] ) ? '' : ':' . $_SERVER['SERVER_PORT'];
-	$url .= $_SERVER['REQUEST_URI'];
-
-	return trailingslashit( $url );
-}
-add_filter( 'nav_menu_css_class', 'add_parent_url_menu_class', 10, 3 );
 
 add_filter( 'relevanssi_index_custom_fields', 'rlv_exclude_fields' );
 function rlv_exclude_fields( $custom_fields ) {

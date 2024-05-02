@@ -1,10 +1,13 @@
 <?php /* Single Post */
 get_header();
 
-
 $bgImg = get_field('background_image');
 
-$featured_img_url = get_the_post_thumbnail_url($author->ID, 'large-thumb'); 
+// Get the post author's ID
+$author_id = get_the_author_meta('ID');
+
+// Get the post thumbnail URL for the author
+$featured_img_url = get_the_post_thumbnail_url($author_id, 'large-thumb');
 
 while ( have_posts() ) : the_post(); ?>
 
