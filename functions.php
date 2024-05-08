@@ -293,15 +293,6 @@ function custom_post_type() {
 // Hook into the 'init' action
 add_action( 'init', 'custom_post_type', 0 );
 
-function redirect_cpt_archive_to_homepage() {
-		if (is_post_type_archive('form')) { // Replace 'your_custom_post_type' with the name of your CPT
-				wp_redirect(home_url());
-				exit;
-		}
-}
-add_action('template_redirect', 'redirect_cpt_archive_to_homepage');
-
-
 class childNav extends Walker_page {
   public function start_el(&$output, $page, $depth = 0, $args = array(), $current_page = 0) {
     if($depth)
