@@ -62,15 +62,27 @@
   }
   #London {
     top: 18.5%;
-    left: 45%;
+    left: 44.5%;
   }
   #New-York {
-    top: 23%;
-    left:29%;
+    top: 24.4%;
+    left:26.5%;
   }
   #Singapore {
     top: 57.5%;
     left: 74.7%;
+  }
+  #Delhi {
+    top: 42.5%;
+    left: 66.7%;
+  }
+  #Toronto {
+    top: 21.5%;
+    left:25.2%;
+  }
+  #Frankfurt {
+    top: 20.5%;
+    left: 46.5%;
   }
 }
 .map_offices {
@@ -82,6 +94,7 @@
   .offices {
     @media (min-width: $breakpoint-tablet) {
       display: flex;
+      flex-wrap: wrap;
     }
     .office {
       cursor: pointer;
@@ -89,12 +102,13 @@
       position: relative;
       padding: 20px $padding-half;
       width: 100%;
-      @media (min-width: $breakpoint-tablet) {
-        width: 33.33%;
-        padding: $padding-half $padding;
-      }
       box-sizing: border-box;
       background: $white-bg;
+      @media (min-width: $breakpoint-tablet) {
+        flex: 1 1 33.3%;
+        box-sizing: border-box;
+        padding: $padding-half 60px;
+      }
       address {
         font: $medium 1.4rem/2.0rem $heading;
         @media (min-width: $breakpoint-tablet) {
@@ -159,18 +173,27 @@ section.image_offices {
     background-size: cover;
     opacity: 0;
     transition: opacity linear 0.5s;
-    &.newyork {
-      // background: url('../img/newyork.jpg') center center no-repeat;
+    &.newyork  {
       background-size: cover;
       opacity: 0;
     }
     &.london {
-      // background: url('../img/london.jpg') center center no-repeat;
       background-size: cover;
       opacity: 0;
     }
     &.singapore {
-      // background: url('../img/singapore.jpg') center center no-repeat;
+      background-size: cover;
+      opacity: 0;
+    }
+    &.delhi {
+      background-size: cover;
+      opacity: 0;
+    }
+    &.toronto {
+      background-size: cover;
+      opacity: 0;
+    }
+    &.frankfurt {
       background-size: cover;
       opacity: 0;
     }

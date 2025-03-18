@@ -46,6 +46,15 @@ while ( have_posts() ) : the_post(); ?>
     <a href="#Singapore" id="Singapore" class="map-marker" data-target="Singapore">
       <span aria-hidden="true"></span>
     </a>
+    <a href="#Delhi" id="Delhi" class="map-marker" data-target="Delhi">
+      <span aria-hidden="true"></span>
+    </a>
+    <a href="#Toronto" id="Toronto" class="map-marker" data-target="Toronto">
+      <span aria-hidden="true"></span>
+    </a>
+    <a href="#Frankfurt" id="Frankfurt" class="map-marker" data-target="Frankfurt">
+      <span aria-hidden="true"></span>
+    </a>
     </div>
   </div>
 </section>
@@ -112,6 +121,64 @@ while ( have_posts() ) : the_post(); ?>
         <?php endwhile; ?>
       <?php endif; ?>
     </div>
+    
+    <div class="office" id="Delhi">
+      <?php if( have_rows('delhi') ): ?>
+        <?php while( have_rows('delhi') ): the_row(); 
+      
+        // Get sub field values.
+        $title = get_sub_field('address_title');
+        $address = get_sub_field('address');
+        $phone = get_sub_field('phone_number');
+        ?>
+        <div class="content">
+          <h3><?php echo $title; ?></h3>
+          <address>
+            <?php echo $address; ?>
+          </address>
+          <a href="tel:<?php echo $phone; ?>" class="phone"><?php echo $phone; ?></a>
+        </div>
+        <?php endwhile; ?>
+      <?php endif; ?>
+    </div>
+    <div class="office" id="Toronto">
+      <?php if( have_rows('Toronto') ): ?>
+        <?php while( have_rows('Toronto') ): the_row(); 
+      
+        // Get sub field values.
+        $title = get_sub_field('address_title');
+        $address = get_sub_field('address');
+        $phone = get_sub_field('phone_number');
+        ?>
+        <div class="content">
+          <h3><?php echo $title; ?></h3>
+          <address>
+            <?php echo $address; ?>
+          </address>
+          <a href="tel:<?php echo $phone; ?>" class="phone"><?php echo $phone; ?></a>
+        </div>
+        <?php endwhile; ?>
+      <?php endif; ?>
+    </div>
+    <div class="office" id="Frankfurt">
+      <?php if( have_rows('Frankfurt') ): ?>
+        <?php while( have_rows('Frankfurt') ): the_row(); 
+      
+        // Get sub field values.
+        $title = get_sub_field('address_title');
+        $address = get_sub_field('address');
+        $phone = get_sub_field('phone_number');
+        ?>
+        <div class="content">
+          <h3><?php echo $title; ?></h3>
+          <address>
+            <?php echo $address; ?>
+          </address>
+          <a href="tel:<?php echo $phone; ?>" class="phone"><?php echo $phone; ?></a>
+        </div>
+        <?php endwhile; ?>
+      <?php endif; ?>
+    </div>
     </div>
   </div>
 </section>
@@ -125,6 +192,15 @@ while ( have_posts() ) : the_post(); ?>
   <?php endwhile; endif; ?>
   <?php if( have_rows('singapore') ): while( have_rows('singapore') ): the_row(); $img = get_sub_field('office_image'); ?>  
   <div class="office_image singapore" id="Singapore" style="background: url('<?php echo $img; ?>') center center no-repeat; background-size: cover;"></div>
+  <?php endwhile; endif; ?>
+  <?php if( have_rows('delhi') ): while( have_rows('delhi') ): the_row(); $img = get_sub_field('office_image'); ?>  
+  <div class="office_image delhi" id="Delhi" style="background: url('<?php echo $img; ?>') center center no-repeat; background-size: cover;"></div>
+  <?php endwhile; endif; ?>
+  <?php if( have_rows('Toronto') ): while( have_rows('Toronto') ): the_row(); $img = get_sub_field('office_image'); ?>  
+  <div class="office_image toronto" id="Toronto" style="background: url('<?php echo $img; ?>') center center no-repeat; background-size: cover;"></div>
+  <?php endwhile; endif; ?>
+  <?php if( have_rows('Frankfurt') ): while( have_rows('Frankfurt') ): the_row(); $img = get_sub_field('office_image'); ?>  
+  <div class="office_image frankfurt" id="Frankfurt" style="background: url('<?php echo $img; ?>') center center no-repeat; background-size: cover;"></div>
   <?php endwhile; endif; ?>
 </section>
 
