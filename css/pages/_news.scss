@@ -179,6 +179,10 @@ section.post {
     margin: 0 0 20px 0;
     h1 {
       margin-bottom: 0px;
+      span.word1 {
+        color: $mid-green;
+      }
+      
     }
     p.date {
       font: $bold 1.4rem/2.0rem $heading;
