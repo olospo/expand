@@ -1,11 +1,82 @@
 // News
 
+section.hero {
+  .video-upload {
+    .icon {
+      text-align: center;
+      h1 {
+        margin-bottom: 40px;
+      }
+      .hero-buttons {
+    
+        p {
+          color: $white;
+          font: $bold 2.4rem/3.6rem $heading;
+        }
+        a {
+          overflow: hidden;
+          display: inline-block;
+          vertical-align: middle;
+          padding: 15px;
+          margin: 20px 10px;
+          background: $mid-green;
+          color: $white;
+          text-decoration: none;
+          text-transform: uppercase;
+          -webkit-transition: all ease .5s;
+          -moz-transition: all ease .5s;
+          -o-transition: all ease .5s;
+          transition: all ease .5s;
+          font: $bold 1.2rem/1.2rem $heading;
+          @media (min-width: $breakpoint-tablet) {
+            font: $bold 1.4rem/1.4rem $heading;
+          }  
+        }
+      }
+    }
+  }
+}
+
 section.news_image {
   height: 400px;
 }
 
-section.news {
+
+
+section.news, section.insight, section.event {
   padding: $padding-half 0;
+  h2 {
+    font: $bold 4.4rem/5.2rem $heading;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+  .more-link {
+    text-align: center;
+    a.more-button {
+      overflow: hidden;
+      display: inline-block;
+      vertical-align: middle;
+      padding: 15px;
+      margin: 40px 0 0 0;
+      background: $mid-green;
+      color: $white;
+      text-decoration: none;
+      text-transform: uppercase;
+      -webkit-transition: all ease .5s;
+      -moz-transition: all ease .5s;
+      -o-transition: all ease .5s;
+      transition: all ease .5s;
+      font: $bold 1.2rem/1.2rem $heading;
+      @media (min-width: $breakpoint-tablet) {
+        font: $bold 1.4rem/1.4rem $heading;
+      }
+      &:hover {
+        background: $dark-green;
+        color: $white;
+      }
+    }
+  }
+  
   article.item {
     padding: $padding-half 0 0 0;
     &:nth-child(2) {
@@ -67,6 +138,23 @@ section.news {
     }
   }
 
+}
+
+section.insight {
+  background: $mid-green;
+  h2 {
+    color: $white;
+  }
+  .more-link {
+    a.more-button {
+      background: $white;
+      color: $mid-green;
+      &:hover {
+        background: $dark-green;
+        color: $white;
+      }
+    }
+  }
 }
 
 section.profile_written {
