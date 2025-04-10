@@ -240,6 +240,21 @@ section.authors {
   }
 }
 
+a.tag {
+  margin: 0 0 20px 0;
+  font: $bold 1.4rem/2.0rem $heading;
+  text-transform: uppercase;
+  background: #295E7E;
+  color: $white;
+  padding: 5px 20px;
+  display: inline-block;
+  text-decoration: none;
+  &:hover {
+    background: #2E3558;
+    color: $white;
+  }
+}
+
 a.category_tag {
   margin: 0 0 20px 0;
   font: $bold 1.4rem/2.0rem $heading;

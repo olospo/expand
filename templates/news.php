@@ -93,6 +93,15 @@ while ( have_posts() ) : the_post(); ?>
               <?php endif; ?>
                   <div class="content">
                     <a class="category_tag" href="<?php echo $cat_link; ?>"><?php echo esc_html( $display_title ); ?></a>
+                    <!-- Tag Links -->
+                    <?php 
+                      $post_tags = get_the_tags();
+                      if ( $post_tags ) :
+                        foreach( $post_tags as $tag ) : 
+                          $tag_link = esc_url( get_tag_link( $tag->term_id ) );
+                    ?>
+                        <a class="tag" href="<?php echo $tag_link; ?>"><?php echo esc_html( $tag->name ); ?></a>
+                    <?php endforeach; endif; ?>
                     <p class="date"><?php the_time('F j, Y'); ?></p>
                     <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                     <?php the_excerpt(); ?>
@@ -111,6 +120,15 @@ while ( have_posts() ) : the_post(); ?>
               <?php endif; ?>
               <div class="item_content">
                 <a class="category_tag" href="<?php echo $cat_link; ?>"><?php echo esc_html( $display_title ); ?></a>
+                <!-- Tag Links -->
+                <?php 
+                  $post_tags = get_the_tags();
+                  if ( $post_tags ) :
+                    foreach( $post_tags as $tag ) : 
+                      $tag_link = esc_url( get_tag_link( $tag->term_id ) );
+                ?>
+                    <a class="tag" href="<?php echo $tag_link; ?>"><?php echo esc_html( $tag->name ); ?></a>
+                <?php endforeach; endif; ?>
                 <p class="date"><?php the_time('F j, Y'); ?></p>
                 <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                 <?php the_excerpt(); ?>
