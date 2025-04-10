@@ -37,6 +37,15 @@ while ( have_posts() ) : the_post(); ?>
           $cat_id = get_cat_ID( $name );
           $link = get_category_link( $cat_id );
           echo '<a class="category_tag" href="'. esc_url( $link ) .'"">'. $name .'</a>'; ?>
+          <!-- Tag Links -->
+          <?php 
+            $post_tags = get_the_tags();
+            if ( $post_tags ) :
+              foreach( $post_tags as $tag ) : 
+                $tag_link = esc_url( get_tag_link( $tag->term_id ) );
+          ?>
+              <a class="tag" href="<?php echo $tag_link; ?>"><?php echo esc_html( $tag->name ); ?></a>
+          <?php endforeach; endif; ?>
         
         <?php
           $authors = get_field('author');
