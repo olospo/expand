@@ -40,6 +40,18 @@
       margin-left: 4px;
     }
   }
+  &.white {
+    padding: 15px;
+    background: $white;
+    color: $mid-green;
+    &:hover {
+      background: $dark-green;
+      color: $white;
+      &:before {
+        color: $white;
+      }
+    }
+  }
   &.trigger {
     text-align: center;
     background: $light-green;
