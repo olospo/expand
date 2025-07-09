@@ -17,7 +17,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_652ea7845a3e6",
@@ -93,7 +94,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_6526a43cf5e75",
@@ -241,7 +243,8 @@
                 "id": ""
             },
             "placement": "top",
-            "endpoint": 0
+            "endpoint": 0,
+            "selected": 0
         },
         {
             "key": "field_62fcfe4e70514",
@@ -325,8 +328,8 @@
         },
         {
             "key": "field_62fcfe7370518",
-            "label": "Vimeo link",
-            "name": "vimeo_link",
+            "label": "YouTube link",
+            "name": "youtube_link",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -338,10 +341,11 @@
                 "id": ""
             },
             "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "append": ""
         }
     ],
     "location": [
@@ -362,5 +366,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1697556374
+    "modified": 1752067900
 }

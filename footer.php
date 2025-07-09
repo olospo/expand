@@ -28,8 +28,8 @@
         <?php if(get_field('linkedin_link','options')): ?>
         <li><a href="<?php echo get_field('linkedin_link','options'); ?>" aria-label="LinkedIn"><img src="<?php bloginfo('template_directory'); ?>/img/linkedin.svg" alt="LinkedIn" loading="lazy"/></a></li>
         <?php endif; ?>
-        <?php if(get_field('vimeo_link','options')): ?>
-        <li><a href="<?php echo get_field('vimeo_link','options'); ?>" aria-label="Vimeo"><img src="<?php bloginfo('template_directory'); ?>/img/vimeo.svg" alt="Vimeo" loading="lazy"/></a></li>
+        <?php if(get_field('youtube_link','options')): ?>
+        <li><a href="<?php echo get_field('youtube_link','options'); ?>" aria-label="Youtube"><img src="<?php bloginfo('template_directory'); ?>/img/youtube.svg" alt="Youtube" loading="lazy"/></a></li>
         <?php endif; ?>
         <?php if(get_field('instagram_link','options')): ?>
         <li><a href="<?php echo get_field('instagram_link','options'); ?>" aria-label="Instagram"><img src="<?php bloginfo('template_directory'); ?>/img/instagram.svg" alt="Instagram" loading="lazy"/></a></li>
