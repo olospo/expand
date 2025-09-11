@@ -69,7 +69,7 @@ while ( have_posts() ) : the_post(); ?>
       <div class="title">
         <h3 class="split_title">Speculative Applications</h3>
         <p>We are always keen to hear from both graduates and experienced professionals who are interested in joining Expand. If you are interested in joining Expand, please apply below and if we have a position that suits your experience, we will be in touch.</p>
-        <a href="mailto:careers@expandresearch.com?subject=Speculative Application" class="button white">Apply</a>
+        <a href="mailto:careers@bcgexpand.com?subject=Speculative Application" class="button white">Apply</a>
       </div>
       <div class="form eight columns offset-by-two">
         <p class="terms">By submitting your personal information, which could include a job application, you give Expand and BCG permission to process, screen and store it for the purposes of the recruitment process. We may share this personal information with a third party IT provider which hosts our recruitment platform and with third party assessment providers who assesses your qualifications as part of the recruitment process. Your personal information will not be shared with any other parties except as set out herein. For additional information, please review our privacy policy which we will update from time to time. You give Expand and BCG permission to retain your application and contact details to verify whether you have previously applied and so that we may notify you of further opportunities</p>
