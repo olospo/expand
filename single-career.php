@@ -26,7 +26,7 @@ while ( have_posts() ) : the_post(); ?>
     <div class="four columns">
       <div class="apply">
         <h2>How to apply</h2>
-        <p>Apply by sending your CV and cover letter, including why you are interested in this role and consider yourself to be a good fit for it, to <a href="mailto:careers@expandresearch.com?subject=<?php the_title(); ?>">careers@expandresearch.com</a>.</p>
+        <p>Apply by sending your CV and cover letter, including why you are interested in this role and consider yourself to be a good fit for it, to <a href="mailto:careers@bcgexpand.com?subject=<?php the_title(); ?>">careers@bcgexpand.com</a>.</p>
         <p>Please also include your desired salary along with your notice period/available start date. Please note that applications without a cover letter will not be considered.</p>
       </div>
       <div class="careers_equal">
