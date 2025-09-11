@@ -7,7 +7,7 @@
         <a href="https://www.bcg.com" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/bcg.svg" alt="BCG logo" class="bcg" loading="lazy" /></a>
       </div>
       <div class="logo_wrap">
-      <h4>Expand Research LLP</h4>
+      <h4>BCG Expand</h4>
         <address>
           Registered Office: 80 Charlotte Street London W1T 4DF 
         </address>
