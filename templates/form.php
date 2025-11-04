@@ -1,4 +1,4 @@
-<?php /* Template Name: Flexible */
+<?php /* Template Name: Form */
 get_header();
 
 while ( have_posts() ) : the_post(); ?>
