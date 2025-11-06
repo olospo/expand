@@ -1,7 +1,18 @@
 <?php /* Template Name: Flexible */
 get_header();
 
-while ( have_posts() ) : the_post(); ?>
+while ( have_posts() ) : the_post(); 
+if ( post_password_required() ) { // password check ?>
+<section class="page">
+  <div class="container flex">
+    <div class="content ten columns offset-by-one">
+      <?php echo get_the_password_form(); ?>
+    </div>
+  </div>
+</section>
+  
+  
+<?php } else { ?>
 
 <?php if (have_rows('project_content')) { // Flexible Content ?>
 <div class="flexible_content">        
@@ -32,6 +43,8 @@ while ( have_posts() ) : the_post(); ?>
   <?php } ?>
 </div>
 <?php } ?>
+
+<?php } // end password check ?>
 
 <?php get_template_part( 'inc/careers_cta' ); ?>
 
