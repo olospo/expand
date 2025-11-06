@@ -10,8 +10,6 @@ if ( post_password_required() ) { // password check ?>
     </div>
   </div>
 </section>
-  
-  
 <?php } else { ?>
 
 <?php if (have_rows('project_content')) { // Flexible Content ?>

@@ -310,7 +310,7 @@ function custom_post_type() {
 		'labels'              => $labels,
 		'supports' => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes' ),
 		'hierarchical'        => true,
-		'public'              => false, // Change to true
+		'public'              => true,
 		'show_ui'             => true,
 		'show_in_menu'        => true,
 		'show_in_nav_menus'   => true,
@@ -320,15 +320,24 @@ function custom_post_type() {
 		'can_export'          => true,
 		'has_archive'         => true,
 		'exclude_from_search' => false,
-		'publicly_queryable'  => false, // Change to true
+		'publicly_queryable'  => true,
 		'capability_type'     => 'page',
+		'rewrite' => [
+			'slug' => 'product',
+			'with_front' => false
+		],
 	);
 	register_post_type( 'product', $args );	
-
-
 }
 // Hook into the 'init' action
 add_action( 'init', 'custom_post_type', 0 );
+
+
+add_action('wp_head', function() { // Remove on live
+	if (is_singular('product')) {
+		echo '<meta name="robots" content="noindex, nofollow">';
+	}
+});
 
 /**
  * Add "Type" column to Products admin list.
