@@ -28,18 +28,21 @@
     height: auto;
     min-height: 300px;
     width: 100%;
+    position: relative;
+    transition: opacity 0.4s ease-in-out;
     @media (max-width: $breakpoint-tablet) {
       order: 2;
     }
     @media (min-width: $breakpoint-tablet) {
       width: 50%;
       min-height: 540px;
-    }
+    }  
   }
   .square_content {
     height: auto;
     background: $black;
     width: 100%;
+    text-align: left;
     @media (max-width: $breakpoint-tablet) {
       order: 1;
     }
@@ -47,7 +50,6 @@
       position: relative;
       width: 50%;
     }
-    text-align: left;
     
     .content {
       padding: 30px;
@@ -99,6 +101,7 @@
             }
           }
         }
+        
       }
       a {
         color: $mid-green;

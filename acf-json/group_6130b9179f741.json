@@ -339,6 +339,34 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_690b3ef1998bb": {
+                    "key": "layout_690b3ef1998bb",
+                    "name": "product_filter",
+                    "label": "Product Filter",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_690ca7be77609",
+                            "label": "Filtering",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "message",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "Display the <strong>Product Filtering<\/strong> section. Content is auto populated based on the \"Products\" post type.",
+                            "new_lines": "wpautop",
+                            "esc_html": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -391,5 +419,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 1,
-    "modified": 1698151332
+    "modified": 1762437147
 }

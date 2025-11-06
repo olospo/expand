@@ -52,6 +52,30 @@
       }
     }
   }
+  &.alt {
+    padding: 15px 20px;
+    border-radius:20px;
+    background: $mid-green;
+    color: $white;
+    border: 1px solid $mid-green;
+    &:hover {
+      background: $white;
+      color: $mid-green;
+      border: 1px solid $mid-green;
+    }
+    &.blank {
+      background: $white;
+      color: $mid-green;
+      border: 1px solid $mid-green;
+      &:hover {
+        background: $mid-green;
+        color: $white;
+      }
+    }
+    &:before {
+      display: none;
+    }
+  }
   &.trigger {
     text-align: center;
     background: $light-green;

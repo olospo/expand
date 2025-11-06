@@ -288,10 +288,145 @@ function custom_post_type() {
 		'capability_type'     => 'post',
 	);
 	register_post_type( 'profile', $args );	
+	
+	// Profiles Post Type
+	$labels = array(
+		'name'                => _x( 'Products', 'Post Type General Name', 'text_domain' ),
+		'singular_name'       => _x( 'Product', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'           => __( 'Products', 'text_domain' ),
+		'all_items'           => __( 'All Products', 'text_domain' ),
+		'view_item'           => __( 'View Product', 'text_domain' ),
+		'add_new_item'        => __( 'Add New Product', 'text_domain' ),
+		'add_new'             => __( 'Add New', 'text_domain' ),
+		'edit_item'           => __( 'Edit Product', 'text_domain' ),
+		'update_item'         => __( 'Update Product', 'text_domain' ),
+		'search_items'        => __( 'Search Products', 'text_domain' ),
+		'not_found'           => __( 'Not found', 'text_domain' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'text_domain' ),
+	);
+	$args = array(
+		'label'               => __( 'Product', 'text_domain' ),
+		'description'         => __( 'Products', 'text_domain' ),
+		'labels'              => $labels,
+		'supports' => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes' ),
+		'hierarchical'        => true,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 28,
+		'menu_icon'           => 'dashicons-chart-line',
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'capability_type'     => 'page',
+	);
+	register_post_type( 'product', $args );	
+
 
 }
 // Hook into the 'init' action
 add_action( 'init', 'custom_post_type', 0 );
+
+/**
+ * Add "Type" column to Products admin list.
+ */
+add_filter('manage_product_posts_columns', function($columns) {
+	// Insert after Title column
+	$new = [];
+	foreach ($columns as $key => $label) {
+		$new[$key] = $label;
+		if ($key === 'title') {
+			$new['product_type'] = __('Type', 'text_domain');
+		}
+	}
+	return $new;
+});
+
+/**
+ * Display the ACF field value in the column.
+ */
+add_action('manage_product_posts_custom_column', function($column, $post_id) {
+	if ($column === 'product_type') {
+		$type = get_field('product_type', $post_id);
+		echo $type ? ucfirst($type) : '<span style="color:#999;">—</span>';
+	}
+}, 10, 2);
+
+/**
+ * Add the custom field to the Quick Edit form.
+ */
+add_action('quick_edit_custom_box', function($column, $post_type) {
+	if ($post_type !== 'product' || $column !== 'product_type') {
+		return;
+	}
+	?>
+	<fieldset class="inline-edit-col-right inline-edit-col">
+		<div class="inline-edit-col">
+			<label>
+				<span class="title"><?php _e('Type', 'text_domain'); ?></span>
+				<select name="product_type">
+					<option value="">— Select Type —</option>
+					<option value="industry">Industry</option>
+					<option value="function">Function</option>
+				</select>
+			</label>
+		</div>
+	</fieldset>
+	<?php
+}, 10, 2);
+
+/**
+ * Save the value from Quick Edit.
+ */
+add_action('save_post_product', function($post_id) {
+	if (isset($_POST['product_type'])) {
+		update_field('product_type', sanitize_text_field($_POST['product_type']), $post_id);
+	}
+});
+
+/**
+ * Pass field data to the Quick Edit JS.
+ */
+add_action('admin_footer-edit.php', function() {
+	global $current_screen;
+	if ($current_screen->post_type !== 'product') {
+		return;
+	}
+	?>
+	<script>
+	jQuery(function($){
+		const $wp_inline_edit = inlineEditPost.edit;
+		inlineEditPost.edit = function( id ) {
+			$wp_inline_edit.apply( this, arguments );
+			let postId = 0;
+			if ( typeof(id) === 'object' ) postId = parseInt(this.getId(id));
+			if (postId > 0) {
+				const $editRow = $('#edit-' + postId),
+						$type = $('#product_type_' + postId).data('value');
+				if ($type) {
+					$editRow.find('select[name="product_type"]').val($type);
+				}
+			}
+		};
+	});
+	</script>
+	<?php
+});
+
+/**
+ * Output hidden field data for Quick Edit JS to read.
+ */
+add_action('manage_product_posts_custom_column', function($column, $post_id) {
+	if ($column === 'product_type') {
+		$type = get_field('product_type', $post_id);
+		echo '<div id="product_type_' . $post_id . '" data-value="' . esc_attr($type) . '" style="display:none;"></div>';
+	}
+}, 20, 2);
+
+
 
 class childNav extends Walker_page {
   public function start_el(&$output, $page, $depth = 0, $args = array(), $current_page = 0) {

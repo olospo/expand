@@ -26,6 +26,8 @@ while ( have_posts() ) : the_post(); ?>
       <?php get_template_part( 'inc/flexible/benefits_section'); // Benefits/Details Section ?>
     <?php elseif( get_row_layout() == 'animated_icons_section' ): ?>
       <?php get_template_part( 'inc/flexible/application_section'); // Application/Animated Icons Section ?>
+    <?php elseif( get_row_layout() == 'product_filter' ): ?>
+      <?php get_template_part( 'inc/flexible/product_filter'); // Application/Animated Icons Section ?>
     <?php endif; ?>
   <?php } ?>
 </div>
