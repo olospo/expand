@@ -310,7 +310,7 @@ function custom_post_type() {
 		'labels'              => $labels,
 		'supports' => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields', 'page-attributes' ),
 		'hierarchical'        => true,
-		'public'              => true,
+		'public'              => false, // Change to true
 		'show_ui'             => true,
 		'show_in_menu'        => true,
 		'show_in_nav_menus'   => true,
@@ -320,7 +320,7 @@ function custom_post_type() {
 		'can_export'          => true,
 		'has_archive'         => true,
 		'exclude_from_search' => false,
-		'publicly_queryable'  => true,
+		'publicly_queryable'  => false, // Change to true
 		'capability_type'     => 'page',
 	);
 	register_post_type( 'product', $args );	
