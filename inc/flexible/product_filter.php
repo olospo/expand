@@ -86,6 +86,24 @@ document.addEventListener('DOMContentLoaded', function() {
     echo json_encode($data);
   ?>;
 
+  // ✅ Preload featured images after page load (non-blocking)
+  window.addEventListener('load', () => {
+    const preloadImages = () => {
+      Object.values(products).forEach(item => {
+        if (item.image) {
+          const img = new Image();
+          img.src = item.image;
+        }
+      });
+    };
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(preloadImages);
+    } else {
+      setTimeout(preloadImages, 500);
+    }
+  });
+
+  // DOM references
   const industrySelect = document.getElementById('industrySelect');
   const functionSelect = document.getElementById('functionSelect');
   const title = document.getElementById('previewTitle');
@@ -94,23 +112,22 @@ document.addEventListener('DOMContentLoaded', function() {
   const square = document.getElementById('previewSquare');
   const overlay = document.getElementById('previewOverlay');
 
+  // Update the preview content and image
   function updatePreview(id) {
     const item = products[id];
     if (!item) return;
-  
-    // Your CSS placeholder path — best to reference it dynamically from the same folder setup.
+
     const placeholder = "<?php echo get_stylesheet_directory_uri(); ?>/img/placeholder.jpg";
-  
+
     title.textContent = item.title;
     text.textContent = item.intro;
     link.href = item.link;
     link.style.display = 'inline-block';
-  
-    // Use the fallback if no featured image found
+
     const bgImage = item.image ? `url('${item.image}')` : `url('${placeholder}')`;
     square.style.backgroundImage = bgImage;
-  
-    // Show overlay with fade
+
+    // Fade in overlay
     overlay.style.display = 'flex';
     overlay.style.opacity = 0;
     requestAnimationFrame(() => {
@@ -119,8 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  
-  // Toggle styling when user makes or clears a selection
+  // Toggle active class for selects
   function toggleSelectStyle(select) {
     if (select.value) {
       select.classList.add('active');
@@ -128,12 +144,11 @@ document.addEventListener('DOMContentLoaded', function() {
       select.classList.remove('active');
     }
   }
-  
+
   // Industry select listener
   industrySelect.addEventListener('change', e => {
     const val = e.target.value;
     if (val) {
-      // Reset Function dropdown
       functionSelect.selectedIndex = 0;
       functionSelect.classList.remove('active');
       updatePreview(val);
@@ -143,12 +158,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     toggleSelectStyle(industrySelect);
   });
-  
+
   // Function select listener
   functionSelect.addEventListener('change', e => {
     const val = e.target.value;
     if (val) {
-      // Reset Industry dropdown
       industrySelect.selectedIndex = 0;
       industrySelect.classList.remove('active');
       updatePreview(val);
@@ -158,15 +172,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     toggleSelectStyle(functionSelect);
   });
-  
-  tempImg.onload = () => {
-    square.style.opacity = 0;
-    setTimeout(() => {
-      square.style.backgroundImage = `url('${item.image}')`;
-      square.style.opacity = 1;
-    }, 100);
-  };
-
-
 });
 </script>
