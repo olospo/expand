@@ -26,7 +26,6 @@ while ( have_posts() ) : the_post(); ?>
         <img src="<?php echo $eLogo; ?>" alt="<?php the_title(); ?> Logo" class="elogo"
       <?php endif; ?>
     </div>
-    
   </div>
 </section>
 
