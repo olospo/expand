@@ -7,7 +7,7 @@ $featured_image_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
 
 while ( have_posts() ) : the_post(); ?>
 
-<!-- Offering / Supporting Content / Quantitative Measures -->
+<!-- Hero -->
 <section class="offering hero">
   <div class="container">
     <div class="intro ten columns">
@@ -18,6 +18,7 @@ while ( have_posts() ) : the_post(); ?>
   </div>
 </section>
 
+<!-- Offering Image -->
 <section class="offering image">
   <div class="background" style="background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('<?php echo esc_url( $featured_image_url ); ?>') center center no-repeat; background-size: cover;">
     <div class="container">
@@ -30,14 +31,14 @@ while ( have_posts() ) : the_post(); ?>
 </section>
 
 <!-- Modules -->
-<section class="offering modules our_products">
+<section class="offering modules">
   <div class="container">
     <div class="intro">
     <h2>Our <?php the_title(); ?> Services</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
     <div class="row">
-      <article style="background: url('https://expand.local/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;" class="one-third column visible">
+      <article style="background: url('https://expand.local/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;" class="service-card one-third column visible" data-service="cost-optimisation">
         <a href="#">        
         <div class="content">
           <span class="type">Service</span>
@@ -47,7 +48,7 @@ while ( have_posts() ) : the_post(); ?>
         </div>
         </a>      
       </article>
-      <article style="background: url('https://expand.local/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;" class="one-third column visible">
+      <article style="background: url('https://expand.local/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;" class="service-card one-third column visible" data-service="peer-benchmarking">
         <a href="#">        
         <div class="content">
           <span class="type">Service</span>
@@ -57,7 +58,7 @@ while ( have_posts() ) : the_post(); ?>
         </div>
         </a>      
       </article>
-      <article style="background: url('https://expand.local/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;" class="one-third column visible">
+      <article style="background: url('https://expand.local/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;" class="service-card one-third column visible" data-service="vendor-strategy">
         <a href="#">        
         <div class="content">
           <span class="type">Service</span>
@@ -71,35 +72,61 @@ while ( have_posts() ) : the_post(); ?>
   </div>
 </section>
 
-<div class="hidden">
 <!-- Problem -->
-  <section class="offering problem filterable" id="problemSection">
-    <div class="container">
-      <h2>The Problem</h2>
-      <div class="grid grid-1">
-        <div class="card green">
-          <ul class="list-check">
-            <h3>Cost Optimisation</h3>
-            <li><span class="tick">✔</span> Fragmented market data environments create cost inefficiencies and usage blind spots</li>
-            <li>✔ Limited visibility into peer pricing and vendor usage patterns</li>
-            <li>✔ Pressure from Procurement and the Business to reduce costs without sacrificing functionality (do more with less!)</li>
-            <li>✔ Complex license structures and compliance risk from misuse</li>
-            <li>✔ High user dissatisfaction with certain high-cost tools remains unaddressed</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section> 
-</div>
-
-<?php get_template_part( 'inc/flexible/product_filter'); // Application/Animated Icons Section ?>
-
-
-
-<!-- Impact 
-<section class="offering impact filterable" id="impactSection">
+<section class="offering problem hidden-section" data-service="cost-optimisation">
   <div class="container">
-    <h2>Impact</h2>
+  <div class="product twelve columns" style="background: url('<?php bloginfo('template_directory'); ?>/img/expand_eye.jpg') center center no-repeat; background-size:cover;">
+    <div class="content six columns">
+      <h3><span>Cost Optimisation</span> The Problem</h3>
+      <ul class="list-check">
+        <li><span class="tick">✔</span> Fragmented market data environments create cost inefficiencies and usage blind spots</li>
+        <li><span class="tick">✔</span>Limited visibility into peer pricing and vendor usage patterns</li>
+        <li><span class="tick">✔</span> Pressure from Procurement and the Business to reduce costs without sacrificing functionality (do more with less!)</li>
+        <li><span class="tick">✔</span> Complex license structures and compliance risk from misuse</li>
+        <li><span class="tick">✔</span> High user dissatisfaction with certain high-cost tools remains unaddressed</li>
+      </ul>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section class="offering problem hidden-section" data-service="peer-benchmarking">
+  <div class="container">
+  <div class="product twelve columns" style="background: url('<?php bloginfo('template_directory'); ?>/img/expand_eye.jpg') center center no-repeat; background-size:cover;">
+    <div class="content six columns">
+      <h3><span>Peer Benchmarking</span> The Problem</h3>
+      <ul class="list-check">
+        <li><span class="tick">✔</span> Limited visibility into peer pricing and vendor usage patterns</li>
+        <li><span class="tick">✔</span> Pressure from Procurement and the Business to reduce costs without sacrificing functionality (do more with less!)</li>
+        <li><span class="tick">✔</span> Complex license structures and compliance risk from misuse</li>
+        <li><span class="tick">✔</span> High user dissatisfaction with certain high-cost tools remains unaddressed </li>
+      </ul>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section class="offering problem hidden-section" data-service="vendor-strategy">
+  <div class="container">
+  <div class="product twelve columns" style="background: url('<?php bloginfo('template_directory'); ?>/img/expand_eye.jpg') center center no-repeat; background-size:cover;">
+    <div class="content six columns">
+      <h3><span>Vendor Strategy & Negotiation Support</span> The Problem</h3>
+      <ul class="list-check">
+        <li><span class="tick">✔</span> Fragmented market data environments create cost inefficiencies and usage blind spots</li>
+        <li><span class="tick">✔</span> Limited visibility into peer pricing and vendor usage patterns</li>
+        <li><span class="tick">✔</span> Pressure from Procurement and the Business to reduce costs without sacrificing functionality (do more with less!)</li>
+        <li><span class="tick">✔</span> Complex license structures and compliance risk from misuse</li>
+        <li><span class="tick">✔</span> High user dissatisfaction with certain high-cost tools remains unaddressed </li>
+      </ul>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- Impact -->
+<section class="offering impact hidden-section" data-service="cost-optimisation">
+  <div class="container">
+    <h2><span>Cost Optimisation</span> The Impact</h2>
     <div class="metrics">
       <div class="metric green">
         <span class="unit">$12M</span>
@@ -131,21 +158,85 @@ while ( have_posts() ) : the_post(); ?>
       </ul>
     </div>  
   </div>
-</section> -->
+</section> 
 
-<!-- Approach 
-<section class="offering approach filterable" id="approachSection">
+<section class="offering impact hidden-section" data-service="peer-benchmarking">
   <div class="container">
-    <h2>Approach</h2>
+    <h2><span>Peer Benchmarking</span> The Impact</h2>
+    <div class="metrics">
+      <div class="metric green">
+        <span class="unit">15 Years</span>
+        <span class="description">Supported vendor negotiation cycles with pricing and usage benchmarks</span>
+      </div>
+      <div class="metric green">
+        <span class="unit">0</span>
+        <span class="description">Locked in below-benchmark spend with leading Market Data vendor</span>
+      </div>
+      <div class="metric green">
+        <span class="unit">$10M</span>
+        <span class="description">Reduction secured on an enterprise deal with a key Market Data vendor</span>
+      </div>
+    </div>
+    <div class="grid grid-2">
+      <div class="card"><strong>Case A — Global Investment Bank</strong>
+      <ul>
+        <li>Expand identified $13.5m in potential savings in Research and Analytics, and highlighted key vendors and products to target for removal.</li>
+        <li>The client used this information to realise $12m in savings, including $5m through immediate cancellation</li>
+      </ul>
+    </div>
+      <div class="card"><strong>Case B — Large Global Asset Manager </strong>
+      <ul>
+        <li>Used benchmarking to challenge vendor pricing, leading to a 12% reduction in total market data spend and improved contract terms.</li>
+      </ul>
+    </div>  
+  </div>
+</section>
+
+<section class="offering impact hidden-section" data-service="vendor-strategy">
+  <div class="container">
+    <h2><span>Vendor Strategy & Negotiation Support</span> The Impact</h2>
+    <div class="metrics">
+      <div class="metric green">
+        <span class="unit">$10M</span>
+        <span class="description">Reduction secured on an enterprise deal with a key Market Data vendor</span>
+      </div>
+      <div class="metric green">
+        <span class="unit">$12M</span>
+        <span class="description">Identified and realized Research and Analytics savings</span>
+      </div>
+      <div class="metric green">
+        <span class="unit">15 Years</span>
+        <span class="description">Supported vendor negotiation cycles with pricing and usage benchmarks</span>
+      </div>
+    </div>
+    <div class="grid grid-2">
+      <div class="card"><strong>Case A — Global Investment Bank</strong>
+      <ul>
+        <li>Expand identified $13.5m in potential savings in Research and Analytics, and highlighted key vendors and products to target for removal.</li>
+        <li>The client used this information to realise $12m in savings, including $5m through immediate cancellation</li>
+      </ul>
+    </div>
+      <div class="card"><strong>Case B — Large Global Asset Manager </strong>
+      <ul>
+        <li>Used benchmarking to challenge vendor pricing, leading to a 12% reduction in total market data spend and improved contract terms.</li>
+      </ul>
+    </div>  
+  </div>
+</section> 
+
+<!-- Approach -->
+<section class="offering approach hidden-section" data-service="cost-optimisation">
+  <div class="container">
+    <h2><span>Cost Optimisation</span> The Approach</h2>
     <div class="grid grid-3">
       <div class="card blue">
         <h3>Benchmark model</h3>
-        <p>Our proprietary benchmark model estimates expected market data costs for firms of a given size, using relevant business metrics and industry peer averages.</p>
+        <p>Our proprietary benchmark model computes the expected Market Data cost for a firm of a given size, using relevant business metrics in addition to industry peer averages.</p>
       </div>
       <div class="card blue">
         <h3>Benchmark data</h3>
         <ul class="list-check">
-          <p>Our benchmark data is collected from the clients' inventory extracts, standardized using our industry-leading taxonomy, and validated with each client.</p>
+          <p>Our benchmark data is collected via inventory extracts, standardized by BCG Expand analysts using the firm’s industry-leading taxonomy, and verified by the client.</p>
         </ul>
       </div>
       <div class="card blue">
@@ -154,12 +245,33 @@ while ( have_posts() ) : the_post(); ?>
       </div>
     </div>
   </div>
-</section> -->
+</section>
 
-<!-- Diagnostic -->
-  
-<!-- Insights 
-<section class="offering insights" id="insightsSection">
+<!-- Approach -->
+<section class="offering approach hidden-section" data-service="peer-benchmarking">
+  <div class="container">
+    <h2><span>Peer Benchmarking</span> The Approach</h2>
+    <div class="grid grid-3">
+      <div class="card blue">
+        <h3>Benchmark model</h3>
+        <p>Our proprietary benchmark model computes the expected Market Data cost for a firm of a given size, using relevant business metrics in addition to industry peer averages.</p>
+      </div>
+      <div class="card blue">
+        <h3>Benchmark data</h3>
+        <ul class="list-check">
+          <p>We leverage years of experience to ensure unparalleled accuracy while maintaining a low burden on participants.</p>
+        </ul>
+      </div>
+      <div class="card blue">
+        <h3>Benchmark delivery</h3>
+        <p>We ensure minimal work for participants while allowing for the strongest like-for-like comparisons.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Insights -->
+<section class="offering insights hidden-section always-show">
   <div class="container">
     <h2>Insights</h2>
     <div class="grid grid-3" id="insightsGrid">
@@ -180,67 +292,71 @@ while ( have_posts() ) : the_post(); ?>
       </article>
     </div>
   </div>
-</section> -->
-
-<!-- Testimonials 
-<section class="offering testimonials">
-  <div class="container">
-    <h2>What Leaders Say</h2>
-    <div class="grid grid-2">
-      <blockquote class="card">
-        <p>"It’s been a great engagement and partnership from the BCG Expand team with a lot of great materials and discussions."</p>
-        <cite>Global Head of Market Data, Tier 1 Bank</cite>
-      </blockquote>
-      <blockquote class="card">
-        <p>“We didn’t realize how much we were overspending until we saw what our peers were doing. The data gave us a clear mandate to act.”</p>
-        <cite>COO, Mid-sized Asset Manager</cite>
-      </blockquote>
-    </div>
-  </div>
-</section> -->
+</section>
 
 
-<!-- Contact 
-<section class="offering contact">
+<!-- Contact -->
+<!-- <section class="offering contact hidden-section always-show">
   <div class="container">
     <h2>Contact Us</h2>
     <div class="grid grid-3">
       <article class="card">
         <h3>Experts</h3>
+        <img src="https://bcgexpand.com/wp-content/uploads/2024/09/Expand_Eddie_Edit_300.jpg">
         <p><strong>Eddie Molloy</strong><br />Director – Global Commercial Lead – Third-party Fees Practice<br/><a href="mailto:eddie.molloy@bcgexpand.com">eddie.molloy@bcgexpand.com</a></p>
       </article>
     </div>
   </div>
 </section> -->
 
-<!-- Modules 
-<section class="offering modules our_products">
-  <div class="container">
-    <h2>Modules</h2>
-    <div class="row">
-      <article style="background: url('https://expand.local/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;" class="six columns visible">
-        <a href="#">        
-        <div class="content">
-          <span class="type">Module</span>
-          <h4>Value Pathways — Module</h4>
-          <p>All five pathways with detailed levers, metrics, and vignettes.</p>
-          <span class="button">Open Value Pathways Module</span>        
-        </div>
-        </a>      
-      </article>
-      <article style="background: url('https://expand.local/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;" class="six columns visible">
-        <a href="#">        
-        <div class="content">
-          <span class="type">Module</span>
-          <h4>BCG Exhibits — (Licensed)</h4>
-          <p>Licensed exhibits with accessible lightbox and attribution.</p>
-          <span class="button">Open BCG Exhibits Module</span>        
-        </div>
-        </a>      
-      </article>
-    </div>
-  </div>
-</section> -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const serviceCards = document.querySelectorAll(".service-card");
+  const allHiddenSections = document.querySelectorAll(".hidden-section");
+  const alwaysShow = document.querySelectorAll(".always-show");
+  let lastService = null;
+
+  serviceCards.forEach(card => {
+    card.addEventListener("click", e => {
+      e.preventDefault();
+      const service = card.dataset.service;
+
+      // If clicking the same one again → do nothing
+      if (service === lastService) return;
+
+      // Hide all normal hidden sections first
+      allHiddenSections.forEach(section => {
+        section.style.display = "none";
+      });
+
+      // Show the ones that match the clicked card
+      const targets = document.querySelectorAll(`.hidden-section[data-service="${service}"]`);
+      let firstShown = null;
+
+      targets.forEach(target => {
+        target.style.display = "block";
+        if (!firstShown) firstShown = target;
+      });
+
+      // Show your global “always-show” sections too
+      alwaysShow.forEach(section => {
+        section.style.display = "block";
+      });
+
+      // Scroll to the first revealed section
+      if (firstShown) {
+        firstShown.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      lastService = service;
+    });
+  });
+});
+
+
+</script>
+
+<?php get_template_part( 'inc/flexible/product_filter'); // Application/Animated Icons Section ?>
 
 <?php endwhile; // end of the loop. ?>
 

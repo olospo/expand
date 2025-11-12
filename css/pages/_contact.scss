@@ -38,11 +38,6 @@
       width: 17px;
       background-size: 26px 17px;
       background-size: contain;
-      @media (min-width: $breakpoint-tablet) {
-        height: 51px;
-        width: 33px;
-        
-      }
       background: url('../img/map-marker.svg') center center no-repeat;
       background-size: cover;
       position: absolute;
@@ -50,6 +45,10 @@
       top: 0;
       transform: translateX(-50%);
       transform: translateY(-50%);
+      @media (min-width: $breakpoint-tablet) {
+        height: 51px;
+        width: 33px;
+      }
     }
     &:hover, &.active {
       &:before {
@@ -116,19 +115,19 @@
         }
       }
       h3 {
+        color: $black;
         font: $medium 1.8rem/2.8rem $heading;
         @media (min-width: $breakpoint-tablet) {
           font: $medium 2.2rem/3.2rem $heading;
         }
-        color: $black;
       }
       a.phone, a.email {
+        color: $black;
+        text-decoration-color: $black;
         font: $medium 1.4rem/2.0rem $heading;
         @media (min-width: $breakpoint-tablet) {
           font: $medium 1.6rem/2.4rem $heading;
         }
-        color: $black;
-        text-decoration-color: $black;
         &:hover {
           color: $light-green;
           text-decoration-color: $light-green;
@@ -164,15 +163,15 @@ section.image_offices {
   }
   .office_image {
     width: 100%;
-    min-height: 400px;
-    @media (min-width: $breakpoint-tablet) {
-      min-height: 800px;
-    }
     position: absolute;
     background: url('../img/placeholder_two.jpg') center center no-repeat;
     background-size: cover;
     opacity: 0;
     transition: opacity linear 0.5s;
+    min-height: 400px;
+    @media (min-width: $breakpoint-tablet) {
+      min-height: 800px;
+    }
     &.newyork  {
       background-size: cover;
       opacity: 0;

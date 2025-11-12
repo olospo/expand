@@ -9,14 +9,14 @@
     }
   }
   .tab {
+    background: $white;
+    border-top: 8px solid $light-grey;
     padding: 40px;
     margin-bottom: 20px;
     @media (min-width: $breakpoint-tablet) {
       margin-bottom: 0;
       padding: 40px;
     }
-    background: $white;
-    border-top: 8px solid $light-grey;
     &:hover {
       border-top: 8px solid $light-green;
     }
@@ -37,7 +37,6 @@
 .hero.careers {
   h1 {
     font: $medium 3.8rem/4.4rem $heading;
-
     color: $white;
     background: $mid-green;
     padding: 15px 20px;
@@ -168,11 +167,11 @@
         }
       }
       p {
+        margin-bottom: 0px;
         font: $normal 1.6rem/2.8rem $regular;
         @media (min-width: $breakpoint-tablet) {
           font: $normal 1.8rem/3.0rem $regular;
         }
-        margin-bottom: 0px;
       }
     }
     &:last-child {

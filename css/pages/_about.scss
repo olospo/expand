@@ -28,13 +28,13 @@ section.hero.profile {
 .team {
   .title {
     h1 {
+      text-transform: uppercase;
+      margin: 0;
+      color: $mid-green;
       font: $normal 2.0rem/3.2rem $heading;
       @media (min-width: $breakpoint-tablet) {
         font: $normal 3.2rem/4.2rem $heading;
       }
-      text-transform: uppercase;
-      margin: 0;
-      color: $mid-green;
       span.word1 {
         color: $black;
       }
@@ -46,7 +46,6 @@ section.hero.profile {
     @media (min-width: $breakpoint-tablet) {
       padding: 60px 0;
     }
-    
     h3.team_heading {
       border-bottom: 1px solid #c1c1c1;
       display: block;
@@ -54,11 +53,8 @@ section.hero.profile {
       flex: 100%;
       padding-bottom: 10px;
       margin: 40px 0 10px 0;
-      
-      
       font: $bold 1.6rem/2.8rem $heading;
       text-transform: uppercase;
-
       color: $black;
       &:first-of-type {
         margin: 0 0 10px 0;
@@ -68,6 +64,8 @@ section.hero.profile {
     .flex {
       @include flexbox();
       flex-wrap: wrap;
+      // justify-content: center;
+      align-content: space-between;
       gap: 10%;
       @media (min-width: $breakpoint-laptop) {
         gap: 5%;
@@ -75,8 +73,6 @@ section.hero.profile {
       @media (min-width: $breakpoint-desktop) {
         gap: 4%;
       }
-      // justify-content: center;
-      align-content: space-between;
     }
     
 

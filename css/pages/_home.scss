@@ -11,11 +11,11 @@
     top: 0;
     bottom: 0;
     overflow: hidden;
+    visibility: visible;
     @include aspect-ratio(1.5,1);
     @media (min-width: $breakpoint-tablet) {
       @include aspect-ratio(16,8);
     }
-    visibility: visible;
     @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
       padding-top: 50%; // Fix video sizing issue in IE
     }
@@ -50,12 +50,11 @@
     position: relative;
   }
   .icon {
+    @include center-align;
     h1 {
       margin: 0;
       line-height: 0;
     }
-    @include center-align;
-    
     svg, img {
       @media (max-width: $breakpoint-tablet) {
         max-width: 100% !important;

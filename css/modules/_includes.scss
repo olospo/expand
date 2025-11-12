@@ -57,7 +57,6 @@
         @include vertical-align;
         padding: 60px;
       }
-      
       p {
         color: $white;
         font: $normal 1.4rem/2.8rem $heading;
@@ -187,6 +186,10 @@
             padding: 60px $padding;
           }
           p {
+            background: -webkit-linear-gradient(to right, #29BA74, #197A56);
+            background: linear-gradient(to right, #29BA74, #197A56);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             font: $normal 1.8rem/2.8rem $heading;
             @media (min-width: $breakpoint-tablet) {
               font: $normal 2.8rem/4.0rem $heading;
@@ -197,10 +200,6 @@
             @media (min-width: $breakpoint-desktop) {
               font: $normal 4.4rem/6.0rem $heading;
             }
-            background: -webkit-linear-gradient(to right, #29BA74, #197A56);
-            background: linear-gradient(to right, #29BA74, #197A56);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
           }
           .title {
             h3 {
@@ -318,13 +317,13 @@
     .stat {
       box-sizing: border-box;
       text-align: center;
+      margin-left: 0;
       width: 50%;
       padding: 60px 20px;
       @media (min-width: $breakpoint-tablet) {
         width: 25%;
         padding: 120px $padding-half;
       }
-      margin-left: 0;
       &.white {
         background: #F8FBFA;
         span.unit {
@@ -344,20 +343,20 @@
         }
       }
       span.unit {
+        display: block;
+        margin-bottom: 5px;
         font: $bold 3.8rem/3.8rem $heading;
         @media (min-width: $breakpoint-tablet) {
           font: $bold 6.4rem/6.4rem $heading;
         }
-        display: block;
-        margin-bottom: 5px;
       }
       span.description {
+        display: block;
+        text-transform: uppercase;
         font: $medium 1.4rem/2.0rem $heading;
         @media (min-width: $breakpoint-tablet) {
           font: $bold 1.8rem/2.4rem $heading;
         }
-        display: block;
-        text-transform: uppercase;
       }
     }
     &.one {
@@ -463,14 +462,14 @@
 
     &:hover {
       a > .content {
-        padding: 40px;
         height: 100%;
-        @media (min-width: $breakpoint-tablet) { 
-          padding: 60px;
-        }
         margin: 0;
         background: $light-green;
         opacity: 0.9;
+        padding: 40px;
+        @media (min-width: $breakpoint-tablet) { 
+          padding: 60px;
+        }
         h4, span, p, ul, li {
           color: $white;
         }
@@ -501,13 +500,14 @@
       padding: 40px;
     }
     .content {
-      padding: 20px;
-      @media (min-width: $breakpoint-tablet) {
-      padding: 30px 40px;
-      }
+      
       background: $white_bg;
       border-top: 8px solid $light-green;
       background: rgba(240, 240, 240, 0.90);
+      padding: 20px;
+      @media (min-width: $breakpoint-tablet) {
+        padding: 30px 40px;
+      }
       h3 {
         font: $bold 1.8rem/2.6rem $heading;
         text-transform: uppercase;
@@ -545,11 +545,11 @@
       flex-wrap: wrap;
       li {
         list-style: none;
+        margin: 0 0 10px 0;
         flex: 1 1 100%;
         @media (min-width: $breakpoint-tablet) {
           flex: 1 1 50%;
         }
-        margin: 0 0 10px 0;
       }
     }
   }
@@ -563,19 +563,12 @@
     padding: $padding-half 0;
   }
   .tab_menu {
+    width: 100%;
+    clear: both;
     @media (min-width: 600px) { 
       border-bottom: 2px solid $table-grey;
     }
-    width: 100%;
-    clear: both;
     button {
-      min-width: 100%;
-      font: $medium 1.4rem/2.8rem $heading;
-      @media (min-width: 600px) { 
-        min-width: 25%;
-        font: $bold 1.6rem/3.2rem $heading;
-      }
-      
       text-transform: uppercase;
       color: $dark-grey;
       margin-bottom: -2px;
@@ -587,6 +580,12 @@
       border: none;
       display: block;
       outline: 0;
+      min-width: 100%;
+      font: $medium 1.4rem/2.8rem $heading;
+      @media (min-width: 600px) { 
+        min-width: 25%;
+        font: $bold 1.6rem/3.2rem $heading;
+      }
       @media (max-width: 600px) {
         margin: 5px 0;
         font: $medium 1.4rem/2.8rem $heading;
@@ -672,14 +671,14 @@
     padding: $padding 0;
   }
   p {
-    font: $normal 1.8rem/2.8rem $heading;
-    @media (min-width: $breakpoint-tablet) {
-      font: $normal 3.4rem/5.4rem $heading;
-    }
     background: -webkit-linear-gradient(to right, #29BA74, #197A56);
     background: linear-gradient(to right, #29BA74, #197A56);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font: $normal 1.8rem/2.8rem $heading;
+    @media (min-width: $breakpoint-tablet) {
+      font: $normal 3.4rem/5.4rem $heading;
+    }
     &::selection {
       -webkit-text-fill-color: $white;
     }
@@ -708,11 +707,11 @@
     height: auto;
     min-height: 300px;
     width: 100%;
+    max-width: 1600px;
     @media (min-width: $breakpoint-tablet) {
       min-height: 600px;
       width: 75%;
     }
-    max-width: 1600px;
     .cta_title {
       padding: 30px 40px;
       @include vertical-align;
@@ -733,13 +732,13 @@
     }
   }
   .cta_content {
+    text-align: left;
     background: $white-bg;
     width: 100%;
     @media (min-width: $breakpoint-tablet) {
       width: 25%;
       max-width: 600px;
     }
-    text-align: left;
     .content {
       padding: 30px 40px;
       max-width: 400px;
@@ -776,13 +775,13 @@
       display: flex;
     }
     .benefit {
+      background: $white-bg;
+      padding: 20px;
       border-top: 8px solid $mid-green;
       margin-bottom: 20px;
       @media (min-width: $breakpoint-tablet) {
         margin-bottom: 0;
       }
-      background: $white-bg;
-      padding: 20px;
       h4 {
         font: $medium 1.6rem/2.4rem $heading;
         color: $mid-green;
@@ -807,13 +806,13 @@ section {
       padding: 0 0 $padding-half 0;
     }
     h1, h3 {
+      text-transform: uppercase;
+      margin: 0;
+      color: $mid-green;
       font: $normal 2.0rem/2.6rem $heading;
       @media (min-width: $breakpoint-tablet) {
         font: $normal 3.2rem/4.2rem $heading;
       }
-      text-transform: uppercase;
-      margin: 0;
-      color: $mid-green;
       span.word1 {
         color: $black;
       }

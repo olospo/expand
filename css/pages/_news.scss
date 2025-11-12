@@ -106,6 +106,7 @@ section.news, section.insight, section.event {
       }
     }
     .item_content {
+      box-sizing: border-box;
       background: $white-bg;
       padding: 20px;
       @media (min-width: $breakpoint-tablet) {
@@ -114,7 +115,6 @@ section.news, section.insight, section.event {
       &.featured {
         min-height: auto;
       }
-      box-sizing: border-box;
       p.date {
         font: $bold 1.4rem/2.0rem $heading;
         text-transform: uppercase;

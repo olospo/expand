@@ -3,12 +3,12 @@ footer.main {
   font: $normal 1.6rem/2.4rem $regular;
   position: relative;
   overflow-wrap: break-word;
+  color: $white;
+  background: #3E8E60;
   padding: $padding-half 0px 20px 0;
   @media (min-width: $breakpoint-tablet) {
     padding: 60px 0px;
   }
-  color: $white;
-  background: #3E8E60;
   .logo {
     margin-bottom: 20px;
   }
@@ -95,11 +95,11 @@ footer.main {
       margin: 0px 3px;
       a {
         svg {
+          height: auto;
           width: 30px;
           @media (min-width: $breakpoint-tablet) {
             width: 38px;
           }
-          height: auto;
           path {
             transition: all ease .3s;
             fill: $white;
@@ -144,9 +144,7 @@ footer.copyright {
 }
 
 .back_to_top {
-  @media (max-width: $breakpoint-tablet) {
-    display: none !important;
-  }
+  
   display: none;
   width: 48px;
   height: 48px;
@@ -160,6 +158,9 @@ footer.copyright {
   -o-transition: all ease .5s;
   transition: all ease .5s;
   background: $light-green url("../img/arrow_up.svg") no-repeat center center;
+  @media (max-width: $breakpoint-tablet) {
+    display: none !important;
+  }
   &:hover {
     background: $dark-green url("../img/arrow_up.svg") no-repeat center center;
   }

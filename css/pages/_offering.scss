@@ -60,6 +60,7 @@
     height: auto;
     background: $mid-green;
     width: 100%;
+    text-align: left;
     @media (max-width: $breakpoint-tablet) {
       order: 1;
     }
@@ -67,7 +68,6 @@
       position: relative;
       width: 50%;
     }
-    text-align: left;
     .filter-controls {
       select {
         padding: 10px 15px;
@@ -186,7 +186,7 @@ section.offering.hero {
   }
   h1 {
     color: $black;
-    font: $bold 6.2rem/7.0rem $heading;
+    font: $bold 5.8rem/7.0rem $heading;
     margin-bottom: 20px;
   }
   p {
@@ -254,11 +254,11 @@ section.offering.hero {
   min-height: 420px;
   background: $mid-green;
   .background {
-    // min-height: 420px;
     background-size: cover;
+    background-attachment: fixed;
     position: relative;
     .elogo {
-      max-height: 140px;
+      max-height: 120px;
       padding: 120px 0 200px 0;
       width: auto;
       margin: 0px auto;
@@ -266,61 +266,12 @@ section.offering.hero {
   }
 }
 
-.offering.problem {
-  background: #F1EEEA;
-  padding: $padding-half 0;
-  h2 {
-    color: $black;
-    font: $bold 3.2rem/4.6rem $heading;
-  }
-}
-
-.offering.impact {
-  background: #FFFFFF;
-  padding: $padding-half 0;
-  h2 {
-    color: $black;
-    font: $bold 3.2rem/4.6rem $heading;
-  }
-}
-
-.offering.approach {
-  background: #F0F0F0;
-  padding: $padding-half 0;
-  h2 {
-    color: $black;
-    font: $bold 3.2rem/4.6rem $heading;
-  }
-}
-
-.offering.value {
-  padding: $padding-half 0 0 0;
-  h2 {
-    color: $mid-green;
-    font: $bold 3.2rem/4.6rem $heading;
-  }
-}
-
-.offering.insights {
-  padding: $padding-half 0 0 0;
-  h2 {
-    color: $mid-green;
-    font: $bold 3.2rem/4.6rem $heading;
-  }
-}
-.offering.contact {
-  padding: $padding-half 0 0 0;
-  h2 {
-    color: $mid-green;
-    font: $bold 3.2rem/4.6rem $heading;
-  }
-}
-
+// Modules
 .offering.modules {
   padding: $padding-half 0;
   .container {
     margin-top: -120px;
-    background: $white;
+    background: #FBFAF7;
     @include border-radius(10px 10px 0 0);
   }
   .intro {
@@ -336,7 +287,7 @@ section.offering.hero {
   }
   
   .row {
-    padding: 0 40px;
+    // padding: 0 40px;
     @media (min-width: $breakpoint-laptop) { 
       display: flex;
     }
@@ -400,14 +351,14 @@ section.offering.hero {
   
     &:hover {
       a > .content {
+        margin: 0;
+        background: $light-green;
+        opacity: 0.9;
         padding: 40px;
         height: 100%;
         @media (min-width: $breakpoint-tablet) { 
           padding: 60px;
         }
-        margin: 0;
-        background: $light-green;
-        opacity: 0.9;
         h4, span, p, ul, li {
           color: $white;
         }
@@ -421,6 +372,120 @@ section.offering.hero {
     }
   }
 }
+
+.hidden-section {
+  display: none;
+}
+
+// Problem
+.offering.problem {
+  background: #FBFAF7;
+  padding: 20px 0 $padding-half 0;
+  .product {
+    margin: 0 0 $padding-half 0;
+    padding: 20px;
+    @media (min-width: $breakpoint-tablet) {
+      padding: 40px;
+    }
+    .content {
+      background: $white_bg;
+      border-top: 8px solid $light-green;
+      background: rgba(240, 240, 240, 0.90);
+      padding: 20px;
+      @media (min-width: $breakpoint-tablet) {
+        padding: 30px 40px;
+      }
+      h3 {
+        font: $bold 2.4rem/3.6rem $heading;
+        text-transform: uppercase;
+        color: $black;
+        span {
+          color: $mid-green;
+        }
+      }
+      p:first-of-type {
+        font-weight: $medium;
+      }
+      ul.list-check {
+        font: $normal 1.8rem/3.2rem $heading;
+        li {
+          span.tick {
+            color: $mid-green;
+            margin-right: 20px;
+          }
+        }
+      }
+    }
+    &:last-child {
+      margin: 0;
+    }
+    a.button {
+      padding: 10px 0;
+    }
+  }
+}
+
+
+.offering.impact {
+  
+  background: #FFFFFF;
+  padding: 0 0 $padding-half 0;
+  
+  h2 {
+    font: $bold 2.4rem/3.6rem $heading;
+    text-transform: uppercase;
+    color: $black;
+    span {
+      color: $mid-green;
+    }
+  }
+}
+
+.offering.approach {
+  background: $mid-green;
+  padding: $padding-half 0;
+  h2 {
+    font: $bold 2.4rem/3.6rem $heading;
+    text-transform: uppercase;
+    color: $black;
+    span {
+      color: $white;
+    }
+  }
+}
+
+.offering.value {
+  padding: $padding-half 0 0 0;
+  h2 {
+    color: $mid-green;
+    font: $bold 3.2rem/4.6rem $heading;
+  }
+}
+
+.offering.insights {
+  padding: $padding-half 0;
+  h2 {
+    color: $mid-green;
+    font: $bold 2.4rem/3.6rem $heading;
+    text-transform: uppercase;
+  }
+}
+offering.testiomonials {
+  padding: $padding-half 0 0 0;
+  h2 {
+    color: $mid-green;
+    font: $bold 3.2rem/4.6rem $heading;
+  }
+}
+
+.offering.contact {
+  padding: $padding-half 0 0 0;
+  h2 {
+    color: $mid-green;
+    font: $bold 3.2rem/4.6rem $heading;
+  }
+}
+
 
 .card {
   background:#fff;
@@ -455,7 +520,7 @@ section.visible {
 .metrics {
   padding: 20px 0;
   display:grid;
-  grid-template-columns:repeat(5,1fr);
+  grid-template-columns:repeat(4,1fr);
   gap: 3.0rem;
   @media(max-width:900px){
     grid-template-columns:repeat(2,1fr);
