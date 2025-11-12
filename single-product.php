@@ -91,7 +91,7 @@ while ( have_posts() ) : the_post(); ?>
 
 <section class="offering problem hidden-section" data-service="peer-benchmarking">
   <div class="container">
-  <div class="product twelve columns" style="background: url('<?php bloginfo('template_directory'); ?>/img/expand_eye.jpg') center center no-repeat; background-size:cover;">
+  <div class="product twelve columns" style="background: url('<?php bloginfo('template_directory'); ?>/img/expand_mark-lane.jpg') center center no-repeat; background-size:cover;">
     <div class="content six columns">
       <h3><span>Peer Benchmarking</span> The Problem</h3>
       <ul class="list-check">
@@ -107,7 +107,7 @@ while ( have_posts() ) : the_post(); ?>
 
 <section class="offering problem hidden-section" data-service="vendor-strategy">
   <div class="container">
-  <div class="product twelve columns" style="background: url('<?php bloginfo('template_directory'); ?>/img/expand_eye.jpg') center center no-repeat; background-size:cover;">
+  <div class="product twelve columns" style="background: url('<?php bloginfo('template_directory'); ?>/img/expand_wg.jpg') center center no-repeat; background-size:cover;">
     <div class="content six columns">
       <h3><span>Vendor Strategy & Negotiation Support</span> The Problem</h3>
       <ul class="list-check">
