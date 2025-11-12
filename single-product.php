@@ -316,6 +316,31 @@ document.addEventListener("DOMContentLoaded", () => {
   const alwaysShow = document.querySelectorAll(".always-show");
   let lastService = null;
 
+  // Smooth scroll helper
+  function smoothScrollTo(element, extraOffset = 0, duration = 700) {
+    // detect header height dynamically (add extra offset if needed)
+    const header = document.querySelector('.site-header'); // adjust selector if your header has a different class
+    const headerHeight = header ? header.offsetHeight + extraOffset : extraOffset;
+
+    const targetY = element.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+    const startY = window.pageYOffset;
+    const distance = targetY - startY;
+    let startTime = null;
+
+    function animation(currentTime) {
+      if (!startTime) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+      const ease = progress < 0.5
+        ? 4 * progress * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 3) / 2; // easeInOutCubic
+      window.scrollTo(0, startY + distance * ease);
+      if (timeElapsed < duration) requestAnimationFrame(animation);
+    }
+
+    requestAnimationFrame(animation);
+  }
+
   serviceCards.forEach(card => {
     card.addEventListener("click", e => {
       e.preventDefault();
@@ -324,12 +349,12 @@ document.addEventListener("DOMContentLoaded", () => {
       // If clicking the same one again → do nothing
       if (service === lastService) return;
 
-      // Hide all normal hidden sections first
+      // Hide all hidden sections first
       allHiddenSections.forEach(section => {
         section.style.display = "none";
       });
 
-      // Show the ones that match the clicked card
+      // Show all matching hidden sections
       const targets = document.querySelectorAll(`.hidden-section[data-service="${service}"]`);
       let firstShown = null;
 
@@ -338,21 +363,22 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!firstShown) firstShown = target;
       });
 
-      // Show your global “always-show” sections too
+      // Always show global sections
       alwaysShow.forEach(section => {
         section.style.display = "block";
       });
 
-      // Scroll to the first revealed section
+      // Scroll smoothly to the first revealed section
       if (firstShown) {
-        firstShown.scrollIntoView({ behavior: "smooth", block: "start" });
+        // Add ~20px padding below the header if needed
+        smoothScrollTo(firstShown, 40, 700);
       }
 
+      // Track which service was last opened
       lastService = service;
     });
   });
 });
-
 
 </script>
 
