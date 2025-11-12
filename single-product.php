@@ -2,6 +2,9 @@
 get_header();
 
 $intro = get_field('description');
+$eLogo = get_field('e_logo');
+$featured_image_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
+
 while ( have_posts() ) : the_post(); ?>
 
 <!-- Offering / Supporting Content / Quantitative Measures -->
@@ -11,19 +14,19 @@ while ( have_posts() ) : the_post(); ?>
       <span class="kicker"><?php the_title(); ?></span>
       <h1>Identifying untapped opportunities and reducing inefficiencies</h1>
       <p><?php echo $intro; ?></p>
-      
-      <!-- <a class="button alt" href="#diagnostic">Cost Optimisation</a>
-      <a class="button alt" href="value-pathways-module.html" target="_blank" rel="noopener">Peer Benchmarking</a>
-      <a class="button alt" href="#diagnostic">Vendor Strategy & Negotiation Support</a> -->
     </div>  
   </div>
 </section>
 
 <section class="offering image">
-    <?php // Get the featured image URL
-      $featured_image_url = get_the_post_thumbnail_url( get_the_ID(), 'full' ); ?>
-  <div class="background" style="background: url('<?php echo esc_url( $featured_image_url ); ?>') center center no-repeat; background-size: cover;"></div>
-
+  <div class="background" style="background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('<?php echo esc_url( $featured_image_url ); ?>') center center no-repeat; background-size: cover;">
+    <div class="container">
+      <?php if (!empty($eLogo)): ?>
+        <img src="<?php echo $eLogo; ?>" alt="<?php the_title(); ?> Logo" class="elogo"
+      <?php endif; ?>
+    </div>
+    
+  </div>
 </section>
 
 <!-- Modules -->
@@ -68,7 +71,30 @@ while ( have_posts() ) : the_post(); ?>
   </div>
 </section>
 
+<div class="hidden">
+<!-- Problem -->
+  <section class="offering problem filterable" id="problemSection">
+    <div class="container">
+      <h2>The Problem</h2>
+      <div class="grid grid-1">
+        <div class="card green">
+          <ul class="list-check">
+            <h3>Cost Optimisation</h3>
+            <li><span class="tick">✔</span> Fragmented market data environments create cost inefficiencies and usage blind spots</li>
+            <li>✔ Limited visibility into peer pricing and vendor usage patterns</li>
+            <li>✔ Pressure from Procurement and the Business to reduce costs without sacrificing functionality (do more with less!)</li>
+            <li>✔ Complex license structures and compliance risk from misuse</li>
+            <li>✔ High user dissatisfaction with certain high-cost tools remains unaddressed</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section> 
+</div>
+
 <?php get_template_part( 'inc/flexible/product_filter'); // Application/Animated Icons Section ?>
+
+
 
 <!-- Impact 
 <section class="offering impact filterable" id="impactSection">

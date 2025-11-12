@@ -251,11 +251,18 @@ section.offering.hero {
 }
 
 .offering.image {
-  min-height: 380px;
+  min-height: 420px;
   background: $mid-green;
   .background {
-    min-height: 380px;
+    // min-height: 420px;
     background-size: cover;
+    position: relative;
+    .elogo {
+      max-height: 140px;
+      padding: 120px 0 200px 0;
+      width: auto;
+      margin: 0px auto;
+    }
   }
 }
 
