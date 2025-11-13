@@ -427,11 +427,9 @@ section.offering.hero {
 }
 
 
-.offering.impact {
-  
+.offering.impact { 
   background: #FFFFFF;
   padding: 0 0 $padding-half 0;
-  
   h2 {
     font: $bold 2.4rem/3.6rem $heading;
     text-transform: uppercase;
@@ -440,18 +438,34 @@ section.offering.hero {
       color: $mid-green;
     }
   }
+  .card {
+    h4 {
+      font: $bold 2.0rem/3.6rem $heading;
+      
+    }
+    ul {
+      font: $normal 1.6rem/2.8rem $heading;
+    }
+  }
 }
 
 .offering.approach {
-  background: $mid-green;
+  background: $black;
   padding: $padding-half 0;
   h2 {
     font: $bold 2.4rem/3.6rem $heading;
     text-transform: uppercase;
-    color: $black;
+    color: $mid-green;
     span {
       color: $white;
     }
+  }
+  p {
+    font: $normal 1.6rem/2.8rem $heading;
+  }
+  .card {
+    border: 1px solid  $mid-green;
+    border-top: 10px solid $mid-green;
   }
 }
 
@@ -470,20 +484,130 @@ section.offering.hero {
     font: $bold 2.4rem/3.6rem $heading;
     text-transform: uppercase;
   }
+  p {
+    font: $normal 1.6rem/2.8rem $heading;
+  }
 }
-offering.testiomonials {
-  padding: $padding-half 0 0 0;
-  h2 {
-    color: $mid-green;
-    font: $bold 3.2rem/4.6rem $heading;
+
+
+// Problem
+.offering.testimonials {
+  background: #FBFAF7;
+  padding: 0px 0 $padding-half 0;
+  .product {
+    margin: 0 0 $padding-half 0;
+    padding: 20px;
+    @media (min-width: $breakpoint-tablet) {
+      padding: 40px;
+    }
+    .content {
+      background: $white_bg;
+      border-top: 8px solid $light-green;
+      background: rgba(240, 240, 240, 0.90);
+      padding: 20px;
+      @media (min-width: $breakpoint-tablet) {
+        padding: 30px 40px;
+      }
+      h4 {
+        font: $bold 1.6rem/2.6rem $heading;
+        text-transform: uppercase;
+        color: $black;
+        span {
+          color: $mid-green;
+        }
+      }
+      p {
+        font: $normal 2.4rem/3.6rem $heading;
+      }
+    }
+    &:last-child {
+      margin: 0;
+    }
+    a.button {
+      padding: 10px 0;
+    }
   }
 }
 
 .offering.contact {
-  padding: $padding-half 0 0 0;
+  padding: $padding-half 0;
   h2 {
     color: $mid-green;
     font: $bold 3.2rem/4.6rem $heading;
+  }
+  .card {
+    .person {
+      padding: 20px 0;
+      img.photo {
+        width: 150px;
+        height: 150px;
+        @include border-radius(50%);
+        float: left;
+        margin-right: 20px;
+      }
+    }
+  }
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem; // space between fields
+    max-width: 800px;
+  
+    label {
+      font-weight: 300 !important;
+      color: $black;
+      font: $medium 1.6rem/2.6rem $heading;
+    }
+  
+    select, input, textarea {
+      font: $normal 1.6rem/2.6rem $regular;
+      @include border-radius(10px);
+      background: transparent;
+      border: 1px solid #adbac8;
+      padding: 10px;
+      display: block;
+      margin: 10px 0;
+      box-sizing: border-box;
+      width: 100%;
+      &:focus {
+        border: 1px solid $dark-green;
+      }
+    }
+    textarea {
+      flex-grow: 1;
+    }
+  
+    // Make the message box span the full right column
+    .message-field {
+      grid-column: 2 / 3;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+    }
+
+
+
+    button {
+      padding: 15px 20px;
+      border-radius:20px;
+      background: $mid-green;
+      color: $white;
+      border: 1px solid $mid-green;
+      &:hover {
+        background: $white;
+        color: $mid-green;
+        border: 1px solid $mid-green;
+      }
+      &.blank {
+        background: $white;
+        color: $mid-green;
+        border: 1px solid $mid-green;
+        &:hover {
+          background: $mid-green;
+          color: $white;
+        }
+      }
+    }
   }
 }
 
@@ -491,7 +615,7 @@ offering.testiomonials {
 .card {
   background:#fff;
   border:1px solid $border;
-  border-radius:20px;
+  // border-radius:20px;
   padding: 20px 30px;
   margin: 20px 0;
   &.blue {

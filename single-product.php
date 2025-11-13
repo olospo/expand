@@ -37,7 +37,7 @@ while ( have_posts() ) : the_post(); ?>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
     <div class="row">
-      <article style="background: url('https://expand.local/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;" class="service-card one-third column visible" data-service="cost-optimisation">
+      <article style="background: url('<?php echo get_site_url(); ?>/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;" class="service-card one-third column visible" data-service="cost-optimisation">
         <a href="#">        
         <div class="content">
           <span class="type">Service</span>
@@ -47,7 +47,7 @@ while ( have_posts() ) : the_post(); ?>
         </div>
         </a>      
       </article>
-      <article style="background: url('https://expand.local/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;" class="service-card one-third column visible" data-service="peer-benchmarking">
+      <article style="background: url('<?php echo get_site_url(); ?>/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;" class="service-card one-third column visible" data-service="peer-benchmarking">
         <a href="#">        
         <div class="content">
           <span class="type">Service</span>
@@ -57,7 +57,7 @@ while ( have_posts() ) : the_post(); ?>
         </div>
         </a>      
       </article>
-      <article style="background: url('https://expand.local/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;" class="service-card one-third column visible" data-service="vendor-strategy">
+      <article style="background: url('<?php echo get_site_url(); ?>/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;" class="service-card one-third column visible" data-service="vendor-strategy">
         <a href="#">        
         <div class="content">
           <span class="type">Service</span>
@@ -70,6 +70,8 @@ while ( have_posts() ) : the_post(); ?>
     </div>
   </div>
 </section>
+
+
 
 <!-- Problem -->
 <section class="offering problem hidden-section" data-service="cost-optimisation">
@@ -145,16 +147,16 @@ while ( have_posts() ) : the_post(); ?>
       </div>
     </div>
     <div class="grid grid-2">
-      <div class="card"><strong>Case A — Global Investment Bank</strong>
+      <div class="card"><h4>Case Study A — Global Investment Bank</h4>
       <ul>
-        <li>Expand identified $13.5m in potential savings in Research and Analytics, and highlighted key vendors and products to target for removal.</li>
-        <li>The client used this information to realise $12m in savings, including $5m through immediate cancellation</li>
-      </ul>
-    </div>
-      <div class="card"><strong>Case B — Large Global Asset Manager </strong>
-      <ul>
-        <li>Used benchmarking to challenge vendor pricing, leading to a 12% reduction in total market data spend and improved contract terms.</li>
-      </ul>
+          <li>BCG Expand identified <strong>$13.5M in potential savings</strong> in Research and Analytics and highlighted key vendors and products for removal.</li>
+          <li>The client used this information to realize <strong>$12M in savings</strong>, including $5M through immediate cancellation.</li>
+        </ul>
+      </div>
+        <div class="card"><h4>Case Study B — Large Global Asset Manager </h4>
+        <ul>
+          <li>BCG Expand benchmarking was used to challenge vendor pricing, resulting in a <strong>12% reduction</strong> in total Market Data spend and improved contract terms.</li>
+        </ul>
     </div>  
   </div>
 </section> 
@@ -177,16 +179,16 @@ while ( have_posts() ) : the_post(); ?>
       </div>
     </div>
     <div class="grid grid-2">
-      <div class="card"><strong>Case A — Global Investment Bank</strong>
+      <div class="card"><h4>Case Study A — Global Investment Bank</h4>
       <ul>
-        <li>Expand identified $13.5m in potential savings in Research and Analytics, and highlighted key vendors and products to target for removal.</li>
-        <li>The client used this information to realise $12m in savings, including $5m through immediate cancellation</li>
-      </ul>
-    </div>
-      <div class="card"><strong>Case B — Large Global Asset Manager </strong>
-      <ul>
-        <li>Used benchmarking to challenge vendor pricing, leading to a 12% reduction in total market data spend and improved contract terms.</li>
-      </ul>
+          <li>BCG Expand identified <strong>$13.5M in potential savings</strong> in Research and Analytics and highlighted key vendors and products for removal.</li>
+          <li>The client used this information to realize <strong>$12M in savings</strong>, including $5M through immediate cancellation.</li>
+        </ul>
+      </div>
+        <div class="card"><h4>Case Study B — Large Global Asset Manager </h4>
+        <ul>
+          <li>BCG Expand benchmarking was used to challenge vendor pricing, resulting in a <strong>12% reduction</strong> in total Market Data spend and improved contract terms.</li>
+        </ul>
     </div>  
   </div>
 </section>
@@ -209,16 +211,16 @@ while ( have_posts() ) : the_post(); ?>
       </div>
     </div>
     <div class="grid grid-2">
-      <div class="card"><strong>Case A — Global Investment Bank</strong>
+      <div class="card"><h4><span>Case Study A</span> — Global Investment Bank</h4>
       <ul>
-        <li>Expand identified $13.5m in potential savings in Research and Analytics, and highlighted key vendors and products to target for removal.</li>
-        <li>The client used this information to realise $12m in savings, including $5m through immediate cancellation</li>
-      </ul>
-    </div>
-      <div class="card"><strong>Case B — Large Global Asset Manager </strong>
-      <ul>
-        <li>Used benchmarking to challenge vendor pricing, leading to a 12% reduction in total market data spend and improved contract terms.</li>
-      </ul>
+          <li>BCG Expand identified <strong>$13.5M in potential savings</strong> in Research and Analytics and highlighted key vendors and products for removal.</li>
+          <li>The client used this information to realize <strong>$12M in savings</strong>, including $5M through immediate cancellation.</li>
+        </ul>
+      </div>
+        <div class="card"><h4><span>Case Study B</span> — Large Global Asset Manager </h4>
+        <ul>
+          <li>BCG Expand benchmarking was used to challenge vendor pricing, resulting in a <strong>12% reduction</strong> in total Market Data spend and improved contract terms.</li>
+        </ul>
     </div>  
   </div>
 </section> 
@@ -293,20 +295,54 @@ while ( have_posts() ) : the_post(); ?>
   </div>
 </section>
 
+<section class="offering testimonials hidden-section always-show">
+  <div class="container">
+  <div class="product twelve columns" style="background: url('<?php echo get_site_url(); ?>/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size:cover;">
+    <div class="content six columns">
+      <p>"It’s been a great engagement and partnership from the BCG Expand team with a lot of great materials and discussions."</p>
+      <h4><span>Global Head of Market Data</span> Tier 1 Bank</h4>   
+    </div>
+    <div class="content six columns">
+      <p>“We didn’t realize how much we were overspending until we saw what our peers were doing. The data gave us a clear mandate to act.”</p>
+      <h4><span>Chief Operating Officer</span> Mid-sized Asset Manager</h4>
+    </div>
+  </div>
+  </div>
+</section>
 
 <!-- Contact -->
-<!-- <section class="offering contact hidden-section always-show">
+<section class="offering contact hidden-section always-show">
   <div class="container">
     <h2>Contact Us</h2>
-    <div class="grid grid-3">
+    <div class="grid grid-2">
       <article class="card">
-        <h3>Experts</h3>
-        <img src="https://bcgexpand.com/wp-content/uploads/2024/09/Expand_Eddie_Edit_300.jpg">
-        <p><strong>Eddie Molloy</strong><br />Director – Global Commercial Lead – Third-party Fees Practice<br/><a href="mailto:eddie.molloy@bcgexpand.com">eddie.molloy@bcgexpand.com</a></p>
+        <div class="person">
+        <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/Expand_Eddie_Edit_300.jpg" class="photo">
+        <p><strong>Eddie Molloy</strong><br />Director – Global Commercial Lead<br /> Third-party Fees Practice<br/><a href="mailto:eddie.molloy@bcgexpand.com">eddie.molloy@bcgexpand.com</a></p>
+        </div>
+      </article>
+      <article class="card">
+        <form>
+          <div class="name-field">
+            <label>Name</label>
+            <input type="text" />
+  
+            <label>Email</label>
+            <input type="email" />
+          </div>
+        
+          <div class="message-field">
+            <label>Message</label>
+            <textarea></textarea>
+          </div>
+            <button type="button">Submit</button>
+            <button type="button" class="blank">Clear</button>
+
+        </form>
       </article>
     </div>
   </div>
-</section> -->
+</section>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
