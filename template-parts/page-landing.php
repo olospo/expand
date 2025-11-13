@@ -34,7 +34,7 @@ while ( have_posts() ) : the_post(); ?>
   <div class="container">
     <div class="intro">
     <h2>Our <?php the_title(); ?> Services</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p>BCG Expand provides industry leading benchmarking, cost optimization and competitor intelligence capabilities across the 3rd party ecosystem, including Market Data and Brokerage, Clearing and Exchange costs.</p>
     </div>
     <div class="row">
       <article style="background: url('<?php echo get_site_url(); ?>/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;" class="service-card one-third column small-margin">
