@@ -3,6 +3,7 @@
 $industries = new WP_Query([
   'post_type'      => 'product',
   'posts_per_page' => -1,
+  'post_parent'    => 0,
   'meta_query'     => [[
     'key'     => 'product_type',
     'value'   => 'industry',
@@ -16,6 +17,7 @@ $industries = new WP_Query([
 $functions = new WP_Query([
   'post_type'      => 'product',
   'posts_per_page' => -1,
+  'post_parent'    => 0,
   'meta_query'     => [[
     'key'     => 'product_type',
     'value'   => 'function',
