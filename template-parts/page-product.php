@@ -284,17 +284,17 @@ if ( $parent_id ) {
       <article class="card" data-tag="benchmarking">
         <h3>Rebalancing RTB vs. CTB</h3>
         <p style="color:var(--muted)">A practical playbook for shifting spend while safeguarding reliability and enabling modernization.</p>
-        <a class="button">Download Brief</a>
+        <a class="button" href="https://bcgexpand.com/news-events/category/insight/" target="_blank">Download Brief</a>
       </article>
       <article class="card" data-tag="automation">
         <h3>Automation Waves: Sequencing for impact</h3>
         <p style="color:var(--muted)">Metrics that matter, how to avoid pilot purgatory, and why change failure rate is a first‑class KPI.</p>
-        <a class="button">Watch 10‑min Talk</a>
+        <a class="button" href="https://bcgexpand.com/news-events/category/insight/" target="_blank">Watch 10‑min Talk</a>
       </article>
       <article class="card" data-tag="client-intel">
         <h3>Client Intelligence 2025</h3>
         <p style="color:var(--muted)">Signals from buy‑side counterparties—where service, latency, and resilience now rank.</p>
-        <a class="button">Access Highlights</a>
+        <a class="button" href="https://bcgexpand.com/news-events/category/insight/" target="_blank">Access Highlights</a>
       </article>
     </div>
   </div>
