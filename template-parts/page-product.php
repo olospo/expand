@@ -175,7 +175,7 @@ if ( $parent_id ) {
         <span class="description">Supported vendor negotiation cycles with pricing and usage benchmarks</span>
       </div>
       <div class="metric green">
-        <span class="unit">0</span>
+        <span class="unit">100%</span>
         <span class="description">Locked in below-benchmark spend with leading Market Data vendor</span>
       </div>
       <div class="metric green">
@@ -355,11 +355,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const allHiddenSections = document.querySelectorAll(".hidden-section");
   const alwaysShow = document.querySelectorAll(".always-show");
   let lastService = null;
+  let isInitialSelection = true; // prevents scroll on page load
 
-  // Smooth scroll helper
+  // Update button labels based on selection state
+  function updateButtonLabels() {
+    serviceCards.forEach(card => {
+      const btn = card.querySelector(".button");
+      if (!btn) return;
+      if (card.classList.contains("active")) {
+        btn.textContent = "Selected Pathway";
+      } else {
+        btn.textContent = "Select This Pathway";
+      }
+    });
+  }
+
+  // Smooth scroll (only for user clicks)
   function smoothScrollTo(element, extraOffset = 0, duration = 700) {
-    // detect header height dynamically (add extra offset if needed)
-    const header = document.querySelector('.site-header'); // adjust selector if your header has a different class
+    const header = document.querySelector('.site-header');
     const headerHeight = header ? header.offsetHeight + extraOffset : extraOffset;
 
     const targetY = element.getBoundingClientRect().top + window.pageYOffset - headerHeight;
@@ -373,7 +386,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const progress = Math.min(timeElapsed / duration, 1);
       const ease = progress < 0.5
         ? 4 * progress * progress * progress
-        : 1 - Math.pow(-2 * progress + 2, 3) / 2; // easeInOutCubic
+        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
       window.scrollTo(0, startY + distance * ease);
       if (timeElapsed < duration) requestAnimationFrame(animation);
     }
@@ -381,20 +394,26 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(animation);
   }
 
+  // Click handler
   serviceCards.forEach(card => {
     card.addEventListener("click", e => {
       e.preventDefault();
       const service = card.dataset.service;
 
-      // If clicking the same one again → do nothing
       if (service === lastService) return;
 
-      // Hide all hidden sections first
+      // Remove old active states
+      serviceCards.forEach(c => c.classList.remove("active"));
+      card.classList.add("active");
+
+      updateButtonLabels();
+
+      // Hide everything
       allHiddenSections.forEach(section => {
         section.style.display = "none";
       });
 
-      // Show all matching hidden sections
+      // Show selected sections
       const targets = document.querySelectorAll(`.hidden-section[data-service="${service}"]`);
       let firstShown = null;
 
@@ -408,18 +427,22 @@ document.addEventListener("DOMContentLoaded", () => {
         section.style.display = "block";
       });
 
-      // Scroll smoothly to the first revealed section
-      if (firstShown) {
-        // Add ~20px padding below the header if needed
+      // Scroll only on user click
+      if (firstShown && !isInitialSelection) {
         smoothScrollTo(firstShown, 40, 700);
       }
 
-      // Track which service was last opened
       lastService = service;
     });
   });
-});
 
+  // Auto-select first service (no scroll)
+  if (serviceCards.length) {
+    serviceCards[0].click();
+    updateButtonLabels();
+    isInitialSelection = false;
+  }
+});
 </script>
 
 <?php get_template_part( 'inc/flexible/product_filter'); // Application/Animated Icons Section ?>

@@ -350,7 +350,7 @@ section.offering.hero {
       }
     }   
   
-    &:hover {
+    &:hover, &.active {
       a > .content {
         margin: 0;
         background: $light-green;
