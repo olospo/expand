@@ -379,7 +379,7 @@ add_action('quick_edit_custom_box', function($column, $post_type) {
 				<select name="product_type">
 					<option value="">— Select Type —</option>
 					<option value="industry">Industry</option>
-					<option value="function">Function</option>
+					<option value="function">Solution</option>
 				</select>
 			</label>
 		</div>

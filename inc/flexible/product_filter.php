@@ -1,4 +1,9 @@
 <?php
+
+$title = get_field('product_filter_title','option');
+$text = get_field('product_filter_text','option');
+$bg = get_field('product_filter_background_image','option');
+
 // Get all Industries
 $industries = new WP_Query([
   'post_type'      => 'product',
@@ -32,8 +37,8 @@ $functions = new WP_Query([
   <div class="container">
     <div class="square_content">
       <div class="content filter-controls">
-        <h1 style="color:white;">How can we assist you today?</h1>
-        <p style="font-size: 22px;">Learn more about our core areas of expertise by selecting your topic of interest.</p>
+        <h1><?php echo $title; ?></h1>
+        <p><?php echo $text; ?></p>
         
         <select id="industrySelect">
           <option value="">Select Industry</option>
@@ -43,14 +48,14 @@ $functions = new WP_Query([
         </select>
         
         <select id="functionSelect">
-          <option value="">Select Function</option>
+          <option value="">Select Solution</option>
           <?php while ($functions->have_posts()): $functions->the_post(); ?>
             <option value="<?php the_ID(); ?>"><?php the_title(); ?></option>
           <?php endwhile; wp_reset_postdata(); ?>
         </select>
       </div>
     </div>
-    <div class="square_background" id="previewSquare" style="background-size:cover; background-position:center;">
+    <div class="square_background" id="previewSquare" style="background-image:url('<?php echo $bg; ?>'); background-size:cover; background-position:center;">
       <div class="overlay" id="previewOverlay" style="display:none;">
         <div class="overlay-content">
           <h3 id="previewTitle"></h3>
@@ -119,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const item = products[id];
     if (!item) return;
 
-    const placeholder = "<?php echo get_stylesheet_directory_uri(); ?>/img/placeholder.jpg";
+    const placeholder = "<?php echo $bg; ?>";
 
     title.textContent = item.title;
     text.textContent = item.intro;
@@ -156,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function() {
       updatePreview(val);
     } else {
       overlay.style.display = 'none';
-      square.style.removeProperty('background-image');
+      square.style.backgroundImage = `url('<?php echo $bg; ?>')`;
     }
     toggleSelectStyle(industrySelect);
   });
@@ -170,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
       updatePreview(val);
     } else {
       overlay.style.display = 'none';
-      square.style.removeProperty('background-image');
+      square.style.backgroundImage = `url('<?php echo $bg; ?>')`;
     }
     toggleSelectStyle(functionSelect);
   });
