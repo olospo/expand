@@ -1,65 +1,60 @@
 {
-    "key": "group_690b44491e343",
-    "title": "Product",
+    "key": "group_691c6fc9de00c",
+    "title": "Product Filter",
     "fields": [
         {
-            "key": "field_690b4449440a5",
-            "label": "Product Type",
-            "name": "product_type",
+            "key": "field_691c6fcafa95f",
+            "label": "Product Filter Title",
+            "name": "product_filter_title",
             "aria-label": "",
-            "type": "radio",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "industry": "Industry",
-                "function": "Solution"
-            },
-            "default_value": "",
-            "return_format": "value",
-            "allow_null": 0,
-            "other_choice": 0,
-            "allow_in_bindings": 0,
-            "layout": "horizontal",
-            "save_other_choice": 0
-        },
-        {
-            "key": "field_690b675cd3037",
-            "label": "Description",
-            "name": "description",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
             "maxlength": "",
             "allow_in_bindings": 0,
-            "rows": "",
             "placeholder": "",
-            "new_lines": ""
+            "prepend": "",
+            "append": ""
         },
         {
-            "key": "field_6914857ca768b",
-            "label": "E Logo",
-            "name": "e_logo",
+            "key": "field_691c6fe2fa960",
+            "label": "Product Filter Text",
+            "name": "product_filter_text",
             "aria-label": "",
-            "type": "image",
-            "instructions": "Optional E Logo to overlay the background image.",
+            "type": "text",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_691c6fe9fa961",
+            "label": "Product Filter Background Image",
+            "name": "product_filter_background_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -73,15 +68,15 @@
             "max_size": "",
             "mime_types": "",
             "allow_in_bindings": 0,
-            "preview_size": "medium"
+            "preview_size": "featured-img"
         }
     ],
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "options_page",
                 "operator": "==",
-                "value": "product"
+                "value": "filter-settings"
             }
         ]
     ],
@@ -94,5 +89,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1763458570
+    "modified": 1763471413
 }
