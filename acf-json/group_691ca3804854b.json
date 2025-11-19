@@ -19,7 +19,7 @@
             "default_value": "",
             "maxlength": "",
             "allow_in_bindings": 0,
-            "rows": "",
+            "rows": 4,
             "placeholder": "",
             "new_lines": ""
         },
@@ -42,7 +42,7 @@
                     "key": "layout_691ca57d2859a",
                     "name": "pathway_block",
                     "label": "Pathway Block",
-                    "display": "row",
+                    "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_691ca5e49bc8c",
@@ -153,7 +153,7 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "70",
                                 "class": "",
                                 "id": ""
                             },
@@ -170,11 +170,11 @@
                             "name": "problem_background_image",
                             "aria-label": "",
                             "type": "image",
-                            "instructions": "",
+                            "instructions": "Background image to display under the content",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "",
+                                "width": "30",
                                 "class": "",
                                 "id": ""
                             },
@@ -188,7 +188,7 @@
                             "max_size": "",
                             "mime_types": "",
                             "allow_in_bindings": 0,
-                            "preview_size": "medium"
+                            "preview_size": "featured-img"
                         },
                         {
                             "key": "field_691caea0fe8b3",
@@ -222,7 +222,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "layout": "block",
+                            "layout": "table",
                             "min": 0,
                             "max": 0,
                             "collapsed": "",
@@ -239,7 +239,7 @@
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
-                                        "width": "",
+                                        "width": "20",
                                         "class": "",
                                         "id": ""
                                     },
@@ -261,14 +261,14 @@
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
-                                        "width": "",
+                                        "width": "80",
                                         "class": "",
                                         "id": ""
                                     },
                                     "default_value": "",
                                     "maxlength": "",
                                     "allow_in_bindings": 0,
-                                    "rows": 2,
+                                    "rows": 1,
                                     "placeholder": "",
                                     "new_lines": "",
                                     "parent_repeater": "field_691d9d12e0aa3"
@@ -440,7 +440,7 @@
     ],
     "menu_order": 0,
     "position": "normal",
-    "style": "default",
+    "style": "seamless",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": [
@@ -456,5 +456,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1763550954
+    "modified": 1763551702
 }
