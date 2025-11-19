@@ -3,29 +3,23 @@
 $intro = get_field('description');
 $eLogo = get_field('e_logo');
 $featured_image_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
-
 // If none exists, try the parent page’s featured image
 if ( empty( $featured_image_url ) ) {
-    $parent_id = wp_get_post_parent_id( get_the_ID() );
-    if ( $parent_id ) {
-        $featured_image_url = get_the_post_thumbnail_url( $parent_id, 'full' );
-    }
+  $parent_id = wp_get_post_parent_id( get_the_ID() );
+  if ( $parent_id ) {
+    $featured_image_url = get_the_post_thumbnail_url( $parent_id, 'full' );
+  }
 }
 
 while ( have_posts() ) : the_post(); ?>
   
-<?php $parent_id = wp_get_post_parent_id( get_the_ID() );
-if ( $parent_id ) {
-    $parent_title = get_the_title( $parent_id );
-    $parent_link  = get_permalink( $parent_id );
-} ?>
+<?php $parent_id = wp_get_post_parent_id( get_the_ID() ); if ( $parent_id ) { $parent_title = get_the_title( $parent_id ); $parent_link  = get_permalink( $parent_id ); } // Get Parent ID, Title and Link ?>
 
 <!-- Hero -->
 <section class="offering hero">
   <div class="container">
     <div class="intro ten columns">
-      <span class="kicker"><?php if ( $parent_id ) : ?>
-          <a href="<?php echo esc_url( $parent_link ); ?>"><?php echo esc_html( $parent_title ); ?></a><?php endif; ?> / <?php the_title(); ?></span>
+      <span class="kicker"><?php if ( $parent_id ) : ?><a href="<?php echo esc_url( $parent_link ); ?>"><?php echo esc_html( $parent_title ); ?></a><?php endif; ?> / <?php the_title(); ?></span>
       <h1><?php the_title(); ?></h1>
       <p><?php echo $intro; ?></p>
     </div>  
@@ -38,8 +32,7 @@ if ( $parent_id ) {
   </div>
 </section>
 
-
-<!-- MODULES -->
+<!-- Pathways / Modules -->
 <section class="offering modules">
   <div class="container">
     <div class="intro">
@@ -83,7 +76,7 @@ if ( $parent_id ) {
       // Approach
       $approach_cards = get_sub_field('approach_cards');
     ?>
-    <!-- PROBLEM -->
+    <!-- Problem -->
     <section class="offering problem hidden-section" data-service="<?php echo esc_attr($slug); ?>">
       <div class="container">
         <div class="product twelve columns" style="background: url('<?php echo esc_url($problem_bg); ?>') center center no-repeat; background-size:cover;">
@@ -95,13 +88,13 @@ if ( $parent_id ) {
       </div>
     </section>
 
-    <!-- IMPACT -->
+    <!-- Impact -->
     <?php if ( $impact_metrics || $case_studies ) : ?>
     <section class="offering impact hidden-section" data-service="<?php echo esc_attr($slug); ?>">
       <div class="container">
         <h2><span><?php echo esc_html($title); ?></span> The Impact</h2>
     
-        <!-- METRICS -->
+        <!-- Metrics -->
         <?php if ( $impact_metrics ) : ?>
         <div class="metrics">
           <?php foreach ( $impact_metrics as $metric ) : ?>
@@ -117,7 +110,7 @@ if ( $parent_id ) {
         </div>
         <?php endif; ?>
     
-        <!-- CASE STUDIES -->
+        <!-- Case Studies -->
         <?php if ( $case_studies ) : ?>
         <div class="grid grid-2">
           <?php foreach ( $case_studies as $study ) : ?>
@@ -138,55 +131,31 @@ if ( $parent_id ) {
       </div>
     </section>
     <?php endif; ?>
-
+    
+    <!-- Approach -->
+    <?php if ( $approach_cards ) : ?>
+    <section class="offering approach hidden-section" data-service="<?php echo esc_attr($slug); ?>">
+      <div class="container">
+        <h2><span><?php echo esc_html($title); ?></span> The Approach</h2> 
+        <div class="grid grid-3">
+          <?php foreach ( $approach_cards as $card ) : ?>
+          <div class="card">   
+            <?php if ( ! empty( $card['approach_title'] ) ) : ?>
+            <h3><?php echo esc_html( $card['approach_title'] ); ?></h3>
+            <?php endif; ?>
+            <?php if ( ! empty( $card['approach_content'] ) ) : ?>
+            <div class="approach-content">
+              <?php echo wp_kses_post( $card['approach_content'] ); ?>
+            </div>
+            <?php endif; ?>
+          </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
+    </section>
+    <?php endif; ?>
   <?php endwhile; ?>
 <?php endif; ?>
-
-<!-- Approach -->
-<section class="offering approach hidden-section" data-service="cost-optimisation">
-  <div class="container">
-    <h2><span>Cost Optimisation</span> The Approach</h2>
-    <div class="grid grid-3">
-      <div class="card blue">
-        <h3>Benchmark model</h3>
-        <p>Our proprietary benchmark model computes the expected Market Data cost for a firm of a given size, using relevant business metrics in addition to industry peer averages.</p>
-      </div>
-      <div class="card blue">
-        <h3>Benchmark data</h3>
-        <ul class="list-check">
-          <p>Our benchmark data is collected via inventory extracts, standardized by BCG Expand analysts using the firm’s industry-leading taxonomy, and verified by the client.</p>
-        </ul>
-      </div>
-      <div class="card blue">
-        <h3>Benchmark delivery</h3>
-        <p>Deliver robust, peer-aligned benchmarks across spend and usage.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Approach -->
-<section class="offering approach hidden-section" data-service="peer-benchmarking">
-  <div class="container">
-    <h2><span>Peer Benchmarking</span> The Approach</h2>
-    <div class="grid grid-3">
-      <div class="card blue">
-        <h3>Benchmark model</h3>
-        <p>Our proprietary benchmark model computes the expected Market Data cost for a firm of a given size, using relevant business metrics in addition to industry peer averages.</p>
-      </div>
-      <div class="card blue">
-        <h3>Benchmark data</h3>
-        <ul class="list-check">
-          <p>We leverage years of experience to ensure unparalleled accuracy while maintaining a low burden on participants.</p>
-        </ul>
-      </div>
-      <div class="card blue">
-        <h3>Benchmark delivery</h3>
-        <p>We ensure minimal work for participants while allowing for the strongest like-for-like comparisons.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- Insights -->
 <section class="offering insights hidden-section always-show">
@@ -243,18 +212,15 @@ if ( $parent_id ) {
           <div class="name-field">
             <label>Name</label>
             <input type="text" />
-  
             <label>Email</label>
             <input type="email" />
           </div>
-        
           <div class="message-field">
             <label>Message</label>
             <textarea></textarea>
           </div>
             <button type="button">Submit</button>
             <button type="button" class="blank">Clear</button>
-
         </form>
       </article>
     </div>
