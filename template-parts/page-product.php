@@ -49,15 +49,11 @@ if ( $parent_id ) {
     <?php if ( have_rows('pathways') ) : ?>
       <?php while ( have_rows('pathways') ) : the_row(); ?>
         <?php 
-            $title    = get_sub_field('pathway_title');
-            $slug     = get_sub_field('pathway_slug');
-            $summary  = get_sub_field('pathway_summary');
+          $title    = get_sub_field('pathway_title');
+          $slug     = get_sub_field('pathway_slug');
+          $summary  = get_sub_field('pathway_summary');
         ?>
-        <article 
-            class="service-card one-third column small-margin"
-            data-service="<?php echo esc_attr($slug); ?>"
-            style="background: url('<?php echo get_site_url(); ?>/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;"
-        >
+        <article class="service-card one-third column small-margin" data-service="<?php echo esc_attr($slug); ?>" style="background: url('<?php echo get_site_url(); ?>/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;">
           <a href="#">
             <div class="content">
               <span class="type">Service</span>
@@ -67,7 +63,6 @@ if ( $parent_id ) {
             </div>
           </a>
         </article>
-
       <?php endwhile; wp_reset_postdata(); ?>
     <?php endif; ?>
     </div>
@@ -75,36 +70,76 @@ if ( $parent_id ) {
 </section>
 
 <?php if ( have_rows('pathways') ) : ?>
-    <?php while ( have_rows('pathways') ) : the_row(); ?>
-
-        <?php 
-            $title          = get_sub_field('pathway_title');
-            $slug           = get_sub_field('pathway_slug');
-
-            // Problem
-            $problem_bg     = get_sub_field('problem_background_image');
-            $problem_content = get_sub_field('problem_content');
-
-            // Impact
-            $impact_metrics = get_sub_field('impact_metrics');
-            $case_studies   = get_sub_field('case_studies');
-
-            // Approach
-            $approach_cards = get_sub_field('approach_cards');
-        ?>
-
-        <!-- PROBLEM -->
-        <section class="offering problem hidden-section" data-service="<?php echo esc_attr($slug); ?>">
-          <div class="container">
-            <div class="product twelve columns" style="background: url('<?php echo esc_url($problem_bg); ?>') center center no-repeat; background-size:cover;">
-              <div class="content six columns">
-                <h3><span><?php echo esc_html($title); ?></span> The Problem</h3>
-                <?php echo $problem_content; ?>
-                </div>
+  <?php while ( have_rows('pathways') ) : the_row(); ?>
+    <?php 
+      $title          = get_sub_field('pathway_title');
+      $slug           = get_sub_field('pathway_slug');
+      // Problem
+      $problem_bg     = get_sub_field('problem_background_image');
+      $problem_content = get_sub_field('problem_content');
+      // Impact
+      $impact_metrics = get_sub_field('impact_metrics');
+      $case_studies   = get_sub_field('case_studies');
+      // Approach
+      $approach_cards = get_sub_field('approach_cards');
+    ?>
+    <!-- PROBLEM -->
+    <section class="offering problem hidden-section" data-service="<?php echo esc_attr($slug); ?>">
+      <div class="container">
+        <div class="product twelve columns" style="background: url('<?php echo esc_url($problem_bg); ?>') center center no-repeat; background-size:cover;">
+          <div class="content six columns">
+            <h3><span><?php echo esc_html($title); ?></span> The Problem</h3>
+            <?php echo $problem_content; ?>
             </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPACT -->
+    <?php if ( $impact_metrics || $case_studies ) : ?>
+    <section class="offering impact hidden-section" data-service="<?php echo esc_attr($slug); ?>">
+      <div class="container">
+        <h2><span><?php echo esc_html($title); ?></span> The Impact</h2>
+    
+        <!-- METRICS -->
+        <?php if ( $impact_metrics ) : ?>
+        <div class="metrics">
+          <?php foreach ( $impact_metrics as $metric ) : ?>
+          <div class="metric green">
+            <span class="unit">
+              <?php echo esc_html( $metric['metric_unit'] ); ?>
+            </span>
+            <span class="description">
+              <?php echo esc_html( $metric['metric_description'] ); ?>
+            </span>
           </div>
-        </section>
-    <?php endwhile; ?>
+          <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
+    
+        <!-- CASE STUDIES -->
+        <?php if ( $case_studies ) : ?>
+        <div class="grid grid-2">
+          <?php foreach ( $case_studies as $study ) : ?>
+          <div class="card">
+            <?php if ( ! empty( $study['case_study_title'] ) ) : ?>
+            <h4><?php echo esc_html( $study['case_study_title'] ); ?></h4>
+            <?php endif; ?>
+            <?php if ( ! empty( $study['case_study_content'] ) ) : ?>
+            <div class="case-study-content">
+              <?php echo wp_kses_post( $study['case_study_content'] ); ?>
+            </div>
+            <?php endif; ?>
+          </div>
+          <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
+    
+      </div>
+    </section>
+    <?php endif; ?>
+
+  <?php endwhile; ?>
 <?php endif; ?>
 
 
