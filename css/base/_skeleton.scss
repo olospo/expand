@@ -51,6 +51,9 @@
   .three.columns {
     width: 22%;
   }
+  .three.columns.small-margin {
+    width: 24%;
+  }
   .four.columns {
     width: 30.6666666667%;
   }
@@ -64,7 +67,7 @@
   .six.columns {
     width: 48%;
   }
-  .six.columns.no_right_margin {
+  .six.columns.no_right_margin, .six.columns.small-margin {
     width: 50%;
   }
   .six.columns.no_left_margin {
@@ -95,6 +98,9 @@
   // Thirds
   .one-third.column {
     width: 30.6666666667%;
+  }
+  .one-third.column.small-margin {
+    width: 32.6666666667%;
   }
   .two-thirds.column {
     width: 65.3333333333%;

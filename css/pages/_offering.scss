@@ -154,31 +154,6 @@
   }
 }
 
-section.offering.nav {
-  background: $mid-green;
-  padding: 20px 0;
-  a {
-    font: $bold 1.4rem/2.2rem $heading;
-    padding: 5px 5px;
-    margin: 0px 10px;
-    color: $white;
-    text-decoration: none;
-    border-bottom: 2px solid $white;
-    &.active {
-      padding: 5px 10px;
-      margin: 0px 5px;
-      background: $white;
-      @include border-radius(10px);
-      color: $mid-green;
-    }
-    &:hover {
-      background: $white;
-      @include border-radius(10px);
-      color: $mid-green;
-    }
-  }
-}
-
 section.offering.hero {
   padding: $padding-half 0;
   border-top: 10px solid $light-green;
@@ -193,11 +168,22 @@ section.offering.hero {
   }
   h1 {
     color: $black;
-    font: $bold 5.8rem/7.0rem $heading;
-    margin-bottom: 20px;
+    font: $bold 2.6rem/3.6rem $heading;
+    margin-bottom: 10px;
+    @media (min-width: $breakpoint-tablet) { 
+      font: $bold 3.8rem/5.0rem $heading;
+      margin-bottom: 20px;
+    }
+    @media (min-width: $breakpoint-laptop) { 
+      font: $bold 5.6rem/7.0rem $heading;
+    }
   }
   p {
-    font: $medium 2.4rem/3.4rem $heading;
+    font: $medium 1.8rem/2.8rem $heading;
+    @media (min-width: $breakpoint-tablet) { 
+      font: $medium 2.4rem/3.4rem $heading;
+    }
+    
   }
   .card.jump {
     padding: 20px;
@@ -286,11 +272,18 @@ section.offering.hero {
     padding: 30px 40px 40px 40px;
     h2 {
       color: $black;
-      font: $bold 3.2rem/4.6rem $heading;
+      
       margin-bottom: 10px;
+      font: $bold 2.2rem/3.2rem $heading;
+      @media (min-width: $breakpoint-tablet) { 
+        font: $bold 3.2rem/4.6rem $heading;
+      }
     }
     p {
-      font: $medium 1.8rem/2.8rem $heading;
+      font: $medium 1.6rem/2.6rem $heading;
+      @media (min-width: $breakpoint-tablet) { 
+        font: $medium 1.8rem/2.8rem $heading;
+      }
     }
   }
   

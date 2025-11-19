@@ -4,6 +4,14 @@ $intro = get_field('description');
 $eLogo = get_field('e_logo');
 $featured_image_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
 
+// If none exists, try the parent page’s featured image
+if ( empty( $featured_image_url ) ) {
+    $parent_id = wp_get_post_parent_id( get_the_ID() );
+    if ( $parent_id ) {
+        $featured_image_url = get_the_post_thumbnail_url( $parent_id, 'full' );
+    }
+}
+
 while ( have_posts() ) : the_post(); ?>
   
 <?php $parent_id = wp_get_post_parent_id( get_the_ID() );
@@ -18,7 +26,7 @@ if ( $parent_id ) {
     <div class="intro ten columns">
       <span class="kicker"><?php if ( $parent_id ) : ?>
           <a href="<?php echo esc_url( $parent_link ); ?>"><?php echo esc_html( $parent_title ); ?></a><?php endif; ?> / <?php the_title(); ?></span>
-      <h1>Market Data Benchmark</h1>
+      <h1><?php the_title(); ?></h1>
       <p><?php echo $intro; ?></p>
     </div>  
   </div>
@@ -27,107 +35,78 @@ if ( $parent_id ) {
 <!-- Offering Image -->
 <section class="offering image">
   <div class="background" style="background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('<?php echo esc_url( $featured_image_url ); ?>') center center no-repeat; background-size: cover;">
-    <div class="container">
-      <?php if (!empty($eLogo)): ?>
-        <img src="<?php echo $eLogo; ?>" alt="<?php the_title(); ?> Logo" class="elogo"
-      <?php endif; ?>
-    </div>
   </div>
 </section>
 
-<!-- Modules -->
+
+<!-- MODULES -->
 <section class="offering modules">
   <div class="container">
     <div class="intro">
-    <h2><?php the_title(); ?> Pathways</h2>
+      <h2><?php the_title(); ?> Pathways</h2>
     </div>
     <div class="row">
-      <article style="background: url('<?php echo get_site_url(); ?>/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;" class="service-card one-third column visible" data-service="cost-optimisation">
-        <a href="#">        
-        <div class="content">
-          <span class="type">Service</span>
-          <h4>Cost Optimisation</h4>
-          <p>Firms leverage our benchmarking to reduce overspend, rationalize vendors, and identify duplicative or underutilized products.</p>
-          <span class="button">Select This Pathway</span>        
-        </div>
-        </a>      
-      </article>
-      <article style="background: url('<?php echo get_site_url(); ?>/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;" class="service-card one-third column visible" data-service="peer-benchmarking">
-        <a href="#">        
-        <div class="content">
-          <span class="type">Service</span>
-          <h4>Peer Benchmarking</h4>
-          <p>Understand how peers of similar scale and operating model allocate their market data spend and structure their vendor relationships.</p>
-          <span class="button">Select This Pathway</span>        
-        </div>
-        </a>      
-      </article>
-      <article style="background: url('<?php echo get_site_url(); ?>/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;" class="service-card one-third column visible" data-service="vendor-strategy">
-        <a href="#">        
-        <div class="content">
-          <span class="type">Service</span>
-          <h4>Vendor Strategy & Negotiation Support</h4>
-          <p>Empower internal stakeholders with independent, granular insights into vendor pricing, adoption trends, and service satisfaction to enhance strategic negotiations.</p>
-          <span class="button">Select This Pathway</span>        
-        </div>
-        </a>      
-      </article>
+    <?php if ( have_rows('pathways') ) : ?>
+      <?php while ( have_rows('pathways') ) : the_row(); ?>
+        <?php 
+            $title    = get_sub_field('pathway_title');
+            $slug     = get_sub_field('pathway_slug');
+            $summary  = get_sub_field('pathway_summary');
+        ?>
+        <article 
+            class="service-card one-third column small-margin"
+            data-service="<?php echo esc_attr($slug); ?>"
+            style="background: url('<?php echo get_site_url(); ?>/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;"
+        >
+          <a href="#">
+            <div class="content">
+              <span class="type">Service</span>
+              <h4><?php echo $title; ?></h4>
+              <p><?php echo $summary; ?></p>
+              <span class="button">Select This Pathway</span>
+            </div>
+          </a>
+        </article>
+
+      <?php endwhile; wp_reset_postdata(); ?>
+    <?php endif; ?>
     </div>
   </div>
 </section>
 
+<?php if ( have_rows('pathways') ) : ?>
+    <?php while ( have_rows('pathways') ) : the_row(); ?>
 
+        <?php 
+            $title          = get_sub_field('pathway_title');
+            $slug           = get_sub_field('pathway_slug');
 
-<!-- Problem -->
-<section class="offering problem hidden-section" data-service="cost-optimisation">
-  <div class="container">
-  <div class="product twelve columns" style="background: url('<?php bloginfo('template_directory'); ?>/img/expand_eye.jpg') center center no-repeat; background-size:cover;">
-    <div class="content six columns">
-      <h3><span>Cost Optimisation</span> The Problem</h3>
-      <ul class="list-check">
-        <li><span class="tick">✔</span> Fragmented market data environments create cost inefficiencies and usage blind spots</li>
-        <li><span class="tick">✔</span>Limited visibility into peer pricing and vendor usage patterns</li>
-        <li><span class="tick">✔</span> Pressure from Procurement and the Business to reduce costs without sacrificing functionality (do more with less!)</li>
-        <li><span class="tick">✔</span> Complex license structures and compliance risk from misuse</li>
-        <li><span class="tick">✔</span> High user dissatisfaction with certain high-cost tools remains unaddressed</li>
-      </ul>
-    </div>
-  </div>
-  </div>
-</section>
+            // Problem
+            $problem_bg     = get_sub_field('problem_background_image');
+            $problem_content = get_sub_field('problem_content');
 
-<section class="offering problem hidden-section" data-service="peer-benchmarking">
-  <div class="container">
-  <div class="product twelve columns" style="background: url('<?php bloginfo('template_directory'); ?>/img/expand_mark-lane.jpg') center center no-repeat; background-size:cover;">
-    <div class="content six columns">
-      <h3><span>Peer Benchmarking</span> The Problem</h3>
-      <ul class="list-check">
-        <li><span class="tick">✔</span> Limited visibility into peer pricing and vendor usage patterns</li>
-        <li><span class="tick">✔</span> Pressure from Procurement and the Business to reduce costs without sacrificing functionality (do more with less!)</li>
-        <li><span class="tick">✔</span> Complex license structures and compliance risk from misuse</li>
-        <li><span class="tick">✔</span> High user dissatisfaction with certain high-cost tools remains unaddressed </li>
-      </ul>
-    </div>
-  </div>
-  </div>
-</section>
+            // Impact
+            $impact_metrics = get_sub_field('impact_metrics');
+            $case_studies   = get_sub_field('case_studies');
 
-<section class="offering problem hidden-section" data-service="vendor-strategy">
-  <div class="container">
-  <div class="product twelve columns" style="background: url('<?php bloginfo('template_directory'); ?>/img/expand_wg.jpg') center center no-repeat; background-size:cover;">
-    <div class="content six columns">
-      <h3><span>Vendor Strategy & Negotiation Support</span> The Problem</h3>
-      <ul class="list-check">
-        <li><span class="tick">✔</span> Fragmented market data environments create cost inefficiencies and usage blind spots</li>
-        <li><span class="tick">✔</span> Limited visibility into peer pricing and vendor usage patterns</li>
-        <li><span class="tick">✔</span> Pressure from Procurement and the Business to reduce costs without sacrificing functionality (do more with less!)</li>
-        <li><span class="tick">✔</span> Complex license structures and compliance risk from misuse</li>
-        <li><span class="tick">✔</span> High user dissatisfaction with certain high-cost tools remains unaddressed </li>
-      </ul>
-    </div>
-  </div>
-  </div>
-</section>
+            // Approach
+            $approach_cards = get_sub_field('approach_cards');
+        ?>
+
+        <!-- PROBLEM -->
+        <section class="offering problem hidden-section" data-service="<?php echo esc_attr($slug); ?>">
+          <div class="container">
+            <div class="product twelve columns" style="background: url('<?php echo esc_url($problem_bg); ?>') center center no-repeat; background-size:cover;">
+              <div class="content six columns">
+                <h3><span><?php echo esc_html($title); ?></span> The Problem</h3>
+                <?php echo $problem_content; ?>
+                </div>
+            </div>
+          </div>
+        </section>
+    <?php endwhile; ?>
+<?php endif; ?>
+
 
 <!-- Impact -->
 <section class="offering impact hidden-section" data-service="cost-optimisation">
