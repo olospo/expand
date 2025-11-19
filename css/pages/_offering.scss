@@ -216,32 +216,25 @@ section.offering.hero {
   }
 }
 
-section.offering.hero {
-  .intro {
+.
+
+.offering.modules {
+  .container {
+    opacity: 1;
+  }
+  h2, p {
     @include fade();
   }
-  .card {
+  .service-card {
     @include fade();
-  }
-  .metrics {
-    .metric {
-      @include fade();
-    }
   }
   &.visible {
-    .intro {
+    h2, p {
       @include reset();
     }
-    .card {
+    .service-card {
       @include reset();
-      transition-delay: 0.5s;
-    }
-    .metrics {
-      transition-delay: 0.5s;
-      .metric {
-        @include reset();
-        @include delay-children();
-      }
+      @include delay-children();
     }
   }
 }
@@ -268,11 +261,12 @@ section.offering.hero {
   padding: $padding-half 0;
   .container {
     margin-top: -120px;
-    background: #FBFAF7;
-    @include border-radius(10px 10px 0 0);
+    
   }
   .intro {
     padding: 30px 40px 40px 40px;
+    background: #FBFAF7;
+    @include border-radius(10px 10px 0 0);
     h2 {
       color: $black;
       
