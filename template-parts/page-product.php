@@ -1,9 +1,9 @@
-<?php 
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); 
 
 $intro = get_field('description');
 $eLogo = get_field('e_logo');
+
 $featured_image_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
-// If none exists, try the parent page’s featured image
 if ( empty( $featured_image_url ) ) {
   $parent_id = wp_get_post_parent_id( get_the_ID() );
   if ( $parent_id ) {
@@ -11,9 +11,11 @@ if ( empty( $featured_image_url ) ) {
   }
 }
 
-while ( have_posts() ) : the_post(); ?>
-  
-<?php $parent_id = wp_get_post_parent_id( get_the_ID() ); if ( $parent_id ) { $parent_title = get_the_title( $parent_id ); $parent_link  = get_permalink( $parent_id ); } // Get Parent ID, Title and Link ?>
+$parent_id = wp_get_post_parent_id( get_the_ID() );
+$parent_title = $parent_id ? get_the_title( $parent_id ) : null;
+$parent_link  = $parent_id ? get_permalink( $parent_id ) : null;
+
+?>
 
 <!-- Hero -->
 <section class="offering hero">
@@ -88,8 +90,9 @@ while ( have_posts() ) : the_post(); ?>
       </div>
     </section>
 
-    <!-- Impact -->
+    
     <?php if ( $impact_metrics || $case_studies ) : ?>
+    <!-- Impact -->
     <section class="offering impact hidden-section" data-service="<?php echo esc_attr($slug); ?>">
       <div class="container">
         <h2><span><?php echo esc_html($title); ?></span> The Impact</h2>
@@ -132,8 +135,8 @@ while ( have_posts() ) : the_post(); ?>
     </section>
     <?php endif; ?>
     
-    <!-- Approach -->
     <?php if ( $approach_cards ) : ?>
+    <!-- Approach -->
     <section class="offering approach hidden-section" data-service="<?php echo esc_attr($slug); ?>">
       <div class="container">
         <h2><span><?php echo esc_html($title); ?></span> The Approach</h2> 
@@ -326,3 +329,4 @@ document.addEventListener("DOMContentLoaded", () => {
 <?php get_template_part( 'inc/flexible/product_filter'); // Application/Animated Icons Section ?>
 
 <?php endwhile; // end of the loop. ?>
+<?php endif; ?>
