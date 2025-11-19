@@ -58,7 +58,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "placement": "top",
+                            "placement": "left",
                             "endpoint": 0,
                             "selected": 0
                         },
@@ -139,7 +139,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "placement": "top",
+                            "placement": "left",
                             "endpoint": 0,
                             "selected": 0
                         },
@@ -204,7 +204,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "placement": "top",
+                            "placement": "left",
                             "endpoint": 0,
                             "selected": 0
                         },
@@ -356,7 +356,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "placement": "top",
+                            "placement": "left",
                             "endpoint": 0,
                             "selected": 0
                         }
@@ -456,5 +456,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1763551702
+    "modified": 1763552121
 }
