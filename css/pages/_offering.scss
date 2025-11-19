@@ -72,15 +72,17 @@
         padding: 10px 15px;
         font-size: 16px;
         @include border-radius(10px);
-        border: 1px solid $border;
+        border: 1px solid $black;
         margin-right: 2%;
         width: 45%;
         box-sizing: border-box;
         appearance: none;
-        background: $white url('../img/arrow_down.svg') no-repeat right 15px center;
+        background: #7acb9c url('../img/arrow_down.svg') no-repeat right 15px center;
+        color: $black;
         background-size: 1rem;
         position: relative;
         z-index: 10;
+        font: $medium 1.6rem/2.4rem $heading;
         option {
           background: $dark-green;
           color: $white;
@@ -88,6 +90,7 @@
         &.active {
           border: 1px solid $dark-green;
           background: $dark-green;
+          background-size: 1rem;
           color: $white;
         }
       }
