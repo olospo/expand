@@ -359,6 +359,73 @@
                             "placement": "left",
                             "endpoint": 0,
                             "selected": 0
+                        },
+                        {
+                            "key": "field_691dc1c5cf7e7",
+                            "label": "Approach Cards",
+                            "name": "approach_cards",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "Methodology pillars (e.g. benchmarking, resourcing\/efficiency, client intelligence)",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Add Row",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_691dc1c5cf7e8",
+                                    "label": "Approach Title",
+                                    "name": "approach_title",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_691dc1c5cf7e7"
+                                },
+                                {
+                                    "key": "field_691dc1c5cf7e9",
+                                    "label": "Approach Content",
+                                    "name": "approach_content",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "rows": 3,
+                                    "placeholder": "",
+                                    "new_lines": "",
+                                    "parent_repeater": "field_691dc1c5cf7e7"
+                                }
+                            ]
                         }
                     ],
                     "min": "",
@@ -456,5 +523,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1763552121
+    "modified": 1763558186
 }
