@@ -1,6 +1,6 @@
 {
     "key": "group_690b44491e343",
-    "title": "Product",
+    "title": "Product (Landing)",
     "fields": [
         {
             "key": "field_690b4449440a5",
@@ -82,6 +82,11 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "product"
+            },
+            {
+                "param": "post_depth",
+                "operator": "==",
+                "value": "0"
             }
         ]
     ],
@@ -90,9 +95,17 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "the_content",
+        "excerpt",
+        "discussion",
+        "comments",
+        "revisions",
+        "categories",
+        "tags"
+    ],
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1763458570
+    "modified": 1763484539
 }
