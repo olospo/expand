@@ -46,7 +46,7 @@
                     "sub_fields": [
                         {
                             "key": "field_691ca5e49bc8c",
-                            "label": "Pathway Settings",
+                            "label": "Pathway Introduction",
                             "name": "",
                             "aria-label": "",
                             "type": "tab",
@@ -110,7 +110,7 @@
                             "name": "pathway_summary",
                             "aria-label": "",
                             "type": "textarea",
-                            "instructions": "",
+                            "instructions": "Impact statement specific to your offering",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -149,7 +149,7 @@
                             "name": "problem_content",
                             "aria-label": "",
                             "type": "wysiwyg",
-                            "instructions": "",
+                            "instructions": "4–6 bullets, sector-specific pain points and proof points (quant where possible)",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -209,6 +209,140 @@
                             "selected": 0
                         },
                         {
+                            "key": "field_691d9d12e0aa3",
+                            "label": "Impact Metrics",
+                            "name": "impact_metrics",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "3–4 headline metrics (historic outcomes you can stand behind)",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Add Row",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_691da40919461",
+                                    "label": "Metric Unit",
+                                    "name": "metric_unit",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_691d9d12e0aa3"
+                                },
+                                {
+                                    "key": "field_691da41319462",
+                                    "label": "Metric Description",
+                                    "name": "metric_description",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "rows": 2,
+                                    "placeholder": "",
+                                    "new_lines": "",
+                                    "parent_repeater": "field_691d9d12e0aa3"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_691da29be0aa4",
+                            "label": "Case Studies",
+                            "name": "case_studies",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "2–3 short case vignettes (one paragraph each; anonymized if needed)",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Add Row",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_691da43a19463",
+                                    "label": "Case Study Title",
+                                    "name": "case_study_title",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_691da29be0aa4"
+                                },
+                                {
+                                    "key": "field_691da48d19464",
+                                    "label": "Case Study Content",
+                                    "name": "case_study_content",
+                                    "aria-label": "",
+                                    "type": "wysiwyg",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "allow_in_bindings": 0,
+                                    "tabs": "all",
+                                    "toolbar": "basic",
+                                    "media_upload": 0,
+                                    "delay": 0,
+                                    "parent_repeater": "field_691da29be0aa4"
+                                }
+                            ]
+                        },
+                        {
                             "key": "field_691caecbfe8b4",
                             "label": "Approach Section",
                             "name": "",
@@ -234,6 +368,60 @@
             "min": 2,
             "max": 5,
             "button_label": "Add Pathway"
+        },
+        {
+            "key": "field_691da2cee0aa6",
+            "label": "Insights",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_691da32b19460",
+            "label": "Testimonials",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
+            "key": "field_691da2c1e0aa5",
+            "label": "Contact",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
         }
     ],
     "location": [
@@ -268,5 +456,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1763487445
+    "modified": 1763550954
 }
