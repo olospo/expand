@@ -535,3 +535,79 @@ function number_to_word($number) {
 
 	return $number;
 }
+
+/**
+ * Add a "Post Depth" location rule for hierarchical post types.
+ */
+
+// 1. Register rule type
+add_filter('acf/location/rule_types', function ($choices) {
+		$choices['Post']['post_depth'] = 'Post Depth';
+		return $choices;
+});
+
+// 2. Register rule values
+add_filter('acf/location/rule_values/post_depth', function ($choices) {
+		$choices['0'] = 'Level 0 (Landing)';
+		$choices['1'] = 'Level 1';
+		return $choices;
+});
+
+// 3. Match rule — ***IMPORTANT: specify accepted args***
+add_filter(
+		'acf/location/rule_match/post_depth',
+		function ($match, $rule, $options) {
+
+				if (empty($options['post_id'])) {
+						return false;
+				}
+
+				$post = get_post($options['post_id']);
+				if (!$post) {
+						return false;
+				}
+
+				// Must be hierarchical
+				if (!is_post_type_hierarchical($post->post_type)) {
+						return false;
+				}
+
+				// Calculate depth
+				$depth = 0;
+				$parent = $post->post_parent;
+
+				while ($parent) {
+						$depth++;
+						$parent_post = get_post($parent);
+						$parent = $parent_post ? $parent_post->post_parent : 0;
+				}
+
+				return ($rule['operator'] === '==')
+						? intval($rule['value']) === $depth
+						: intval($rule['value']) !== $depth;
+		},
+		10, // priority
+		3   // <-- THIS is the fix
+);
+
+
+add_action('acf/input/admin_footer', function () { ?>
+<script>
+(function($){
+		// Listen for changes in the title field
+		$(document).on('input', '[data-name="pathway_title"] input', function() {
+				const title = $(this).val();
+				const slug = title
+						.toLowerCase()
+						.replace(/[^a-z0-9]+/g, '-')
+						.replace(/^-+|-+$/g, '');
+
+				// Find sibling slug field inside the same layout
+				$(this)
+						.closest('.acf-fields')
+						.find('[data-name="pathway_slug"] input')
+						.val(slug);
+		});
+})(jQuery);
+</script>
+<?php });
