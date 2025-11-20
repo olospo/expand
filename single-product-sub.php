@@ -233,13 +233,64 @@ switch ($pathway_count) {
 <section class="offering contact hidden-section always-show">
   <div class="container">
     <h2>Contact Us</h2>
+
     <div class="grid grid-2">
-      <article class="card">
-        <div class="person">
-        <img src="<?php echo get_site_url(); ?>/wp-content/uploads/2024/09/Expand_Eddie_Edit_300.jpg" class="photo">
-        <p><strong>Eddie Molloy</strong><br />Director – Global Commercial Lead<br /> Third-party Fees Practice<br/><a href="mailto:eddie.molloy@bcgexpand.com">eddie.molloy@bcgexpand.com</a></p>
-        </div>
-      </article>
+      <?php if (have_rows('contacts')): ?>
+        <article class="card">
+        <?php while (have_rows('contacts')): the_row(); ?>
+
+          <?php
+          $type = get_sub_field('contact_type');
+
+          if ($type === 'profile') {
+
+              $profile = get_sub_field('contact_profile');
+
+              if ($profile) {
+                  // Name from post title
+                  $name = get_the_title($profile->ID);
+                  
+                  // Title from ACF
+                  $title = get_field('job_title', $profile->ID); // update field name if needed
+                  
+                  // Email from ACF
+                  $email = get_field('email', $profile->ID); // update field name if needed
+                  
+                  // Photo from Featured Image
+                  $photo_id = get_post_thumbnail_id($profile->ID);
+                  $photo_url = $photo_id ? wp_get_attachment_image_url($photo_id, 'full') : '';
+              }
+
+          } else {
+
+              $name  = get_sub_field('contact_custom_name');
+              $title = get_sub_field('contact_custom_title');
+              $email = get_sub_field('contact_custom_email');
+
+              $photo = get_sub_field('contact_custom_photo');
+              $photo_url = $photo ? $photo['url'] : '';
+          }
+          ?>
+
+          
+            <div class="person">
+              <?php if ($photo_url): ?>
+                <img src="<?php echo esc_url($photo_url); ?>" class="photo">
+              <?php endif; ?>
+
+              <p>
+                <strong><?php echo esc_html($name); ?></strong><br/>
+                <?php echo esc_html($title); ?><br/>
+                <a href="mailto:<?php echo esc_attr($email); ?>">
+                  <?php echo esc_html($email); ?>
+                </a>
+              </p>
+            </div>
+          
+
+        <?php endwhile; ?>
+        </article>
+      <?php endif; ?>
       <article class="card">
         <form>
           <div class="name-field">
@@ -252,8 +303,8 @@ switch ($pathway_count) {
             <label>Message</label>
             <textarea></textarea>
           </div>
-            <button type="button">Submit</button>
-            <button type="button" class="blank">Clear</button>
+          <button type="button">Submit</button>
+          <button type="button" class="blank">Clear</button>
         </form>
       </article>
     </div>
