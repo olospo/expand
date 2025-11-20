@@ -225,7 +225,7 @@
                             "layout": "table",
                             "min": 0,
                             "max": 0,
-                            "collapsed": "",
+                            "collapsed": "field_691da41319462",
                             "button_label": "Add Row",
                             "rows_per_page": 20,
                             "sub_fields": [
@@ -292,7 +292,7 @@
                             "layout": "block",
                             "min": 0,
                             "max": 0,
-                            "collapsed": "",
+                            "collapsed": "field_691da43a19463",
                             "button_label": "Add Row",
                             "rows_per_page": 20,
                             "sub_fields": [
@@ -478,7 +478,7 @@
             "name": "testimonials",
             "aria-label": "",
             "type": "repeater",
-            "instructions": "",
+            "instructions": "Where possible named individuals, their titles and their institution if permitted. If not their title and description of institution.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -486,12 +486,12 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "table",
+            "layout": "block",
             "pagination": 0,
             "min": 0,
             "max": 2,
-            "collapsed": "",
-            "button_label": "Add Row",
+            "collapsed": "field_691f2570c69ce",
+            "button_label": "Add Testiomonial",
             "rows_per_page": 20,
             "sub_fields": [
                 {
@@ -613,5 +613,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1763650331
+    "modified": 1763650597
 }
