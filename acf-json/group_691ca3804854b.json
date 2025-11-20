@@ -432,8 +432,8 @@
                     "max": ""
                 }
             },
-            "min": 2,
-            "max": 5,
+            "min": 1,
+            "max": 4,
             "button_label": "Add Pathway"
         },
         {
@@ -523,5 +523,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1763558186
+    "modified": 1763626060
 }
