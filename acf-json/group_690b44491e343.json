@@ -98,7 +98,7 @@
             {
                 "param": "post_template",
                 "operator": "==",
-                "value": "single-product-product.php"
+                "value": "single-product-sub.php"
             }
         ]
     ],
@@ -120,5 +120,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1763639546
+    "modified": 1763640844
 }
