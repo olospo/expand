@@ -499,9 +499,9 @@
                 "value": "product"
             },
             {
-                "param": "post_depth",
+                "param": "post_template",
                 "operator": "==",
-                "value": "1"
+                "value": "single-product-sub.php"
             }
         ]
     ],
@@ -523,5 +523,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1763626060
+    "modified": 1763640510
 }

@@ -84,9 +84,21 @@
                 "value": "product"
             },
             {
+                "param": "post_template",
+                "operator": "==",
+                "value": "default"
+            }
+        ],
+        [
+            {
                 "param": "post_depth",
                 "operator": "==",
                 "value": "0"
+            },
+            {
+                "param": "post_template",
+                "operator": "==",
+                "value": "single-product-product.php"
             }
         ]
     ],
@@ -107,5 +119,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1763484539
+    "display_title": "",
+    "modified": 1763639546
 }
