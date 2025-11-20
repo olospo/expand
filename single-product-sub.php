@@ -17,13 +17,11 @@ if ( ! $parent_id ) {
 }
 ?>
 
-<!-- Pathways / Modules -->
 <?php 
 // Count total pathways first
 $pathway_count = 0;
 if ( have_rows('pathways') ) {
     while ( have_rows('pathways') ) { the_row(); $pathway_count++; }
-    // Reset the rows so we can loop properly again
     reset_rows();
 }
 
@@ -45,6 +43,11 @@ switch ($pathway_count) {
     $column_class = 'three columns';
   break;
 
+  case 5:
+  case 6:
+    $column_class = 'one-third column';
+  break;
+
   default:
     $column_class = 'three columns';
   break;
@@ -55,14 +58,21 @@ switch ($pathway_count) {
     <div class="intro">
       <h2><?php the_title(); ?> Pathways</h2>
     </div>
-    <div class="row">
+
     <?php if ( have_rows('pathways') ) : ?>
-      <?php while ( have_rows('pathways') ) : the_row(); ?>
-        <?php 
+      <?php 
+        $i = 0;
+        while ( have_rows('pathways') ) : the_row();
+          if ($i % 3 === 0) {
+            if ($i > 0) echo '</div>'; // Close previous row
+            echo '<div class="row">'; // Start new row every 3 items
+          }
+
           $title    = get_sub_field('pathway_title');
           $slug     = get_sub_field('pathway_slug');
           $summary  = get_sub_field('pathway_summary');
-        ?>
+      ?>
+
         <article class="service-card <?php echo esc_attr($column_class); ?> small-margin" data-service="<?php echo esc_attr($slug); ?>" style="background: url('<?php echo get_site_url(); ?>/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;">
           <a href="#">
             <div class="content">
@@ -73,9 +83,10 @@ switch ($pathway_count) {
             </div>
           </a>
         </article>
-      <?php endwhile; wp_reset_postdata(); ?>
+
+      <?php $i++; endwhile; echo '</div>'; ?>
     <?php endif; ?>
-    </div>
+
   </div>
 </section>
 

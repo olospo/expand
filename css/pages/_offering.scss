@@ -216,7 +216,6 @@ section.offering.hero {
   }
 }
 
-.
 
 .offering.modules {
   .container {
@@ -285,10 +284,12 @@ section.offering.hero {
   }
   
   .row {
-    // padding: 0 40px;
     @media (min-width: $breakpoint-laptop) { 
       display: flex;
     }
+  }
+  .row + .row {
+    padding: 40px 0 0 0;
   }
   article {
     display: flex;
