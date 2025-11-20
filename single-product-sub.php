@@ -58,7 +58,6 @@ switch ($pathway_count) {
     <div class="intro">
       <h2><?php the_title(); ?> Pathways</h2>
     </div>
-
     <?php if ( have_rows('pathways') ) : ?>
       <?php 
         $i = 0;
@@ -67,26 +66,22 @@ switch ($pathway_count) {
             if ($i > 0) echo '</div>'; // Close previous row
             echo '<div class="row">'; // Start new row every 3 items
           }
-
           $title    = get_sub_field('pathway_title');
           $slug     = get_sub_field('pathway_slug');
           $summary  = get_sub_field('pathway_summary');
       ?>
-
-        <article class="service-card <?php echo esc_attr($column_class); ?> small-margin" data-service="<?php echo esc_attr($slug); ?>" style="background: url('<?php echo get_site_url(); ?>/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;">
-          <a href="#">
-            <div class="content">
-              <span class="type">Service</span>
-              <h4><?php echo $title; ?></h4>
-              <p><?php echo $summary; ?></p>
-              <span class="button">Select This Pathway</span>
-            </div>
-          </a>
-        </article>
-
+      <article class="service-card <?php echo esc_attr($column_class); ?> small-margin" data-service="<?php echo esc_attr($slug); ?>" style="background: url('<?php echo get_site_url(); ?>/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;">
+        <a href="#">
+          <div class="content">
+            <span class="type">Service</span>
+            <h4><?php echo $title; ?></h4>
+            <p><?php echo $summary; ?></p>
+            <span class="button">Select This Pathway</span>
+          </div>
+        </a>
+      </article>
       <?php $i++; endwhile; echo '</div>'; ?>
     <?php endif; ?>
-
   </div>
 </section>
 
@@ -210,20 +205,29 @@ switch ($pathway_count) {
   </div>
 </section>
 
+<?php if ( have_rows('testimonials') ) : ?>
 <section class="offering testimonials hidden-section always-show">
   <div class="container">
-  <div class="product twelve columns" style="background: url('<?php echo get_site_url(); ?>/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size:cover;">
-    <div class="content six columns">
-      <p>"It’s been a great engagement and partnership from the BCG Expand team with a lot of great materials and discussions."</p>
-      <h4><span>Global Head of Market Data</span> Tier 1 Bank</h4>   
+    <div class="product twelve columns" style="background: url('<?php echo get_site_url(); ?>/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size:cover;">
+
+      <?php while ( have_rows('testimonials') ) : the_row(); ?>
+        <?php 
+          $quote   = get_sub_field('quote');
+          $person  = get_sub_field('person');
+          $company = get_sub_field('company');
+        ?>
+        
+        <div class="content six columns">
+          <p><?php echo esc_html($quote); ?></p>
+          <h4><span><?php echo esc_html($person); ?></span> <?php echo esc_html($company); ?></h4>
+        </div>
+
+      <?php endwhile; ?>
+
     </div>
-    <div class="content six columns">
-      <p>“We didn’t realize how much we were overspending until we saw what our peers were doing. The data gave us a clear mandate to act.”</p>
-      <h4><span>Chief Operating Officer</span> Mid-sized Asset Manager</h4>
-    </div>
-  </div>
   </div>
 </section>
+<?php endif; ?>
 
 <!-- Contact -->
 <section class="offering contact hidden-section always-show">
