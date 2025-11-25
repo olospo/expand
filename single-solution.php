@@ -75,7 +75,7 @@ while ( have_posts() ) : the_post(); ?>
         >
           <a href="<?php the_permalink(); ?>">
             <div class="content">
-              <span class="type">Solution</span>
+              <span class="type"><?php echo esc_html( get_the_title( $current_solution_id ) ); ?></span>
               <h4><?php the_title(); ?></h4>
               <p><?php echo esc_html($desc); ?></p>
               <span class="button">Explore</span>
