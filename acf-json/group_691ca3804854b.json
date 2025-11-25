@@ -63,6 +63,33 @@
                             "selected": 0
                         },
                         {
+                            "key": "field_6925c2d1a18bb",
+                            "label": "Related Solution",
+                            "name": "related_solution",
+                            "aria-label": "",
+                            "type": "post_object",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "solution"
+                            ],
+                            "post_status": "",
+                            "taxonomy": "",
+                            "return_format": "object",
+                            "multiple": 0,
+                            "allow_null": 1,
+                            "allow_in_bindings": 0,
+                            "bidirectional": 0,
+                            "ui": 1,
+                            "bidirectional_target": []
+                        },
+                        {
                             "key": "field_691ca4b5d3d93",
                             "label": "Title",
                             "name": "pathway_title",
@@ -824,5 +851,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1763654710
+    "modified": 1764082505
 }
