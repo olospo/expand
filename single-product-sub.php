@@ -11,46 +11,31 @@ $parent_id = wp_get_post_parent_id( get_the_ID() );
 
 // If this is a top-level product, use the landing hero
 if ( ! $parent_id ) {
-    get_template_part('template-parts/hero-landing');
+  get_template_part('template-parts/hero-landing');
 } else {
-    get_template_part('template-parts/hero-product');
+  get_template_part('template-parts/hero-product');
 }
-?>
 
-<?php 
 // Count total pathways first
 $pathway_count = 0;
 if ( have_rows('pathways') ) {
-    while ( have_rows('pathways') ) { the_row(); $pathway_count++; }
-    reset_rows();
+  while ( have_rows('pathways') ) { the_row(); $pathway_count++; }
+  reset_rows();
 }
 
 // Work out correct class
-switch ($pathway_count) {
-  case 1:
-    $column_class = 'twelve columns';
-  break;
-
-  case 2:
-    $column_class = 'six columns';
-  break;
-
-  case 3:
-    $column_class = 'one-third column';
-  break;
-
-  case 4:
-    $column_class = 'three columns';
-  break;
-
-  case 5:
-  case 6:
-    $column_class = 'one-third column';
-  break;
-
-  default:
-    $column_class = 'three columns';
-  break;
+if ($pathway_count === 1) {
+  $column_class  = 'twelve columns';
+  $items_per_row = 1;
+} elseif ($pathway_count === 2 || $pathway_count === 4) {
+  $column_class  = 'six columns';
+  $items_per_row = 2;
+} elseif ($pathway_count === 3 || $pathway_count === 5 || $pathway_count === 6) {
+  $column_class  = 'one-third column';
+  $items_per_row = 3;
+} else {
+  $column_class  = 'three columns';
+  $items_per_row = 4;
 }
 ?>
 <section class="offering modules">
@@ -62,15 +47,27 @@ switch ($pathway_count) {
       <?php 
         $i = 0;
         while ( have_rows('pathways') ) : the_row();
-          if ($i % 3 === 0) {
-            if ($i > 0) echo '</div>'; // Close previous row
-            echo '<div class="row">'; // Start new row every 3 items
+        
+          if ($i % $items_per_row === 0) {
+            if ($i > 0) echo '</div>';
+            echo '<div class="row">';
           }
           $title    = get_sub_field('pathway_title');
           $slug     = get_sub_field('pathway_slug');
           $summary  = get_sub_field('pathway_summary');
+          
+          $related_solution = get_sub_field('related_solution');
+          
+          if ($related_solution) {
+            $solution_id   = $related_solution->ID;
+            $solution_slug = $related_solution->post_name;
+          } else {
+            $solution_id = '';
+            $solution_slug = '';
+          }
+
       ?>
-      <article class="service-card <?php echo esc_attr($column_class); ?> small-margin" data-service="<?php echo esc_attr($slug); ?>" style="background: url('<?php echo get_site_url(); ?>/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;">
+      <article class="service-card <?php echo esc_attr($column_class); ?> small-margin" data-service="<?php echo esc_attr($slug); ?>" data-solution="<?php echo esc_attr($solution_id); ?>" data-solution-slug="<?php echo esc_attr($solution_slug); ?>" style="background: url('<?php echo get_site_url(); ?>/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;">
         <a href="#">
           <div class="content">
             <span class="type">Service</span>
@@ -111,7 +108,6 @@ switch ($pathway_count) {
       </div>
     </section>
 
-    
     <?php if ( $impact_metrics || $case_studies ) : ?>
     <!-- Impact -->
     <section class="offering impact hidden-section" data-service="<?php echo esc_attr($slug); ?>">
@@ -209,21 +205,17 @@ switch ($pathway_count) {
 <section class="offering testimonials hidden-section always-show">
   <div class="container">
     <div class="product twelve columns" style="background: url('<?php echo get_site_url(); ?>/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size:cover;">
-
       <?php while ( have_rows('testimonials') ) : the_row(); ?>
         <?php 
           $quote   = get_sub_field('quote');
           $person  = get_sub_field('person');
           $company = get_sub_field('company');
         ?>
-        
         <div class="content six columns">
           <p><?php echo esc_html($quote); ?></p>
           <h4><span><?php echo esc_html($person); ?></span> <?php echo esc_html($company); ?></h4>
         </div>
-
       <?php endwhile; ?>
-
     </div>
   </div>
 </section>
@@ -233,61 +225,39 @@ switch ($pathway_count) {
 <section class="offering contact hidden-section always-show">
   <div class="container">
     <h2>Contact Us</h2>
-
     <div class="grid grid-2">
       <?php if (have_rows('contacts')): ?>
         <article class="card">
         <?php while (have_rows('contacts')): the_row(); ?>
-
-          <?php
-          $type = get_sub_field('contact_type');
-
-          if ($type === 'profile') {
-
-              $profile = get_sub_field('contact_profile');
-
-              if ($profile) {
-                  // Name from post title
-                  $name = get_the_title($profile->ID);
-                  
-                  // Title from ACF
-                  $title = get_field('job_title', $profile->ID); // update field name if needed
-                  
-                  // Email from ACF
-                  $email = get_field('email', $profile->ID); // update field name if needed
-                  
-                  // Photo from Featured Image
-                  $photo_id = get_post_thumbnail_id($profile->ID);
-                  $photo_url = $photo_id ? wp_get_attachment_image_url($photo_id, 'full') : '';
-              }
-
+          <?php $type = get_sub_field('contact_type'); if ($type === 'profile') {
+            $profile = get_sub_field('contact_profile');
+            if ($profile) {
+              $name = get_the_title($profile->ID);
+              $title = get_field('job_title', $profile->ID);
+              $email = get_field('email', $profile->ID);
+              $photo_id = get_post_thumbnail_id($profile->ID);
+              $photo_url = $photo_id ? wp_get_attachment_image_url($photo_id, 'full') : '';
+            }
           } else {
-
-              $name  = get_sub_field('contact_custom_name');
-              $title = get_sub_field('contact_custom_title');
-              $email = get_sub_field('contact_custom_email');
-
-              $photo = get_sub_field('contact_custom_photo');
-              $photo_url = $photo ? $photo['url'] : '';
+            $name  = get_sub_field('contact_custom_name');
+            $title = get_sub_field('contact_custom_title');
+            $email = get_sub_field('contact_custom_email');
+            $photo = get_sub_field('contact_custom_photo');
+            $photo_url = $photo ? $photo['url'] : '';
           }
-          ?>
-
-          
-            <div class="person">
-              <?php if ($photo_url): ?>
-                <img src="<?php echo esc_url($photo_url); ?>" class="photo">
-              <?php endif; ?>
-
-              <p>
-                <strong><?php echo esc_html($name); ?></strong><br/>
-                <?php echo esc_html($title); ?><br/>
-                <a href="mailto:<?php echo esc_attr($email); ?>">
-                  <?php echo esc_html($email); ?>
-                </a>
-              </p>
-            </div>
-          
-
+        ?>
+          <div class="person">
+            <?php if ($photo_url): ?>
+              <img src="<?php echo esc_url($photo_url); ?>" class="photo">
+            <?php endif; ?>
+            <p>
+              <strong><?php echo esc_html($name); ?></strong><br/>
+              <?php echo esc_html($title); ?><br/>
+              <a href="mailto:<?php echo esc_attr($email); ?>">
+                <?php echo esc_html($email); ?>
+              </a>
+            </p>
+          </div>
         <?php endwhile; ?>
         </article>
       <?php endif; ?>
@@ -398,12 +368,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Auto-select first service (no scroll)
+  // Auto-select correct pathway
   if (serviceCards.length) {
-    serviceCards[0].click();
+    let selectedCard = null;
+    const hash = window.location.hash.replace('#', '');
+  
+    if (hash) {
+      selectedCard = document.querySelector(
+        `.service-card[data-solution-slug="${hash}"]`
+      );
+    }
+  
+    if (selectedCard) {
+      selectedCard.click();
+    } else {
+      serviceCards[0].click(); // fallback
+    }
+  
     updateButtonLabels();
     isInitialSelection = false;
   }
+
+
 });
 </script>
 

@@ -637,6 +637,12 @@ add_filter(
 		3   // <-- THIS is the fix
 );
 
+function allow_solution_query_var($vars) {
+		$vars[] = 'solution';
+		return $vars;
+}
+add_filter('query_vars', 'allow_solution_query_var');
+
 
 add_action('acf/input/admin_footer', function () { ?>
 <script>
