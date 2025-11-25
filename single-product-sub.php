@@ -70,7 +70,7 @@ if ($pathway_count === 1) {
       <article class="service-card <?php echo esc_attr($column_class); ?> small-margin" data-service="<?php echo esc_attr($slug); ?>" data-solution="<?php echo esc_attr($solution_id); ?>" data-solution-slug="<?php echo esc_attr($solution_slug); ?>" style="background: url('<?php echo get_site_url(); ?>/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;">
         <a href="#">
           <div class="content">
-            <span class="type">Service</span>
+            <span class="type">Solution</span>
             <h4><?php echo $title; ?></h4>
             <p><?php echo $summary; ?></p>
             <span class="button">Select This Pathway</span>
