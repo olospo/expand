@@ -15,15 +15,22 @@ while ( have_posts() ) : the_post(); ?>
     </div>
 
     <?php
-    // Fetch child products
+    $current_solution_id = get_the_ID();
+    
     $query = new WP_Query([
       'post_type'      => 'product',
-      'post_parent'    => get_the_ID(),
       'posts_per_page' => -1,
       'orderby'        => 'menu_order',
-      'order'          => 'ASC'
+      'order'          => 'ASC',
+      'meta_query'     => [
+        [
+          'key'     => 'solutions',
+          'value'   => '"' . $current_solution_id . '"',
+          'compare' => 'LIKE'
+        ]
+      ]
     ]);
-
+    
     $post_count = $query->post_count;
 
     // Work out correct class
@@ -54,20 +61,27 @@ while ( have_posts() ) : the_post(); ?>
       <?php if ($query->have_posts()): ?>
         <?php while ($query->have_posts()): $query->the_post(); 
           $desc = get_field('description', get_the_ID());
+    
+          $bg_image = get_the_post_thumbnail_url(get_the_ID(), 'large');
+    
+          // Fallback if no featured image exists
+          if (!$bg_image) {
+            $bg_image = get_site_url() . '/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg';
+          }
         ?>
-      <article 
-        class="service-card <?php echo $column_class; ?> small-margin "
-        style="background: url('<?php echo get_site_url(); ?>/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;"
-      >
-        <a href="<?php the_permalink(); ?>">
-          <div class="content">
-            <span class="type">Service</span>
-            <h4><?php the_title(); ?></h4>
-            <p><?php echo esc_html($desc); ?></p>
-            <span class="button">Explore</span>
-          </div>
-        </a>
-      </article>
+        <article 
+          class="service-card <?php echo $column_class; ?> small-margin"
+          style="background: url('<?php echo esc_url($bg_image); ?>') center center no-repeat; background-size: cover;"
+        >
+          <a href="<?php the_permalink(); ?>">
+            <div class="content">
+              <span class="type">Solution</span>
+              <h4><?php the_title(); ?></h4>
+              <p><?php echo esc_html($desc); ?></p>
+              <span class="button">Explore</span>
+            </div>
+          </a>
+        </article>
         <?php endwhile; wp_reset_postdata(); ?>
       <?php endif; ?>
     </div>
