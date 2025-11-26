@@ -437,9 +437,12 @@ section.offering.hero {
     }
   }
   .card {
+    background:#fff;
+    border:1px solid $border;
+    padding: 20px 30px;
+    margin: 20px 0;
     h4 {
       font: $bold 2.0rem/3.6rem $heading;
-      
     }
     ul {
       font: $normal 1.6rem/2.8rem $heading;
@@ -464,6 +467,9 @@ section.offering.hero {
   .card {
     border: 1px solid  $mid-green;
     border-top: 10px solid $mid-green;
+    background:#fff;
+    padding: 20px 30px;
+    margin: 20px 0;
   }
 }
 
@@ -476,7 +482,7 @@ section.offering.hero {
 }
 
 .offering.insights {
-  padding: $padding-half 0;
+  padding: $padding-half 0 0 0;
   h2 {
     color: $mid-green;
     font: $bold 2.4rem/3.6rem $heading;
@@ -485,13 +491,36 @@ section.offering.hero {
   p {
     font: $normal 1.6rem/2.8rem $heading;
   }
+  .row {
+    @media (min-width: $breakpoint-laptop) { 
+      display: flex;
+    }
+  }
+  .row + .row {
+    padding: 40px 0 0 0;
+  }
+  article.card {
+    background:#fff;
+    border:1px solid $border;
+    @include border-radius(20px);
+    box-sizing: border-box;
+    padding: 20px 30px;
+    margin-top: 20px;
+    h3 {
+      margin-bottom: 5px;
+      font: $medium 2.2rem/3.2rem $heading;
+      color: $mid-green;
+    }
+    p {
+      margin-bottom: 10px;
+    }
+  }
 }
-
 
 // Problem
 .offering.testimonials {
   background: #FBFAF7;
-  padding: 0px 0 $padding-half 0;
+  padding: $padding-half 0 0 0;
   .product {
     margin: 0 0 $padding-half 0;
     padding: 20px;
@@ -528,12 +557,19 @@ section.offering.hero {
 }
 
 .offering.contact {
-  padding: 0 0 $padding-half 0;
+  padding: $padding-half 0;
   h2 {
     color: $mid-green;
-    font: $bold 3.2rem/4.6rem $heading;
+    font: $bold 2.4rem/3.6rem $heading;
+    text-transform: uppercase;
   }
   .card {
+    background:#fff;
+    border:1px solid $border;
+    @include border-radius(20px);
+    box-sizing: border-box;
+    padding: 20px 30px;
+    margin-top: 20px;
     .person {
       padding: 20px 0;
       overflow: hidden;
@@ -610,26 +646,6 @@ section.offering.hero {
   }
 }
 
-
-.card {
-  background:#fff;
-  border:1px solid $border;
-  // border-radius:20px;
-  padding: 20px 30px;
-  margin: 20px 0;
-  &.blue {
-    a.button.alt {
-      background: #1f69b2;
-      border: 1px solid #1f69b2;
-    }
-  }
-  &.purple {
-    a.button.alt {
-      background: #550778;
-      border: 1px solid #550778;
-    }
-  }
-}
 
 section {
   opacity: 0;

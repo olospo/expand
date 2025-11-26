@@ -95,6 +95,7 @@ if ($pathway_count === 1) {
       $case_studies   = get_sub_field('case_studies');
       // Approach
       $approach_cards = get_sub_field('approach_cards');
+
     ?>
     <!-- Problem -->
     <section class="offering problem hidden-section" data-service="<?php echo esc_attr($slug); ?>">
@@ -114,8 +115,8 @@ if ($pathway_count === 1) {
       <div class="container">
         <h2><span><?php echo esc_html($title); ?></span> The Impact</h2>
     
-        <!-- Metrics -->
         <?php if ( $impact_metrics ) : ?>
+        <!-- Metrics -->
         <div class="metrics">
           <?php foreach ( $impact_metrics as $metric ) : ?>
           <div class="metric green">
@@ -129,9 +130,9 @@ if ($pathway_count === 1) {
           <?php endforeach; ?>
         </div>
         <?php endif; ?>
-    
-        <!-- Case Studies -->
+
         <?php if ( $case_studies ) : ?>
+          <!-- Case Studies -->
         <div class="grid grid-2">
           <?php foreach ( $case_studies as $study ) : ?>
           <div class="card">
@@ -174,34 +175,86 @@ if ($pathway_count === 1) {
       </div>
     </section>
     <?php endif; ?>
+    
   <?php endwhile; ?>
 <?php endif; ?>
+<!-- End of Pathway loop -->
 
+
+
+<?php if ( have_rows('insights') ) : ?>
 <!-- Insights -->
+<?php
+  $insights_count = count(get_field('insights'));
+  // Work out correct class
+  if ($insights_count === 1) {
+    $column_class  = 'twelve columns';
+    $items_per_row = 1;
+  } elseif ($insights_count === 2 || $insights_count === 4) {
+    $column_class  = 'six columns';
+    $items_per_row = 2;
+  } elseif ($insights_count === 3 || $insights_count === 5 || $insights_count === 6) {
+    $column_class  = 'one-third column';
+    $items_per_row = 3;
+  } else {
+    $column_class  = 'three columns';
+    $items_per_row = 4;
+  }
+?>
 <section class="offering insights hidden-section always-show">
   <div class="container">
     <h2>Insights</h2>
-    <div class="grid grid-3" id="insightsGrid">
-      <article class="card" data-tag="benchmarking">
-        <h3>Rebalancing RTB vs. CTB</h3>
-        <p style="color:var(--muted)">A practical playbook for shifting spend while safeguarding reliability and enabling modernization.</p>
-        <a class="button" href="https://bcgexpand.com/news-events/category/insight/" target="_blank">Download Brief</a>
+    <?php 
+      $i = 0;
+      while ( have_rows('insights') ) : the_row();
+        if ($i % $items_per_row === 0) {
+          if ($i > 0) echo '</div>';
+          echo '<div class="row">';
+        }
+        $title       = get_sub_field('insight_title');
+        $description = get_sub_field('insight_description');
+        $btn_text    = get_sub_field('button_text');
+        $btn_type    = get_sub_field('button_type');
+        $btn_url = '';
+        if ($btn_type === 'link') {
+          $btn_url = get_sub_field('button_link');
+        }
+        if ($btn_type === 'file') {
+          $file = get_sub_field('button_file');
+          if (is_array($file) && isset($file['url'])) {
+            $btn_url = $file['url'];
+          } else {
+            $btn_url = $file;
+          }
+        }
+    ?>
+      <article class="card <?php echo esc_attr($column_class); ?>">
+        <?php if ($title) : ?>
+          <h3><?php echo esc_html($title); ?></h3>
+        <?php endif; ?>
+        <?php if ($description) : ?>
+          <?php echo wp_kses_post($description); ?>
+        <?php endif; ?>
+        <?php if ($btn_url && $btn_text) : ?>
+          <a class="button"
+             href="<?php echo esc_url($btn_url); ?>"
+             target="_blank"
+             <?php echo ($btn_type === 'file') ? 'download' : ''; ?>>
+            <?php echo esc_html($btn_text); ?>
+          </a>
+        <?php endif; ?>
       </article>
-      <article class="card" data-tag="automation">
-        <h3>Automation Waves: Sequencing for impact</h3>
-        <p style="color:var(--muted)">Metrics that matter, how to avoid pilot purgatory, and why change failure rate is a first‑class KPI.</p>
-        <a class="button" href="https://bcgexpand.com/news-events/category/insight/" target="_blank">Watch 10‑min Talk</a>
-      </article>
-      <article class="card" data-tag="client-intel">
-        <h3>Client Intelligence 2025</h3>
-        <p style="color:var(--muted)">Signals from buy‑side counterparties—where service, latency, and resilience now rank.</p>
-        <a class="button" href="https://bcgexpand.com/news-events/category/insight/" target="_blank">Access Highlights</a>
-      </article>
-    </div>
+    <?php 
+      $i++; 
+      endwhile; 
+      echo '</div>'; 
+    ?>
   </div>
 </section>
+<?php endif; ?>
 
 <?php if ( have_rows('testimonials') ) : ?>
+  <!-- Testimonials -->
 <section class="offering testimonials hidden-section always-show">
   <div class="container">
     <div class="product twelve columns" style="background: url('<?php echo get_site_url(); ?>/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size:cover;">
