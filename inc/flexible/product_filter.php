@@ -18,16 +18,11 @@ $industries = new WP_Query([
   'order'   => 'ASC',
 ]);
 
-// Get all Functions
+// Get all Solutions
 $functions = new WP_Query([
-  'post_type'      => 'product',
+  'post_type'      => 'solution',
   'posts_per_page' => -1,
   'post_parent'    => 0,
-  'meta_query'     => [[
-    'key'     => 'product_type',
-    'value'   => 'function',
-    'compare' => '=',
-  ]],
   'orderby' => 'title',
   'order'   => 'ASC',
 ]);
@@ -72,13 +67,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const products = <?php
     $data = [];
     $query = new WP_Query([
-      'post_type'      => 'product',
+      'post_type'      => ['product', 'solution'],
       'posts_per_page' => -1,
-      'meta_query'     => [[
-        'key'     => 'product_type',
-        'value'   => ['industry', 'function'],
-        'compare' => 'IN',
-      ]]
+      'post_parent'    => 0,
+      'orderby'        => 'title',
+      'order'          => 'ASC',
     ]);
     while ($query->have_posts()) : $query->the_post();
       $featured = get_the_post_thumbnail_url(get_the_ID(), 'full');

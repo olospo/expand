@@ -68,7 +68,7 @@
                             "name": "related_solution",
                             "aria-label": "",
                             "type": "post_object",
-                            "instructions": "",
+                            "instructions": "Select the solution this pathway relates to, can be left blank.",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -851,5 +851,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1764082505
+    "modified": 1764087298
 }

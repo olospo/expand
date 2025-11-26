@@ -61,9 +61,9 @@ if ($post_count === 1) {
           if ($i > 0) echo '</div>';
           echo '<div class="row">';
         }
-
-        $desc = '';
         
+        $desc = '';
+      
         if (have_rows('pathways')) {
           while (have_rows('pathways')) : the_row();
             $related_solution = get_sub_field('related_solution');
