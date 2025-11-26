@@ -14,10 +14,12 @@ global $wpdb;
 $current_solution_id = get_the_ID();
 $solution_slug       = get_post_field('post_name', $current_solution_id);
 
-// Get all Product IDs linked to this Solution via pathways
 $product_ids = $wpdb->get_col("SELECT DISTINCT post_id FROM {$wpdb->postmeta} WHERE meta_key LIKE 'pathways_%_related_solution' AND meta_value = '{$current_solution_id}'");
 
-// Query Products
+if (empty($product_ids)) {
+  $product_ids = [0]; // 0 will never match a real post ID
+}
+
 $query = new WP_Query([
   'post_type'      => 'product',
   'posts_per_page' => -1,
