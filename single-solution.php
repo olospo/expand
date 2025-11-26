@@ -50,7 +50,6 @@ if ($post_count === 1) {
 
     <div class="intro">
       <h2>Our <?php the_title(); ?> Solutions</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
     </div>
     
     <?php if ($query->have_posts()) : ?>
