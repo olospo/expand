@@ -435,6 +435,9 @@ section.offering.hero {
     span {
       color: $mid-green;
     }
+    &.case-studies {
+      margin-top: 20px;
+    }
   }
   .card {
     background:#fff;

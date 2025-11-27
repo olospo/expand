@@ -133,6 +133,7 @@ if ($pathway_count === 1) {
 
         <?php if ( $case_studies ) : ?>
           <!-- Case Studies -->
+          <h2 class="case-studies"><span><?php echo esc_html($title); ?></span> Case Studies</h2>
         <div class="grid grid-2">
           <?php foreach ( $case_studies as $study ) : ?>
           <div class="card">
