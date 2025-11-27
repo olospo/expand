@@ -32,7 +32,7 @@ $post_count = $query->post_count;
 
 // Layout logic
 if ($post_count === 1) {
-  $column_class  = 'twelve columns';
+  $column_class  = 'six columns';
   $items_per_row = 1;
 } elseif ($post_count === 2 || $post_count === 4) {
   $column_class  = 'six columns';
