@@ -137,37 +137,24 @@
   }
 }
 
-
-
-
-// Product Page
-.grid {
-  display:grid;
-  gap: 3.0rem;
-}
-.grid-2 {
-  grid-template-columns:repeat(2,1fr);
-}
-.grid-3{
-  grid-template-columns:repeat(3,1fr);
-}
-@media (max-width:900px){
-  .grid-2,.grid-3{
-    grid-template-columns:1fr
-  }
-}
-
+// Hero
 section.offering.hero {
-  padding: $padding-half 0;
   border-top: 10px solid $light-green;
   background: #F1EEEA;
+  padding: 20px 0;
+  @media (min-width: $breakpoint-tablet) { 
+    padding: $padding-half 0;
+  }
   span.kicker {
     letter-spacing:0.1rem;
     font: $medium 1.4rem/2.2rem $heading;
     text-transform:uppercase;
     color: $mid-green;
     display: block;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    @media (min-width: $breakpoint-tablet) { 
+      margin-bottom: 20px;
+    }
   }
   h1 {
     color: $black;
@@ -182,7 +169,7 @@ section.offering.hero {
     }
   }
   p {
-    font: $medium 1.8rem/2.8rem $heading;
+    font: $medium 1.6rem/2.6rem $heading;
     @media (min-width: $breakpoint-tablet) { 
       font: $medium 2.4rem/3.4rem $heading;
     }
@@ -216,36 +203,44 @@ section.offering.hero {
   }
 }
 
-
-.offering.modules {
-  .container {
-    opacity: 1;
-  }
-  h2, p {
-    @include fade();
-  }
-  .service-card {
-    @include fade();
-  }
-  &.visible {
+@media (min-width: $breakpoint-tablet) { 
+  .offering.modules {
+    .container {
+      opacity: 1;
+    }
     h2, p {
-      @include reset();
+      @include fade();
     }
     .service-card {
-      @include reset();
-      @include delay-children();
+      @include fade();
+    }
+    &.visible {
+      h2, p {
+        @include reset();
+      }
+      .service-card {
+        @include reset();
+        @include delay-children();
+      }
     }
   }
 }
 
+// Background Image
 .offering.image {
-  min-height: 420px;
   background: $mid-green;
-  .background {
+  min-height: 280px;
+  @media (min-width: $breakpoint-tablet) { 
     min-height: 420px;
+  }
+  .background {
     background-size: cover;
     background-attachment: fixed;
     position: relative;
+    min-height: 280px;
+    @media (min-width: $breakpoint-tablet) { 
+      min-height: 420px;
+    }
     .elogo {
       max-height: 120px;
       padding: 120px 0 200px 0;
@@ -257,18 +252,27 @@ section.offering.hero {
 
 // Modules
 .offering.modules {
-  padding: $padding-half 0;
+  padding: 20px 0;
+  @media (min-width: $breakpoint-tablet) {
+    padding: $padding-half 0;
+  }
   .container {
     margin-top: -120px;
-    
+    @media (max-width: $breakpoint-tablet) {
+      margin-top: 0;
+      width: 100%;
+      padding: 0px;
+    }
   }
   .intro {
-    padding: 30px 40px 40px 40px;
     background: #FBFAF7;
     @include border-radius(10px 10px 0 0);
+    padding: 0px 30px 20px 30px;
+    @media (min-width: $breakpoint-tablet) {
+      padding: 30px 40px 40px 40px;
+    }
     h2 {
       color: $black;
-      
       margin-bottom: 10px;
       font: $bold 2.2rem/3.2rem $heading;
       @media (min-width: $breakpoint-tablet) { 
@@ -380,6 +384,7 @@ section.offering.hero {
 .offering.problem {
   background: #FBFAF7;
   padding: 20px 0 $padding-half 0;
+  
   .product {
     margin: 0 0 $padding-half 0;
     padding: 20px;
@@ -395,9 +400,12 @@ section.offering.hero {
         padding: 30px 40px;
       }
       h3 {
-        font: $bold 2.4rem/3.6rem $heading;
         text-transform: uppercase;
         color: $black;
+        font: $bold 1.8rem/3.2rem $heading;
+        @media (min-width: $breakpoint-tablet) {
+          font: $bold 2.4rem/3.6rem $heading;
+        }
         span {
           color: $mid-green;
         }
@@ -406,7 +414,10 @@ section.offering.hero {
         font-weight: $medium;
       }
       ul.list-check {
-        font: $normal 1.8rem/3.2rem $heading;
+        font: $normal 1.4rem/2.4rem $heading;
+        @media (min-width: $breakpoint-tablet) {
+          font: $normal 1.8rem/3.2rem $heading;
+        }
         li {
           span.tick {
             color: $mid-green;
@@ -424,58 +435,134 @@ section.offering.hero {
   }
 }
 
-
+// Impact
 .offering.impact { 
   background: #FFFFFF;
   padding: 0 0 $padding-half 0;
   h2 {
-    font: $bold 2.4rem/3.6rem $heading;
     text-transform: uppercase;
     color: $black;
+    font: $bold 1.8rem/3.2rem $heading;
+    @media (min-width: $breakpoint-tablet) {
+      font: $bold 2.4rem/3.6rem $heading;
+    }
     span {
       color: $mid-green;
     }
     &.case-studies {
-      margin-top: 20px;
+      margin: 20px 0;
+      @media (min-width: $breakpoint-tablet) {
+        margin: 20px 0 0 0;
+      }
     }
   }
   .card {
     background:#fff;
     border:1px solid $border;
-    padding: 20px 30px;
-    margin: 20px 0;
+    margin: 0;
+    padding: 15px;
+    @media (min-width: $breakpoint-tablet) {
+      margin: 20px 0;
+      padding: 20px 30px;
+    }
     h4 {
-      font: $bold 2.0rem/3.6rem $heading;
+      font: $bold 1.6rem/2.6rem $heading;
+      @media (min-width: $breakpoint-tablet) {
+        font: $bold 2.0rem/3.6rem $heading;
+      }
     }
     ul {
-      font: $normal 1.6rem/2.8rem $heading;
+      font: $normal 1.4rem/2.4rem $heading;
+      margin: 10px 0;
+      @media (min-width: $breakpoint-tablet) {
+        font: $normal 1.6rem/2.8rem $heading;
+      }
     }
   }
 }
 
+// Metrics
+.metrics {
+  padding: 20px 0;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap: 3.0rem;
+  @media(max-width:900px){
+    grid-template-columns:repeat(2,1fr);
+  }
+  @media(max-width:540px){
+    grid-template-columns:1fr;
+  }
+  .metric {
+    padding: 30px 20px;
+    text-align: center;
+    border: 1px solid $border;
+    border-top: 10px solid $mid-green;
+    background: #F0F0F0;
+    @media (min-width: $breakpoint-tablet) {
+      padding: 40px;
+    }
+    span.unit {
+      font: $bold 3.0rem/3.0rem $heading;
+      display: block;
+      margin-bottom: 10px;
+      color: $mid-green;
+      @media (min-width: $breakpoint-tablet) {
+        font: $bold 4.0rem/4.0rem $heading;
+      }
+    }
+    span.description {
+      font: $medium 1.4rem/2.0rem $heading;
+      display: block;
+      text-transform: uppercase;
+      color: $dark-grey; 
+    }
+  }
+}
+
+// Approach
 .offering.approach {
   background: $black;
+  padding: 20px 0 $padding-half 0;
+  @media (min-width: $breakpoint-tablet) {
   padding: $padding-half 0;
+  }
   h2 {
-    font: $bold 2.4rem/3.6rem $heading;
     text-transform: uppercase;
     color: $mid-green;
+    font: $bold 1.8rem/3.2rem $heading;
+    margin-bottom: 20px;
+    @media (min-width: $breakpoint-tablet) {
+      font: $bold 2.4rem/3.6rem $heading;
+    }
     span {
       color: $white;
     }
   }
-  p {
-    font: $normal 1.6rem/2.8rem $heading;
+  .approach-content {
+    font: $normal 1.4rem/2.6rem $heading;
+    @media (min-width: $breakpoint-tablet) {
+      font: $normal 1.6rem/2.8rem $heading;
+    }
+    
   }
   .card {
     border: 1px solid  $mid-green;
     border-top: 10px solid $mid-green;
     background:#fff;
-    padding: 20px 30px;
-    margin: 20px 0;
+    padding: 15px 20px;
+    @media (min-width: $breakpoint-tablet) {
+      margin: 20px 0;
+      padding: 20px 30px;
+    }
+    h3 {
+      font: $bold 2.0rem/3.6rem $heading;
+      margin-bottom: 0px;
+    }
   }
 }
 
+// Value
 .offering.value {
   padding: $padding-half 0 0 0;
   h2 {
@@ -484,12 +571,16 @@ section.offering.hero {
   }
 }
 
+// Insights
 .offering.insights {
   padding: $padding-half 0 0 0;
   h2 {
     color: $mid-green;
-    font: $bold 2.4rem/3.6rem $heading;
     text-transform: uppercase;
+    font: $bold 1.8rem/3.2rem $heading;
+    @media (min-width: $breakpoint-tablet) {
+      font: $bold 2.4rem/3.6rem $heading;
+    }
   }
   p {
     font: $normal 1.6rem/2.8rem $heading;
@@ -520,7 +611,7 @@ section.offering.hero {
   }
 }
 
-// Problem
+// Testimonials
 .offering.testimonials {
   background: #FBFAF7;
   padding: $padding-half 0 0 0;
@@ -534,20 +625,28 @@ section.offering.hero {
       background: $white_bg;
       border-top: 8px solid $light-green;
       background: rgba(240, 240, 240, 0.90);
-      padding: 20px;
-      @media (min-width: $breakpoint-tablet) {
-        padding: 30px 40px;
+      padding: 30px 40px;
+      
+      @media (max-width: $breakpoint-tablet) {
+        margin: 10px 0;
+        padding: 20px;
       }
       h4 {
-        font: $bold 1.6rem/2.6rem $heading;
         text-transform: uppercase;
         color: $black;
+        font: $bold 1.2rem/2.4rem $heading;
+        @media (min-width: $breakpoint-tablet) {
+          font: $bold 1.6rem/2.6rem $heading;
+        }
         span {
           color: $mid-green;
         }
       }
       p {
-        font: $normal 2.4rem/3.6rem $heading;
+        font: $normal 1.6rem/2.6rem $heading;
+        @media (min-width: $breakpoint-tablet) {
+          font: $normal 2.4rem/3.6rem $heading;
+        }
       }
     }
     &:last-child {
@@ -559,6 +658,7 @@ section.offering.hero {
   }
 }
 
+// Contact
 .offering.contact {
   padding: $padding-half 0;
   h2 {
@@ -614,17 +714,12 @@ section.offering.hero {
     textarea {
       flex-grow: 1;
     }
-  
-    // Make the message box span the full right column
     .message-field {
       grid-column: 2 / 3;
       display: flex;
       flex-direction: column;
       box-sizing: border-box;
     }
-
-
-
     button {
       padding: 15px 20px;
       border-radius:20px;
@@ -649,68 +744,7 @@ section.offering.hero {
   }
 }
 
-
-section {
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.metrics {
-  padding: 20px 0;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap: 3.0rem;
-  @media(max-width:900px){
-    grid-template-columns:repeat(2,1fr);
-  }
-  @media(max-width:540px){
-    grid-template-columns:1fr;
-  }
-  .metric {
-    padding: 40px;
-    text-align: center;
-    border: 1px solid $border;
-    border-top: 10px solid $mid-green;
-    background: #F0F0F0;
-    span.unit {
-      font: $bold 4.0rem/4.0rem $heading;
-      display: block;
-      margin-bottom: 10px;
-      color: $mid-green;
-    }
-    span.description {
-      font: $medium 1.4rem/2.0rem $heading;
-      display: block;
-      text-transform: uppercase;
-      color: $dark-grey; 
-    }
-    &.blue {
-      border-top: 10px solid #1f69b2;
-      span.unit {
-        color: #1f69b2;
-      }
-    }
-    &.purple {
-      border-top: 10px solid #550778;
-      span.unit {
-        color: #550778;
-      }
-    }
-    &.green {
-      border-top: 10px solid $light-green;
-      span.unit {
-        color: $light-green;
-      }
-    }
-  }
-}
-  
-.list-check{
+.list-check {
   list-style:none;
   padding:0;
   margin:.2rem 0;
@@ -719,5 +753,22 @@ section.visible {
     gap:.6rem;
     align-items:flex-start;
     margin:.35rem 0;
+  }
+}
+
+// Grid
+.grid {
+  display:grid;
+  gap: 3.0rem;
+}
+.grid-2 {
+  grid-template-columns:repeat(2,1fr);
+}
+.grid-3{
+  grid-template-columns:repeat(3,1fr);
+}
+@media (max-width:900px){
+  .grid-2,.grid-3{
+    grid-template-columns:1fr
   }
 }
