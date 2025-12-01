@@ -692,7 +692,7 @@
             "min": 0,
             "max": 6,
             "collapsed": "",
-            "button_label": "Add Insight",
+            "button_label": "Add Exhibit",
             "rows_per_page": 20,
             "sub_fields": [
                 {
@@ -1217,5 +1217,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1764597051
+    "modified": 1764597152
 }
