@@ -257,15 +257,15 @@ if ($pathway_count === 1) {
 <?php if ( have_rows('exhibits') ) : ?>
 <!-- Exhibits -->
 <?php
-  $insights_count = count(get_field('exhibits'));
+  $exhibits_count = count(get_field('exhibits'));
   // Work out correct class
-  if ($insights_count === 1) {
+  if ($exhibits_count === 1) {
     $column_class  = 'six columns';
     $items_per_row = 1;
-  } elseif ($insights_count === 2 || $insights_count === 4) {
+  } elseif ($insights_count === 2 || $exhibits_count === 4) {
     $column_class  = 'six columns';
     $items_per_row = 2;
-  } elseif ($insights_count === 3 || $insights_count === 5 || $insights_count === 6) {
+  } elseif ($insights_count === 3 || $exhibits_count === 5 || $exhibits_count === 6) {
     $column_class  = 'one-third column';
     $items_per_row = 3;
   } else {
