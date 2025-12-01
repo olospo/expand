@@ -189,7 +189,7 @@ if ($pathway_count === 1) {
   $insights_count = count(get_field('insights'));
   // Work out correct class
   if ($insights_count === 1) {
-    $column_class  = 'twelve columns';
+    $column_class  = 'six columns';
     $items_per_row = 1;
   } elseif ($insights_count === 2 || $insights_count === 4) {
     $column_class  = 'six columns';
@@ -214,6 +214,77 @@ if ($pathway_count === 1) {
         }
         $title       = get_sub_field('insight_title');
         $description = get_sub_field('insight_description');
+        $btn_text    = get_sub_field('button_text');
+        $btn_type    = get_sub_field('button_type');
+        $btn_url = '';
+        if ($btn_type === 'link') {
+          $btn_url = get_sub_field('button_link');
+        }
+        if ($btn_type === 'file') {
+          $file = get_sub_field('button_file');
+          if (is_array($file) && isset($file['url'])) {
+            $btn_url = $file['url'];
+          } else {
+            $btn_url = $file;
+          }
+        }
+    ?>
+      <article class="card <?php echo esc_attr($column_class); ?>">
+        <?php if ($title) : ?>
+          <h3><?php echo esc_html($title); ?></h3>
+        <?php endif; ?>
+        <?php if ($description) : ?>
+          <?php echo wp_kses_post($description); ?>
+        <?php endif; ?>
+        <?php if ($btn_url && $btn_text) : ?>
+          <a class="button"
+             href="<?php echo esc_url($btn_url); ?>"
+             target="_blank"
+             <?php echo ($btn_type === 'file') ? 'download' : ''; ?>>
+            <?php echo esc_html($btn_text); ?>
+          </a>
+        <?php endif; ?>
+      </article>
+    <?php 
+      $i++; 
+      endwhile; 
+      echo '</div>'; 
+    ?>
+  </div>
+</section>
+<?php endif; ?>
+
+<?php if ( have_rows('exhibits') ) : ?>
+<!-- Exhibits -->
+<?php
+  $insights_count = count(get_field('exhibits'));
+  // Work out correct class
+  if ($insights_count === 1) {
+    $column_class  = 'six columns';
+    $items_per_row = 1;
+  } elseif ($insights_count === 2 || $insights_count === 4) {
+    $column_class  = 'six columns';
+    $items_per_row = 2;
+  } elseif ($insights_count === 3 || $insights_count === 5 || $insights_count === 6) {
+    $column_class  = 'one-third column';
+    $items_per_row = 3;
+  } else {
+    $column_class  = 'three columns';
+    $items_per_row = 4;
+  }
+?>
+<section class="offering insights hidden-section always-show">
+  <div class="container">
+    <h2>Exhibits</h2>
+    <?php 
+      $i = 0;
+      while ( have_rows('insights') ) : the_row();
+        if ($i % $items_per_row === 0) {
+          if ($i > 0) echo '</div>';
+          echo '<div class="row">';
+        }
+        $title       = get_sub_field('exhibits_title');
+        $description = get_sub_field('exhibits_description');
         $btn_text    = get_sub_field('button_text');
         $btn_type    = get_sub_field('button_type');
         $btn_url = '';
