@@ -254,6 +254,14 @@ if ($pathway_count === 1) {
 </section>
 <?php endif; ?>
 
+<?php 
+// Count total pathways first
+$exhibits_count = 0;
+if ( have_rows('exhibits') ) {
+  while ( have_rows('exhibits') ) { the_row(); $exhibits_count++; }
+  reset_rows();
+} ?>
+
 <?php if ( have_rows('exhibits') ) : ?>
 <!-- Exhibits -->
 <?php
