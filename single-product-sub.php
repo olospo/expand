@@ -254,14 +254,6 @@ if ($pathway_count === 1) {
 </section>
 <?php endif; ?>
 
-<?php 
-// Count total pathways first
-$exhibits_count = 0;
-if ( have_rows('exhibits') ) {
-  while ( have_rows('exhibits') ) { the_row(); $exhibits_count++; }
-  reset_rows();
-} ?>
-
 <?php if ( have_rows('exhibits') ) : ?>
 <!-- Exhibits -->
 <?php
@@ -270,10 +262,10 @@ if ( have_rows('exhibits') ) {
   if ($exhibits_count === 1) {
     $column_class  = 'six columns';
     $items_per_row = 1;
-  } elseif ($insights_count === 2 || $exhibits_count === 4) {
+  } elseif ($exhibits_count === 2 || $exhibits_count === 4) {
     $column_class  = 'six columns';
     $items_per_row = 2;
-  } elseif ($insights_count === 3 || $exhibits_count === 5 || $exhibits_count === 6) {
+  } elseif ($exhibits_count === 3 || $exhibits_count === 5 || $exhibits_count === 6) {
     $column_class  = 'one-third column';
     $items_per_row = 3;
   } else {
