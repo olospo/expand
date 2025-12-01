@@ -133,8 +133,24 @@ if ($pathway_count === 1) {
 
         <?php if ( $case_studies ) : ?>
           <!-- Case Studies -->
+          <?php 
+            // Count case studies
+            $cs_count = count( $case_studies );
+          
+            // Work out grid class
+            if ( $cs_count === 1 ) {
+              $grid_class = 'grid-1';
+            } elseif ( $cs_count === 2 ) {
+              $grid_class = 'grid-2';
+            } elseif ( $cs_count === 3 ) {
+              $grid_class = 'grid-3';
+            } else { 
+              // 4 or more
+              $grid_class = 'grid-2';
+            }
+          ?>
           <h2 class="case-studies"><span><?php echo esc_html($title); ?></span> Case Studies</h2>
-        <div class="grid grid-2">
+        <div class="grid <?php echo esc_attr($grid_class); ?>">
           <?php foreach ( $case_studies as $study ) : ?>
           <div class="card">
             <?php if ( ! empty( $study['case_study_title'] ) ) : ?>
