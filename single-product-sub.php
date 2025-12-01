@@ -278,7 +278,7 @@ if ($pathway_count === 1) {
     <h2>Exhibits</h2>
     <?php 
       $i = 0;
-      while ( have_rows('insights') ) : the_row();
+      while ( have_rows('exhibits') ) : the_row();
         if ($i % $items_per_row === 0) {
           if ($i > 0) echo '</div>';
           echo '<div class="row">';
