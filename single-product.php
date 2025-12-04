@@ -56,7 +56,7 @@ while ( have_posts() ) : the_post(); ?>
           $desc = get_field('description', get_the_ID());
         ?>
       <article 
-        class="service-card <?php echo $column_class; ?> small-margin "
+        class="service-card <?php echo $column_class; ?> small-margin"
         style="background: url('<?php echo get_site_url(); ?>/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;"
       >
         <a href="<?php the_permalink(); ?>">

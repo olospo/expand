@@ -149,7 +149,7 @@ if ($pathway_count === 1) {
               $grid_class = 'grid-2';
             }
           ?>
-          <h2 class="case-studies"><span><?php echo esc_html($title); ?></span> Case Studies</h2>
+          <h2 class="case-studies">Case Studies</h2>
         <div class="grid <?php echo esc_attr($grid_class); ?>">
           <?php foreach ( $case_studies as $study ) : ?>
           <div class="card">
