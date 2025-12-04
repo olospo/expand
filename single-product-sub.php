@@ -41,7 +41,7 @@ if ($pathway_count === 1) {
 <section class="offering modules">
   <div class="container">
     <div class="intro">
-      <h2><?php the_title(); ?> Pathways</h2>
+      <h2>Our <?php the_title(); ?> Solutions</h2>
     </div>
     <?php if ( have_rows('pathways') ) : ?>
       <?php 
@@ -113,7 +113,7 @@ if ($pathway_count === 1) {
     <!-- Impact -->
     <section class="offering impact hidden-section" data-service="<?php echo esc_attr($slug); ?>">
       <div class="container">
-        <h2><span><?php echo esc_html($title); ?></span> The Impact</h2>
+        <h2>Client success stories</h2>
     
         <?php if ( $impact_metrics ) : ?>
         <!-- Metrics -->
@@ -174,7 +174,7 @@ if ($pathway_count === 1) {
     <!-- Approach -->
     <section class="offering approach hidden-section" data-service="<?php echo esc_attr($slug); ?>">
       <div class="container">
-        <h2><span><?php echo esc_html($title); ?></span> The Approach</h2> 
+        <h2>How we can help</h2> 
         <div class="grid grid-3">
           <?php foreach ( $approach_cards as $card ) : ?>
           <div class="card">   
