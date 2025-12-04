@@ -37,7 +37,7 @@ if ($post_count === 1) {
 } elseif ($post_count === 2 || $post_count === 4) {
   $column_class  = 'six columns';
   $items_per_row = 2;
-} elseif ($post_count === 3 || $post_count === 5 || $post_count === 6) {
+} elseif ($post_count === 3 || $post_count === 5 || $post_count === 6 || $post_count === 9) {
   $column_class  = 'one-third column';
   $items_per_row = 3;
 } else {
