@@ -102,7 +102,7 @@ if ($pathway_count === 1) {
       <div class="container">
         <div class="product twelve columns" style="background: url('<?php echo esc_url($problem_bg); ?>') center center no-repeat; background-size:cover;">
           <div class="content six columns">
-            <h3><span><?php echo esc_html($title); ?></span> The Problem</h3>
+            <h3>The Problem</h3>
             <?php echo $problem_content; ?>
             </div>
         </div>
