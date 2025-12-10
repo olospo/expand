@@ -109,6 +109,23 @@ document.addEventListener('DOMContentLoaded', function() {
     wp_reset_postdata();
     echo json_encode($data);
   ?>;
+  
+  // ✅ Preload featured images after page load (non-blocking)
+  window.addEventListener('load', () => {
+    const preloadImages = () => {
+      Object.values(products).forEach(item => {
+        if (item.image) {
+          const img = new Image();
+          img.src = item.image;
+        }
+      });
+    };
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(preloadImages);
+    } else {
+      setTimeout(preloadImages, 500);
+    }
+  });
 
   const industrySelect = document.getElementById('industrySelect');
   const functionSelect = document.getElementById('functionSelect');
