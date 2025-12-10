@@ -158,6 +158,75 @@
     }
   }
 }
+// Select Box JS styling
+.ss-main {
+  position: relative;
+  width: 100%;
+  font: $medium 1.3rem/2.2rem $heading;
+  margin: 0 0 20px 0;
+  text-overflow: ellipsis;
+  @media (min-width: $breakpoint-tablet) {
+    font: $medium 1.6rem/2.4rem $heading;
+    width: 49%;
+    margin: 0;
+    margin-right: 2%;
+    float: left;
+  }
+  &:last-child {
+    margin: 0;
+  }
+  &:focus {
+    border: 1px solid #50a071;
+    box-shadow: none;
+  }
+  .ss-values {
+    padding-right: 30px; /* gives room for arrow */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    .ss-single {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  }
+  .ss-arrow {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+}
+.ss-option {
+  background: $white;
+  &.ss-selected, &:hover {
+    color: $black !important;
+  }
+}
+
+.ss-placeholder {
+  color: #333333 !important;
+}
+.variable-showcase {
+  /* Colors */
+  --ss-primary-color: #50a071;
+  --ss-bg-color: #7acb9c;
+  --ss-border-color: #333333;
+  --ss-border-radius: 10px;
+
+  /* Heights */
+  --ss-main-height: 50px;
+  --ss-option-height: auto;
+  --ss-content-height: 300px;
+
+  /* Spacing */
+  --ss-spacing-l: 9px;
+  --ss-spacing-m: 7px;
+  --ss-spacing-s: 5px;
+
+  --ss-animation-timing: 0.2s;
+}
 
 // Hero
 section.offering.hero {
@@ -457,7 +526,7 @@ section.offering.hero {
 // Impact
 .offering.impact { 
   background: #FFFFFF;
-  padding: 0 0 $padding-half 0;
+  padding: 40px 0 0 0;
   h2 {
     text-transform: uppercase;
     color: $black;

@@ -102,12 +102,35 @@ if ($pathway_count === 1) {
       <div class="container">
         <div class="product twelve columns" style="background: url('<?php echo esc_url($problem_bg); ?>') center center no-repeat; background-size:cover;">
           <div class="content six columns">
-            <h3>The Problem</h3>
+            <h3>The Challenge</h3>
             <?php echo $problem_content; ?>
             </div>
         </div>
       </div>
     </section>
+    
+    <?php if ( $approach_cards ) : ?>
+    <!-- Approach -->
+    <section class="offering approach hidden-section" data-service="<?php echo esc_attr($slug); ?>">
+      <div class="container">
+        <h2>How we can help</h2> 
+        <div class="grid grid-3">
+          <?php foreach ( $approach_cards as $card ) : ?>
+          <div class="card">   
+            <?php if ( ! empty( $card['approach_title'] ) ) : ?>
+            <h3><?php echo esc_html( $card['approach_title'] ); ?></h3>
+            <?php endif; ?>
+            <?php if ( ! empty( $card['approach_content'] ) ) : ?>
+            <div class="approach-content">
+              <?php echo wp_kses_post( $card['approach_content'] ); ?>
+            </div>
+            <?php endif; ?>
+          </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
+    </section>
+    <?php endif; ?>
 
     <?php if ( $impact_metrics || $case_studies ) : ?>
     <!-- Impact -->
@@ -166,29 +189,6 @@ if ($pathway_count === 1) {
         </div>
         <?php endif; ?>
     
-      </div>
-    </section>
-    <?php endif; ?>
-    
-    <?php if ( $approach_cards ) : ?>
-    <!-- Approach -->
-    <section class="offering approach hidden-section" data-service="<?php echo esc_attr($slug); ?>">
-      <div class="container">
-        <h2>How we can help</h2> 
-        <div class="grid grid-3">
-          <?php foreach ( $approach_cards as $card ) : ?>
-          <div class="card">   
-            <?php if ( ! empty( $card['approach_title'] ) ) : ?>
-            <h3><?php echo esc_html( $card['approach_title'] ); ?></h3>
-            <?php endif; ?>
-            <?php if ( ! empty( $card['approach_content'] ) ) : ?>
-            <div class="approach-content">
-              <?php echo wp_kses_post( $card['approach_content'] ); ?>
-            </div>
-            <?php endif; ?>
-          </div>
-          <?php endforeach; ?>
-        </div>
       </div>
     </section>
     <?php endif; ?>

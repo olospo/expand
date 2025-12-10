@@ -1,3 +1,4 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/2.13.1/slimselect.min.js" integrity="sha512-sByHIkabhPJsGxRISbnt0bpNZw3NSAnshLhlu2AceSC+sDOyDT4NgtnDOznHulIjR07ua1SudQC25iLvFzkWTw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <?php
 
 $title = get_field('product_filter_title','option');
@@ -35,15 +36,15 @@ $functions = new WP_Query([
         <h1><?php echo $title; ?></h1>
         <p><?php echo $text; ?></p>
         
-        <select id="industrySelect">
-          <option value="">Select Industry</option>
+        <select id="industrySelect" class="variable-showcase">
+          <option data-placeholder="true"></option>
           <?php while ($industries->have_posts()): $industries->the_post(); ?>
             <option value="<?php the_ID(); ?>"><?php the_title(); ?></option>
           <?php endwhile; wp_reset_postdata(); ?>
         </select>
         
-        <select id="functionSelect">
-          <option value="">Select Solution</option>
+        <select id="functionSelect" class="variable-showcase">
+          <option data-placeholder="true"></option>
           <?php while ($functions->have_posts()): $functions->the_post(); ?>
             <option value="<?php the_ID(); ?>"><?php the_title(); ?></option>
           <?php endwhile; wp_reset_postdata(); ?>
@@ -63,6 +64,25 @@ $functions = new WP_Query([
 </section>
 
 <script>
+
+
+
+new SlimSelect({
+  select: '#industrySelect',
+  settings: {
+    placeholderText: 'Select Industry / Function',
+    showSearch: false
+  }
+})
+
+new SlimSelect({
+  select: '#functionSelect',
+  settings: {
+    placeholderText: 'Select Capability',
+    showSearch: false
+  }
+})
+
 document.addEventListener('DOMContentLoaded', function() {
   const products = <?php
     $data = [];
