@@ -523,6 +523,9 @@
     a.button {
       padding: 10px 0;
     }
+    &:last-child {
+      margin: 0;
+    }
   }
   .extra_details {
     display: none;
