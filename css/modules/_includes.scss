@@ -489,9 +489,9 @@
 
 // Product Details
 .product_section {
-  padding: $padding-half 0;
+  padding: $padding-half 0 0 0;
   @media (min-width: $breakpoint-tablet) {
-    padding: $padding 0;
+    padding: $padding 0 $padding-half 0;
   }
   .product {
     margin: 0 0 $padding-half 0;
@@ -517,15 +517,11 @@
         font-weight: $medium;
       }
     }
-    &:last-child {
-      margin: 0;
-    }
+    
     a.button {
       padding: 10px 0;
     }
-    &:last-child {
-      margin: 0;
-    }
+    
   }
   .extra_details {
     display: none;
