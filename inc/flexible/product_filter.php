@@ -55,12 +55,8 @@ $functions = new WP_Query([
 
     <div class="square_background" id="previewSquare" style="background-image:url('<?php echo esc_url($bg); ?>'); background-size:cover; background-position:center;">
       
-      <!-- NEW - Default state logo overlay -->
       <?php if ($logo): ?>
-        <img id="previewLogo"
-             src="<?php echo esc_url($logo); ?>"
-             alt="Overlay Logo"
-             class="preview-logo" />
+        <img id="previewLogo" src="<?php echo esc_url($logo); ?>" alt="World Class Products" class="preview-logo" />
       <?php endif; ?>
 
       <div class="overlay" id="previewOverlay" style="display:none;">
