@@ -4,6 +4,7 @@
 $title = get_field('product_filter_title','option');
 $text = get_field('product_filter_text','option');
 $bg = get_field('product_filter_background_image','option');
+$logo = get_field('product_filter_logo_overlay','option');
 
 // Get all Industries
 $industries = new WP_Query([
@@ -51,7 +52,17 @@ $functions = new WP_Query([
         </select>
       </div>
     </div>
-    <div class="square_background" id="previewSquare" style="background-image:url('<?php echo $bg; ?>'); background-size:cover; background-position:center;">
+
+    <div class="square_background" id="previewSquare" style="background-image:url('<?php echo esc_url($bg); ?>'); background-size:cover; background-position:center;">
+      
+      <!-- NEW - Default state logo overlay -->
+      <?php if ($logo): ?>
+        <img id="previewLogo"
+             src="<?php echo esc_url($logo); ?>"
+             alt="Overlay Logo"
+             class="preview-logo" />
+      <?php endif; ?>
+
       <div class="overlay" id="previewOverlay" style="display:none;">
         <div class="overlay-content">
           <h3 id="previewTitle"></h3>
@@ -64,16 +75,13 @@ $functions = new WP_Query([
 </section>
 
 <script>
-
-
-
 new SlimSelect({
   select: '#industrySelect',
   settings: {
     placeholderText: 'Select Industry / Function',
     showSearch: false
   }
-})
+});
 
 new SlimSelect({
   select: '#functionSelect',
@@ -81,7 +89,7 @@ new SlimSelect({
     placeholderText: 'Select Capability',
     showSearch: false
   }
-})
+});
 
 document.addEventListener('DOMContentLoaded', function() {
   const products = <?php
@@ -106,24 +114,6 @@ document.addEventListener('DOMContentLoaded', function() {
     echo json_encode($data);
   ?>;
 
-  // ✅ Preload featured images after page load (non-blocking)
-  window.addEventListener('load', () => {
-    const preloadImages = () => {
-      Object.values(products).forEach(item => {
-        if (item.image) {
-          const img = new Image();
-          img.src = item.image;
-        }
-      });
-    };
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(preloadImages);
-    } else {
-      setTimeout(preloadImages, 500);
-    }
-  });
-
-  // DOM references
   const industrySelect = document.getElementById('industrySelect');
   const functionSelect = document.getElementById('functionSelect');
   const title = document.getElementById('previewTitle');
@@ -131,66 +121,55 @@ document.addEventListener('DOMContentLoaded', function() {
   const link = document.getElementById('previewLink');
   const square = document.getElementById('previewSquare');
   const overlay = document.getElementById('previewOverlay');
+  const logo = document.getElementById('previewLogo');
+  const placeholder = "<?php echo esc_url($bg); ?>";
 
-  // Update the preview content and image
   function updatePreview(id) {
     const item = products[id];
     if (!item) return;
-
-    const placeholder = "<?php echo $bg; ?>";
 
     title.textContent = item.title;
     text.textContent = item.intro;
     link.href = item.link;
     link.style.display = 'inline-block';
 
-    const bgImage = item.image ? `url('${item.image}')` : `url('${placeholder}')`;
-    square.style.backgroundImage = bgImage;
+    square.style.backgroundImage = `url('${item.image || placeholder}')`;
 
-    // Fade in overlay
     overlay.style.display = 'flex';
     overlay.style.opacity = 0;
+
     requestAnimationFrame(() => {
       overlay.style.transition = 'opacity 0.4s ease-in-out';
       overlay.style.opacity = 1;
     });
+
+    if (logo) logo.style.opacity = 0;
   }
 
-  // Toggle active class for selects
-  function toggleSelectStyle(select) {
-    if (select.value) {
-      select.classList.add('active');
-    } else {
-      select.classList.remove('active');
-    }
+  function resetPreview() {
+    overlay.style.display = 'none';
+    square.style.backgroundImage = `url('${placeholder}')`;
+    if (logo) logo.style.opacity = 1;
   }
 
-  // Industry select listener
   industrySelect.addEventListener('change', e => {
     const val = e.target.value;
     if (val) {
       functionSelect.selectedIndex = 0;
-      functionSelect.classList.remove('active');
       updatePreview(val);
     } else {
-      overlay.style.display = 'none';
-      square.style.backgroundImage = `url('<?php echo $bg; ?>')`;
+      resetPreview();
     }
-    toggleSelectStyle(industrySelect);
   });
 
-  // Function select listener
   functionSelect.addEventListener('change', e => {
     const val = e.target.value;
     if (val) {
       industrySelect.selectedIndex = 0;
-      industrySelect.classList.remove('active');
       updatePreview(val);
     } else {
-      overlay.style.display = 'none';
-      square.style.backgroundImage = `url('<?php echo $bg; ?>')`;
+      resetPreview();
     }
-    toggleSelectStyle(functionSelect);
   });
 });
 </script>
