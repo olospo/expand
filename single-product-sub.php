@@ -86,6 +86,21 @@ $video = get_field('video_embed');
   </div>
 </section>
 
+<?php if ( $video ) : ?>
+  <section class="video">
+    <div class="container">
+      <video 
+        controls 
+        preload="metadata"
+        playsinline
+        style="width:100%; height:auto;"
+      >
+        <source src="<?php echo esc_url($video['url']); ?>" type="<?php echo esc_attr($video['mime_type']); ?>">
+      </video>
+    </div>
+  </section>
+<?php endif; ?>
+
 <?php if ( have_rows('pathways') ) : ?>
   <?php while ( have_rows('pathways') ) : the_row(); ?>
     <?php 
@@ -203,20 +218,6 @@ $video = get_field('video_embed');
 <?php endif; ?>
 <!-- End of Pathway loop -->
 
-<?php if ( $video ) : ?>
-  <section class="video">
-    <div class="container">
-      <video 
-        controls 
-        preload="metadata"
-        playsinline
-        style="width:100%; height:auto;"
-      >
-        <source src="<?php echo esc_url($video['url']); ?>" type="<?php echo esc_attr($video['mime_type']); ?>">
-      </video>
-    </div>
-  </section>
-<?php endif; ?>
 
 <?php if ( have_rows('insights') ) : ?>
 <!-- Insights -->
