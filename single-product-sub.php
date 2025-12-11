@@ -37,6 +37,10 @@ if ($pathway_count === 1) {
   $column_class  = 'three columns';
   $items_per_row = 4;
 }
+
+// Video
+$video = get_field('video_embed');
+
 ?>
 <section class="offering modules">
   <div class="container">
@@ -131,6 +135,8 @@ if ($pathway_count === 1) {
       </div>
     </section>
     <?php endif; ?>
+    
+    
 
     <?php if ( $impact_metrics || $case_studies ) : ?>
     <!-- Impact -->
@@ -197,7 +203,20 @@ if ($pathway_count === 1) {
 <?php endif; ?>
 <!-- End of Pathway loop -->
 
-
+<?php if ( $video ) : ?>
+  <section class="video">
+    <div class="container">
+      <video 
+        controls 
+        preload="metadata"
+        playsinline
+        style="width:100%; height:auto;"
+      >
+        <source src="<?php echo esc_url($video['url']); ?>" type="<?php echo esc_attr($video['mime_type']); ?>">
+      </video>
+    </div>
+  </section>
+<?php endif; ?>
 
 <?php if ( have_rows('insights') ) : ?>
 <!-- Insights -->
