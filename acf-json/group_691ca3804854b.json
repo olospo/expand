@@ -1013,6 +1013,27 @@
             "selected": 0
         },
         {
+            "key": "field_693adc705c5b4",
+            "label": "Main Contact Email\/s",
+            "name": "contact_email",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "e.g. name@domain.com - use comma between emails to send to multiple.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_691f384623623",
             "label": "Contacts",
             "name": "contacts",
@@ -1256,5 +1277,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1765460271
+    "modified": 1765465339
 }

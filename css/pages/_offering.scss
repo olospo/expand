@@ -802,10 +802,6 @@ section.offering.hero {
     }
   }
   form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem; // space between fields
-    max-width: 800px;
   
     label {
       font-weight: 300 !important;
@@ -837,7 +833,10 @@ section.offering.hero {
       box-sizing: border-box;
     }
     button {
-      padding: 15px 20px;
+      margin: 10px 10px 0 0;
+      height: 50px;
+      font: $normal 1.6rem/1.6rem $regular;
+      padding: 10px 20px;
       border-radius:20px;
       background: $mid-green;
       color: $white;
@@ -847,14 +846,19 @@ section.offering.hero {
         color: $mid-green;
         border: 1px solid $mid-green;
       }
-      &.blank {
-        background: $white;
-        color: $mid-green;
-        border: 1px solid $mid-green;
-        &:hover {
-          background: $mid-green;
-          color: $white;
-        }
+    }
+    a.blank, a.frm_start_over {
+      height: 50px;
+      font: $normal 1.6rem/1.6rem $regular;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius:20px;
+      background: $white;
+      color: $mid-green;
+      border: none;
+      &:hover {
+        background: $mid-green;
+        color: $white;
       }
     }
   }

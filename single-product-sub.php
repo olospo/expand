@@ -423,20 +423,7 @@ $video = get_field('video_embed');
         </article>
       <?php endif; ?>
       <article class="card">
-        <form>
-          <div class="name-field">
-            <label>Name</label>
-            <input type="text" />
-            <label>Email</label>
-            <input type="email" />
-          </div>
-          <div class="message-field">
-            <label>Message</label>
-            <textarea></textarea>
-          </div>
-          <button type="button">Submit</button>
-          <button type="button" class="blank">Clear</button>
-        </form>
+        <?php echo FrmFormsController::get_form_shortcode( array( 'id' => 32, 'contact_email' => get_field('contact_email'), ) ); ?>
       </article>
     </div>
   </div>
