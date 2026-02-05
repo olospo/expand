@@ -480,6 +480,79 @@ function wpdev_nav_classes( $classes, $item ) {
 }
 add_filter( 'nav_menu_css_class', 'wpdev_nav_classes', 10, 2 );
 
+// Enqueue SlimSelect + localise AJAX settings
+add_action('wp_enqueue_scripts', function () {
+	// SlimSelect (you can keep CDN in template if you want, but this is cleaner)
+	wp_enqueue_script(
+		'slimselect',
+		'https://cdnjs.cloudflare.com/ajax/libs/slim-select/2.13.1/slimselect.min.js',
+		[],
+		'2.13.1',
+		true
+	);
+
+	// If you have your own JS file, enqueue it here instead of inline.
+	// wp_enqueue_script('product-filter', get_template_directory_uri() . '/js/product-filter.js', ['slimselect'], null, true);
+
+	// Localise AJAX url + nonce for use in JS (inline or file)
+	wp_register_script('product-filter-inline', '', ['slimselect'], null, true);
+	wp_enqueue_script('product-filter-inline');
+
+	wp_localize_script('product-filter-inline', 'ProductFilterAjax', [
+		'ajaxUrl' => admin_url('admin-ajax.php'),
+		'nonce'   => wp_create_nonce('product_filter_nonce'),
+	]);
+});
+
+add_action('wp_ajax_get_industry_children', 'get_industry_children');
+add_action('wp_ajax_nopriv_get_industry_children', 'get_industry_children');
+
+function get_industry_children() {
+	check_ajax_referer('product_filter_nonce', 'nonce');
+
+	$industry_id = isset($_POST['industry_id']) ? absint($_POST['industry_id']) : 0;
+	if (!$industry_id) {
+		wp_send_json_error(['message' => 'Missing industry_id'], 400);
+	}
+
+	// Child pages of the selected Industry (product children)
+	$kids = new WP_Query([
+		'post_type'      => 'product',
+		'posts_per_page' => -1,
+		'post_parent'    => $industry_id,
+		'orderby'        => 'title',
+		'order'          => 'ASC',
+	]);
+
+	$options = [];
+	$items   = [];
+
+	while ($kids->have_posts()) {
+		$kids->the_post();
+		$id = get_the_ID();
+
+		$options[] = [
+			'value' => (string) $id,
+			'text'  => html_entity_decode(get_the_title()),
+		];
+
+		$featured = get_the_post_thumbnail_url($id, 'full');
+
+		$items[$id] = [
+			'title'     => html_entity_decode(get_the_title()),
+			'intro'     => get_field('description', $id) ?: '',
+			'image'     => $featured ?: '',
+			'link'      => get_permalink($id),
+			'parent_id' => (string) $industry_id, // 👈 add this
+		];
+	}
+	wp_reset_postdata();
+
+	wp_send_json_success([
+		'options' => $options,
+		'items'   => $items,
+	]);
+}
 
 
 add_filter( 'relevanssi_index_custom_fields', 'rlv_exclude_fields' );
