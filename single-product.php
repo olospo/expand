@@ -82,7 +82,7 @@ while ( have_posts() ) : the_post(); ?>
         $item_in_row++;
       ?>
     
-        <article class="service-card <?php echo esc_attr($column_class); ?> small-margin">
+        <article class="service-card <?php echo esc_attr($column_class); ?>">
           <a href="<?php the_permalink(); ?>">
             <div class="content">
               <span class="type">Capability</span>
