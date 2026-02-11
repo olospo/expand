@@ -38,14 +38,11 @@ if ($pathway_count === 1) {
   $items_per_row = 4;
 }
 
-// Video
-$video = get_field('video_embed');
-
 ?>
 <section class="offering modules">
   <div class="container">
     <div class="intro">
-      <h2>Our <?php the_title(); ?> Solutions</h2>
+      <h2>Explore the solutions</h2>
     </div>
     <?php if ( have_rows('pathways') ) : ?>
       <?php 
@@ -71,13 +68,13 @@ $video = get_field('video_embed');
           }
 
       ?>
-      <article class="service-card <?php echo esc_attr($column_class); ?> small-margin" data-service="<?php echo esc_attr($slug); ?>" data-solution="<?php echo esc_attr($solution_id); ?>" data-solution-slug="<?php echo esc_attr($solution_slug); ?>" style="background: url('<?php echo get_site_url(); ?>/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size: cover;">
+      <article class="service-card <?php echo esc_attr($column_class); ?>" data-service="<?php echo esc_attr($slug); ?>" data-solution="<?php echo esc_attr($solution_id); ?>" data-solution-slug="<?php echo esc_attr($solution_slug); ?>" >
         <a href="#">
           <div class="content">
             <span class="type">Solution</span>
             <h4><?php echo $title; ?></h4>
             <p><?php echo $summary; ?></p>
-            <span class="button">Select This Pathway</span>
+            <span class="button">Select This Solution</span>
           </div>
         </a>
       </article>
@@ -86,7 +83,7 @@ $video = get_field('video_embed');
   </div>
 </section>
 
-<?php if ( $video ) : ?>
+<?php $video = get_field('video_embed'); if ( $video ) : ?>
   <section class="video">
     <div class="container">
       <video 
@@ -450,9 +447,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const btn = card.querySelector(".button");
       if (!btn) return;
       if (card.classList.contains("active")) {
-        btn.textContent = "Selected Pathway";
+        btn.textContent = "Selected Solution";
       } else {
-        btn.textContent = "Select This Pathway";
+        btn.textContent = "View Solution";
       }
     });
   }
