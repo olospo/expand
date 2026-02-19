@@ -388,6 +388,12 @@ section.offering.hero {
   @media (min-width: $breakpoint-tablet) {
     padding: $padding-half 0;
   }
+  &.single {
+    padding: 20px 0 0 0;
+    @media (min-width: $breakpoint-tablet) {
+      padding: $padding-half 0 0 0;
+    }
+  }
   .container {
     margin-top: -120px;
     @media (max-width: $breakpoint-tablet) {
@@ -417,6 +423,7 @@ section.offering.hero {
         font: $medium 1.8rem/2.8rem $heading;
       }
     }
+    
   }
   
   .row {

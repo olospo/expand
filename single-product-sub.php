@@ -43,7 +43,7 @@ if ($pathway_count === 1) {
 ?>
 
 <!-- Modules / Pathway Navigation -->
-<section class="offering modules">
+<section class="offering modules <?php echo $single_pathway ? 'single' : ''; ?>">
   <div class="container">
 
     <?php if ( $single_pathway && have_rows('pathways') ) : ?>
