@@ -1,8 +1,8 @@
 <?php 
 /** 
-* Template Name: Product
-* Template Post Type: product
-*/
+ * Template Name: Product
+ * Template Post Type: product
+ */
 get_header();
 
 if ( have_posts() ) : while ( have_posts() ) : the_post(); 
@@ -23,7 +23,9 @@ if ( have_rows('pathways') ) {
   reset_rows();
 }
 
-// Work out correct class
+$single_pathway = ($pathway_count === 1);
+
+// Work out correct class (used for the cards grid)
 if ($pathway_count === 1) {
   $column_class  = 'twelve columns';
   $items_per_row = 1;
@@ -39,47 +41,80 @@ if ($pathway_count === 1) {
 }
 
 ?>
+
+<!-- Modules / Pathway Navigation -->
 <section class="offering modules">
   <div class="container">
-    <div class="intro">
-      <h2>Explore the solutions</h2>
-    </div>
-    <?php if ( have_rows('pathways') ) : ?>
-      <?php 
-        $i = 0;
-        while ( have_rows('pathways') ) : the_row();
-        
-          if ($i % $items_per_row === 0) {
-            if ($i > 0) echo '</div>';
-            echo '<div class="row">';
-          }
-          $title    = get_sub_field('pathway_title');
-          $slug     = get_sub_field('pathway_slug');
-          $summary  = get_sub_field('pathway_summary');
-          
-          $related_solution = get_sub_field('related_solution');
-          
-          if ($related_solution) {
-            $solution_id   = $related_solution->ID;
-            $solution_slug = $related_solution->post_name;
-          } else {
-            $solution_id = '';
-            $solution_slug = '';
-          }
 
+    <?php if ( $single_pathway && have_rows('pathways') ) : ?>
+      <?php
+        // Grab the first (and only) pathway and use it as a static intro
+        the_row();
+        $single_title   = get_sub_field('pathway_title');
+        $single_summary = get_sub_field('pathway_summary');
+        reset_rows();
       ?>
-      <article class="service-card <?php echo esc_attr($column_class); ?>" data-service="<?php echo esc_attr($slug); ?>" data-solution="<?php echo esc_attr($solution_id); ?>" data-solution-slug="<?php echo esc_attr($solution_slug); ?>" >
-        <a href="#">
-          <div class="content">
-            <span class="type">Solution</span>
-            <h4><?php echo $title; ?></h4>
-            <p><?php echo $summary; ?></p>
-            <span class="button">Select This Solution</span>
-          </div>
-        </a>
-      </article>
-      <?php $i++; endwhile; echo '</div>'; ?>
+
+      <div class="intro">
+        <h2><?php echo $single_title; ?></h2>
+        <?php if ( $single_summary ) : ?>
+          <?php echo $single_summary; ?>
+        <?php endif; ?>
+      </div>
+
+    <?php else : ?>
+
+      <div class="intro">
+        <h2>Explore the solutions</h2>
+      </div>
+
+      <?php if ( have_rows('pathways') ) : ?>
+        <?php 
+          $i = 0;
+          while ( have_rows('pathways') ) : the_row();
+          
+            if ($i % $items_per_row === 0) {
+              if ($i > 0) echo '</div>';
+              echo '<div class="row">';
+            }
+
+            $title    = get_sub_field('pathway_title');
+            $slug     = get_sub_field('pathway_slug');
+            $summary  = get_sub_field('pathway_summary');
+            
+            $related_solution = get_sub_field('related_solution');
+            
+            if ($related_solution) {
+              $solution_id   = $related_solution->ID;
+              $solution_slug = $related_solution->post_name;
+            } else {
+              $solution_id = '';
+              $solution_slug = '';
+            }
+        ?>
+          <article class="service-card <?php echo esc_attr($column_class); ?>"
+            data-service="<?php echo esc_attr($slug); ?>"
+            data-solution="<?php echo esc_attr($solution_id); ?>"
+            data-solution-slug="<?php echo esc_attr($solution_slug); ?>"
+          >
+            <a href="#">
+              <div class="content">
+                <span class="type">Solution</span>
+                <h4><?php echo $title; ?></h4>
+                <p><?php echo $summary; ?></p>
+                <span class="button">Select This Solution</span>
+              </div>
+            </a>
+          </article>
+        <?php 
+          $i++; 
+          endwhile; 
+          echo '</div>'; 
+        ?>
+      <?php endif; ?>
+
     <?php endif; ?>
+
   </div>
 </section>
 
@@ -98,48 +133,58 @@ if ($pathway_count === 1) {
   </section>
 <?php endif; ?>
 
+
 <?php if ( have_rows('pathways') ) : ?>
   <?php while ( have_rows('pathways') ) : the_row(); ?>
     <?php 
-      $title          = get_sub_field('pathway_title');
-      $slug           = get_sub_field('pathway_slug');
-      // Problem
-      $problem_bg     = get_sub_field('problem_background_image');
-      $problem_content = get_sub_field('problem_content');
-      // Impact
-      $impact_metrics = get_sub_field('impact_metrics');
-      $case_studies   = get_sub_field('case_studies');
-      // Approach
-      $approach_cards = get_sub_field('approach_cards');
+      $title           = get_sub_field('pathway_title');
+      $slug            = get_sub_field('pathway_slug');
 
+      // Problem
+      $problem_bg      = get_sub_field('problem_background_image');
+      $problem_content = get_sub_field('problem_content');
+
+      // Impact
+      $impact_metrics  = get_sub_field('impact_metrics');
+      $case_studies    = get_sub_field('case_studies');
+
+      // Approach
+      $approach_cards  = get_sub_field('approach_cards');
+
+      // Only hide if there are multiple pathways
+      $hidden_class = $single_pathway ? '' : 'hidden-section';
     ?>
+
+    <?php if ( $problem_content ) : ?>
     <!-- Problem -->
-    <section class="offering problem hidden-section" data-service="<?php echo esc_attr($slug); ?>">
+    <section class="offering problem <?php echo esc_attr($hidden_class); ?>" data-service="<?php echo esc_attr($slug); ?>">
       <div class="container">
         <div class="product twelve columns" style="background: url('<?php echo esc_url($problem_bg); ?>') center center no-repeat; background-size:cover;">
           <div class="content six columns">
             <h3>The Challenge</h3>
             <?php echo $problem_content; ?>
-            </div>
+          </div>
         </div>
       </div>
     </section>
+    <?php endif; ?>
     
     <?php if ( $approach_cards ) : ?>
     <!-- Approach -->
-    <section class="offering approach hidden-section" data-service="<?php echo esc_attr($slug); ?>">
+    <section class="offering approach <?php echo esc_attr($hidden_class); ?>" data-service="<?php echo esc_attr($slug); ?>">
       <div class="container">
         <h2>How we can help</h2> 
         <div class="grid grid-3">
           <?php foreach ( $approach_cards as $card ) : ?>
           <div class="card">   
             <?php if ( ! empty( $card['approach_title'] ) ) : ?>
-            <h3><?php echo esc_html( $card['approach_title'] ); ?></h3>
+              <h3><?php echo esc_html( $card['approach_title'] ); ?></h3>
             <?php endif; ?>
+
             <?php if ( ! empty( $card['approach_content'] ) ) : ?>
-            <div class="approach-content">
-              <?php echo wp_kses_post( $card['approach_content'] ); ?>
-            </div>
+              <div class="approach-content">
+                <?php echo wp_kses_post( $card['approach_content'] ); ?>
+              </div>
             <?php endif; ?>
           </div>
           <?php endforeach; ?>
@@ -148,11 +193,10 @@ if ($pathway_count === 1) {
     </section>
     <?php endif; ?>
     
-    
 
     <?php if ( $impact_metrics || $case_studies ) : ?>
     <!-- Impact -->
-    <section class="offering impact hidden-section" data-service="<?php echo esc_attr($slug); ?>">
+    <section class="offering impact <?php echo esc_attr($hidden_class); ?>" data-service="<?php echo esc_attr($slug); ?>">
       <div class="container">
         <h2>Client success stories</h2>
     
@@ -191,20 +235,21 @@ if ($pathway_count === 1) {
             }
           ?>
           <h2 class="case-studies">Case Studies</h2>
-        <div class="grid <?php echo esc_attr($grid_class); ?>">
-          <?php foreach ( $case_studies as $study ) : ?>
-          <div class="card">
-            <?php if ( ! empty( $study['case_study_title'] ) ) : ?>
-            <h4><?php echo esc_html( $study['case_study_title'] ); ?></h4>
-            <?php endif; ?>
-            <?php if ( ! empty( $study['case_study_content'] ) ) : ?>
-            <div class="case-study-content">
-              <?php echo wp_kses_post( $study['case_study_content'] ); ?>
+          <div class="grid <?php echo esc_attr($grid_class); ?>">
+            <?php foreach ( $case_studies as $study ) : ?>
+            <div class="card">
+              <?php if ( ! empty( $study['case_study_title'] ) ) : ?>
+                <h4><?php echo esc_html( $study['case_study_title'] ); ?></h4>
+              <?php endif; ?>
+
+              <?php if ( ! empty( $study['case_study_content'] ) ) : ?>
+                <div class="case-study-content">
+                  <?php echo wp_kses_post( $study['case_study_content'] ); ?>
+                </div>
+              <?php endif; ?>
             </div>
-            <?php endif; ?>
+            <?php endforeach; ?>
           </div>
-          <?php endforeach; ?>
-        </div>
         <?php endif; ?>
     
       </div>
@@ -287,6 +332,7 @@ if ($pathway_count === 1) {
 </section>
 <?php endif; ?>
 
+
 <?php if ( have_rows('exhibits') ) : ?>
 <!-- Exhibits -->
 <?php
@@ -358,8 +404,9 @@ if ($pathway_count === 1) {
 </section>
 <?php endif; ?>
 
+
 <?php if ( have_rows('testimonials') ) : ?>
-  <!-- Testimonials -->
+<!-- Testimonials -->
 <section class="offering testimonials hidden-section always-show">
   <div class="container">
     <div class="product twelve columns" style="background: url('<?php echo get_site_url(); ?>/wp-content/uploads/2023/10/Expand_WEB_Cover_Sparks-green_RGB.jpg') center center no-repeat; background-size:cover;">
@@ -379,6 +426,7 @@ if ($pathway_count === 1) {
 </section>
 <?php endif; ?>
 
+
 <!-- Contact -->
 <section class="offering contact hidden-section always-show">
   <div class="container">
@@ -387,23 +435,25 @@ if ($pathway_count === 1) {
       <?php if (have_rows('contacts')): ?>
         <article class="card">
         <?php while (have_rows('contacts')): the_row(); ?>
-          <?php $type = get_sub_field('contact_type'); if ($type === 'profile') {
-            $profile = get_sub_field('contact_profile');
-            if ($profile) {
-              $name = get_the_title($profile->ID);
-              $title = get_field('job_title', $profile->ID);
-              $email = get_field('email', $profile->ID);
-              $photo_id = get_post_thumbnail_id($profile->ID);
-              $photo_url = $photo_id ? wp_get_attachment_image_url($photo_id, 'full') : '';
+          <?php
+            $type = get_sub_field('contact_type');
+            if ($type === 'profile') {
+              $profile = get_sub_field('contact_profile');
+              if ($profile) {
+                $name     = get_the_title($profile->ID);
+                $title    = get_field('job_title', $profile->ID);
+                $email    = get_field('email', $profile->ID);
+                $photo_id = get_post_thumbnail_id($profile->ID);
+                $photo_url = $photo_id ? wp_get_attachment_image_url($photo_id, 'full') : '';
+              }
+            } else {
+              $name  = get_sub_field('contact_custom_name');
+              $title = get_sub_field('contact_custom_title');
+              $email = get_sub_field('contact_custom_email');
+              $photo = get_sub_field('contact_custom_photo');
+              $photo_url = $photo ? $photo['url'] : '';
             }
-          } else {
-            $name  = get_sub_field('contact_custom_name');
-            $title = get_sub_field('contact_custom_title');
-            $email = get_sub_field('contact_custom_email');
-            $photo = get_sub_field('contact_custom_photo');
-            $photo_url = $photo ? $photo['url'] : '';
-          }
-        ?>
+          ?>
           <div class="person">
             <?php if ($photo_url): ?>
               <img src="<?php echo esc_url($photo_url); ?>" class="photo">
@@ -419,19 +469,20 @@ if ($pathway_count === 1) {
         <?php endwhile; ?>
         </article>
       <?php endif; ?>
+
       <article class="card">
         <?php 
-        $recipient = get_field('contact_email'); // ACF on the product page
-        
-        echo FrmFormsController::get_form_shortcode([
-            'id'            => 32,
-            'contact_email' => $recipient,
-        ]);
+          $recipient = get_field('contact_email'); // ACF on the product page
+          echo FrmFormsController::get_form_shortcode([
+              'id'            => 32,
+              'contact_email' => $recipient,
+          ]);
         ?>
       </article>
     </div>
   </div>
 </section>
+
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -440,6 +491,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const alwaysShow = document.querySelectorAll(".always-show");
   let lastService = null;
   let isInitialSelection = true; // prevents scroll on page load
+
+  // If there's 0 or 1 pathway card, don't do the hide/show navigation behaviour.
+  // Just ensure any .hidden-section (global ones) are shown.
+  if (serviceCards.length <= 1) {
+    allHiddenSections.forEach(section => {
+      section.style.display = "block";
+    });
+    alwaysShow.forEach(section => {
+      section.style.display = "block";
+    });
+    return;
+  }
 
   // Update button labels based on selection state
   function updateButtonLabels() {
@@ -540,8 +603,6 @@ document.addEventListener("DOMContentLoaded", () => {
     updateButtonLabels();
     isInitialSelection = false;
   }
-
-
 });
 </script>
 
@@ -549,4 +610,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <?php endwhile; // end of the loop. ?>
 <?php endif; ?>
+
 <?php get_footer(); ?>
