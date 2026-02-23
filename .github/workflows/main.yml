@@ -12,7 +12,22 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
+
+        - name: Prepare SSH (known_hosts + key)
+        shell: bash
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+
+          echo "${{ secrets.MAIN_SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+
+          # Trust the server host key (avoids interactive prompt)
+          ssh-keyscan -p 65002 -H "${{ secrets.MAIN_SERVER_IP }}" >> ~/.ssh/known_hosts
+
+          # Quick sanity check (won't print secrets)
+          ssh -p 65002 "${{ secrets.MAIN_FTP_USERNAME }}@${{ secrets.MAIN_SERVER_IP }}" "whoami"
 
       - name: Deploy theme via SSH (rsync)
         uses: SamKirkland/web-deploy@v1
