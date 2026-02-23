@@ -16,7 +16,7 @@ jobs:
         with:
           server: ${{ secrets.MAIN_SERVER_IP }}
           port: 21
-          server-dir: wp-content/themes/expand/
+          server-dir: bcgexpand.com/public_html/wp-content/themes/expand/
           username: ${{ secrets.MAIN_FTP_USERNAME }}
           password: ${{ secrets.MAIN_FTP_PASSWORD }}
           # Requires secrets to be added to the repo (Settings > Secrets)
