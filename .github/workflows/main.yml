@@ -6,50 +6,17 @@ on:
       - main
 
 jobs:
-  deploy:
-    name: Deploy Site (SSH / rsync)
+  build:
+    name: Deploy Site
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Prepare SSH (known_hosts + key)
-        shell: bash
-        run: |
-          mkdir -p ~/.ssh
-          chmod 700 ~/.ssh
-
-          echo "${{ secrets.MAIN_SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-
-          # Trust the server host key (avoids interactive prompt)
-          ssh-keyscan -p 65002 -H "${{ secrets.MAIN_SERVER_IP }}" >> ~/.ssh/known_hosts
-
-          # Quick sanity check (won't print secrets)
-          ssh -p 65002 "${{ secrets.MAIN_FTP_USERNAME }}@${{ secrets.MAIN_SERVER_IP }}" "whoami"
-
-      - name: Deploy theme via SSH (rsync)
-        uses: SamKirkland/web-deploy@v1
+      - uses: actions/checkout@main
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
-          target-server: ${{ secrets.MAIN_SERVER_IP }}
-          remote-user: ${{ secrets.MAIN_FTP_USERNAME }}
-          private-ssh-key: ${{ secrets.MAIN_SSH_PRIVATE_KEY }}
-          ssh-port: 65002
-
-          # Local folder in repo
-          source-path: ./wp-content/themes/expand/
-
-          # LIVE site path on Hostinger (based on your SSH output)
-          destination-path: /home/u210554530/domains/bcgexpand.com/public_html/wp-content/themes/expand/
-
-          # Keep remote in sync (including deletions)
-          rsync-options: >
-            --archive
-            --verbose
-            --compress
-            --human-readable
-            --exclude=.git*
-            --exclude=.github/
-            --exclude=node_modules/
-            --exclude=*.map
+          server: ${{ secrets.MAIN_SERVER_IP }}
+          port: 21
+          server-dir: wp-content/themes/expand/
+          username: ${{ secrets.MAIN_FTP_USERNAME }}
+          password: ${{ secrets.MAIN_FTP_PASSWORD }}
+          # Requires secrets to be added to the repo (Settings > Secrets)
