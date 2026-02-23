@@ -14,7 +14,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-        - name: Prepare SSH (known_hosts + key)
+      - name: Prepare SSH (known_hosts + key)
         shell: bash
         run: |
           mkdir -p ~/.ssh
