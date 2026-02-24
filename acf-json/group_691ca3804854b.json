@@ -63,33 +63,6 @@
                             "selected": 0
                         },
                         {
-                            "key": "field_6925c2d1a18bb",
-                            "label": "Related Solution",
-                            "name": "related_solution",
-                            "aria-label": "",
-                            "type": "post_object",
-                            "instructions": "Select the solution this pathway relates to, can be left blank.",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "post_type": [
-                                "solution"
-                            ],
-                            "post_status": "",
-                            "taxonomy": "",
-                            "return_format": "object",
-                            "multiple": 0,
-                            "allow_null": 1,
-                            "allow_in_bindings": 0,
-                            "bidirectional": 0,
-                            "ui": 1,
-                            "bidirectional_target": []
-                        },
-                        {
                             "key": "field_691ca4b5d3d93",
                             "label": "Title",
                             "name": "pathway_title",
@@ -171,6 +144,27 @@
                             "selected": 0
                         },
                         {
+                            "key": "field_699d7ea24ee19",
+                            "label": "Problem Title",
+                            "name": "problem_title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Optional title (defaults to The Challenge)",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "70",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "The Challenge",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
                             "key": "field_691cab0471786",
                             "label": "Problem Content",
                             "name": "problem_content",
@@ -218,6 +212,112 @@
                             "preview_size": "featured-img"
                         },
                         {
+                            "key": "field_691caecbfe8b4",
+                            "label": "Approach Section",
+                            "name": "",
+                            "aria-label": "",
+                            "type": "tab",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "placement": "left",
+                            "endpoint": 0,
+                            "selected": 0
+                        },
+                        {
+                            "key": "field_699d7f153712e",
+                            "label": "Approach Title",
+                            "name": "approach_title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Optional title (defaults to How we can help)",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "70",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "How we can help",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_691dc1c5cf7e7",
+                            "label": "Approach Cards",
+                            "name": "approach_cards",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "Methodology pillars (e.g. benchmarking, resourcing\/efficiency, client intelligence)",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Add Row",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_691dc1c5cf7e8",
+                                    "label": "Approach Title",
+                                    "name": "approach_title",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_691dc1c5cf7e7"
+                                },
+                                {
+                                    "key": "field_691dc1c5cf7e9",
+                                    "label": "Approach Content",
+                                    "name": "approach_content",
+                                    "aria-label": "",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "rows": 3,
+                                    "placeholder": "",
+                                    "new_lines": "",
+                                    "parent_repeater": "field_691dc1c5cf7e7"
+                                }
+                            ]
+                        },
+                        {
                             "key": "field_691caea0fe8b3",
                             "label": "Impact Section",
                             "name": "",
@@ -234,6 +334,27 @@
                             "placement": "left",
                             "endpoint": 0,
                             "selected": 0
+                        },
+                        {
+                            "key": "field_699d803a75f26",
+                            "label": "Impact Title",
+                            "name": "impact_title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Optional title (defaults to Client success stories)",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "70",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "Client success stories",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
                         },
                         {
                             "key": "field_691d9d12e0aa3",
@@ -303,6 +424,27 @@
                             ]
                         },
                         {
+                            "key": "field_699d80d175f27",
+                            "label": "Case Studies Title",
+                            "name": "case_studies_title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Optional title (defaults to Case Studies)",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "70",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "Case Studies",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
                             "key": "field_691da29be0aa4",
                             "label": "Case Studies",
                             "name": "case_studies",
@@ -366,91 +508,6 @@
                                     "media_upload": 0,
                                     "delay": 0,
                                     "parent_repeater": "field_691da29be0aa4"
-                                }
-                            ]
-                        },
-                        {
-                            "key": "field_691caecbfe8b4",
-                            "label": "Approach Section",
-                            "name": "",
-                            "aria-label": "",
-                            "type": "tab",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "placement": "left",
-                            "endpoint": 0,
-                            "selected": 0
-                        },
-                        {
-                            "key": "field_691dc1c5cf7e7",
-                            "label": "Approach Cards",
-                            "name": "approach_cards",
-                            "aria-label": "",
-                            "type": "repeater",
-                            "instructions": "Methodology pillars (e.g. benchmarking, resourcing\/efficiency, client intelligence)",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "layout": "block",
-                            "min": 0,
-                            "max": 0,
-                            "collapsed": "",
-                            "button_label": "Add Row",
-                            "rows_per_page": 20,
-                            "sub_fields": [
-                                {
-                                    "key": "field_691dc1c5cf7e8",
-                                    "label": "Approach Title",
-                                    "name": "approach_title",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "allow_in_bindings": 0,
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "parent_repeater": "field_691dc1c5cf7e7"
-                                },
-                                {
-                                    "key": "field_691dc1c5cf7e9",
-                                    "label": "Approach Content",
-                                    "name": "approach_content",
-                                    "aria-label": "",
-                                    "type": "textarea",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "allow_in_bindings": 0,
-                                    "rows": 3,
-                                    "placeholder": "",
-                                    "new_lines": "",
-                                    "parent_repeater": "field_691dc1c5cf7e7"
                                 }
                             ]
                         }
@@ -1277,5 +1334,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1765465339
+    "modified": 1771929842
 }

@@ -82,20 +82,9 @@ if ($pathway_count === 1) {
             $slug     = get_sub_field('pathway_slug');
             $summary  = get_sub_field('pathway_summary');
             
-            $related_solution = get_sub_field('related_solution');
-            
-            if ($related_solution) {
-              $solution_id   = $related_solution->ID;
-              $solution_slug = $related_solution->post_name;
-            } else {
-              $solution_id = '';
-              $solution_slug = '';
-            }
         ?>
           <article class="service-card <?php echo esc_attr($column_class); ?>"
             data-service="<?php echo esc_attr($slug); ?>"
-            data-solution="<?php echo esc_attr($solution_id); ?>"
-            data-solution-slug="<?php echo esc_attr($solution_slug); ?>"
           >
             <a href="#">
               <div class="content">
@@ -118,39 +107,38 @@ if ($pathway_count === 1) {
   </div>
 </section>
 
+<!-- Video -->
 <?php $video = get_field('video_embed'); if ( $video ) : ?>
   <section class="video">
     <div class="container">
-      <video 
-        controls 
-        preload="metadata"
-        playsinline
-        style="width:100%; height:auto;"
-      >
+      <video controls preload="metadata" playsinline style="width:100%; height:auto;">
         <source src="<?php echo esc_url($video['url']); ?>" type="<?php echo esc_attr($video['mime_type']); ?>">
       </video>
     </div>
   </section>
 <?php endif; ?>
 
-
+<!-- Pathways -->
 <?php if ( have_rows('pathways') ) : ?>
   <?php while ( have_rows('pathways') ) : the_row(); ?>
     <?php 
-      $title           = get_sub_field('pathway_title');
-      $slug            = get_sub_field('pathway_slug');
-
+      $title = get_sub_field('pathway_title');
+      $slug = get_sub_field('pathway_slug');
+      
+      // Headings (optional overrides)
+      $problem_title = get_sub_field('problem_title') ?: 'The Challenge';
+      $approach_title = get_sub_field('approach_title') ?: 'How we can help';
+      $impact_title = get_sub_field('impact_title') ?: 'Client success stories';
+      $case_studies_title = get_sub_field('case_studies_title') ?: 'Case Studies';
+      
       // Problem
-      $problem_bg      = get_sub_field('problem_background_image');
+      $problem_bg = get_sub_field('problem_background_image');
       $problem_content = get_sub_field('problem_content');
-
       // Impact
-      $impact_metrics  = get_sub_field('impact_metrics');
-      $case_studies    = get_sub_field('case_studies');
-
+      $impact_metrics = get_sub_field('impact_metrics');
+      $case_studies = get_sub_field('case_studies');
       // Approach
       $approach_cards  = get_sub_field('approach_cards');
-
       // Only hide if there are multiple pathways
       $hidden_class = $single_pathway ? '' : 'hidden-section';
     ?>
@@ -161,7 +149,7 @@ if ($pathway_count === 1) {
       <div class="container">
         <div class="product twelve columns" style="background: url('<?php echo esc_url($problem_bg); ?>') center center no-repeat; background-size:cover;">
           <div class="content six columns">
-            <h3>The Challenge</h3>
+            <h3><?php echo esc_html( $problem_title ); ?></h3>
             <?php echo $problem_content; ?>
           </div>
         </div>
@@ -173,7 +161,7 @@ if ($pathway_count === 1) {
     <!-- Approach -->
     <section class="offering approach <?php echo esc_attr($hidden_class); ?>" data-service="<?php echo esc_attr($slug); ?>">
       <div class="container">
-        <h2>How we can help</h2> 
+        <h2><?php echo esc_html( $approach_title ); ?></h2> 
         <div class="grid grid-3">
           <?php foreach ( $approach_cards as $card ) : ?>
           <div class="card">   
@@ -193,12 +181,11 @@ if ($pathway_count === 1) {
     </section>
     <?php endif; ?>
     
-
     <?php if ( $impact_metrics || $case_studies ) : ?>
     <!-- Impact -->
     <section class="offering impact <?php echo esc_attr($hidden_class); ?>" data-service="<?php echo esc_attr($slug); ?>">
       <div class="container">
-        <h2>Client success stories</h2>
+        <h2><?php echo esc_html( $impact_title ); ?></h2>
     
         <?php if ( $impact_metrics ) : ?>
         <!-- Metrics -->
@@ -234,14 +221,13 @@ if ($pathway_count === 1) {
               $grid_class = 'grid-2';
             }
           ?>
-          <h2 class="case-studies">Case Studies</h2>
+          <h2 class="case-studies"><?php echo esc_html( $case_studies_title ); ?></h2>
           <div class="grid <?php echo esc_attr($grid_class); ?>">
             <?php foreach ( $case_studies as $study ) : ?>
             <div class="card">
               <?php if ( ! empty( $study['case_study_title'] ) ) : ?>
                 <h4><?php echo esc_html( $study['case_study_title'] ); ?></h4>
               <?php endif; ?>
-
               <?php if ( ! empty( $study['case_study_content'] ) ) : ?>
                 <div class="case-study-content">
                   <?php echo wp_kses_post( $study['case_study_content'] ); ?>
@@ -250,12 +236,11 @@ if ($pathway_count === 1) {
             </div>
             <?php endforeach; ?>
           </div>
-        <?php endif; ?>
-    
+        <?php endif; ?>  
       </div>
     </section>
     <?php endif; ?>
-    
+   
   <?php endwhile; ?>
 <?php endif; ?>
 <!-- End of Pathway loop -->
@@ -332,7 +317,6 @@ if ($pathway_count === 1) {
 </section>
 <?php endif; ?>
 
-
 <?php if ( have_rows('exhibits') ) : ?>
 <!-- Exhibits -->
 <?php
@@ -404,7 +388,6 @@ if ($pathway_count === 1) {
 </section>
 <?php endif; ?>
 
-
 <?php if ( have_rows('testimonials') ) : ?>
 <!-- Testimonials -->
 <section class="offering testimonials hidden-section always-show">
@@ -425,7 +408,6 @@ if ($pathway_count === 1) {
   </div>
 </section>
 <?php endif; ?>
-
 
 <!-- Contact -->
 <section class="offering contact hidden-section always-show">
@@ -482,7 +464,6 @@ if ($pathway_count === 1) {
     </div>
   </div>
 </section>
-
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
