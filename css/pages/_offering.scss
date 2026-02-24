@@ -176,6 +176,7 @@
   }
 }
 // Select Box JS styling
+
 .ss-main {
   position: relative;
   width: 100%;
@@ -205,7 +206,12 @@
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
+
     }
+  }
+  &:has(.ss-single:not(.ss-placeholder)) {
+    background: #7EF473;
+    border: 1px solid #7EF473;
   }
   .ss-arrow {
     position: absolute;
@@ -250,7 +256,7 @@
 }
 .variable-showcase {
   /* Colors */
-  --ss-primary-color: #50a071;
+  --ss-primary-color: #7EF473;
   --ss-bg-color: #7acb9c;
   --ss-border-color: #333333;
   --ss-border-radius: 10px;
