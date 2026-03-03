@@ -455,10 +455,7 @@ if ($pathway_count === 1) {
       <article class="card">
         <?php 
           $recipient = get_field('contact_email'); // ACF on the product page
-          echo FrmFormsController::get_form_shortcode([
-              'id'            => 32,
-              'contact_email' => $recipient,
-          ]);
+          echo do_shortcode('[formidable id="32" contact_email="'. esc_attr($recipient) .'"]');
         ?>
       </article>
     </div>
