@@ -453,9 +453,11 @@ if ($pathway_count === 1) {
       <?php endif; ?>
 
       <article class="card">
-        <?php 
-          $recipient = get_field('contact_email'); // ACF on the product page
-          echo do_shortcode('[formidable id="32" contact_email="'. esc_attr($recipient) .'"]');
+        <?php
+        $recipient = get_field('contact_email');
+        
+        echo do_shortcode('[frm-set-get contact_email="'. esc_attr($recipient) .'"]');
+        echo do_shortcode('[formidable id="32"]');
         ?>
       </article>
     </div>
