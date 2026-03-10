@@ -256,7 +256,7 @@ if ($pathway_count === 1) {
   $insights_count = count(get_field('insights'));
   // Work out correct class
   if ($insights_count === 1) {
-    $column_class  = 'six columns';
+    $column_class  = 'twelve columns';
     $items_per_row = 1;
   } elseif ($insights_count === 2 || $insights_count === 4) {
     $column_class  = 'six columns';
@@ -327,7 +327,7 @@ if ($pathway_count === 1) {
   $exhibits_count = count(get_field('exhibits'));
   // Work out correct class
   if ($exhibits_count === 1) {
-    $column_class  = 'six columns';
+    $column_class  = 'twelve columns';
     $items_per_row = 1;
   } elseif ($exhibits_count === 2 || $exhibits_count === 4) {
     $column_class  = 'six columns';
