@@ -750,6 +750,17 @@ section.offering.hero {
   }
 }
 
+// Video 
+.offering.video {
+  p {
+    margin: 10px 0;
+    font: $medium 1.6rem/2.8rem $heading;
+    @media (min-width: $breakpoint-laptop) { 
+      font: $medium 2.2rem/3.2rem $heading;
+    }
+  }
+}
+
 // Testimonials
 .offering.testimonials {
   background: #FBFAF7;

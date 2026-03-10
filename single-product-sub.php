@@ -108,12 +108,15 @@ if ($pathway_count === 1) {
 </section>
 
 <!-- Video -->
-<?php $video = get_field('video_embed'); if ( $video ) : ?>
-  <section class="video">
+<?php $video = get_field('video_embed'); $videoDesc = get_field('video_description'); if ( $video ) : ?>
+  <section class="offering video">
     <div class="container">
+      <div class="ten columns offset-by-one">
       <video controls preload="metadata" playsinline style="width:100%; height:auto;">
         <source src="<?php echo esc_url($video['url']); ?>" type="<?php echo esc_attr($video['mime_type']); ?>">
       </video>
+      <?php echo $videoDesc; ?>
+      </div>
     </div>
   </section>
 <?php endif; ?>

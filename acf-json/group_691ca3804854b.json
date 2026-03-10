@@ -560,6 +560,27 @@
             "allow_in_bindings": 0
         },
         {
+            "key": "field_69aff3e71f624",
+            "label": "Video Description",
+            "name": "video_description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": 4,
+            "placeholder": "",
+            "new_lines": "wpautop"
+        },
+        {
             "key": "field_691da2cee0aa6",
             "label": "Insights",
             "name": "",
@@ -1334,5 +1355,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771929842
+    "modified": 1773138950
 }
