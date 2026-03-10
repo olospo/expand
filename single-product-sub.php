@@ -160,24 +160,25 @@ if ($pathway_count === 1) {
     </section>
     <?php endif; ?>
     
-    <?php if ( $approach_cards ) : ?>
+    <?php if ( $approach_cards ) : $card_count = count( $approach_cards ); ?>
     <!-- Approach -->
     <section class="offering approach <?php echo esc_attr($hidden_class); ?>" data-service="<?php echo esc_attr($slug); ?>">
       <div class="container">
-        <h2><?php echo esc_html( $approach_title ); ?></h2> 
-        <div class="grid grid-3">
+        <h2><?php echo esc_html( $approach_title ); ?></h2>
+      
+        <div class="grid approach-grid cards-<?php echo esc_attr( $card_count ); ?>">
           <?php foreach ( $approach_cards as $card ) : ?>
-          <div class="card">   
-            <?php if ( ! empty( $card['approach_title'] ) ) : ?>
-              <h3><?php echo esc_html( $card['approach_title'] ); ?></h3>
-            <?php endif; ?>
-
-            <?php if ( ! empty( $card['approach_content'] ) ) : ?>
-              <div class="approach-content">
-                <?php echo wp_kses_post( $card['approach_content'] ); ?>
-              </div>
-            <?php endif; ?>
-          </div>
+            <div class="card">
+              <?php if ( ! empty( $card['approach_title'] ) ) : ?>
+                <h3><?php echo esc_html( $card['approach_title'] ); ?></h3>
+              <?php endif; ?>
+      
+              <?php if ( ! empty( $card['approach_content'] ) ) : ?>
+                <div class="approach-content">
+                  <?php echo wp_kses_post( $card['approach_content'] ); ?>
+                </div>
+              <?php endif; ?>
+            </div>
           <?php endforeach; ?>
         </div>
       </div>
@@ -190,18 +191,18 @@ if ($pathway_count === 1) {
       <div class="container">
         <h2><?php echo esc_html( $impact_title ); ?></h2>
     
-        <?php if ( $impact_metrics ) : ?>
+        <?php if ( $impact_metrics ) : $metric_count = count( $impact_metrics );?>
         <!-- Metrics -->
-        <div class="metrics">
+        <div class="metrics metrics-<?php echo esc_attr( $metric_count ); ?>">
           <?php foreach ( $impact_metrics as $metric ) : ?>
-          <div class="metric green">
-            <span class="unit">
-              <?php echo esc_html( $metric['metric_unit'] ); ?>
-            </span>
-            <span class="description">
-              <?php echo esc_html( $metric['metric_description'] ); ?>
-            </span>
-          </div>
+            <div class="metric green">
+              <span class="unit">
+                <?php echo esc_html( $metric['metric_unit'] ); ?>
+              </span>
+              <span class="description">
+                <?php echo esc_html( $metric['metric_description'] ); ?>
+              </span>
+            </div>
           <?php endforeach; ?>
         </div>
         <?php endif; ?>

@@ -597,10 +597,10 @@ section.offering.hero {
   }
   .card {
     background:#fff;
-    border:1px solid $border;
+    border: 1px solid $border;
     margin: 0;
     padding: 15px;
-    @media (min-width: $breakpoint-tablet) {
+    @media (min-width: $breakpoint-laptop) {
       margin: 20px 0;
       padding: 20px 30px;
     }
@@ -623,38 +623,107 @@ section.offering.hero {
 // Metrics
 .metrics {
   padding: 20px 0;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap: 3.0rem;
-  @media(max-width:900px){
-    grid-template-columns:repeat(2,1fr);
+  display: grid;
+  gap: 3rem;
+
+  // 1 metric
+  &.metrics-1 {
+    grid-template-columns: 50%;
+    justify-content: center;
   }
-  @media(max-width:540px){
-    grid-template-columns:1fr;
+
+  // 2 metrics
+  &.metrics-2 {
+    grid-template-columns: repeat(2, 1fr);
   }
+
+  // 3 metrics
+  &.metrics-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  // 4 metrics (all on one row)
+  &.metrics-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  // 5 metrics (3 + 2)
+  &.metrics-5 {
+    grid-template-columns: repeat(6, 1fr);
+
+    .metric:nth-child(-n+3) {
+      grid-column: span 2;
+    }
+
+    .metric:nth-child(4),
+    .metric:nth-child(5) {
+      grid-column: span 3;
+    }
+  }
+
+  // 6 metrics
+  &.metrics-6 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .metric {
     padding: 30px 20px;
     text-align: center;
     border: 1px solid $border;
     border-top: 10px solid $mid-green;
     background: #F0F0F0;
+
     @media (min-width: $breakpoint-tablet) {
       padding: 40px;
     }
+
     span.unit {
-      font: $bold 3.0rem/3.0rem $heading;
+      font: $bold 3rem/3rem $heading;
       display: block;
       margin-bottom: 10px;
       color: $mid-green;
+
       @media (min-width: $breakpoint-tablet) {
-        font: $bold 4.0rem/4.0rem $heading;
+        font: $bold 4rem/4rem $heading;
       }
     }
+
     span.description {
-      font: $medium 1.4rem/2.0rem $heading;
+      font: $medium 1.4rem/2rem $heading;
       display: block;
       text-transform: uppercase;
-      color: $dark-grey; 
+      color: $dark-grey;
+    }
+  }
+
+  // Tablet
+  @media (max-width: 900px) {
+    &,
+    &.metrics-1,
+    &.metrics-2,
+    &.metrics-3,
+    &.metrics-4,
+    &.metrics-5,
+    &.metrics-6 {
+      grid-template-columns: repeat(2, 1fr);
+      justify-content: unset;
+    }
+
+    &.metrics-5 .metric {
+      grid-column: auto;
+    }
+  }
+
+  // Mobile
+  @media (max-width: 540px) {
+    &,
+    &.metrics-1,
+    &.metrics-2,
+    &.metrics-3,
+    &.metrics-4,
+    &.metrics-5,
+    &.metrics-6 {
+      grid-template-columns: 1fr;
     }
   }
 }
@@ -691,12 +760,61 @@ section.offering.hero {
     background:#fff;
     padding: 15px 20px;
     @media (min-width: $breakpoint-tablet) {
-      margin: 20px 0;
+      margin: 0;
       padding: 20px 30px;
     }
     h3 {
       font: $bold 2.0rem/3.6rem $heading;
       margin-bottom: 0px;
+    }
+  }
+  .approach-grid {
+    display: grid;
+    gap: 30px;
+    &.cards-1 {
+      grid-template-columns: 50%;
+      justify-content: center;
+    }
+    &.cards-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    &.cards-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    &.cards-4 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    &.cards-5 {
+      grid-template-columns: repeat(6, 1fr);
+      .card:nth-child(-n+3) {
+        grid-column: span 2; /* 3 across */
+      }
+      .card:nth-child(4), .card:nth-child(5) {
+        grid-column: span 3; /* 2 across */
+      }
+    }
+    &.cards-6 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: 768px) {
+    .approach-grid,
+    .approach-grid.cards-1,
+    .approach-grid.cards-2,
+    .approach-grid.cards-3,
+    .approach-grid.cards-4,
+    .approach-grid.cards-5,
+    .approach-grid.cards-6 {
+      grid-template-columns: 1fr;
+    }
+  
+    .approach-grid.cards-5 {
+      .card:nth-child(-n+3) {
+        grid-column: span 2; /* 3 across */
+      }
+      .card:nth-child(4), .card:nth-child(5) {
+        grid-column: span 2; /* 2 across */
+      }
     }
   }
 }
@@ -730,7 +848,7 @@ section.offering.hero {
     }
   }
   .row + .row {
-    padding: 40px 0 0 0;
+    padding: 10px 0 0 0;
   }
   article.card {
     background:#fff;
