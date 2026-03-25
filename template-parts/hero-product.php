@@ -50,6 +50,11 @@ $parent_link  = $parent_id ? get_permalink( $parent_id ) : null;
 
 <!-- Offering Image -->
 <section class="offering image">
-  <div class="background" style="background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('<?php echo esc_url( $featured_image_url ); ?>') center center no-repeat; background-size: cover;">
+  <div class="background" style="background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('<?php echo esc_url( $featured_image_url ); ?>') center center no-repeat; background-size: cover;">
+    <?php if (!empty($eLogo)): ?>
+    <div class="container">
+      <img src="<?php echo esc_url($eLogo); ?>" alt="<?php the_title(); ?> Logo" class="elogo">
+    </div>
+    <?php endif; ?>
   </div>
 </section>
