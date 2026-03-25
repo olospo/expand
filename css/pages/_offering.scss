@@ -70,9 +70,28 @@
           }
         }
         a.button {
-          color: $white;
+          padding: 15px 20px;
+          border-radius: 20px;
+          background: #9CF183;
+          color: $black;
+          border: 1px solid #9CF183;
           &:hover {
-            color: $mid-green;
+            background: $light-green;
+            color: $black;
+            border: 1px solid $light-green;
+          }
+          &:before {
+            display: none;
+          }
+          &:after {
+            -webkit-transition: all ease .5s;
+            -moz-transition: all ease .5s;
+            -o-transition: all ease .5s;
+            transition: all ease .5s;
+            margin-left: 10px;
+            font: $bold 1.4rem/1.4rem $heading;
+            content: "→";
+            color: $black;
           }
         }
       }

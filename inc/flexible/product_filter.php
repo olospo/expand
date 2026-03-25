@@ -70,7 +70,7 @@ endif;
         <div class="overlay-content">
           <h3 id="previewTitle"></h3>
           <p id="previewText"></p>
-          <a id="previewLink" href="#" class="button" style="display:none;">Explore</a>
+          <a id="previewLink" href="#" class="button" style="display:none;">Learn more</a>
         </div>
       </div>
     </div>
