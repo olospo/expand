@@ -88,7 +88,7 @@ while ( have_posts() ) : the_post(); ?>
               <span class="type">Capability</span>
               <h4><?php the_title(); ?></h4>
               <p><?php echo esc_html($desc); ?></p>
-              <span class="button">Explore</span>
+              <span class="button">Learn more</span>
             </div>
           </a>
         </article>
