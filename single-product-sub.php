@@ -65,7 +65,7 @@ if ($pathway_count === 1) {
     <?php else : ?>
 
       <div class="intro">
-        <h2>Explore the solutions</h2>
+        <h2>Explore our solutions</h2>
       </div>
 
       <?php if ( have_rows('pathways') ) : ?>
