@@ -12,11 +12,11 @@ $industries = new WP_Query([
   'post_status'    => 'publish',
   'posts_per_page' => -1,
   'post_parent'    => 0,
-  'orderby' => 'title',
-  'order'   => 'ASC',
+  'orderby'        => 'title',
+  'order'          => 'ASC',
 ]);
 
-// Build preview data for parent industries only (children come from AJAX)
+// Build preview data for parent industries only
 $productsData = [];
 if ($industries->have_posts()) :
   while ($industries->have_posts()) : $industries->the_post();
@@ -24,7 +24,7 @@ if ($industries->have_posts()) :
     $featured = get_the_post_thumbnail_url($id, 'full');
 
     $productsData[$id] = [
-      'title' => html_entity_decode(get_the_title()),
+      'title' => html_entity_decode(get_the_title(), ENT_QUOTES, 'UTF-8'),
       'intro' => get_field('description', $id) ?: '',
       'image' => $featured ?: '',
       'link'  => get_permalink($id),
@@ -32,6 +32,34 @@ if ($industries->have_posts()) :
   endwhile;
   wp_reset_postdata();
 endif;
+
+// Whitelist of published children by parent ID
+$publishedChildrenByParent = [];
+$publishedChildren = get_posts([
+  'post_type'           => 'product',
+  'post_status'         => 'publish',
+  'posts_per_page'      => -1,
+  'post_parent__not_in' => [0],
+  'orderby'             => 'title',
+  'order'               => 'ASC',
+  'fields'              => 'ids',
+]);
+
+if (!empty($publishedChildren)) {
+  foreach ($publishedChildren as $child_id) {
+    $parent_id = (int) wp_get_post_parent_id($child_id);
+
+    if (!$parent_id) {
+      continue;
+    }
+
+    if (!isset($publishedChildrenByParent[$parent_id])) {
+      $publishedChildrenByParent[$parent_id] = [];
+    }
+
+    $publishedChildrenByParent[$parent_id][] = (int) $child_id;
+  }
+}
 ?>
 
 <section class="product_filter">
@@ -44,6 +72,7 @@ endif;
         <select id="industrySelect" class="variable-showcase">
           <option data-placeholder="true"></option>
           <?php if ($industries->have_posts()) : ?>
+            <?php $industries->rewind_posts(); ?>
             <?php while ($industries->have_posts()): $industries->the_post(); ?>
               <option value="<?php echo esc_attr(get_the_ID()); ?>"><?php echo esc_html(get_the_title()); ?></option>
             <?php endwhile; wp_reset_postdata(); ?>
@@ -51,12 +80,11 @@ endif;
         </select>
 
         <div class="capability-wrap is-hidden" id="capabilityWrap" aria-hidden="true">
-        <select id="functionSelect" class="variable-showcase">
-          <option data-placeholder="true"></option>
-          <!-- populated via AJAX -->
-        </select>
+          <select id="functionSelect" class="variable-showcase">
+            <option data-placeholder="true"></option>
+            <!-- populated via AJAX -->
+          </select>
         </div>
-
       </div>
     </div>
 
@@ -78,11 +106,10 @@ endif;
   </div>
 </section>
 
-
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  // Parent preview data (industries)
-  const products = <?php echo json_encode($productsData); ?>;
+  const products = <?php echo wp_json_encode($productsData); ?>;
+  const publishedChildrenByParent = <?php echo wp_json_encode($publishedChildrenByParent); ?>;
 
   const industrySelectEl = document.getElementById('industrySelect');
   const functionSelectEl = document.getElementById('functionSelect');
@@ -95,10 +122,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const logo = document.getElementById('previewLogo');
 
   const placeholder = "<?php echo esc_url($bg); ?>";
-
   const capabilityWrap = document.getElementById('capabilityWrap');
 
-  // --- SlimSelect instances ---
   const industrySlim = new SlimSelect({
     select: '#industrySelect',
     settings: {
@@ -115,17 +140,15 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Cache: industryId -> { options, items }
   const cache = new Map();
 
-  // --- UI helpers ---
   function hideCapabilitySelect() {
     if (!capabilityWrap) return;
+
     capabilityWrap.classList.add('is-hidden');
     capabilityWrap.classList.remove('is-visible');
     capabilityWrap.setAttribute('aria-hidden', 'true');
 
-    // Reset slim select to neutral state
     functionSlim.setData([{ placeholder: true, text: 'Select Capability', value: '' }]);
     functionSlim.setSelected('');
     functionSlim.disable();
@@ -133,13 +156,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function showCapabilitySelect() {
     if (!capabilityWrap) return;
+
     capabilityWrap.classList.remove('is-hidden');
     capabilityWrap.classList.add('is-visible');
     capabilityWrap.setAttribute('aria-hidden', 'false');
   }
 
   function setFunctionStateLoading() {
-    // Keep hidden while loading (cleaner UX)
     functionSlim.setData([{ placeholder: true, text: 'Loading…', value: '' }]);
     functionSlim.setSelected('');
     functionSlim.disable();
@@ -154,38 +177,35 @@ document.addEventListener('DOMContentLoaded', function () {
     functionSlim.enable();
   }
 
-  // --- Preview helpers ---
   function updatePreview(id) {
     const item = products[id];
     if (!item) return;
-  
+
     title.textContent = item.title || '';
     text.textContent  = item.intro || '';
-  
+
     if (item.link) {
       link.href = item.link;
       link.style.display = 'inline-block';
     } else {
       link.style.display = 'none';
     }
-  
-    // ✅ Image fallback: child -> parent -> placeholder
+
     const parentId = item.parent_id;
     const parentImage = parentId && products[parentId] ? products[parentId].image : '';
     const img = item.image || parentImage || placeholder;
-  
+
     square.style.backgroundImage = `url('${img}')`;
-  
+
     overlay.style.display = 'flex';
     overlay.style.opacity = 0;
     requestAnimationFrame(() => {
       overlay.style.transition = 'opacity 0.4s ease-in-out';
       overlay.style.opacity = 1;
     });
-  
+
     if (logo) logo.style.opacity = 0;
   }
-
 
   function resetPreview() {
     overlay.style.display = 'none';
@@ -194,7 +214,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (logo) logo.style.opacity = 1;
   }
 
-  // --- AJAX ---
   async function fetchChildren(industryId) {
     if (cache.has(industryId)) return cache.get(industryId);
 
@@ -216,45 +235,50 @@ document.addEventListener('DOMContentLoaded', function () {
     return json.data;
   }
 
-  // --- Initial state ---
   hideCapabilitySelect();
   resetPreview();
 
-  // --- Events ---
   industrySelectEl.addEventListener('change', async (e) => {
     const industryId = e.target.value;
 
-    // Clearing industry
     if (!industryId) {
       hideCapabilitySelect();
       resetPreview();
       return;
     }
 
-    // Show industry preview immediately
     updatePreview(industryId);
-
-    // Prep capability select (hidden) while loading
     hideCapabilitySelect();
     setFunctionStateLoading();
 
     try {
       const data = await fetchChildren(industryId);
 
-      // Merge child preview items into products map for instant preview on child selection
-      if (data.items) Object.assign(products, data.items);
+      const allowedIds = (publishedChildrenByParent[industryId] || []).map(String);
 
-      // Only show Select 2 if there are children
-      if (data.options && data.options.length) {
-        populateFunctionSelect(data.options);
+      const safeOptions = Array.isArray(data.options)
+        ? data.options.filter(option => allowedIds.includes(String(option.value)))
+        : [];
+
+      const safeItems = {};
+      if (data.items && typeof data.items === 'object') {
+        Object.keys(data.items).forEach((id) => {
+          if (allowedIds.includes(String(id))) {
+            safeItems[id] = data.items[id];
+          }
+        });
+      }
+
+      Object.assign(products, safeItems);
+
+      if (safeOptions.length) {
+        populateFunctionSelect(safeOptions);
         showCapabilitySelect();
       } else {
-        // No children: keep hidden (as requested)
         hideCapabilitySelect();
       }
     } catch (err) {
       console.error(err);
-      // Error: keep hidden (less alarming)
       hideCapabilitySelect();
     }
   });
