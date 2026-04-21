@@ -11,7 +11,7 @@ while ( have_posts() ) : the_post(); ?>
   <div class="container">
     <div class="intro">
       <h2>Our <?php the_title(); ?> Capabilities</h2>
-      <p>BCG Expand provides industry leading benchmarking, cost optimization and competitor intelligence capabilities across the 3rd party ecosystem, including Market Data and Brokerage, Clearing and Exchange costs.</p>
+      <!-- <p>BCG Expand provides industry leading benchmarking, cost optimization and competitor intelligence capabilities across the 3rd party ecosystem, including Market Data and Brokerage, Clearing and Exchange costs.</p> -->
     </div>
 
     <?php
