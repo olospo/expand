@@ -189,9 +189,9 @@ if ($pathway_count === 1) {
     <!-- Impact -->
     <section class="offering impact <?php echo esc_attr($hidden_class); ?>" data-service="<?php echo esc_attr($slug); ?>">
       <div class="container">
-        <h2><?php echo esc_html( $impact_title ); ?></h2>
-    
+        
         <?php if ( $impact_metrics ) : $metric_count = count( $impact_metrics );?>
+        <h2><?php echo esc_html( $impact_title ); ?></h2>
         <!-- Metrics -->
         <div class="metrics metrics-<?php echo esc_attr( $metric_count ); ?>">
           <?php foreach ( $impact_metrics as $metric ) : ?>
