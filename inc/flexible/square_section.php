@@ -5,9 +5,24 @@ $layout = get_sub_field('section_layout');
 if( $layout == 'left' ) { ?>
 <section class="square_section <?php echo $color; ?>">
   <div class="container">
-    <?php if( have_rows('image') ): // Image ?>
-      <?php while( have_rows('image') ): the_row(); ?>
-      <div class="square_background" style="background: url('<?php echo get_sub_field('square_image'); ?>') center center no-repeat; background-size:cover;"></div>
+    
+    <?php if( have_rows('image') ): // Image group field ?>
+      <?php while( have_rows('image') ): the_row(); 
+        $slider = get_sub_field('slider'); // Get the "slider" field inside the "image" group
+        ?>
+        
+        <?php if( $slider ): // If "slider" is checked, use the slides repeater ?>
+          <?php if( have_rows('slides') ): // Slides repeater ?>
+            <div class="slider full square_background">
+            <?php while( have_rows('slides') ): the_row(); ?>
+              <div class="slide" style="background: url('<?php echo get_sub_field('slide_background_image'); ?>') <?php echo get_sub_field('slide_background_position'); ?> center no-repeat; background-size: cover;"></div>
+            <?php endwhile; ?>
+            </div>
+          <?php endif; ?>
+        <?php else: // If "slider" is not checked, use the original background image ?>
+          <div class="square_background" style="background: url('<?php echo get_sub_field('square_image'); ?>') <?php echo get_sub_field('background_position'); ?> center no-repeat; background-size: cover;"></div>
+        <?php endif; ?>
+        
       <?php endwhile; ?>
     <?php endif; ?>
     
@@ -73,9 +88,23 @@ if( $layout == 'left' ) { ?>
       <?php endwhile; ?>
     <?php endif; ?>
     
-    <?php if( have_rows('image') ): // Image ?>
-      <?php while( have_rows('image') ): the_row(); ?>
-      <div class="square_background" style="background: url('<?php echo get_sub_field('square_image'); ?>') center center no-repeat; background-size:cover;"></div>
+    <?php if( have_rows('image') ): // Image group field ?>
+      <?php while( have_rows('image') ): the_row(); 
+        $slider = get_sub_field('slider'); // Get the "slider" field inside the "image" group
+        ?>
+        
+        <?php if( $slider ): // If "slider" is checked, use the slides repeater ?>
+          <?php if( have_rows('slides') ): // Slides repeater ?>
+            <div class="slider full square_background">
+            <?php while( have_rows('slides') ): the_row(); ?>
+              <div class="slide" style="background: url('<?php echo get_sub_field('slide_background_image'); ?>') <?php echo get_sub_field('slide_background_position'); ?> center no-repeat; background-size: cover;"></div>
+            <?php endwhile; ?>
+            </div>
+          <?php endif; ?>
+        <?php else: // If "slider" is not checked, use the original background image ?>
+          <div class="square_background" style="background: url('<?php echo get_sub_field('square_image'); ?>') <?php echo get_sub_field('background_position'); ?> center no-repeat; background-size: cover;"></div>
+        <?php endif; ?>
+        
       <?php endwhile; ?>
     <?php endif; ?>
     
