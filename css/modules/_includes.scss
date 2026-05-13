@@ -668,6 +668,38 @@
   @media (min-width: $breakpoint-tablet) {
     padding: $padding 0;
   }
+  .title {
+    h3 {
+      span.word1 {
+        color: $black;
+      }
+      &.two {
+        span.word1, span.word2 {
+          color: $black;
+        }
+      }
+      &.three {
+        span.word1, span.word2, span.word3 {
+          color: $black;
+        }
+      }
+      &.four {
+        span.word1, span.word2, span.word3, span.word4 {
+          color: $black;
+        }
+      }
+      &.five {
+        span.word1, span.word2, span.word3, span.word4, span.word5 {
+          color: $black;
+        }
+      }
+      &.six {
+        span.word1, span.word2, span.word3, span.word4, span.word5, span.word6 {
+          color: $black;
+        }
+      }
+    }
+  }
   p {
     background: -webkit-linear-gradient(to right, #29BA74, #197A56);
     background: linear-gradient(to right, #29BA74, #197A56);
@@ -679,6 +711,41 @@
     }
     &::selection {
       -webkit-text-fill-color: $white;
+    }
+  }
+  &.grey {
+    background: #333;
+    .title {
+      h3 {
+        span.word1 {
+          color: $white;
+        }
+        &.two {
+          span.word1, span.word2 {
+            color: $white;
+          }
+        }
+        &.three {
+          span.word1, span.word2, span.word3 {
+            color: $white;
+          }
+        }
+        &.four {
+          span.word1, span.word2, span.word3, span.word4 {
+            color: $white;
+          }
+        }
+        &.five {
+          span.word1, span.word2, span.word3, span.word4, span.word5 {
+            color: $white;
+          }
+        }
+        &.six {
+          span.word1, span.word2, span.word3, span.word4, span.word5, span.word6 {
+            color: $white;
+          }
+        }
+      }
     }
   }
 }
