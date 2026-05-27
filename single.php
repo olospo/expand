@@ -14,7 +14,7 @@ while ( have_posts() ) : the_post(); ?>
 <section class="hero profile">
   <div class="container">
     <div class="twelve columns">
-      <div class="breadcrumbs"><a href="<?php echo get_site_url(); ?>/news-events">Insights</a> <span>></span> <?php the_title(); ?></div>
+      <div class="breadcrumbs"><a href="<?php echo get_site_url(); ?>/insights">Insights</a> <span>></span> <?php the_title(); ?></div>
     </div>
   </div>
 </section>
