@@ -1,88 +1,122 @@
 <?php /* Category */
 
-$cat= get_queried_object();
+$current_cat = get_queried_object();
 
-get_header(); ?>
+get_header();
 
-<section class="hero profile">
+$news_page = get_page_by_path( 'news-events' );
+$news_page_link = $news_page ? get_permalink( $news_page->ID ) : home_url( '/news-events/' );
+
+$category_labels = array(
+  'news'          => 'News',
+  'insight'       => 'Insights',
+  'event'         => 'Events',
+  'press-release' => 'Press Releases',
+  'report'        => 'Reports',
+  'whitepaper'    => 'Whitepapers',
+);
+
+$title = 'Latest News';
+
+if ( $current_cat && ! is_wp_error( $current_cat ) ) {
+  $title = isset( $category_labels[ $current_cat->slug ] )
+    ? 'Latest ' . $category_labels[ $current_cat->slug ]
+    : single_cat_title( '', false );
+}
+
+$categories = get_categories( array(
+  'hide_empty' => true,
+  'orderby'    => 'name',
+  'order'      => 'ASC',
+) );
+?>
+
+<section class="single-news-hero" style="background:url('<?php bloginfo('template_directory'); ?>/img/news-skyline.jpg') bottom center no-repeat; background-size: cover;">
   <div class="container">
     <div class="twelve columns">
-      <div class="breadcrumbs"><a href="<?php echo get_site_url(); ?>/news-events">News & Events</a> <span>></span> <?php single_cat_title(); ?></div>
+      <h1 class="archive"><?php echo esc_html( $title ); ?></h1>
+    </div>
+
+    <div class="news-events-filters twelve columns">
+      <label>Filter</label>
+
+      <a href="<?php echo esc_url( $news_page_link ); ?>">
+        All
+      </a>
+
+      <?php foreach ( $categories as $cat_obj ) : ?>
+        <?php
+          $label = $category_labels[ $cat_obj->slug ] ?? $cat_obj->name;
+
+          $active_class = (
+            $current_cat &&
+            isset( $current_cat->term_id ) &&
+            (int) $current_cat->term_id === (int) $cat_obj->term_id
+          ) ? 'active' : '';
+        ?>
+
+        <a class="<?php echo esc_attr( $active_class ); ?>" href="<?php echo esc_url( get_category_link( $cat_obj->term_id ) ); ?>">
+          <?php echo esc_html( $label ); ?>
+        </a>
+      <?php endforeach; ?>
     </div>
   </div>
 </section>
 
-<section class="news">
+<section class="news-events-listing">
   <div class="container">
-  <?php // $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-        // $args = array(
-            // 'post_type'      => 'post',
-            // 'order'          => 'DESC',
-            // 'post_status'    => 'publish',
-            // 'paged'          => $paged
-        // ); 
-        // query_posts($args); ?>
-  <?php if ( have_posts() ) : while (have_posts()) : the_post(); ?>
-      <?php if( $wp_query->current_post == 0 ) : // If First Post ?>
-        <article class="item featured twelve columns">
-          <?php if ( has_post_thumbnail() ) { ?>
-          <div class="item_image featured six columns no_right_margin">
-            <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'featured-img' ); ?></a>
-          </div>
-          <div class="item_content featured six columns no_left_margin">
-          <?php } else { ?>
-          <div class="item_content twelve columns">
-          <?php } ?>
-            <div class="content">
-              <?php $category = get_the_category(); $name = $category[0]->cat_name;
-              $cat_id = get_cat_ID( $name );
-              $link = get_category_link( $cat_id );
-              echo '<a class="category_tag" href="'. esc_url( $link ) .'"">'. $name .'</a>'; ?>
-              <!-- Tag Links -->
-              <?php 
-                $post_tags = get_the_tags();
-                if ( $post_tags ) :
-                  foreach( $post_tags as $tag ) : 
-                    $tag_link = esc_url( get_tag_link( $tag->term_id ) );
-              ?>
-                  <a class="tag" href="<?php echo $tag_link; ?>"><?php echo esc_html( $tag->name ); ?></a>
-              <?php endforeach; endif; ?>
-              <p class="date"><?php the_time('F j, Y'); ?></p>
-              <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-              <?php the_excerpt(); ?>
-              <a href="<?php the_permalink(); ?>" class="button">Read more</a>
+    <div class="news-grid twelve columns">
+      <?php if ( have_posts() ) : ?>
+        <?php while ( have_posts() ) : the_post(); ?>
+          <?php
+            $cats        = get_the_category();
+            $primary_cat = ! empty( $cats ) ? $cats[0] : null;
+
+            $cat_label = '';
+            $cat_link  = '';
+            $cat_slug  = '';
+
+            if ( $primary_cat ) {
+              $cat_slug  = $primary_cat->slug;
+              $cat_label = $category_labels[ $cat_slug ] ?? $primary_cat->name;
+              $cat_link  = get_category_link( $primary_cat->term_id );
+            }
+          ?>
+
+          <article class="item clickable-card" data-link="<?php the_permalink(); ?>">
+            <?php if ( has_post_thumbnail() ) : ?>
+              <div class="item_image">
+                <?php if ( $primary_cat ) : ?>
+                  <a class="category_tag <?php echo esc_attr( $cat_slug ); ?>" href="<?php echo esc_url( $cat_link ); ?>">
+                    <span><?php echo esc_html( $cat_label ); ?></span>
+                  </a>
+                <?php endif; ?>
+
+                <a href="<?php the_permalink(); ?>">
+                  <?php the_post_thumbnail( 'featured-img' ); ?>
+                </a>
+              </div>
+            <?php endif; ?>
+
+            <div class="item_content">
+              <div class="item_body">
+                <p class="date"><?php echo esc_html( get_the_date( 'F j, Y' ) ); ?></p>
+                <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+              </div>
+
+              <div class="item_footer">
+                <a href="<?php the_permalink(); ?>" class="read-more">
+                  Read more<span aria-hidden="true">→</span>
+                </a>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
+
+        <?php endwhile; ?>
       <?php else : ?>
-        <article class="item one-third column">
-          <?php if ( has_post_thumbnail() ) { ?>
-          <div class="item_image">
-            <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'featured-img' ); ?></a>
-          </div>
-          <?php } ?>
-          <div class="item_content">
-            <?php $category = get_the_category(); $name = $category[0]->cat_name;
-              $cat_id = get_cat_ID( $name );
-              $link = get_category_link( $cat_id );
-              echo '<a class="category_tag" href="'. esc_url( $link ) .'"">'. $name .'</a>'; ?>
-            <p class="date"><?php the_time('F j, Y'); ?></p>
-            <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-            <?php the_excerpt(); ?>
-            <a href="<?php the_permalink(); ?>" class="button">Read more</a>
-          </div>
-        </article>
+        <p>No posts found.</p>
       <?php endif; ?>
-    <?php endwhile; ?>
-    <div class="row">
-      <div class="sixteen columns">
-        <?php numeric_posts_nav(); ?>
-      </div>
     </div>
-    
-  <?php else : ?>
-  <!-- No posts found -->
-  <?php endif; wp_reset_query(); ?>
   </div>
 </section>
 

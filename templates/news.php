@@ -1,153 +1,129 @@
 <?php /* Template Name: News & Events */
 get_header();
 
-while ( have_posts() ) : the_post(); ?>
+while ( have_posts() ) : the_post();
 
-<?php 
-  // Hero fields
-  $type          = get_field('video_or_image');
-  $opacity       = get_field('opacity_overlay');
-  $image         = get_field('video_poster');
-  $videomp4      = get_field('upload_video_mp4');
-  $videowebm     = get_field('upload_video_webm');
-  $bgImage       = get_field('background_image');
-  $icon          = get_field('icon');
-  $positionIcon  = get_field('icon_position');
+$category_labels = array(
+  'news'          => 'News',
+  'insight'       => 'Insights',
+  'event'         => 'Events',
+  'press-release' => 'Press Releases',
+  'report'        => 'Reports',
+  'whitepaper'    => 'Whitepapers',
+);
+
+$categories = get_categories( array(
+  'hide_empty' => true,
+  'orderby'    => 'name',
+  'order'      => 'ASC',
+) );
+
+$news_events = new WP_Query( array(
+  'post_type'      => 'post',
+  'post_status'    => 'publish',
+  'posts_per_page' => -1,
+  'orderby'        => 'date',
+  'order'          => 'DESC',
+) );
 ?>
 
-<section class="hero home">
-  <div class="video-upload"
-       <?php if ( $type == "image" ) : ?>
-          style="background: linear-gradient(rgba(0,0,0,0.<?php echo esc_attr($opacity); ?>), rgba(0,0,0,0.<?php echo esc_attr($opacity); ?>)), url('<?php bloginfo('template_directory'); ?>/img/expand_news.jpg') center center no-repeat; background-size: cover;"
-       <?php elseif ( $type == "video" ) : ?>
-          style="background: linear-gradient(rgba(0,0,0,0.<?php echo esc_attr($opacity); ?>), rgba(0,0,0,0.<?php echo esc_attr($opacity); ?>))"
-       <?php endif; ?>>
-       
-    <?php if ( $type == "video" ) : ?>
-      <video data-object-fit="cover" playsinline muted autoplay loop id="homeVideo" poster="<?php echo esc_url($image['url']); ?>">
-        <source src="<?php echo esc_url($videowebm); ?>" type="video/webm">
-        <source src="<?php echo esc_url($videomp4); ?>" type="video/mp4">
-      </video>
-      <div class="poster" style="background: url('<?php echo esc_url($image['url']); ?>') center center no-repeat; background-size: cover"></div>
-    <?php endif; ?>
-    
-    <?php if ( $icon ) : ?>
-      <div class="icon <?php echo esc_attr($positionIcon); ?>">
-        <h1><img src="<?php echo esc_url($icon['url']); ?>" alt="<?php echo esc_attr($icon['alt']); ?>"></h1>
-        <div class="hero-buttons">
-          <p>Keep up with the latest news, insights and events from Expand</p>
-          <a href="#news" class="jump-link">News</a>
-          <a href="#insight" class="jump-link">Insights</a>
-          <a href="#event" class="jump-link">Events</a>
-        </div>
-      </div>
-    <?php endif; ?>
-    <!-- Hero buttons -->
-  </div>
-</section>
-
-<?php
-  // Mapping of category slugs to displayed labels.
-  // Note: Although the category slugs for the latter two are singular,
-  // we display them as "Events" and "Insights".
-  $categories = array(
-    'news'   => 'News',
-    'insight'=> 'Insights',
-    'event'  => 'Events'
-  );
-
-  foreach( $categories as $slug => $display_title ):
-    // Get the category object by its slug. If it does not exist, skip this section.
-    $cat_obj = get_category_by_slug( $slug );
-    if ( ! $cat_obj ) continue;
-    $cat_id   = $cat_obj->term_id;
-    $cat_link = esc_url( get_category_link( $cat_id ) );
-  
-    // Setup query for four posts in this category.
-    $args = array(
-      'post_type'      => 'post',
-      'cat'            => $cat_id,
-      'posts_per_page' => 4,
-      'post_status'    => 'publish'
-    );
-    $custom_query = new WP_Query( $args );
-?>
-<section class="<?php echo esc_attr($slug); ?>" id="<?php echo esc_attr($slug); ?>">
+<section class="single-news-hero" style="background:url('<?php bloginfo('template_directory'); ?>/img/news-skyline.jpg') bottom center no-repeat; background-size: cover;">
   <div class="container">
     <div class="twelve columns">
-    <h2><?php echo esc_html( $display_title ); ?></h2>
+      <h1 class="archive">BCG Expand News</h1>
+    </div>
+
+    <div class="news-events-filters twelve columns">
+      <label>Filter</label>
+
+      <a href="<?php echo esc_url( get_permalink() ); ?>" class="active">
+        All
+      </a>
+
+      <?php foreach ( $categories as $cat_obj ) : ?>
+        <?php $label = $category_labels[ $cat_obj->slug ] ?? $cat_obj->name; ?>
+
+        <a href="<?php echo esc_url( get_category_link( $cat_obj->term_id ) ); ?>">
+          <?php echo esc_html( $label ); ?>
+        </a>
+      <?php endforeach; ?>
+      
     </div>
   </div>
-  <div class="container"> 
-      <?php if( $custom_query->have_posts() ): ?>
-        <?php while( $custom_query->have_posts() ): $custom_query->the_post(); ?>
-          <?php if ( $custom_query->current_post == 0 ) : // Display first post as featured ?>
-            <article class="item featured twelve columns">
-              <?php if ( has_post_thumbnail() ) : ?>
-                <div class="item_image featured six columns no_right_margin">
-                  <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'featured-img' ); ?></a>
-                </div>
-                <div class="item_content featured six columns no_left_margin">
-              <?php else : ?>
-                <div class="item_content twelve columns">
-              <?php endif; ?>
-                  <div class="content">
-                    <a class="category_tag" href="<?php echo $cat_link; ?>"><?php echo esc_html( $display_title ); ?></a>
-                    <!-- Tag Links -->
-                    <?php 
-                      $post_tags = get_the_tags();
-                      if ( $post_tags ) :
-                        foreach( $post_tags as $tag ) : 
-                          $tag_link = esc_url( get_tag_link( $tag->term_id ) );
-                    ?>
-                        <a class="tag" href="<?php echo $tag_link; ?>"><?php echo esc_html( $tag->name ); ?></a>
-                    <?php endforeach; endif; ?>
-                    <p class="date"><?php the_time('F j, Y'); ?></p>
-                    <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                    <?php the_excerpt(); ?>
-                    <a href="<?php the_permalink(); ?>" class="button">Read more</a>
-                  </div>
-                </div>
-            </article>
-          <?php else : // Standard layout for subsequent posts ?>
-            <article class="item one-third column">
-              <?php if ( has_post_thumbnail() ) : ?>
-                <a href="<?php the_permalink(); ?>">
-                  <div class="item_image">
-                    <?php the_post_thumbnail( 'featured-img' ); ?>
-                  </div>
-                </a>
-              <?php endif; ?>
-              <div class="item_content">
-                <a class="category_tag" href="<?php echo $cat_link; ?>"><?php echo esc_html( $display_title ); ?></a>
-                <!-- Tag Links -->
-                <?php 
-                  $post_tags = get_the_tags();
-                  if ( $post_tags ) :
-                    foreach( $post_tags as $tag ) : 
-                      $tag_link = esc_url( get_tag_link( $tag->term_id ) );
-                ?>
-                    <a class="tag" href="<?php echo $tag_link; ?>"><?php echo esc_html( $tag->name ); ?></a>
-                <?php endforeach; endif; ?>
-                <p class="date"><?php the_time('F j, Y'); ?></p>
-                <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                <?php the_excerpt(); ?>
-                <a href="<?php the_permalink(); ?>" class="button">Read more</a>
-              </div>
-            </article>
-          <?php endif; ?>
-        <?php endwhile; ?>
-      <?php else : ?>
-      <?php endif; ?>
-      <div class="more-link twelve columns">
-        <a href="<?php echo $cat_link; ?>" class="more-button">See All <?php echo esc_html( $display_title ); ?></a>
-      </div>
-      <?php wp_reset_postdata(); ?>
-  </div><!-- .container -->
 </section>
-<?php endforeach; ?>
 
-<?php if ( have_rows('project_content') ) : // Flexible Content ?>
+<section class="news-events-listing">
+  <div class="container">
+    <?php if ( $news_events->have_posts() ) : ?>
+      <div class="news-grid twelve columns">
+
+        <?php while ( $news_events->have_posts() ) : $news_events->the_post(); ?>
+          <?php
+            $post_categories = get_the_category();
+            $primary_cat     = ! empty( $post_categories ) ? $post_categories[0] : null;
+
+            $cat_label = '';
+            $cat_link  = '';
+            $cat_slug  = '';
+
+            if ( $primary_cat ) {
+              $cat_slug  = $primary_cat->slug;
+              $cat_label = $category_labels[ $cat_slug ] ?? $primary_cat->name;
+              $cat_link  = get_category_link( $primary_cat->term_id );
+            }
+          ?>
+
+          <article class="item clickable-card" data-link="<?php the_permalink(); ?>">
+            <?php if ( has_post_thumbnail() ) : ?>
+              <div class="item_image">
+                <?php if ( $primary_cat ) : ?>
+                  <a class="category_tag <?php echo esc_attr( $cat_slug ); ?>" href="<?php echo esc_url( $cat_link ); ?>">
+                    <span><?php echo esc_html( $cat_label ); ?></span>
+                  </a>
+                <?php endif; ?>
+
+                <a href="<?php the_permalink(); ?>">
+                  <?php the_post_thumbnail( 'featured-img' ); ?>
+                </a>
+              </div>
+            <?php endif; ?>
+
+            <div class="item_content">
+              <div class="item_body">
+                <p class="date"><?php echo esc_html( get_the_date( 'F j, Y' ) ); ?></p>
+                <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+              </div>
+
+              <div class="item_footer">
+                <a href="<?php the_permalink(); ?>" class="read-more">
+                  Read more<span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        <?php endwhile; ?>
+
+      </div>
+    <?php endif; ?>
+
+    <?php wp_reset_postdata(); ?>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.clickable-card').forEach(card => {
+    card.addEventListener('click', e => {
+      if (e.target.closest('a')) {
+        return;
+      }
+
+      window.location = card.dataset.link;
+    });
+  });
+</script>
+
+<?php if ( have_rows('project_content') ) : ?>
   <div class="flexible_content">
     <?php while ( have_rows('project_content') ) : the_row(); ?>
       <?php if ( get_row_layout() == 'hero' ) : ?>
@@ -177,6 +153,6 @@ while ( have_posts() ) : the_post(); ?>
 
 <?php get_template_part( 'inc/careers_cta' ); ?>
 
-<?php endwhile; // End of the main loop. ?>
+<?php endwhile; ?>
 
 <?php get_footer(); ?>
