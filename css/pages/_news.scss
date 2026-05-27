@@ -184,16 +184,22 @@ section.news-events-listing {
       @include border-radius(0 0 15px 15px);
       box-sizing: border-box;
       background: #f0f0f0;
-      padding: 25px;
+      padding: 15px;
       display: flex;
       flex-direction: column;
       flex: 1;
+      @media (min-width: $breakpoint-tablet) {
+        padding: 25px;
+      }
       p.date {
         font: $medium 1.2rem/2.0rem $heading;
         text-transform: uppercase;
-        margin-bottom: 10px;
+        margin-bottom: 0px;
         letter-spacing: 0.1em;
         color: #777777;
+        @media (min-width: $breakpoint-tablet) {
+          margin-bottom: 4px;
+        }
       }
       h3 {
         margin-bottom: 0px;
@@ -202,7 +208,6 @@ section.news-events-listing {
           font: $medium 2.4rem/3.2rem $heading;
         }
         a {
-          
           color: $mid-green;
           text-decoration: none;
           font: $medium 1.8rem/2.8rem $heading;
