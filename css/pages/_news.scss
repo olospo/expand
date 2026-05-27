@@ -469,3 +469,31 @@ a.category_tag {
     background: $light-green;
   }
 }
+
+.load-more-wrap {
+  text-align: center;
+  margin-top: 3rem;
+  button.load-more-news {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 25px;
+    @include border-radius(10px);
+    border: 2px solid $light-green;
+    background: $light-green;
+    color: $white;
+    font: $bold 1.4rem/2.0rem $heading;
+    cursor: pointer;
+    transition: all .25s ease;
+    text-transform: uppercase;
+    &:hover {
+      background: transparent;
+      color: $light-green;
+    }
+  
+    &:disabled {
+      opacity: .6;
+      cursor: wait;
+    }
+  }
+}

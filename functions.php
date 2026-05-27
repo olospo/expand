@@ -26,12 +26,19 @@ function theme_enqueue_styles_and_scripts() {
 		wp_deregister_script( 'jquery' );
 		wp_register_script( 'jquery', get_stylesheet_directory_uri().'/js/jquery.min.js', false, NULL, true );
 		wp_enqueue_script( 'jquery' );
+		wp_enqueue_script('load-more-news', get_stylesheet_directory_uri() . '/js/load-more-news.js', array(), filemtime( get_stylesheet_directory() . '/js/load-more-news.js' ),true);		
+		
+		wp_localize_script('load-more-news','loadMoreNews', 
+			array(
+				'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+				'nonce'   => wp_create_nonce( 'load_more_news_nonce' ),
+			)
+		);
 
 		// Enqueue scripts
 		wp_enqueue_script( 'applications', get_stylesheet_directory_uri().'/js/application.min.js', 'jquery', NULL, true, filemtime( get_stylesheet_directory() . '/style.css' ) );
 		wp_enqueue_script( 'theme-functions', get_stylesheet_directory_uri().'/js/functions.js', 'jquery', NULL, true, filemtime( get_stylesheet_directory() . '/style.css' ) );
 }
-
 
 // Disable Emoji Loading
 remove_action('wp_head', 'print_emoji_detection_script', 7);
@@ -509,6 +516,49 @@ function get_industry_children() {
 		'options' => $options,
 		'items'   => $items,
 	]);
+}
+
+add_action( 'wp_ajax_load_more_news', 'bcg_load_more_news' );
+add_action( 'wp_ajax_nopriv_load_more_news', 'bcg_load_more_news' );
+
+function bcg_load_more_news() {
+	check_ajax_referer( 'load_more_news_nonce', 'nonce' );
+
+	$page     = isset($_POST['page']) ? absint($_POST['page']) : 1;
+	$category = isset($_POST['category']) ? absint($_POST['category']) : 0;
+
+	$args = array(
+		'post_type'      => 'post',
+		'post_status'    => 'publish',
+		'posts_per_page' => 10,
+		'paged'          => $page,
+		'orderby'        => 'date',
+		'order'          => 'DESC',
+	);
+
+	if ( $category ) {
+		$args['cat'] = $category;
+	}
+
+	$query = new WP_Query( $args );
+
+	if ( $query->have_posts() ) {
+		ob_start();
+
+		while ( $query->have_posts() ) {
+			$query->the_post();
+			get_template_part( 'inc/news-card' );
+		}
+
+		wp_reset_postdata();
+
+		wp_send_json_success( array(
+			'html'      => ob_get_clean(),
+			'max_pages' => $query->max_num_pages,
+		) );
+	}
+
+	wp_send_json_error();
 }
 
 
