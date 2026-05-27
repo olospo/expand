@@ -5,7 +5,7 @@ $current_cat = get_queried_object();
 get_header();
 
 $news_page = get_page_by_path( 'news-events' );
-$news_page_link = $news_page ? get_permalink( $news_page->ID ) : home_url( '/news-events/' );
+$news_page_link = $news_page ? get_permalink( $news_page->ID ) : home_url( '/insights/' );
 
 $category_labels = array(
   'news'          => 'News',
