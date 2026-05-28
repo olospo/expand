@@ -29,7 +29,32 @@
 
   <div class="item_content">
     <div class="item_body">
-      <p class="date"><?php echo esc_html( get_the_date( 'F j, Y' ) ); ?></p>
+      <?php
+      $event_date       = get_field( 'event_date' );
+      $event_start_time = get_field( 'event_start_time' );
+      $event_end_time   = get_field( 'event_end_time' );
+      $is_event         = in_category( 'event' );
+      ?>
+      
+      <p class="date">
+        <?php if ( $is_event && $event_date ) : ?>
+      
+          <?php echo esc_html( $event_date ); ?>
+      
+          <?php if ( $event_start_time ) : ?>
+            · <?php echo esc_html( $event_start_time ); ?>
+      
+            <?php if ( $event_end_time ) : ?>
+              - <?php echo esc_html( $event_end_time ); ?>
+            <?php endif; ?>
+          <?php endif; ?>
+      
+        <?php else : ?>
+      
+          <?php echo esc_html( get_the_date( 'F j, Y' ) ); ?>
+      
+        <?php endif; ?>
+      </p>
       <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
     </div>
 

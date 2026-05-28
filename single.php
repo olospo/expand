@@ -25,23 +25,46 @@ while ( have_posts() ) : the_post(); ?>
   <div class="single-news-hero__overlay"></div>
 
   <div class="container">
-    <div class="single-news-hero__content ten columns offset-by-one">
-      
-      <?php
-      $category = get_the_category();
-      
-      if ( ! empty( $category ) ) :
-        $cat = $category[0];
-      ?>
-      
-        <a class="category_tag <?php echo esc_attr( $cat->slug ); ?>" href="<?php echo esc_url( get_category_link( $cat->term_id ) ); ?>">
-          <span><?php echo esc_html( $cat->name ); ?></span>
-        </a>
-      
+    <div class="single-news-hero__content ten columns offset-by-one">    
+      <?php $category = get_the_category(); if ( ! empty( $category ) ) : $cat = $category[0]; ?>  
+        <a class="category_tag <?php echo esc_attr( $cat->slug ); ?>" href="<?php echo esc_url( get_category_link( $cat->term_id ) ); ?>"><span><?php echo esc_html( $cat->name ); ?></span></a>
       <?php endif; ?>
       
       <h1><?php the_title(); ?></h1>
-      <p class="date"><?php echo esc_html( get_the_date( 'F j, Y' ) ); ?></p>
+      
+      <?php
+      $event_date       = get_field( 'event_date' );
+      $event_start_time = get_field( 'event_start_time' );
+      $event_end_time   = get_field( 'event_end_time' );
+      $location         = get_field( 'location' );
+      ?>
+      
+      <?php if ( $event_date ) : ?>
+        <p class="date">
+          <span class="dashicons dashicons-calendar"></span>
+          <?php echo esc_html( $event_date ); ?>
+      
+          <?php if ( $event_start_time ) : ?>
+            · <?php echo esc_html( $event_start_time ); ?>
+      
+            <?php if ( $event_end_time ) : ?>
+              - <?php echo esc_html( $event_end_time ); ?>
+            <?php endif; ?>
+          <?php endif; ?>
+        </p>
+      
+        <?php if ( $location ) : ?>
+          <p class="location">
+            <span class="dashicons dashicons-location"></span>
+            <?php echo esc_html( $location ); ?>
+          </p>
+        <?php endif; ?>
+      
+      <?php else : ?>
+      
+        <p class="date"><?php echo esc_html( get_the_date( 'F j, Y' ) ); ?></p>
+      
+      <?php endif; ?>
       <?php $authors = get_field('author'); if ($authors) : ?>
       <p class="written">Written by <?php
         $author_links = array();
@@ -60,6 +83,7 @@ while ( have_posts() ) : the_post(); ?>
 <section class="post">
   <div class="container flex">
     <div class="content ten columns offset-by-one">
+    
       <?php the_content(); ?>
     </div>
   </div>

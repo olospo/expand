@@ -343,12 +343,17 @@ section.profile_written {
   h1 {
     color: $white;
     margin-bottom: 10px;
+    font: $medium 2.4rem/3.4rem $heading;
+    @media (min-width: $breakpoint-tablet) {
+      margin-bottom: 15px;
+      font: $medium 3.6rem/4.4rem $heading;
+    }
     &.archive {
       margin-bottom: 20px;
       font: $medium 3.6rem/5.0rem $heading;
       @media (min-width: $breakpoint-tablet) {
         margin-bottom: 30px;
-        font: $medium 4.6rem/6.0rem $heading;
+        font: $medium 4.6rem/5.4.0rem $heading;
       }
     }
   }
@@ -357,16 +362,22 @@ section.profile_written {
     background: rgba(255,255,255,.3);
   }
 
-  .date {
+  .date, .location {
     color: $white;
-    font: $medium 1.6rem/2.0rem $heading;
+    font: $medium 1.4rem/2.0rem $heading;
     text-transform: uppercase;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     letter-spacing: 0.1em;
+    @media (min-width: $breakpoint-tablet) {
+      font: $medium 1.6rem/2.0rem $heading;
+    }
   }
   .written {
-    font: $normal 1.6rem/2.4rem $heading;
+    font: $normal 1.4rem/2.4rem $heading;
     margin-bottom: 0px;
+    @media (min-width: $breakpoint-tablet) {
+      font: $medium 1.6rem/2.0rem $heading;
+    }
     a {
       color: $light-green;
     }
