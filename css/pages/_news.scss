@@ -362,11 +362,19 @@ section.profile_written {
     background: rgba(255,255,255,.3);
   }
 
-  .date, .location {
+  .date {
     color: $white;
     font: $medium 1.4rem/2.0rem $heading;
     text-transform: uppercase;
     margin-bottom: 15px;
+    letter-spacing: 0.1em;
+    @media (min-width: $breakpoint-tablet) {
+      font: $medium 1.6rem/2.0rem $heading;
+    }
+  }
+  .location {
+    color: $white;
+    font: $medium 1.4rem/2.0rem $heading;
     letter-spacing: 0.1em;
     @media (min-width: $breakpoint-tablet) {
       font: $medium 1.6rem/2.0rem $heading;
