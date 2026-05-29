@@ -31,7 +31,7 @@ $news_events = new WP_Query( array(
 <section class="single-news-hero" style="background:url('<?php bloginfo('template_directory'); ?>/img/news-skyline.jpg') bottom center no-repeat; background-size: cover;">
   <div class="container">
     <div class="twelve columns">
-      <h1 class="archive">BCG Expand News</h1>
+      <h1 class="archive">BCG Expand Insights</h1>
     </div>
 
     <div class="news-events-filters twelve columns">
