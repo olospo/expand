@@ -395,13 +395,17 @@ section.profile_written {
 section.post {
   padding: $padding-half 0;
   p:first-of-type {
-    font: $medium 2.0rem/3.4rem $heading;
+    font: $medium 1.6rem/2.8rem $heading;
     color: $black;
     margin-bottom: 20px;
+    @media (min-width: $breakpoint-tablet) {
+      font: $medium 2.0rem/3.4rem $heading;
+    }
   }
   p {
     font: $normal 1.6rem/2.8rem $heading;
   }
+  
 }
 
 section.authors {

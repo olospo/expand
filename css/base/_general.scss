@@ -236,15 +236,32 @@ section {
     }
   }
   blockquote {
-    border-left: 10px solid $black;
-    color: $black;
-    font: $normal 2.8rem/4.6rem $regular;
-    padding: $padding-half;
+    position: relative;
+    margin: 20px 0;
+    padding: 20px;
+    background: #f7f7f7;
+    border-left: 10px solid $light-green;
+    font: $normal 1.4rem/2.0rem $heading;
     @media (min-width: $breakpoint-tablet) {
-      padding: $padding-half 0 $padding-half $padding;
+      padding: 30px;
+      font: $normal 1.8rem/2.8rem $heading;
+    }
+    &::before {
+      content: "“";
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font: $normal 10.0rem/10.0rem $heading;
+      color: rgba($light-green, .1);
     }
     p {
-      display: inline;
+      font: $normal 1.4rem/2.0rem $heading;
+      @media (min-width: $breakpoint-tablet) {
+        font: $normal 1.8rem/2.8rem $heading;
+      }
+      &:last-child, &:last-of-type {
+        margin-bottom: 0 !important;
+      }
     }
   }
   .nf-form-layout, .search_page_form {
