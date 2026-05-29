@@ -8,6 +8,13 @@
   }
 }
 
+.content_block + .content_block, .text_section + .content_block { {
+  padding: 0 0 $padding-half 0;
+  @media (min-width: $breakpoint-tablet) { 
+    padding: 0 0 $padding 0;
+  }
+}
+
 // Square Section
 .square_section {
   background: $black;
