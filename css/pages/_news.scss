@@ -311,7 +311,7 @@ section.profile_written {
 
 .single-news-hero {
   position: relative;
-  padding: 160px 0 10px 0;
+  padding: 120px 0 10px 0;
   background-position: center;
   background-size: cover;
   overflow: hidden;
@@ -393,7 +393,10 @@ section.profile_written {
 }
 
 section.post {
-  padding: $padding-half 0;
+  padding: 20px 0;
+  @media (min-width: $breakpoint-tablet) {
+    padding: $padding-half 0;
+  }
   p:first-of-type {
     font: $medium 1.6rem/2.8rem $heading;
     color: $black;
