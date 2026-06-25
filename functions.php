@@ -2,7 +2,8 @@
 function theme_setup() {
   // Menus
   register_nav_menu( 'main', 'Main Menu' );
-	register_nav_menu( 'footer', 'Footer Menu' );
+  register_nav_menu( 'product-footer', 'Products Footer Menu' );
+  register_nav_menu( 'footer', 'Footer Menu' );
   // RSS Feed
   add_theme_support( 'automatic-feed-links' );
   // Thumbnails
@@ -17,32 +18,29 @@ function theme_setup() {
 add_action( 'after_setup_theme', 'theme_setup' );
 
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles_and_scripts' );
-
 function theme_enqueue_styles_and_scripts() {
-		// Enqueue styles
-		wp_enqueue_style( 'main', get_stylesheet_directory_uri().'/css/main.css', false, filemtime( get_stylesheet_directory() . '/style.css' ) );
 
-		// Deregister jQuery and enqueue it in the footer
-		wp_deregister_script( 'jquery' );
-		wp_register_script( 'jquery', get_stylesheet_directory_uri().'/js/jquery.min.js', false, NULL, true );
-		wp_enqueue_script( 'jquery' );
-		wp_enqueue_script('load-more-news', get_stylesheet_directory_uri() . '/js/load-more-news.js', array(), filemtime( get_stylesheet_directory() . '/js/load-more-news.js' ),true);		
-		
-		wp_localize_script('load-more-news','loadMoreNews', 
-			array(
-				'ajaxUrl' => admin_url( 'admin-ajax.php' ),
-				'nonce'   => wp_create_nonce( 'load_more_news_nonce' ),
-			)
-		);
+	// Enqueue styles
+	wp_enqueue_style('main', get_stylesheet_directory_uri() . '/css/main.css', array(), filemtime(get_stylesheet_directory() . '/css/main.css'));
 
-		// Enqueue scripts
-		wp_enqueue_script( 'applications', get_stylesheet_directory_uri().'/js/application.min.js', 'jquery', NULL, true, filemtime( get_stylesheet_directory() . '/style.css' ) );
-		wp_enqueue_script( 'theme-functions', get_stylesheet_directory_uri().'/js/functions.js', 'jquery', NULL, true, filemtime( get_stylesheet_directory() . '/style.css' ) );
-		
-		// Font Awesome
-		if (is_singular('post')) {
-				wp_enqueue_script('font-awesome', 'https://kit.fontawesome.com/0ab207164e.js', array(), null, true);
-		}
+	// jQuery
+	wp_deregister_script('jquery');
+	wp_register_script('jquery', get_stylesheet_directory_uri() . '/js/jquery.min.js', array(), null, true);
+	wp_enqueue_script('jquery');
+
+	// Load more news
+	wp_enqueue_script('load-more-news', get_stylesheet_directory_uri() . '/js/load-more-news.js', array('jquery'), filemtime(get_stylesheet_directory() . '/js/load-more-news.js'), true);
+
+	wp_localize_script( 'load-more-news', 'loadMoreNews', array( 'ajaxUrl' => admin_url('admin-ajax.php'), 'nonce'   => wp_create_nonce('load_more_news_nonce'), ));
+
+	// Theme scripts
+	wp_enqueue_script('applications',get_stylesheet_directory_uri() . '/js/application.min.js',array('jquery'),filemtime(get_stylesheet_directory() . '/js/application.min.js'),true);
+
+	wp_enqueue_script('theme-functions',get_stylesheet_directory_uri() . '/js/functions.js',array('jquery'),filemtime(get_stylesheet_directory() . '/js/functions.js'),true
+	);
+
+	// Font Awesome
+	wp_enqueue_script('font-awesome','https://kit.fontawesome.com/0498b6ceeb.js',array(),null,true);
 }
 
 // Disable Emoji Loading

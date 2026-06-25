@@ -7,7 +7,12 @@ footer.main {
   background: #3E8E60;
   padding: $padding-half 0px 20px 0;
   @media (min-width: $breakpoint-tablet) {
-    padding: 60px 0px;
+    padding: 50px 0px;
+  }
+  .container {
+    &::after {
+      content: none;
+    }
   }
   .logo {
     margin-bottom: 20px;
@@ -49,14 +54,24 @@ footer.main {
     }
   }
   h4 {
-    font: $medium 2.0rem/2.4rem $heading;
-    color: $white;
+    font: $medium 1.6rem/2.4rem $heading;
+    color: #55ce88;
+    margin-bottom: 5px;
+    &.expand {
+      font: $medium 2.4rem/2.4rem $heading;
+      color: $white;
+      margin: 5px 0;
+      padding: 0;
+    }
+  }
+  p.tagline {
     margin-bottom: 10px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #5cb280;
+    font: $medium 1.4rem/2.4rem $regular;
+    border-bottom: 1px solid rgba(85, 206, 136, 0.4);
   }
   address, p {
-    font: $normal 1.4rem/2.4rem $heading;
+    font: $normal 1.2rem/2.2rem $heading;
     margin-bottom: 0px;
     &:last-child {
       margin-bottom: 0;
@@ -67,16 +82,38 @@ footer.main {
     svg, img {
       height: 20px;
       width: 20px;
-      margin-bottom: -5px;
+      margin-bottom: -3px;
       margin-right: 5px;
       g {
         fill: $white;
       }
     }
+    a {
+      font: $normal 1.4rem/2.4rem $regular;
+      color: $white;
+      text-decoration: none;
+      &:hover {
+        text-decoration: none;
+        color: #7ef473;
+      }
+    }
+    a:hover + svg{
+        path {
+          fill: #7ef473;
+      }
+    }
   }
-  a {
-    font: $normal 1.4rem/2.4rem $regular;
-    color: $white;
+  li {
+    a {
+      font: $normal 1.4rem/2.4rem $regular;
+      color: $white;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(126, 244, 115, 0.2);
+      &:hover {
+        text-decoration: none;
+        border-bottom: 1px solid #7ef473;
+      }
+    }
   }
   h5 {
     font: $bold 1.2rem/2.0rem $heading;
@@ -116,9 +153,9 @@ footer.main {
       }
     }
   }
-  ul#menu-footer {
+  ul.menu {
     text-align: left;
-    margin: 10px 0;
+    margin: 0;
     li {
       display: block;
       margin-bottom: 3px;
@@ -130,13 +167,18 @@ footer.main {
   }
 }
 footer.copyright {
-  padding: 20px 0;
+  padding: 15px 0;
   background: $dark-green;
   .end_links {
     color: $white;
-    font: $normal 1.4rem/2.8rem $light;
+    font: $normal 1.2rem/2.8rem $light;
     margin: 0;
-    text-align: center;
+    .left {
+      text-align: left;
+    }
+    .right {
+      text-align: right;
+    }
     a {
       color: $white;
     }
@@ -144,7 +186,6 @@ footer.copyright {
 }
 
 .back_to_top {
-  
   display: none;
   width: 48px;
   height: 48px;
@@ -164,4 +205,34 @@ footer.copyright {
   &:hover {
     background: $dark-green url("../img/arrow_up.svg") no-repeat center center;
   }
+}
+
+// New
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.6fr 2fr;
+    gap: 5rem;
+}
+
+.footer-products-menu {
+    columns: 2;
+    column-gap: 3rem;
+}
+
+.footer-products-menu li {
+    break-inside: avoid;
+}
+
+
+@media (max-width: 900px) {
+    .footer-grid,
+    .footer-bottom,
+    .footer-site-links {
+        display: block;
+    }
+
+    .footer-company {
+      margin: 20px 0;
+    }
 }

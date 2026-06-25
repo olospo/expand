@@ -50,7 +50,8 @@
         min-width: 500px;
       }
       .overlay-content {
-        
+        @include border-radius(15px);
+        backdrop-filter: blur(8px);
         padding: 20px;
         color: $white;
         @media (min-width: $breakpoint-laptop) {
@@ -71,7 +72,7 @@
         }
         a.button {
           padding: 15px 20px;
-          border-radius: 20px;
+          @include border-radius(15px);
           background: #9CF183;
           color: $black;
           border: 1px solid #9CF183;

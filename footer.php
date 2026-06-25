@@ -1,59 +1,63 @@
 <?php /* Footer */ ?>
 
 <footer class="main">
-  <div class="container">
-    <div class="eight columns">
-      <div class="logo">
-        <a href="https://www.bcg.com" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/img/bcg.svg" alt="BCG logo" class="bcg" loading="lazy" /></a>
-      </div>
-      <div class="logo_wrap">
-      <h4>BCG Expand</h4>
-        <address>
-          Registered Office: 80 Charlotte Street London W1T 4DF 
-        </address>
-        <p>Registered in England and Wales: OC365360</p>
-        <?php $email = get_field('contact_email','options'); 
-        if( $email ) { ?>
-        <p class="email"><img src="<?php bloginfo('template_directory'); ?>/img/email-icon.svg" alt="Email Icon" loading="lazy" /><a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a></p>
-        <?php } ?> 
-        
-      <h5>Follow us</h5>
-      <ul class="social">
-        <?php if(get_field('facebook_link','options')): ?>
-        <li><a href="<?php echo get_field('facebook_link','options'); ?>" aria-label="Facebook"><img src="<?php bloginfo('template_directory'); ?>/img/facebook.svg" alt="Facebook" loading="lazy"/></a></li>
-        <?php endif; ?>
-        <?php if(get_field('twitter_link','options')): ?>
-        <li><a href="<?php echo get_field('twitter_link','options'); ?>" aria-label="Twitter"><img src="<?php bloginfo('template_directory'); ?>/img/twitter.svg" alt="Twitter" loading="lazy"/></a></li>
-        <?php endif; ?>
-        <?php if(get_field('linkedin_link','options')): ?>
-        <li><a href="<?php echo get_field('linkedin_link','options'); ?>" aria-label="LinkedIn"><img src="<?php bloginfo('template_directory'); ?>/img/linkedin.svg" alt="LinkedIn" loading="lazy"/></a></li>
-        <?php endif; ?>
-        <?php if(get_field('youtube_link','options')): ?>
-        <li><a href="<?php echo get_field('youtube_link','options'); ?>" aria-label="Youtube"><img src="<?php bloginfo('template_directory'); ?>/img/youtube.svg" alt="Youtube" loading="lazy"/></a></li>
-        <?php endif; ?>
-        <?php if(get_field('instagram_link','options')): ?>
-        <li><a href="<?php echo get_field('instagram_link','options'); ?>" aria-label="Instagram"><img src="<?php bloginfo('template_directory'); ?>/img/instagram.svg" alt="Instagram" loading="lazy"/></a></li>
-        <?php endif; ?>
-      </ul>
-      </div>
-      
+    <div class="container footer-grid">
+
+        <div class="footer-brand">
+            <a href="https://www.bcg.com" target="_blank" rel="noopener">
+                <img src="<?php bloginfo('template_directory'); ?>/img/bcg.svg" alt="BCG logo" class="bcg" loading="lazy" />
+            </a>
+            <h4 class="expand">BCG Expand</h4>
+            <p class="tagline">Benchmarking and data insights for financial institutions.</p>
+            <address>
+                Registered Office: 80 Charlotte Street London W1T 4DF
+            </address>
+            <p>Registered in England and Wales: OC365360</p>
+            <?php $email = get_field('contact_email','options'); ?>
+            
+            <?php if ($email) : ?>
+                <p class="email">
+                    <a href="mailto:<?php echo esc_attr($email); ?>"><i class="fa-regular fa-envelope"></i> <?php echo esc_html($email); ?></a>
+                </p>
+            <?php endif; ?>
+            <p class="email">
+                <a href="https://www.linkedin.com/company/bcgexpand" target="_blank"><i class="fa-brands fa-square-linkedin"></i> Visit BCG Expand on LinkedIn</a>
+            </p>
+            
+        </div>
+
+        <div class="footer_links footer-company">
+            <h4>Company</h4>
+            <?php wp_nav_menu(array(
+                'theme_location' => 'footer',
+                'menu_class'     => 'menu',
+                'container'      => false,
+                'fallback_cb'    => false
+            )); ?>
+        </div>     
+        <div class="footer_links footer-products">
+            <h4>Products and services</h4>
+            <?php wp_nav_menu(array(
+                'theme_location' => 'product-footer',
+                'menu_class'     => 'menu footer-products-menu',
+                'container'      => false,
+                'fallback_cb'    => false
+            )); ?>
+        </div>
     </div>
-    <div class="footer_links four columns">
-      <h4>Expand</h4>
-      <?php wp_nav_menu( array( 'theme_location' => 'footer' ) ); ?>
-    </div>
-  </div>
 </footer>
 
 <footer class="copyright">
   <div class="container">
     <div class="end_links twelve columns">   
-      <strong>Copyright &copy; Expand Research LLP <?php echo date("Y"); ?></strong><br />Design: <a href="https://www.thinkmarsh.com/" target="_blank">ThinkMarshStudio</a> | Development: <a href="https://www.olospo.co.uk/" target="_blank">Olospo</a>
+      <div class="left six columns"><strong>Copyright &copy; Expand Research LLP <?php echo date("Y"); ?></strong></div>
+      <div class="right six columns">Design: <a href="https://www.thinkmarsh.com/" target="_blank">ThinkMarshStudio</a> | Website: <a href="https://www.olospo.co.uk/" target="_blank">Olospo</a></div>
     </div>
   </div>
 </footer>
 
 <a href="#" class="back_to_top">Back to Top</a>
+
 <?php wp_footer(); ?>
 </body>
 </html>
