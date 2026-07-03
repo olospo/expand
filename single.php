@@ -83,12 +83,62 @@ while ( have_posts() ) : the_post(); ?>
 <section class="post">
   <div class="container flex">
     <div class="content ten columns offset-by-one">
-    
       <?php the_content(); ?>
     </div>
   </div>
 </section>
 
+<!-- Contact CTA -->
+<?php if (have_rows('contacts')): ?>
+<section class="offering contact">
+  <div class="container">
+    <div class="content ten columns offset-by-one">
+      <?php $heading = get_field('heading'); ?>
+      <?php if ($heading): ?>
+        <h2><?php echo esc_html($heading); ?></h2>
+      <?php endif; ?>
+      <div class="cta-cards">
+        <?php while (have_rows('contacts')): the_row(); ?>
+          <?php
+          $type = get_sub_field('contact_type');
+          $name = $title = $email = $photo_url = '';
+          if ($type === 'profile') {
+            $profile = get_sub_field('contact_profile');
+            if ($profile) {
+              $name = get_the_title($profile->ID);
+              $title = get_field('job_title', $profile->ID);
+              $email = get_field('email', $profile->ID);
+              $photo_id = get_post_thumbnail_id($profile->ID);
+              $photo_url = $photo_id ? wp_get_attachment_image_url($photo_id, 'full') : '';
+            }
+          } else {
+            $name = get_sub_field('contact_custom_name');
+            $title = get_sub_field('contact_custom_title');
+            $email = get_sub_field('contact_custom_email');
+            $photo = get_sub_field('contact_custom_photo');
+            $photo_url = $photo ? $photo['url'] : '';
+          }
+          ?>
+          <article class="card six columns">
+            <div class="person">
+              <?php if ($photo_url): ?>
+                <img src="<?php echo esc_url($photo_url); ?>" class="photo" alt="<?php echo esc_attr($name); ?>">
+              <?php endif; ?>
+              <p>
+                <strong><?php echo esc_html($name); ?></strong><br>
+                <?php echo esc_html($title); ?><br>
+                <a href="mailto:<?php echo esc_attr($email); ?>"><?php echo esc_html($email); ?></a>
+              </p>
+            </div>
+          </article>
+        <?php endwhile; ?>
+      </div>
+    </div>
+  </div>
+</section>
+<?php endif; ?>
+
+<!-- Related Reading -->
 <?php
 $current_post_id = get_the_ID();
 $categories      = wp_get_post_categories( $current_post_id );
