@@ -3,45 +3,47 @@ const sass = require('gulp-sass')(require('sass'));
 const concat = require('gulp-concat');
 const cleanCSS = require('gulp-clean-css');
 const uglify = require('gulp-uglify');
-const notify = require('gulp-notify');
 
-// File paths
-const sassFiles = './css/**/*.scss';
-const cssOutput = './css/';
-const jsFiles = './js/vendor/*.js';
-const jsOutput = './js/';
+const paths = {
+  scss: './css/**/*.scss',
+  cssDest: './css/',
+  js: './js/vendor/*.js',
+  jsDest: './js/'
+};
 
-// CSS task
 function css() {
-  return src(sassFiles)
-    .pipe(sass().on('error', sass.logError))
+  return src(paths.scss)
+    .pipe(
+      sass({
+        silenceDeprecations: ['legacy-js-api', 'import']
+      }).on('error', sass.logError)
+    )
     .pipe(concat('main.css'))
     .pipe(cleanCSS())
-    .pipe(dest(cssOutput))
-    .pipe(notify({ message: 'CSS task complete', onLast: true }));
+    .pipe(dest(paths.cssDest));
 }
 
-// JavaScript task
 function javascript() {
-  return src(jsFiles)
+  return src(paths.js)
     .pipe(concat('application.min.js'))
-    .pipe(uglify().on('error', function (error) {
-      console.error(error.message);
-      this.emit('end');
-    }))
-    .pipe(dest(jsOutput))
-    .pipe(notify({ message: 'JavaScript task complete', onLast: true }));
+    .pipe(
+      uglify().on('error', function (err) {
+        console.error(err.toString());
+        this.emit('end');
+      })
+    )
+    .pipe(dest(paths.jsDest));
 }
 
-// Watch task
 function watchFiles() {
-  watch(sassFiles, css);
-  watch(jsFiles, javascript);
+  watch(paths.scss, css);
+  watch(paths.js, javascript);
 }
 
-// Export tasks
+const build = parallel(css, javascript);
+
 exports.css = css;
 exports.javascript = javascript;
-exports.build = parallel(css, javascript);
+exports.build = build;
 exports.watch = watchFiles;
-exports.default = series(exports.build, exports.watch);
+exports.default = series(build, watchFiles);

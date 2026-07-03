@@ -330,26 +330,6 @@ section.map_offices {
   }
 }
 
-footer.main {
-  .logo, .logo_wrap, .footer_links {
-    @include fade();
-  }
-  
-  &.visible {
-    .logo {
-      @include reset();
-      transition-delay: 0.1s;
-    }
-    .logo_wrap {
-      @include reset();
-      transition-delay: 0.2s;
-    }
-    .footer_links {
-      @include reset();
-      transition-delay: 0.4s;
-    }
-  }
-}
 
 @keyframes fadeInAndDrop {
   0% { opacity: 0; transform: translate3d(0,-60%,0); }

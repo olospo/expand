@@ -34,25 +34,35 @@ while ( have_posts() ) : the_post(); ?>
 <section class="careers_archive">
   <div class="container">
     <div class="twelve columns">
-      <div class="title eight columns offset-by-two">
-        <h3 class="split_title">Open Positions</h3>
+      <div class="title twelve columns">
+        <h3 class="split_title three">All current vacancies are advertised on LinkedIn</h3>
       </div>
+      <article class="eight columns offset-by-two">
+        <div class="item_content">
+          <div class="content">
+            <h3></h3>
+            <p>Visit our <a href="https://www.linkedin.com/company/bcgexpand/jobs/" target="_blank">BCG Expand Careers page on LinkedIn</a> to explore current opportunities and follow us for updates on future roles.</p>
+            <p>Interested in joining the team but don't see the right role yet?  Reach out to us at <a href="mailto:careers@bcgexpand.com?subject=Speculative Application">careers@bcgexpand.com</a> or submit a speculative application using the form below.</p><br />
+          </div>
+        </div>
+      </article>
+      
       <?php $args = array(
         'post_type' => 'career',
         'posts_per_page' => -1,
         'post_status' => 'publish',
       ); query_posts($args); ?>
       <?php if ( have_posts() ) : while (have_posts()) : the_post(); ?>
-        <?php get_template_part('inc/career'); ?>
+        <?php // get_template_part('inc/career'); ?>
       <?php endwhile; else : ?>
-        <article class="career eight columns offset-by-two">
+        <!-- <article class="career eight columns offset-by-two">
           <div class="item_content">
             <div class="content">
               <h3>Unfortunately, we do not have any open positions at the moment.</h3>
               <p>Please check back again soon or fill in our Speculative application</p>
             </div>
           </div>
-        </article>
+        </article> -->
       <?php endif; wp_reset_query(); ?>
       
       <div class="open_speculative eight columns offset-by-two">
