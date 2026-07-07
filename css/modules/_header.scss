@@ -346,33 +346,99 @@ nav.mobile {
   transition: opacity linear 0.5s, visibility linear 0.5s;
 }
 
+// Desktop dropdown defaults
 nav.primary ul ul {
   position: absolute;
   z-index: 9999;
-  background: #333333;
-  margin: 0;
-  letter-spacing: 0px;
-  @include invisible();
-  opacity: 0;
-  visibility: hidden;
   top: 102px;
-  width: 300px;
-  padding: 10px 20px;
+  width: 360px;
+  margin: 0;
+  padding: 18px 24px;
+  background: $black;
+  box-sizing: border-box;
   text-align: left;
   white-space: normal;
-  
+  letter-spacing: 0;
+  @include invisible();
   li {
     display: block;
-    padding: 5px 0;
+    padding: 0 !important;
+    &:after {
+      display: none;
+    }
     a {
-      display: inline-block;
-      padding: 0px !important;
+      position: relative;
+      display: block;
+      margin: 0;
+      padding: 12px 0 12px 18px !important;
+      background: none !important;
+      border-bottom: 1px solid rgba(142, 142, 142, 0.1) !important;
+      color: $white;
+      font: $normal 1.5rem/2.1rem $regular;
+      letter-spacing: 0;
+      text-transform: none;
+
+      transition: color .2s ease;
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 4px;
+        height: 4px;
+        background: $mid-green;
+        transform: translateY(-50%);
+        transition: background .2s ease, transform .2s ease;
+      }
+
+      &:hover {
+        color: $light-green;
+        border-bottom: 1px solid rgba(41, 186, 115, 0.3) !important;
+        &:before {
+          background: $light-green;
+          transform: translateY(-50%) scale(1.4);
+        }
+      }
+    }
+
+    &:last-child > a {
+      border-bottom: 0;
     }
   }
 }
 
 nav.primary ul li:hover > ul {
   @include visible();
-  opacity: 1;
-  visibility: visible;
+}
+
+
+// ----------------------------------------------------------------------
+// Products Mega Menu
+// Add CSS class "mega-menu" to the Products menu item in WordPress.
+// ----------------------------------------------------------------------
+
+nav.primary ul li.mega-menu {
+  position: static;
+
+  > ul.sub-menu {
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0 40px;
+
+    padding: 20px max(40px, calc((100% - 1200px) / 2));
+
+    border-top: 0;
+  }
+
+  > ul.sub-menu li a {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
 }
