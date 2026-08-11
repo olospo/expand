@@ -30,9 +30,6 @@ get_header(); ?>
     </div>
   </div>
 </section>
-
-    
-
 <?php else : ?>
 <main class="explore-page">
   
