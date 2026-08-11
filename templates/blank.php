@@ -37,6 +37,8 @@ if ( post_password_required() ) { // password check ?>
       <?php get_template_part( 'inc/flexible/application_section'); // Application/Animated Icons Section ?>
     <?php elseif( get_row_layout() == 'product_filter' ): ?>
       <?php get_template_part( 'inc/flexible/product_filter'); // Application/Animated Icons Section ?>
+    <?php elseif( get_row_layout() == 'stories' ): ?>
+      <?php get_template_part( 'inc/flexible/stories'); // Stories Section ?>
     <?php endif; ?>
   <?php } ?>
 </div>
