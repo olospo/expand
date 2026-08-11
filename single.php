@@ -90,7 +90,7 @@ while ( have_posts() ) : the_post(); ?>
 
 <!-- Contact CTA -->
 <?php if (have_rows('contacts')): ?>
-<section class="offering contact">
+<section class="insight contact">
   <div class="container">
     <div class="content ten columns offset-by-one">
       <?php $heading = get_field('heading'); ?>
@@ -119,7 +119,7 @@ while ( have_posts() ) : the_post(); ?>
             $photo_url = $photo ? $photo['url'] : '';
           }
           ?>
-          <article class="card six columns">
+          <article class="card">
             <div class="person">
               <?php if ($photo_url): ?>
                 <img src="<?php echo esc_url($photo_url); ?>" class="photo" alt="<?php echo esc_attr($name); ?>">
