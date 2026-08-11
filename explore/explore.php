@@ -18,6 +18,22 @@ wp_enqueue_script(
 );
   
 get_header(); ?>
+
+<?php if ( post_password_required() ) : ?>
+<section class="page">
+  <div class="container flex">
+    <div class="content ten columns offset-by-one">
+      <div class="title single">
+        <h1 class="split_title"><?php the_title(); ?></h1>
+      </div>
+      <?php echo get_the_password_form(); ?>
+    </div>
+  </div>
+</section>
+
+    
+
+<?php else : ?>
 <main class="explore-page">
   
 <div class="explore-nav-wrap">
@@ -637,5 +653,5 @@ get_header(); ?>
   </div>
 </section>
 </main>
-
+<?php endif; ?>
 <?php get_footer(); ?>
