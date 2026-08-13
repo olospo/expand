@@ -73,7 +73,7 @@
                     "name": "label",
                     "aria-label": "",
                     "type": "text",
-                    "instructions": "E.g. Job Title",
+                    "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -162,5 +162,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1786479601
+    "modified": 1786480101
 }
