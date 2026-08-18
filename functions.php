@@ -676,3 +676,6 @@ add_action('acf/input/admin_footer', function () { ?>
 })(jQuery);
 </script>
 <?php });
+
+// Disable XML-RPC
+add_filter( 'xmlrpc_enabled', '__return_false' );
