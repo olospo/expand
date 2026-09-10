@@ -85,19 +85,9 @@
     align-items:center;
     gap:11px;
 
-    &::before {
-      content:"";
-      width:26px;
-      height:1px;
-      background:var(--brand);
-    }
-
     &.on-dark {
       color:var(--mint);
 
-      &::before {
-        background:var(--mint);
-      }
     }
   }
 
@@ -1757,7 +1747,6 @@
   .quote-card {
     margin-top:24px;
     border:1px solid rgba(255,255,255,.14);
-    border-top:3px solid var(--mint);
     border-radius:20px;
     background:rgba(255,255,255,.04);
     padding:36px 40px;
