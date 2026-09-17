@@ -422,7 +422,7 @@ get_header(); ?>
           <div class="capability-tile">
             <h4>Market Data Catalogue</h4>
             <p>Explore is our consumer-led market data catalogue and AI assistant: one searchable, standardised view of 13,000+ products from 300+ vendors, so you can find what you already license and kill duplication.</p>
-            <a class="tile-link" href="https://bcgexpand.com/explore-jens/" target="_blank" rel="noopener">See a live demo &rarr;</a>
+            <a class="tile-link" href="https://bcgexpand.com/explore/" target="_blank" rel="noopener">See a live demo &rarr;</a>
           </div>
         </div>
       </div>
