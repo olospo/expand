@@ -355,7 +355,7 @@ get_header(); ?>
     <section class="block">
       <div class="wrap">
         <h2>Meet with us in Copenhagen</h2>
-        <p class="intro">7 of the 9 largest banks in the world already use our benchmarks to cut market data spend. If that could be you too, this is the fastest way to find out: book 30 minutes, no pitch required.</p>
+        <p class="intro">Trusted by the world's largest data consumers. Book 30 minutes with us in Copenhagen.</p>
         <div class="room-card">
           <h3>Come find us, slots go fast</h3>
           <p>Held for the whole conference specifically for 1:1 conversations. Drop in, or book ahead through the WFIC app so you're guaranteed a slot.</p>
