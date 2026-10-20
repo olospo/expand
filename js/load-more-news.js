@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
 
   console.log('Load More News JS Loaded');
@@ -33,6 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
     formData.append('nonce', loadMoreNews.nonce);
     formData.append('page', nextPage);
     formData.append('category', button.dataset.category || '');
+
+    // Only send author when this is a profile page.
+    if (button.dataset.author) {
+      formData.append('author', button.dataset.author);
+    }
 
     try {
 
