@@ -23,6 +23,10 @@
             <p class="email">
                 <a href="https://www.linkedin.com/company/bcgexpand" target="_blank"><i class="fa-brands fa-square-linkedin"></i> Visit BCG Expand on LinkedIn</a>
             </p>
+            <p class="email">
+                <a href="https://www.youtube.com/channel/UCBRy_IzJJYk1rj56oKVaW-w" target="_blank"><i class="fa-brands fa-youtube"></i> Visit BCG Expand on YouTube</a>
+            </p>
+            
             
         </div>
 
