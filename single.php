@@ -63,7 +63,12 @@ while ( have_posts() ) : the_post(); ?>
       <?php else : ?>
       
         <?php
-          $content = wp_strip_all_tags( strip_shortcodes( get_the_content() ) );
+          $content = get_post_field( 'post_content', get_the_ID() );
+          $content = strip_shortcodes( $content );
+          $content = wp_strip_all_tags( $content );
+          $content = html_entity_decode( $content, ENT_QUOTES, 'UTF-8' );
+          $content = trim( preg_replace( '/\s+/', ' ', $content ) );
+        
           $word_count = str_word_count( $content );
           $reading_time = max( 1, ceil( $word_count / 200 ) );
         ?>
