@@ -12,6 +12,7 @@ $(document).ready(function() {
   initSvgReplacement();
   initScrollAnimations();
   initUnitStats();
+  initArticleTOC();
 });
 
 function initSlickSlider() {
@@ -347,4 +348,72 @@ function openTab(evt, tabName) {
   if (evt && evt.currentTarget) {
     evt.currentTarget.className += " active";
   }
+}
+
+// Article Sidebar
+function initArticleTOC() {
+  var body = document.getElementById('xp-body');
+
+  if (!body) {
+    return;
+  }
+
+  var links = Array.from(
+    body.querySelectorAll('.xp-toc a[href^="#"]')
+  );
+
+  var sections = links.map(function(link) {
+    return {
+      link: link,
+      section: document.getElementById(link.hash.slice(1))
+    };
+  }).filter(function(item) {
+    return item.section && body.contains(item.section);
+  });
+
+  if (!sections.length) {
+    return;
+  }
+
+  var ticking = false;
+
+  function update() {
+    ticking = false;
+
+    var current = sections[0].link;
+    var threshold = window.innerHeight * 0.33;
+
+    sections.forEach(function(item) {
+      if (item.section.getBoundingClientRect().top < threshold) {
+        current = item.link;
+      }
+    });
+
+    links.forEach(function(link) {
+      var isActive = link === current;
+
+      link.classList.toggle('xp-on', isActive);
+
+      if (isActive) {
+        link.setAttribute('aria-current', 'location');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+  }
+
+  function requestUpdate() {
+    if (!ticking) {
+      ticking = true;
+      window.requestAnimationFrame(update);
+    }
+  }
+
+  window.addEventListener('scroll', requestUpdate, {
+    passive: true
+  });
+
+  window.addEventListener('resize', requestUpdate);
+
+  update();
 }

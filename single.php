@@ -25,7 +25,7 @@ while ( have_posts() ) : the_post(); ?>
   <div class="single-news-hero__overlay"></div>
 
   <div class="container">
-    <div class="single-news-hero__content ten columns offset-by-one">    
+    <div class="single-news-hero__content eight columns offset-by-one">    
       <?php $category = get_the_category(); if ( ! empty( $category ) ) : $cat = $category[0]; ?>  
         <a class="category_tag <?php echo esc_attr( $cat->slug ); ?>" href="<?php echo esc_url( get_category_link( $cat->term_id ) ); ?>"><span><?php echo esc_html( $cat->name ); ?></span></a>
       <?php endif; ?>
@@ -62,7 +62,16 @@ while ( have_posts() ) : the_post(); ?>
       
       <?php else : ?>
       
-        <p class="date"><?php echo esc_html( get_the_date( 'F j, Y' ) ); ?></p>
+        <?php
+          $content = wp_strip_all_tags( strip_shortcodes( get_the_content() ) );
+          $word_count = str_word_count( $content );
+          $reading_time = max( 1, ceil( $word_count / 200 ) );
+        ?>
+      
+        <p class="date">
+          <?php echo esc_html( get_the_date( 'F j, Y' ) ); ?>
+          · <?php echo esc_html( $reading_time ); ?> min read
+        </p>
       
       <?php endif; ?>
       <?php $authors = get_field('author'); if ($authors) : ?>
