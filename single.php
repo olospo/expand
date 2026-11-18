@@ -103,6 +103,12 @@ while ( have_posts() ) : the_post(); ?>
 <section class="post">
   <div class="container flex">
     <div class="content ten columns offset-by-one">
+      
+      <?php if ( ! $event_date ) : ?>
+        <?php get_template_part( 'inc/tools' ); ?>
+      <?php endif; ?>
+      
+      
       <?php the_content(); ?>
     </div>
   </div>
