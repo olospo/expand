@@ -13,6 +13,7 @@ $(document).ready(function() {
   initScrollAnimations();
   initUnitStats();
   initArticleTools();
+  initArticleSidebar();
 });
 
 function initSlickSlider() {
@@ -412,4 +413,44 @@ function initArticleTools() {
       window.prompt('Copy this link:', $button.attr('data-url'));
     }
   });
+}
+
+function initArticleSidebar() {
+  const $links = $('#xp-body .xp-toc a[href^="#"]');
+
+  if (!$links.length) {
+    return;
+  }
+
+  const sections = $links.map(function() {
+    const target = document.getElementById(
+      $(this).attr('href').substring(1)
+    );
+
+    return target ? {
+      link: this,
+      target: target
+    } : null;
+  }).get();
+
+  function updateActiveSection() {
+    let active = sections[0];
+
+    sections.forEach(function(section) {
+      if (section.target.getBoundingClientRect().top <= 150) {
+        active = section;
+      }
+    });
+
+    $links.removeClass('active').removeAttr('aria-current');
+
+    if (active) {
+      $(active.link).addClass('active')
+        .attr('aria-current', 'location');
+    }
+  }
+
+  $(window).on('scroll resize', updateActiveSection);
+
+  updateActiveSection();
 }

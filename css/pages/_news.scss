@@ -717,3 +717,9 @@ a.category_tag {
     }
   }
 }
+
+#xp-body .xp-toc a.active {
+  color: $mid-green;
+  border-color: $light-green;
+  font-weight: $bold;
+}
