@@ -32,6 +32,12 @@ while ( have_posts() ) : the_post(); ?>
       
       <h1><?php the_title(); ?></h1>
       
+      <?php if ( $introduction = get_field( 'introduction' ) ) : ?>
+        <p class="introduction">
+          <?php echo esc_html( $introduction ); ?>
+        </p>
+      <?php endif; ?>
+      
       <?php
       $event_date       = get_field( 'event_date' );
       $event_start_time = get_field( 'event_start_time' );
@@ -74,7 +80,7 @@ while ( have_posts() ) : the_post(); ?>
         ?>
       
         <p class="date">
-          <?php echo esc_html( get_the_date( 'F j, Y' ) ); ?>
+          <?php echo esc_html( get_the_date( 'j F Y' ) ); ?>
           · <?php echo esc_html( $reading_time ); ?> min read
         </p>
       

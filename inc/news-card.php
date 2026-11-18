@@ -51,7 +51,7 @@
       
         <?php else : ?>
       
-          <?php echo esc_html( get_the_date( 'F j, Y' ) ); ?>
+          <?php echo esc_html( get_the_date( 'j F Y' ) ); ?>
       
         <?php endif; ?>
       </p>

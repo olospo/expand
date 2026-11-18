@@ -343,14 +343,14 @@ section.profile_written {
   h1 {
     color: $white;
     margin-bottom: 10px;
-    font: $medium 2.4rem/3.4rem $heading;
+    font: $medium 2.8rem/3.8rem $heading;
     @media (min-width: $breakpoint-tablet) {
       margin-bottom: 15px;
       font: $medium 4.6rem/5.8rem $heading;
     }
     @media (min-width: $breakpoint-desktop) {
       margin-bottom: 15px;
-      font: $medium 6.0rem/7.2rem $heading;
+      font: $bold 6.4rem/7.4rem $heading;
     }
     &.archive {
       margin-bottom: 20px;
@@ -359,6 +359,13 @@ section.profile_written {
         margin-bottom: 30px;
         font: $medium 4.6rem/5.4.0rem $heading;
       }
+    }
+  }
+  .introduction {
+    color: $white;
+    font: $normal 1.6rem/2.8rem $heading;
+    @media (min-width: $breakpoint-tablet) {
+      font: $normal 2.2rem/3.4rem $heading;
     }
   }
   .category_tag {
