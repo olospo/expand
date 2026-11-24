@@ -25,7 +25,7 @@ while ( have_posts() ) : the_post(); ?>
   <div class="single-news-hero__overlay"></div>
 
   <div class="container">
-    <div class="single-news-hero__content eight columns offset-by-one">    
+    <div class="single-news-hero__content ten columns offset-by-one">    
       <?php $category = get_the_category(); if ( ! empty( $category ) ) : $cat = $category[0]; ?>  
         <a class="category_tag <?php echo esc_attr( $cat->slug ); ?>" href="<?php echo esc_url( get_category_link( $cat->term_id ) ); ?>"><span><?php echo esc_html( $cat->name ); ?></span></a>
       <?php endif; ?>
@@ -107,7 +107,6 @@ while ( have_posts() ) : the_post(); ?>
       <?php if ( ! $event_date ) : ?>
         <?php get_template_part( 'inc/tools' ); ?>
       <?php endif; ?>
-      
       
       <?php the_content(); ?>
     </div>

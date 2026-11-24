@@ -316,7 +316,7 @@ section.profile_written {
   background-size: cover;
   overflow: hidden;
   @media (min-width: $breakpoint-tablet) {
-    padding: 280px 0 40px 0;
+    padding: 240px 0 40px 0;
   }
   &::before {
     content: "";
@@ -345,12 +345,16 @@ section.profile_written {
     margin-bottom: 10px;
     font: $medium 2.8rem/3.8rem $heading;
     @media (min-width: $breakpoint-tablet) {
-      margin-bottom: 15px;
+      margin-bottom: 10px;
       font: $medium 4.6rem/5.8rem $heading;
     }
+    @media (min-width: $breakpoint-laptop) {
+      margin-bottom: 10px;
+      font: $medium 5.4rem/5.8rem $heading;
+    }
     @media (min-width: $breakpoint-desktop) {
-      margin-bottom: 15px;
-      font: $bold 6.4rem/7.4rem $heading;
+      margin-bottom: 10px;
+      font: $bold 6.0rem/7.0rem $heading;
     }
     &.archive {
       margin-bottom: 20px;

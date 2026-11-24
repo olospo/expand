@@ -33,7 +33,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "30",
                 "class": "",
                 "id": ""
             },
@@ -43,6 +43,27 @@
             "max_size": "",
             "mime_types": "",
             "allow_in_bindings": 0
+        },
+        {
+            "key": "field_6b0556614b312",
+            "label": "Hide from listings",
+            "name": "hide_from_listings",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Enable this option to hide the post from Insights archives, website search results and other content listings. The post will remain published, accessible via its direct URL and eligible to appear in search engines such as Google.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "70",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
         }
     ],
     "location": [
@@ -66,5 +87,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1795008651
+    "modified": 1795512056
 }
